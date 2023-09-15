@@ -1,46 +1,20 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "E:\\Proyecto Git\\Marina\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj": {}
+    "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj": {}
   },
   "projects": {
-    "E:\\Proyecto Git\\Marina\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj": {
+    "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Proyecto Git\\Marina\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj",
+        "projectUniqueName": "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj",
         "projectName": "Marina.Siesmar.Entidades",
-        "projectPath": "E:\\Proyecto Git\\Marina\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj",
-        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "E:\\Proyecto Git\\Marina\\siesmar\\Proyecto.Entities\\obj\\",
+        "projectPath": "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-<<<<<<< HEAD
-    "D:\\Nexuss\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj": {}
-=======
-    "C:\\Users\\carlo\\source\\repos\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj": {}
->>>>>>> 2332aa124a14407097ab24588b82b56290289e36
-  },
-  "projects": {
-    "C:\\Users\\carlo\\source\\repos\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\carlo\\source\\repos\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj",
-        "projectName": "Marina.Siesmar.Entidades",
-        "projectPath": "C:\\Users\\carlo\\source\\repos\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj",
-        "packagesPath": "C:\\Users\\carlo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\carlo\\source\\repos\\siesmar\\Proyecto.Entities\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-<<<<<<< HEAD
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-=======
-          "C:\\Users\\carlo\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 2332aa124a14407097ab24588b82b56290289e36
->>>>>>> b6c35aeda6a15890adb3c44bd881e163cda1db76
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -103,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     }

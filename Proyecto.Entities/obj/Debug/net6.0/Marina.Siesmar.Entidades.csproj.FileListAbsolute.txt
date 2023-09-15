@@ -1,42 +1,12 @@
-<<<<<<< HEAD
-E:\Proyecto Git\Marina\siesmar\Proyecto.Entities\bin\Debug\net6.0\Marina.Siesmar.Entidades.deps.json
-E:\Proyecto Git\Marina\siesmar\Proyecto.Entities\bin\Debug\net6.0\Marina.Siesmar.Entidades.dll
-E:\Proyecto Git\Marina\siesmar\Proyecto.Entities\bin\Debug\net6.0\Marina.Siesmar.Entidades.pdb
-E:\Proyecto Git\Marina\siesmar\Proyecto.Entities\obj\Debug\net6.0\Marina.Siesmar.Entidades.csproj.AssemblyReference.cache
-E:\Proyecto Git\Marina\siesmar\Proyecto.Entities\obj\Debug\net6.0\Marina.Siesmar.Entidades.GeneratedMSBuildEditorConfig.editorconfig
-E:\Proyecto Git\Marina\siesmar\Proyecto.Entities\obj\Debug\net6.0\Marina.Siesmar.Entidades.AssemblyInfoInputs.cache
-E:\Proyecto Git\Marina\siesmar\Proyecto.Entities\obj\Debug\net6.0\Marina.Siesmar.Entidades.AssemblyInfo.cs
-E:\Proyecto Git\Marina\siesmar\Proyecto.Entities\obj\Debug\net6.0\Marina.Siesmar.Entidades.csproj.CoreCompileInputs.cache
-E:\Proyecto Git\Marina\siesmar\Proyecto.Entities\obj\Debug\net6.0\Marina.Siesmar.Entidades.dll
-E:\Proyecto Git\Marina\siesmar\Proyecto.Entities\obj\Debug\net6.0\refint\Marina.Siesmar.Entidades.dll
-E:\Proyecto Git\Marina\siesmar\Proyecto.Entities\obj\Debug\net6.0\Marina.Siesmar.Entidades.pdb
-E:\Proyecto Git\Marina\siesmar\Proyecto.Entities\obj\Debug\net6.0\ref\Marina.Siesmar.Entidades.dll
-=======
-<<<<<<< HEAD
-D:\Nexuss\Proyecto.Entities\bin\Debug\net6.0\Marina.Siesmar.Entidades.deps.json
-D:\Nexuss\Proyecto.Entities\bin\Debug\net6.0\Marina.Siesmar.Entidades.dll
-D:\Nexuss\Proyecto.Entities\bin\Debug\net6.0\Marina.Siesmar.Entidades.pdb
-D:\Nexuss\Proyecto.Entities\obj\Debug\net6.0\Marina.Siesmar.Entidades.csproj.AssemblyReference.cache
-D:\Nexuss\Proyecto.Entities\obj\Debug\net6.0\Marina.Siesmar.Entidades.GeneratedMSBuildEditorConfig.editorconfig
-D:\Nexuss\Proyecto.Entities\obj\Debug\net6.0\Marina.Siesmar.Entidades.AssemblyInfoInputs.cache
-D:\Nexuss\Proyecto.Entities\obj\Debug\net6.0\Marina.Siesmar.Entidades.AssemblyInfo.cs
-D:\Nexuss\Proyecto.Entities\obj\Debug\net6.0\Marina.Siesmar.Entidades.csproj.CoreCompileInputs.cache
-D:\Nexuss\Proyecto.Entities\obj\Debug\net6.0\Marina.Siesmar.Entidades.dll
-D:\Nexuss\Proyecto.Entities\obj\Debug\net6.0\refint\Marina.Siesmar.Entidades.dll
-D:\Nexuss\Proyecto.Entities\obj\Debug\net6.0\Marina.Siesmar.Entidades.pdb
-D:\Nexuss\Proyecto.Entities\obj\Debug\net6.0\ref\Marina.Siesmar.Entidades.dll
-=======
-C:\Users\carlo\source\repos\siesmar\Proyecto.Entities\bin\Debug\net6.0\Marina.Siesmar.Entidades.deps.json
-C:\Users\carlo\source\repos\siesmar\Proyecto.Entities\bin\Debug\net6.0\Marina.Siesmar.Entidades.dll
-C:\Users\carlo\source\repos\siesmar\Proyecto.Entities\bin\Debug\net6.0\Marina.Siesmar.Entidades.pdb
-C:\Users\carlo\source\repos\siesmar\Proyecto.Entities\obj\Debug\net6.0\Marina.Siesmar.Entidades.csproj.AssemblyReference.cache
-C:\Users\carlo\source\repos\siesmar\Proyecto.Entities\obj\Debug\net6.0\Marina.Siesmar.Entidades.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\carlo\source\repos\siesmar\Proyecto.Entities\obj\Debug\net6.0\Marina.Siesmar.Entidades.AssemblyInfoInputs.cache
-C:\Users\carlo\source\repos\siesmar\Proyecto.Entities\obj\Debug\net6.0\Marina.Siesmar.Entidades.AssemblyInfo.cs
-C:\Users\carlo\source\repos\siesmar\Proyecto.Entities\obj\Debug\net6.0\Marina.Siesmar.Entidades.csproj.CoreCompileInputs.cache
-C:\Users\carlo\source\repos\siesmar\Proyecto.Entities\obj\Debug\net6.0\Marina.Siesmar.Entidades.dll
-C:\Users\carlo\source\repos\siesmar\Proyecto.Entities\obj\Debug\net6.0\refint\Marina.Siesmar.Entidades.dll
-C:\Users\carlo\source\repos\siesmar\Proyecto.Entities\obj\Debug\net6.0\Marina.Siesmar.Entidades.pdb
-C:\Users\carlo\source\repos\siesmar\Proyecto.Entities\obj\Debug\net6.0\ref\Marina.Siesmar.Entidades.dll
->>>>>>> 2332aa124a14407097ab24588b82b56290289e36
->>>>>>> b6c35aeda6a15890adb3c44bd881e163cda1db76
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.Entities\bin\Debug\net6.0\Marina.Siesmar.Entidades.deps.json
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.Entities\bin\Debug\net6.0\Marina.Siesmar.Entidades.dll
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.Entities\bin\Debug\net6.0\Marina.Siesmar.Entidades.pdb
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.Entities\obj\Debug\net6.0\Marina.Siesmar.Entidades.csproj.AssemblyReference.cache
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.Entities\obj\Debug\net6.0\Marina.Siesmar.Entidades.GeneratedMSBuildEditorConfig.editorconfig
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.Entities\obj\Debug\net6.0\Marina.Siesmar.Entidades.AssemblyInfoInputs.cache
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.Entities\obj\Debug\net6.0\Marina.Siesmar.Entidades.AssemblyInfo.cs
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.Entities\obj\Debug\net6.0\Marina.Siesmar.Entidades.csproj.CoreCompileInputs.cache
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.Entities\obj\Debug\net6.0\Marina.Siesmar.Entidades.dll
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.Entities\obj\Debug\net6.0\refint\Marina.Siesmar.Entidades.dll
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.Entities\obj\Debug\net6.0\Marina.Siesmar.Entidades.pdb
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.Entities\obj\Debug\net6.0\ref\Marina.Siesmar.Entidades.dll

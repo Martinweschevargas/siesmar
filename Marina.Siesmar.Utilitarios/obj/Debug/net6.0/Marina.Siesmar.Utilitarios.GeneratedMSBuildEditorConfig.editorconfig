@@ -8,8 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Marina.Siesmar.Utilitarios
-<<<<<<< HEAD
-build_property.ProjectDir = E:\Proyecto Git\Marina\siesmar\Marina.Siesmar.Utilitarios\
-=======
-build_property.ProjectDir = C:\Users\carlo\source\repos\siesmar\Marina.Siesmar.Utilitarios\
->>>>>>> b6c35aeda6a15890adb3c44bd881e163cda1db76
+build_property.ProjectDir = D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Marina.Siesmar.Utilitarios\

@@ -1,57 +1,17 @@
-<<<<<<< HEAD
-E:\Proyecto Git\Marina\siesmar\Proyecto.DAL\bin\Debug\net6.0\Marina.Siesmar.AccesoDatos.deps.json
-E:\Proyecto Git\Marina\siesmar\Proyecto.DAL\bin\Debug\net6.0\Marina.Siesmar.AccesoDatos.dll
-E:\Proyecto Git\Marina\siesmar\Proyecto.DAL\bin\Debug\net6.0\Marina.Siesmar.AccesoDatos.pdb
-E:\Proyecto Git\Marina\siesmar\Proyecto.DAL\bin\Debug\net6.0\Marina.Siesmar.Entidades.dll
-E:\Proyecto Git\Marina\siesmar\Proyecto.DAL\bin\Debug\net6.0\Marina.Siesmar.Utilitarios.dll
-E:\Proyecto Git\Marina\siesmar\Proyecto.DAL\bin\Debug\net6.0\Marina.Siesmar.Utilitarios.pdb
-E:\Proyecto Git\Marina\siesmar\Proyecto.DAL\bin\Debug\net6.0\Marina.Siesmar.Entidades.pdb
-E:\Proyecto Git\Marina\siesmar\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.csproj.AssemblyReference.cache
-E:\Proyecto Git\Marina\siesmar\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.GeneratedMSBuildEditorConfig.editorconfig
-E:\Proyecto Git\Marina\siesmar\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.AssemblyInfoInputs.cache
-E:\Proyecto Git\Marina\siesmar\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.AssemblyInfo.cs
-E:\Proyecto Git\Marina\siesmar\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.csproj.CoreCompileInputs.cache
-E:\Proyecto Git\Marina\siesmar\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.csproj.CopyComplete
-E:\Proyecto Git\Marina\siesmar\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.dll
-E:\Proyecto Git\Marina\siesmar\Proyecto.DAL\obj\Debug\net6.0\refint\Marina.Siesmar.AccesoDatos.dll
-E:\Proyecto Git\Marina\siesmar\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.pdb
-E:\Proyecto Git\Marina\siesmar\Proyecto.DAL\obj\Debug\net6.0\ref\Marina.Siesmar.AccesoDatos.dll
-=======
-<<<<<<< HEAD
-D:\Nexuss\Proyecto.DAL\bin\Debug\net6.0\Marina.Siesmar.AccesoDatos.deps.json
-D:\Nexuss\Proyecto.DAL\bin\Debug\net6.0\Marina.Siesmar.AccesoDatos.dll
-D:\Nexuss\Proyecto.DAL\bin\Debug\net6.0\Marina.Siesmar.AccesoDatos.pdb
-D:\Nexuss\Proyecto.DAL\bin\Debug\net6.0\Marina.Siesmar.Entidades.dll
-D:\Nexuss\Proyecto.DAL\bin\Debug\net6.0\Marina.Siesmar.Utilitarios.dll
-D:\Nexuss\Proyecto.DAL\bin\Debug\net6.0\Marina.Siesmar.Utilitarios.pdb
-D:\Nexuss\Proyecto.DAL\bin\Debug\net6.0\Marina.Siesmar.Entidades.pdb
-D:\Nexuss\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.csproj.AssemblyReference.cache
-D:\Nexuss\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.GeneratedMSBuildEditorConfig.editorconfig
-D:\Nexuss\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.AssemblyInfoInputs.cache
-D:\Nexuss\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.AssemblyInfo.cs
-D:\Nexuss\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.csproj.CoreCompileInputs.cache
-D:\Nexuss\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.csproj.CopyComplete
-D:\Nexuss\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.dll
-D:\Nexuss\Proyecto.DAL\obj\Debug\net6.0\refint\Marina.Siesmar.AccesoDatos.dll
-D:\Nexuss\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.pdb
-D:\Nexuss\Proyecto.DAL\obj\Debug\net6.0\ref\Marina.Siesmar.AccesoDatos.dll
-=======
-C:\Users\carlo\source\repos\siesmar\Proyecto.DAL\bin\Debug\net6.0\Marina.Siesmar.AccesoDatos.deps.json
-C:\Users\carlo\source\repos\siesmar\Proyecto.DAL\bin\Debug\net6.0\Marina.Siesmar.AccesoDatos.dll
-C:\Users\carlo\source\repos\siesmar\Proyecto.DAL\bin\Debug\net6.0\Marina.Siesmar.AccesoDatos.pdb
-C:\Users\carlo\source\repos\siesmar\Proyecto.DAL\bin\Debug\net6.0\Marina.Siesmar.Entidades.dll
-C:\Users\carlo\source\repos\siesmar\Proyecto.DAL\bin\Debug\net6.0\Marina.Siesmar.Utilitarios.dll
-C:\Users\carlo\source\repos\siesmar\Proyecto.DAL\bin\Debug\net6.0\Marina.Siesmar.Utilitarios.pdb
-C:\Users\carlo\source\repos\siesmar\Proyecto.DAL\bin\Debug\net6.0\Marina.Siesmar.Entidades.pdb
-C:\Users\carlo\source\repos\siesmar\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.csproj.AssemblyReference.cache
-C:\Users\carlo\source\repos\siesmar\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\carlo\source\repos\siesmar\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.AssemblyInfoInputs.cache
-C:\Users\carlo\source\repos\siesmar\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.AssemblyInfo.cs
-C:\Users\carlo\source\repos\siesmar\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.csproj.CoreCompileInputs.cache
-C:\Users\carlo\source\repos\siesmar\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.csproj.CopyComplete
-C:\Users\carlo\source\repos\siesmar\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.dll
-C:\Users\carlo\source\repos\siesmar\Proyecto.DAL\obj\Debug\net6.0\refint\Marina.Siesmar.AccesoDatos.dll
-C:\Users\carlo\source\repos\siesmar\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.pdb
-C:\Users\carlo\source\repos\siesmar\Proyecto.DAL\obj\Debug\net6.0\ref\Marina.Siesmar.AccesoDatos.dll
->>>>>>> 2332aa124a14407097ab24588b82b56290289e36
->>>>>>> b6c35aeda6a15890adb3c44bd881e163cda1db76
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.DAL\bin\Debug\net6.0\Marina.Siesmar.AccesoDatos.deps.json
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.DAL\bin\Debug\net6.0\Marina.Siesmar.AccesoDatos.dll
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.DAL\bin\Debug\net6.0\Marina.Siesmar.AccesoDatos.pdb
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.DAL\bin\Debug\net6.0\Marina.Siesmar.Entidades.dll
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.DAL\bin\Debug\net6.0\Marina.Siesmar.Utilitarios.dll
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.DAL\bin\Debug\net6.0\Marina.Siesmar.Utilitarios.pdb
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.DAL\bin\Debug\net6.0\Marina.Siesmar.Entidades.pdb
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.csproj.AssemblyReference.cache
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.GeneratedMSBuildEditorConfig.editorconfig
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.AssemblyInfoInputs.cache
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.AssemblyInfo.cs
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.csproj.CoreCompileInputs.cache
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.csproj.CopyComplete
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.dll
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.DAL\obj\Debug\net6.0\refint\Marina.Siesmar.AccesoDatos.dll
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.DAL\obj\Debug\net6.0\Marina.Siesmar.AccesoDatos.pdb
+D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Proyecto.DAL\obj\Debug\net6.0\ref\Marina.Siesmar.AccesoDatos.dll
