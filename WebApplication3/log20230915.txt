@@ -1,1 +1,2 @@
 2023-09-15 00:56:54.707 -05:00 [WRN] Entro al Login Http
+2023-09-15 00:58:51.173 -05:00 [WRN] Entro al Login Http
