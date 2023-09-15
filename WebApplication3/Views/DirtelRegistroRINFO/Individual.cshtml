@@ -1,0 +1,234 @@
+﻿@{
+    ViewData["Title"] = "Registro RINFO";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/DirtelRegistroRINFO/Individual" style="text-decoration:none;">Reportes de Infracción Contra la Seguridad de la Información</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="form-group row col-md-6">
+                <label for="carga" class="col-3 col-form-label">Carga</label>
+                <div class="form-group row col-md-6">
+                    <div class="col"><select class="form-select-sm form-control-sm" id="cargasR" name="cargasR"></select></div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label"><a href="~/Dependencia">Dependencia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDependencia" name="cbDependencia"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaRe" class="col-3 col-form-label">Fecha del Reporte</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaRe" name="txtFechaRe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GPMilitar" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado Personal Militar</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbGPMilitar" name="cbGPMilitar"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Infractor" class="col-3 col-form-label">Nombre del Infractor</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtInfractor" name="txtInfractor" placeholder="Nombre del Infractor" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Infraccion" class="col-3 col-form-label">Tipo de Infraccion</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtInfraccion" name="txtInfraccion" data-placeholder="Seleccione ...">
+                            <option value="1">Software no permitidos</option>
+                            <option value="2">Navegacion de ocio</option>
+                            <option value="3">Trasmitir correo con informacion institucional</option>
+                            <option value="4">Enviar correos a otras instituciones desde correo de marina</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Motivo" class="col-3 col-form-label">Motivo de Incuplimiento</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtMotivo" name="txtMotivo" data-placeholder="Seleccione ...">
+                            <option value="1">Si</option>
+                            <option value="2">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Aplicacion" class="col-3 col-form-label">Aplicacion de Sanciones</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtAplicacion" name="txtAplicacion" data-placeholder="Seleccione ...">
+                            <option value="1">Si</option>
+                            <option value="2">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dispocicion" class="col-3 col-form-label">Dispociciones Emitidas para Prevenir Nuevos Sucesos</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtDispocicion" name="txtDispocicion" data-placeholder="Seleccione ...">
+                            <option value="1">Si</option>
+                            <option value="2">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Otra" class="col-3 col-form-label">Otra Informacion</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtOtra" name="txtOtra" placeholder="Otra Informacion" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DirtelRegistroRINFO">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label"><a href="~/Dependencia">Dependencia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDependenciae" name="cbDependenciae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaRe" class="col-3 col-form-label">Fecha del Reporte</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaRee" name="txtFechaRee" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GPMilitar" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado Personal Militar</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbGPMilitare" name="cbGPMilitare"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Infractor" class="col-3 col-form-label">Nombre del Infractor</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtInfractore" name="txtInfractore" placeholder="Nombre del Infractor" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Infraccion" class="col-3 col-form-label">Tipo de Infraccion</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtInfraccione" name="txtInfraccione" data-placeholder="Seleccione ...">
+                            <option value="1">Software no permitidos</option>
+                            <option value="2">Navegacion de ocio</option>
+                            <option value="3">Trasmitir correo con informacion institucional</option>
+                            <option value="4">Enviar correos a otras instituciones desde correo de marina</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Motivo" class="col-3 col-form-label">Motivo de Incuplimiento</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtMotivoe" name="txtMotivoe" data-placeholder="Seleccione ...">
+                            <option value="1">Si</option>
+                            <option value="2">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Aplicacion" class="col-3 col-form-label">Aplicacion de Sanciones</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtAplicacione" name="txtAplicacione" data-placeholder="Seleccione ...">
+                            <option value="1">Si</option>
+                            <option value="2">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dispocicion" class="col-3 col-form-label">Dispociciones Emitidas para Prevenir Nuevos Sucesos</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtDispocicione" name="txtDispocicione" data-placeholder="Seleccione ...">
+                            <option value="1">Si</option>
+                            <option value="2">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Otra" class="col-3 col-form-label">Otra Informacion</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtOtrae" name="txtOtrae" placeholder="Otra Informacion" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DirtelRegistroRINFO">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/DirtelRegistroRINFO" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDirtelRegistroRINFO()" />
+    <div class="row align-items-start">
+        <div class="col"><select class="form-select form-control-sm" id="cargas" name="cargas"></select></div>
+        <div class="col">
+            <input type='button' id="btn_search" value="Buscar" class="btn btn-primary">
+            <input type='button' id="btn_all" value="Mostrar Todos" class="btn btn-primary">
+        </div>
+    </div>
+    <table class="table table-striped" id="tblDirtelRegistroRINFO" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Dependencia</th>
+                <th>Fecha del Reporte</th>
+                <th>Grado Personal Militar</th>
+                <th>Nombre del Infractor</th>
+                <th>Tipo de Infraccion</th>
+                <th>Motivo de Incuplimiento</th>
+                <th>Aplicacion de Sanciones</th>
+                <th>Dispociciones Emitidas para Prevenir Nuevos Sucesos</th>
+                <th>Otra Informacion</th>
+                <th>Código Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/dirtel/dirtel-registrorinfo.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,163 @@
+﻿@{
+    ViewData["Title"] = "DenunciaAnticorrupción";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/IpecamarDenunciaAnticorrupcion/Individual" style="text-decoration:none;">Denuncias Anticorrupción</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="form-group row col-md-6">
+                <label for="carga" class="col-3 col-form-label">Carga</label>
+                <div class="form-group row col-md-6">
+                    <div class="col"><select class="form-select-sm form-control-sm" id="cargasR" name="cargasR"></select></div>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="FechaI" class="col-3 col-form-label">Fecha registro</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CanalD" class="col-3 col-form-label"><a href="~/CanalDenuncia">Canal Denuncia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbCanalD" name="cbCanalD"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EvaluacionR" class="col-3 col-form-label">Evaluación Requisito</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbEvaluacionR" name="cbEvaluacionR">
+                            <option value="Cumple">Cumple</option>
+                            <option value="No Cumple">No Cumple</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SituacionA" class="col-3 col-form-label">Situación Actual</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbSituacionA" name="cbSituacionA">
+                            <option value="Pasó a Dpto. Investigaciones">Pasó a Dpto. Investigaciones</option>
+                            <option value="Archivo">Archivo</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/IpecamarDenunciaAnticorrupcion">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="FechaI" class="col-3 col-form-label">Fecha registro</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechae" name="txtFechae" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CanalD" class="col-3 col-form-label"><a href="~/CanalDenuncia">Canal Denuncia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbCanalDe" name="cbCanalDe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EvaluacionR" class="col-3 col-form-label">Evaluación Requisito</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbEvaluacionRe" name="cbEvaluacionRe">
+                            <option value="Cumple">Cumple</option>
+                            <option value="No Cumple">No Cumple</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SituacionA" class="col-3 col-form-label">Situación Actual</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbSituacionAe" name="cbSituacionAe">
+                            <option value="Pasó a Dpto. Investigaciones">Pasó a Dpto. Investigaciones</option>
+                            <option value="Archivo">Archivo</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/IpecamarDenunciaAnticorrupcion">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar">
+
+    <p><a href="~/IpecamarDenunciaAnticorrupcion" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaIpecamarDenunciaAnticorrupcion()" />
+    <div class="row align-items-start">
+        <div class="col"><select class="form-select form-control-sm" id="cargas" name="cargas"></select></div>
+        <div class="col">
+            <input type='button' id="btn_search" value="Buscar" class="btn btn-primary">
+            <input type='button' id="btn_all" value="Mostrar Todos" class="btn btn-primary">
+        </div>
+
+    </div>
+
+    <table class="table table-striped" id="tblIpecamarDenunciaAnticorrupcion" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Fecha registro</th>
+                <th>Canal Denuncia</th>
+                <th>Evaluación Requisitol </th>
+                <th>Situación Actual</th>
+                <th>Código Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+
+@section Scripts{
+
+    <script src="/js/ipecamar/ipecamar-denunciaanticorrupcion.js" asp-append-version="true"></script>
+
+}

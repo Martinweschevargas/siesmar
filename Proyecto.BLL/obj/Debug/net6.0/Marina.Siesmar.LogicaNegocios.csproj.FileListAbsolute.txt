@@ -1,0 +1,63 @@
+<<<<<<< HEAD
+E:\Proyecto Git\Marina\siesmar\Proyecto.BLL\bin\Debug\net6.0\Marina.Siesmar.LogicaNegocios.deps.json
+E:\Proyecto Git\Marina\siesmar\Proyecto.BLL\bin\Debug\net6.0\Marina.Siesmar.LogicaNegocios.dll
+E:\Proyecto Git\Marina\siesmar\Proyecto.BLL\bin\Debug\net6.0\Marina.Siesmar.LogicaNegocios.pdb
+E:\Proyecto Git\Marina\siesmar\Proyecto.BLL\bin\Debug\net6.0\Marina.Siesmar.AccesoDatos.dll
+E:\Proyecto Git\Marina\siesmar\Proyecto.BLL\bin\Debug\net6.0\Marina.Siesmar.Entidades.dll
+E:\Proyecto Git\Marina\siesmar\Proyecto.BLL\bin\Debug\net6.0\Marina.Siesmar.Utilitarios.dll
+E:\Proyecto Git\Marina\siesmar\Proyecto.BLL\bin\Debug\net6.0\Marina.Siesmar.AccesoDatos.pdb
+E:\Proyecto Git\Marina\siesmar\Proyecto.BLL\bin\Debug\net6.0\Marina.Siesmar.Entidades.pdb
+E:\Proyecto Git\Marina\siesmar\Proyecto.BLL\bin\Debug\net6.0\Marina.Siesmar.Utilitarios.pdb
+E:\Proyecto Git\Marina\siesmar\Proyecto.BLL\obj\Debug\net6.0\Marina.Siesmar.LogicaNegocios.csproj.AssemblyReference.cache
+E:\Proyecto Git\Marina\siesmar\Proyecto.BLL\obj\Debug\net6.0\Marina.Siesmar.LogicaNegocios.GeneratedMSBuildEditorConfig.editorconfig
+E:\Proyecto Git\Marina\siesmar\Proyecto.BLL\obj\Debug\net6.0\Marina.Siesmar.LogicaNegocios.AssemblyInfoInputs.cache
+E:\Proyecto Git\Marina\siesmar\Proyecto.BLL\obj\Debug\net6.0\Marina.Siesmar.LogicaNegocios.AssemblyInfo.cs
+E:\Proyecto Git\Marina\siesmar\Proyecto.BLL\obj\Debug\net6.0\Marina.Siesmar.LogicaNegocios.csproj.CoreCompileInputs.cache
+E:\Proyecto Git\Marina\siesmar\Proyecto.BLL\obj\Debug\net6.0\Marina.Siesmar.LogicaNegocios.csproj.CopyComplete
+E:\Proyecto Git\Marina\siesmar\Proyecto.BLL\obj\Debug\net6.0\Marina.Siesmar.LogicaNegocios.dll
+E:\Proyecto Git\Marina\siesmar\Proyecto.BLL\obj\Debug\net6.0\refint\Marina.Siesmar.LogicaNegocios.dll
+E:\Proyecto Git\Marina\siesmar\Proyecto.BLL\obj\Debug\net6.0\Marina.Siesmar.LogicaNegocios.pdb
+E:\Proyecto Git\Marina\siesmar\Proyecto.BLL\obj\Debug\net6.0\ref\Marina.Siesmar.LogicaNegocios.dll
+=======
+<<<<<<< HEAD
+D:\Nexuss\Proyecto.BLL\bin\Debug\net6.0\Marina.Siesmar.LogicaNegocios.deps.json
+D:\Nexuss\Proyecto.BLL\bin\Debug\net6.0\Marina.Siesmar.LogicaNegocios.dll
+D:\Nexuss\Proyecto.BLL\bin\Debug\net6.0\Marina.Siesmar.LogicaNegocios.pdb
+D:\Nexuss\Proyecto.BLL\bin\Debug\net6.0\Marina.Siesmar.AccesoDatos.dll
+D:\Nexuss\Proyecto.BLL\bin\Debug\net6.0\Marina.Siesmar.Entidades.dll
+D:\Nexuss\Proyecto.BLL\bin\Debug\net6.0\Marina.Siesmar.Utilitarios.dll
+D:\Nexuss\Proyecto.BLL\bin\Debug\net6.0\Marina.Siesmar.AccesoDatos.pdb
+D:\Nexuss\Proyecto.BLL\bin\Debug\net6.0\Marina.Siesmar.Entidades.pdb
+D:\Nexuss\Proyecto.BLL\bin\Debug\net6.0\Marina.Siesmar.Utilitarios.pdb
+D:\Nexuss\Proyecto.BLL\obj\Debug\net6.0\Marina.Siesmar.LogicaNegocios.csproj.AssemblyReference.cache
+D:\Nexuss\Proyecto.BLL\obj\Debug\net6.0\Marina.Siesmar.LogicaNegocios.GeneratedMSBuildEditorConfig.editorconfig
+D:\Nexuss\Proyecto.BLL\obj\Debug\net6.0\Marina.Siesmar.LogicaNegocios.AssemblyInfoInputs.cache
+D:\Nexuss\Proyecto.BLL\obj\Debug\net6.0\Marina.Siesmar.LogicaNegocios.AssemblyInfo.cs
+D:\Nexuss\Proyecto.BLL\obj\Debug\net6.0\Marina.Siesmar.LogicaNegocios.csproj.CoreCompileInputs.cache
+D:\Nexuss\Proyecto.BLL\obj\Debug\net6.0\Marina.Siesmar.LogicaNegocios.csproj.CopyComplete
+D:\Nexuss\Proyecto.BLL\obj\Debug\net6.0\Marina.Siesmar.LogicaNegocios.dll
+D:\Nexuss\Proyecto.BLL\obj\Debug\net6.0\refint\Marina.Siesmar.LogicaNegocios.dll
+D:\Nexuss\Proyecto.BLL\obj\Debug\net6.0\Marina.Siesmar.LogicaNegocios.pdb
+D:\Nexuss\Proyecto.BLL\obj\Debug\net6.0\ref\Marina.Siesmar.LogicaNegocios.dll
+=======
+C:\Users\carlo\source\repos\siesmar\Proyecto.BLL\bin\Debug\net6.0\Marina.Siesmar.LogicaNegocios.deps.json
+C:\Users\carlo\source\repos\siesmar\Proyecto.BLL\bin\Debug\net6.0\Marina.Siesmar.LogicaNegocios.dll
+C:\Users\carlo\source\repos\siesmar\Proyecto.BLL\bin\Debug\net6.0\Marina.Siesmar.LogicaNegocios.pdb
+C:\Users\carlo\source\repos\siesmar\Proyecto.BLL\bin\Debug\net6.0\Marina.Siesmar.AccesoDatos.dll
+C:\Users\carlo\source\repos\siesmar\Proyecto.BLL\bin\Debug\net6.0\Marina.Siesmar.Entidades.dll
+C:\Users\carlo\source\repos\siesmar\Proyecto.BLL\bin\Debug\net6.0\Marina.Siesmar.Utilitarios.dll
+C:\Users\carlo\source\repos\siesmar\Proyecto.BLL\bin\Debug\net6.0\Marina.Siesmar.AccesoDatos.pdb
+C:\Users\carlo\source\repos\siesmar\Proyecto.BLL\bin\Debug\net6.0\Marina.Siesmar.Entidades.pdb
+C:\Users\carlo\source\repos\siesmar\Proyecto.BLL\bin\Debug\net6.0\Marina.Siesmar.Utilitarios.pdb
+C:\Users\carlo\source\repos\siesmar\Proyecto.BLL\obj\Debug\net6.0\Marina.Siesmar.LogicaNegocios.csproj.AssemblyReference.cache
+C:\Users\carlo\source\repos\siesmar\Proyecto.BLL\obj\Debug\net6.0\Marina.Siesmar.LogicaNegocios.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\carlo\source\repos\siesmar\Proyecto.BLL\obj\Debug\net6.0\Marina.Siesmar.LogicaNegocios.AssemblyInfoInputs.cache
+C:\Users\carlo\source\repos\siesmar\Proyecto.BLL\obj\Debug\net6.0\Marina.Siesmar.LogicaNegocios.AssemblyInfo.cs
+C:\Users\carlo\source\repos\siesmar\Proyecto.BLL\obj\Debug\net6.0\Marina.Siesmar.LogicaNegocios.csproj.CoreCompileInputs.cache
+C:\Users\carlo\source\repos\siesmar\Proyecto.BLL\obj\Debug\net6.0\Marina.Siesmar.LogicaNegocios.csproj.CopyComplete
+C:\Users\carlo\source\repos\siesmar\Proyecto.BLL\obj\Debug\net6.0\Marina.Siesmar.LogicaNegocios.dll
+C:\Users\carlo\source\repos\siesmar\Proyecto.BLL\obj\Debug\net6.0\refint\Marina.Siesmar.LogicaNegocios.dll
+C:\Users\carlo\source\repos\siesmar\Proyecto.BLL\obj\Debug\net6.0\Marina.Siesmar.LogicaNegocios.pdb
+C:\Users\carlo\source\repos\siesmar\Proyecto.BLL\obj\Debug\net6.0\ref\Marina.Siesmar.LogicaNegocios.dll
+>>>>>>> 2332aa124a14407097ab24588b82b56290289e36
+>>>>>>> b6c35aeda6a15890adb3c44bd881e163cda1db76

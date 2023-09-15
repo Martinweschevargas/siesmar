@@ -1,0 +1,205 @@
+﻿@{
+    ViewData["Title"] = "VehiculosTerrestresActividad";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/DitranavVehiculosTerActividadInsti/Individual" style="text-decoration:none;">Vehículos de transporte terrestre actividades de la Institución</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <select class="form-select form-control-sm" id="cargasR" name="cargasR"></select>
+                </div>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="PlacaVehiculo" class="col-3 col-form-label">Placa Vehiculo</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPlacaVehiculo" name="txtPlacaVehiculo" placeholder="Placa Vehiculo" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ClasificacionFlotaVehiculo" class="col-3 col-form-label">Clasificación Flota</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtClasificacionFlotaV" name="txtClasificacionFlotaV" data-placeholder="Seleccione ...">
+                            <option value="Liviana">Liviana</option>
+                            <option value="Pesada">Pesada</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ZonaNaval" class="col-3 col-form-label"><a href="~/ZonaNaval" style="text-decoration:none;">Zona Naval</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbZonaNaval" name="cbZonaNaval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Marca" class="col-3 col-form-label"><a href="~/MarcaVehiculo" style="text-decoration:none;">Marca</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbMarca" name="cbMarca"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="AnioFabricacion" class="col-3 col-form-label">Año fabricación</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtAnioFabricacion" name="txtAnioFabricacion" placeholder="Año fabricación" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DependenciaA" class="col-3 col-form-label">Dependencia asignada </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDependenciaA" name="txtDependenciaA" placeholder="Dependencia asignada" required>
+                    </div>
+                </div>
+                 <div class="form-group row col-md-6">
+                    <label for="EstadoOperatividadV" class="col-3 col-form-label">Estado de Operatividad</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtEstadoOperatividadV" name="txtEstadoOperatividadV" data-placeholder="Seleccione ...">
+                            <option value="Operativo">Operativo</option>
+                            <option value="Inoperativo">Inoperativo</option>
+                            <option value="Tramite de baja">Trámite de baja</option>
+                            <option value="Baja">Baja</option>
+                        </select>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DitranavVehiculosTerActividadInsti">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="PlacaVehiculo" class="col-3 col-form-label">Placa Vehículo</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPlacaVehiculoe" name="txtPlacaVehiculoe" placeholder="Placa Vehiculo" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ClasificacionFlotaVehiculo" class="col-3 col-form-label">Clasificación Flota</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtClasificacionFlotaVe" name="txtClasificacionFlotaVe" data-placeholder="Seleccione ...">
+                            <option value="Liviana">Liviana</option>
+                            <option value="Pesada">Pesada</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ZonaNaval" class="col-3 col-form-label"><a href="~/ZonaNaval" style="text-decoration:none;">Zona Naval</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbZonaNavale" name="cbZonaNavale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Marca" class="col-3 col-form-label"><a href="~/MarcaVehiculo" style="text-decoration:none;">Marca</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbMarcae" name="cbMarcae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="AnioFabricacion" class="col-3 col-form-label">Año fabricación</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtAnioFabricacione" name="txtAnioFabricacione" placeholder="Año fabricación" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DependenciaA" class="col-3 col-form-label">Dependencia asignada </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDependenciaAe" name="txtDependenciaAe" placeholder="Dependencia asignada" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EstadoOperatividadV" class="col-3 col-form-label">Estado de Operatividad</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtEstadoOperatividadVe" name="txtEstadoOperatividadVe" data-placeholder="Seleccione ...">
+                            <option value="Operativo">Operativo</option>
+                            <option value="Inoperativo">Inoperativo</option>
+                            <option value="Tramite de baja">Trámite de baja</option>
+                            <option value="Baja">Baja</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DitranavVehiculosTerActividadInsti">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/DitranavVehiculosTerActividadInsti" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDitranavVehiculosTerActividadInsti()" />
+    <div class="row align-items-start">
+        <div class="col">
+            <select class="form-select form-control-sm" id="cargas" name="cargas"></select>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" id="btn_search">Buscar</button>
+            <button class="btn btn-primary" id="btn_all">Mostrar Todos</button>
+            <button class="btn btn-danger" onclick="eliminarCarga()">Eliminar Carga</button>
+        </div>
+    </div>
+    <hr />
+    <table class="table table-striped" id="tblDitranavVehiculosTerActividadInsti" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Placa Vehículo</th>
+                <th>Clasificación Flota Vehículo</th>
+                <th>Zona Naval </th>
+                <th>Marca</th>
+                <th>Año fabricación</th>
+                <th>Dependencia asignada</th>
+                <th>Estado de Operatividad</th>
+                <th>Código Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+
+@section Scripts{
+    <script src="/js/ditranav/ditranav-vehiculosteractividadinsti.js" asp-append-version="true"></script>
+}

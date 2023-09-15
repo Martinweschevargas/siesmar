@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\inetpub\wwwroot\WS</_PublishTargetUrl>
+    <History>True|2023-06-21T07:11:34.4537738Z;True|2023-06-20T23:15:48.5358697-05:00;True|2023-06-15T12:52:59.2538084-05:00;True|2023-06-13T23:12:49.5679959-05:00;True|2023-06-13T10:20:01.3779888-05:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/AspNetCore.Reporting.dll">
+      <publishTime>05/15/2023 01:29:20</publishTime>
+    </File>
+    <File Include="bin/AspNetCore.Reporting.pdb">
+      <publishTime>05/15/2023 01:29:20</publishTime>
+    </File>
+    <File Include="bin/AspNetCore.ReportingServices.dll">
+      <publishTime>05/15/2023 01:29:20</publishTime>
+    </File>
+    <File Include="bin/AspNetCore.ReportingServices.pdb">
+      <publishTime>05/15/2023 01:29:20</publishTime>
+    </File>
+    <File Include="bin/Dapper.dll">
+      <publishTime>05/15/2023 01:29:20</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>05/15/2023 01:29:21</publishTime>
+    </File>
+    <File Include="bin/System.CodeDom.dll">
+      <publishTime>05/15/2023 01:29:21</publishTime>
+    </File>
+    <File Include="bin/System.Data.SqlClient.dll">
+      <publishTime>04/30/2023 15:28:02</publishTime>
+    </File>
+    <File Include="bin/System.ServiceModel.Http.dll">
+      <publishTime>05/15/2023 01:29:21</publishTime>
+    </File>
+    <File Include="bin/System.ServiceModel.Primitives.dll">
+      <publishTime>05/15/2023 01:29:21</publishTime>
+    </File>
+    <File Include="bin/WcfService1.dll">
+      <publishTime>06/21/2023 02:11:33</publishTime>
+    </File>
+    <File Include="bin/WcfService1.pdb">
+      <publishTime>06/21/2023 02:11:33</publishTime>
+    </File>
+    <File Include="Service1.svc">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>06/20/2023 23:15:46</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

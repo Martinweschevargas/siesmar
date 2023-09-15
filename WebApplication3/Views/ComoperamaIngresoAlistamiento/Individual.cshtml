@@ -1,0 +1,197 @@
+﻿@{
+    ViewData["Title"] = "Formato de Ingreso para Alistamiento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/ComoperamaIngresoAlistamiento/Individual" style="text-decoration:none;">Formato de Ingreso para Alistamiento</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="form-group row col-md-6">
+                <label for="carga" class="col-3 col-form-label">Carga</label>
+                <div class="form-group row col-md-6">
+                    <div class="col"><select class="form-select-sm form-control-sm" id="cargasR" name="cargasR"></select></div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="ComandanciaDependencia" class="col-3 col-form-label"><a href="~/ComandanciaDependencia">Comandancia Dependencia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbComandanciaDependencia" name="cbComandanciaDependencia"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label"><a href="~/Dependencia">Dependencia / Unidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDependencia" name="cbDependencia"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Aliper" class="col-3 col-form-label">ALIPER</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtAliper" name="txtAliper" placeholder="ALIPER" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Alient" class="col-3 col-form-label">ALIENT</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtAlient" name="txtAlient" placeholder="ALIENT" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Alimat" class="col-3 col-form-label">ALIMAT</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtAlimat" name="txtAlimat" placeholder="ALIMAT" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Alilog" class="col-3 col-form-label">ALILOG</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtAlilog" name="txtAlilog" placeholder="ALILOG" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaInicio" class="col-3 col-form-label">Fecha Inicio</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaInicio" name="txtFechaInicio" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaTermino" class="col-3 col-form-label">Fecha Término</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaTermino" name="txtFechaTermino" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComoperamaIngresoAlistamiento">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="ComandanciaDependencia" class="col-3 col-form-label"><a href="~/ComandanciaDependencia">Comandancia Dependencia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbComandanciaDependenciae" name="cbComandanciaDependenciae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label"><a href="~/Dependencia">Dependencia / Unidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDependenciae" name="cbDependenciae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Aliper" class="col-3 col-form-label">ALIPER</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtAlipere" name="txtAlipere" placeholder="ALIPER" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Alient" class="col-3 col-form-label">ALIENT</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtAliente" name="txtAliente" placeholder="ALIENT" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Alimat" class="col-3 col-form-label">ALIMAT</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtAlimate" name="txtAlimate" placeholder="ALIMAT" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Alilog" class="col-3 col-form-label">ALILOG</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtAliloge" name="txtAliloge" placeholder="ALILOG" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaInicio" class="col-3 col-form-label">Fecha Inicio</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaInicioe" name="txtFechaInicioe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaTermino" class="col-3 col-form-label">Fecha Término</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaTerminoe" name="txtFechaTerminoe" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComoperamaIngresoAlistamiento">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/ComoperamaIngresoAlistamiento" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaComoperamaIngresoAlistamiento()" />
+    <div class="row align-items-start">
+        <div class="col"><select class="form-select form-control-sm" id="cargas" name="cargas"></select></div>
+        <div class="col">
+            <input type='button' id="btn_search" value="Buscar" class="btn btn-primary">
+            <input type='button' id="btn_all" value="Mostrar Todos" class="btn btn-primary">
+        </div>
+
+    </div>
+    <table class="table table-striped" id="tblComoperamaIngresoAlistamiento" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Comandancia Dependencia</th>
+                <th>Dependencia / Unidad</th>
+                <th>ALIPER</th>
+                <th>ALIENT</th>
+                <th>ALIMAT</th>
+                <th>ALILOG</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Término</th>
+                <th>Código Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/comoperama/comoperama-ingresoalistamiento.js" asp-append-version="true"></script>
+}

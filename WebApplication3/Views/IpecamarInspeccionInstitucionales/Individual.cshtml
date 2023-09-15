@@ -1,0 +1,798 @@
+﻿@{
+    ViewData["Title"] = "InspeccionesInstitucionales,SupervisiónySeguimiento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/IpecamarInspeccionInstitucionales/Individual" style="text-decoration:none;">Inspecciones Institucionales, Supervisión y Seguimiento</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="form-group row col-md-6">
+                <label for="carga" class="col-3 col-form-label">Carga</label>
+                <div class="form-group row col-md-6">
+                    <div class="col"><select class="form-select-sm form-control-sm" id="cargasR" name="cargasR"></select></div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="FechFechaInicioInsp" class="col-3 col-form-label">Fecha Inicio Inspección </label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechFechaInicioInsp" name="txtFechFechaInicioInsp" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaTerminoInsp" class="col-3 col-form-label">Fecha Término Inspección </label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaTerminoInsp" name="txtFechaTerminoInsp" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DuracionInspeccion" class="col-3 col-form-label">Duración (días) </label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDuracionInspeccion" name="txtDuracionInspeccion" placeholder="Duración (días) " required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label"><a href="~/Dependencia">Dependencia Inspeccionada </a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDependencia" name="cbDependencia"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ComandanciaDependencia" class="col-3 col-form-label"><a href="~/ComandanciaDependencia">Dirección General a la que Pertenece la Dependencia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbComandanciaDependencia" name="cbComandanciaDependencia"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NivelDependencia" class="col-3 col-form-label"><a href="~/NivelDependencia">Nivel de Dependencia </a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbNivelDependencia" name="cbNivelDependencia"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ZonaNaval" class="col-3 col-form-label"><a href="~/ZonaNaval">Zona Naval </a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbZonaNaval" name="cbZonaNaval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="InspeccionConocimiento" class="col-3 col-form-label"><a href="~/InspeccionConocimiento">Inspección en cuanto al Conocimiento </a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbInspeccionConocimiento" name="cbInspeccionConocimiento"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="InspeccionExtension" class="col-3 col-form-label"><a href="~/InspeccionExtension">Inspección en cuanto a su Extensión </a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbInspeccionExtension" name="cbInspeccionExtension"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="InspeccionFinalidad" class="col-3 col-form-label"><a href="~/InspeccionFinalidad">Inspección en cuanto: a la Finalidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbInspeccionFinalidad" name="cbInspeccionFinalidad"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="OrganoControlInspeccion" class="col-3 col-form-label"><a href="~/OrganoControlInspeccion">Órgano de Control que pasó Inspección </a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbOrganoControlInspeccion" name="cbOrganoControlInspeccion"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="QInspectorParticipante" class="col-3 col-form-label">Número de Inspectores Participantes </label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtQInspectorParticipante" name="txtQInspectorParticipante" placeholder="Número de Inspectores Participantes " required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DeficienciaOperAdm" class="col-3 col-form-label">Deficiencias Operativas y Administrativas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDeficienciaOperAdm" name="txtDeficienciaOperAdm" placeholder="Deficiencias Operativas y Administrativas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DeficienciaComunesOperAdm" class="col-3 col-form-label">Deficiencias Comunes Operativas y Administrativas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDeficienciaComunesOperAdm" name="txtDeficienciaComunesOperAdm" placeholder="Deficiencias Comunes Operativas y Administrativas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ApreciacionOperAdm" class="col-3 col-form-label">Apreciaciones Operativas y Administrativas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtApreciacionOperAdm" name="txtApreciacionOperAdm" placeholder="Apreciaciones Operativas y Administrativas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ObservacionOperAdm" class="col-3 col-form-label">Observaciones Operativas y Administrativas </label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtObservacionOperAdm" name="txtObservacionOperAdm" placeholder="Observaciones Operativas y Administrativas " required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="IrregularidadOperAdm" class="col-3 col-form-label">Irregularidades Operativas y Administrativas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtIrregularidadOperAdm" name="txtIrregularidadOperAdm" placeholder="Irregularidades Operativas y Administrativas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DeficienciaControlGestion" class="col-3 col-form-label">Deficiencias Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDeficienciaControlGestion" name="txtDeficienciaControlGestion" placeholder="Deficiencias Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DeficienciaComunControlG" class="col-3 col-form-label">Deficiencias Comunes Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDeficienciaComunControlG" name="txtDeficienciaComunControlG" placeholder="Deficiencias Comunes Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ApreciacionControlGestion" class="col-3 col-form-label">Apreciaciones Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtApreciacionControlGestion" name="txtApreciacionControlGestion" placeholder="Apreciaciones Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ObservacionControlGestion" class="col-3 col-form-label">Observaciones Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtObservacionControlGestion" name="txtObservacionControlGestion" placeholder="Observaciones Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="IrregularidadControlGestion" class="col-3 col-form-label">Irregularidades Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtIrregularidadControlGestion" name="txtIrregularidadControlGestion" placeholder="Irregularidades Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DeficienciaPendOperAdm" class="col-3 col-form-label">Deficiencias Pendientes Operativas y Administrativas </label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDeficienciaPendOperAdm" name="txtDeficienciaPendOperAdm" placeholder="Deficiencias Pendientes Operativas y Administrativas " required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DeficienciaComunPendOperAdm" class="col-3 col-form-label">Deficiencias Comunes Pendientes Operativas y Administrativas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDeficienciaComunPendOperAdm" name="txtDeficienciaComunPendOperAdm" placeholder="Deficiencias Comunes Pendientes Operativas y Administrativas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ApreciacionPendOperAdm" class="col-3 col-form-label">Apreciaciones Pendientes Operativas y Administrativas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtApreciacionPendOperAdm" name="txtApreciacionPendOperAdm" placeholder="Apreciaciones Pendientes Operativas y Administrativas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ObservacionPendOperAdm" class="col-3 col-form-label">Observaciones Pendientes Operativas y Administrativas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtObservacionPendOperAdm" name="txtObservacionPendOperAdm" placeholder="Observaciones Pendientes Operativas y Administrativas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="IrregularidadPendOperAdm" class="col-3 col-form-label">Irregularidades Pendientes Operativas y Administrativas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtIrregularidadPendOperAdm" name="txtIrregularidadPendOperAdm" placeholder="Irregularidades Pendientes Operativas y Administrativas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DeficienciaPendControlGestion" class="col-3 col-form-label">Deficiencias Pendientes Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDeficienciaPendControlGestion" name="txtDeficienciaPendControlGestion" placeholder="Deficiencias Pendientes Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DeficienciaComunPendControlGestion" class="col-3 col-form-label">Deficiencias Comunes Pendientes Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDeficienciaComunPendControlGestion" name="txtDeficienciaComunPendControlGestion" placeholder="Deficiencias Comunes Pendientes Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ApreciacionPendControlGestion" class="col-3 col-form-label">Apreciaciones Pendientes Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtApreciacionPendControlGestion" name="txtApreciacionPendControlGestion" placeholder="Apreciaciones Pendientes Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ObservacionPendControlGestion" class="col-3 col-form-label">Observaciones Pendientes Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtObservacionPendControlGestion" name="txtObservacionPendControlGestion" placeholder="Observaciones Pendientes Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="IrregularidadPendControlGestion" class="col-3 col-form-label">Irregularidades Pendientes Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtIrregularidadPendControlGestion" name="txtIrregularidadPendControlGestion" placeholder="Irregularidades Pendientes Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DeficienciaSuperadaOperAdm" class="col-3 col-form-label">Deficiencias Superadas Operativas y Administrativas </label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDeficienciaSuperadaOperAdm" name="txtDeficienciaSuperadaOperAdm" placeholder="Deficiencias Superadas Operativas y Administrativas " required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DeficienciaComunSuperadaOperAdm" class="col-3 col-form-label">Deficiencias Comunes Superadas Operativas y Administrativas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDeficienciaComunSuperadaOperAdm" name="txtDeficienciaComunSuperadaOperAdm" placeholder="Deficiencias Comunes Superadas Operativas y Administrativas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ApreciacionSuperadaOperAdm" class="col-3 col-form-label">Apreciaciones Superadas Operativas y Administrativas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtApreciacionSuperadaOperAdm" name="txtApreciacionSuperadaOperAdm" placeholder="Apreciaciones Superadas Operativas y Administrativas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ObservacionSuperadaOperAdm" class="col-3 col-form-label">Observaciones Superadas Operativas y Administrativas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtObservacionSuperadaOperAdm" name="txtObservacionSuperadaOperAdm" placeholder="Observaciones Superadas Operativas y Administrativas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="IrregularidadSuperadaOperAdm" class="col-3 col-form-label">Irregularidades Superadas Operativas y Administrativas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtIrregularidadSuperadaOperAdm" name="txtIrregularidadSuperadaOperAdm" placeholder="Irregularidades Superadas Operativas y Administrativas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DeficienciaSuperadaControlGestion" class="col-3 col-form-label">Deficiencias Superadas Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDeficienciaSuperadaControlGestion" name="txtDeficienciaSuperadaControlGestion" placeholder="Deficiencias Superadas Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DeficienciaComunSuperadaControlGestion" class="col-3 col-form-label">Deficiencias Superadas Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDeficienciaComunSuperadaControlGestion" name="txtDeficienciaComunSuperadaControlGestion" placeholder="Deficiencias Superadas Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ApreciacionSuperadaControlGestion" class="col-3 col-form-label">Apreciaciones Superadas Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtApreciacionSuperadaControlGestion" name="txtApreciacionSuperadaControlGestion" placeholder="Apreciaciones Superadas Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ObservacionSuperadaControlGestion" class="col-3 col-form-label">Observaciones Superadas Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtObservacionSuperadaControlGestion" name="txtObservacionSuperadaControlGestion" placeholder="Observaciones Superadas Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="IrregularidadSuperadaControlGestion" class="col-3 col-form-label">Irregularidades Superadas Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtIrregularidadSuperadaControlGestion" name="txtIrregularidadSuperadaControlGestion" placeholder="Irregularidades Superadas Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FTotalDeficiencias" class="col-3 col-form-label">Total Deficiencias</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtFTotalDeficiencias" name="txtFTotalDeficiencias" placeholder="Total Deficiencias" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FTotalApreciaciones" class="col-3 col-form-label">Total Apreciaciones</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtFTotalApreciaciones" name="txtFTotalApreciaciones" placeholder="Total Apreciaciones" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FTotalObservaciones" class="col-3 col-form-label">Total Observaciones</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtFTotalObservaciones" name="txtFTotalObservaciones" placeholder="Total Observaciones" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FTotalIrregularidades" class="col-3 col-form-label">Total Irregularidades</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtFTotalIrregularidades" name="txtFTotalIrregularidades" placeholder="Total Irregularidades" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FTotalDeficienciaSuperadas" class="col-3 col-form-label">Total Deficiencias Superadas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtFTotalDeficienciaSuperadas" name="txtFTotalDeficienciaSuperadas" placeholder="Total Deficiencias Superadas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FTotalApreciacionSuperadas" class="col-3 col-form-label">Total Apreciaciones Superadas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtFTotalApreciacionSuperadas" name="txtFTotalApreciacionSuperadas" placeholder="Total Apreciaciones Superadas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FTotalObservacionSuperadas" class="col-3 col-form-label">Total de Observaciones Superadas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtFTotalObservacionSuperadas" name="txtFTotalObservacionSuperadas" placeholder="Total de Observaciones Superadas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FTotalIrregularidadSuperadas" class="col-3 col-form-label">Total de Irregularidades Superadas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtFTotalIrregularidadSuperadas" name="txtFTotalIrregularidadSuperadas" placeholder="Total de Irregularidades Superadas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FTotalDeficienciasPendientes" class="col-3 col-form-label">Total de Deficiencias pendientes</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtFTotalDeficienciasPendientes" name="txtFTotalDeficienciasPendientes" placeholder="Total de Deficiencias pendientes" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FTotalApreciacionesPendientes" class="col-3 col-form-label">Total de Deficiencias Pendientes</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtFTotalApreciacionesPendientes" name="txtFTotalApreciacionesPendientes" placeholder="Total de Deficiencias Pendientes" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FTotalObservacionPendientes" class="col-3 col-form-label">Total de Observaciones  Pendientes</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtFTotalObservacionPendientes" name="txtFTotalObservacionPendientes" placeholder="Total de Observaciones  Pendientes" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FTotalIrregularidadPendientes" class="col-3 col-form-label">Total de Irregularidades Pendientes</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtFTotalIrregularidadPendientes" name="txtFTotalIrregularidadPendientes" placeholder="Total de Irregularidades Pendientes" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/IpecamarInspeccionInstitucionales">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="FechFechaInicioInsp" class="col-3 col-form-label">Fecha Inicio Inspección </label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechFechaInicioInspe" name="txtFechFechaInicioInspe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaTerminoInsp" class="col-3 col-form-label">Fecha Término Inspección </label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaTerminoInspe" name="txtFechaTerminoInspe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DuracionInspeccion" class="col-3 col-form-label">Duración (días) </label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDuracionInspeccione" name="txtDuracionInspeccione" placeholder="Duración (días) " required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label"><a href="~/Dependencia">Dependencia Inspeccionada </a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDependenciae" name="cbDependenciae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ComandanciaDependencia" class="col-3 col-form-label"><a href="~/ComandanciaDependencia">Dirección General a la que Pertenece la Dependencia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbComandanciaDependenciae" name="cbComandanciaDependenciae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NivelDependencia" class="col-3 col-form-label"><a href="~/NivelDependencia">Nivel de Dependencia </a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbNivelDependenciae" name="cbNivelDependenciae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ZonaNaval" class="col-3 col-form-label"><a href="~/ZonaNaval">Zona Naval </a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbZonaNavale" name="cbZonaNavale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="InspeccionConocimiento" class="col-3 col-form-label"><a href="~/InspeccionConocimiento">Inspección en cuanto al Conocimiento </a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbInspeccionConocimientoe" name="cbInspeccionConocimientoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="InspeccionExtension" class="col-3 col-form-label"><a href="~/InspeccionExtension">Inspección en cuanto a su Extensión </a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbInspeccionExtensione" name="cbInspeccionExtensione"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="InspeccionFinalidad" class="col-3 col-form-label"><a href="~/InspeccionFinalidad">Inspección en cuanto: a la Finalidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbInspeccionFinalidade" name="cbInspeccionFinalidade"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="OrganoControlInspeccion" class="col-3 col-form-label"><a href="~/OrganoControlInspeccion">Órgano de Control que pasó Inspección </a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbOrganoControlInspeccione" name="cbOrganoControlInspeccione"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="QInspectorParticipante" class="col-3 col-form-label">Número de Inspectores Participantes </label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtQInspectorParticipantee" name="txtQInspectorParticipantee" placeholder="Número de Inspectores Participantes " required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DeficienciaOperAdm" class="col-3 col-form-label">Deficiencias Operativas y Administrativas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDeficienciaOperAdme" name="txtDeficienciaOperAdme" placeholder="Deficiencias Operativas y Administrativas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DeficienciaComunesOperAdm" class="col-3 col-form-label">Deficiencias Comunes Operativas y Administrativas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDeficienciaComunesOperAdme" name="txtDeficienciaComunesOperAdme" placeholder="Deficiencias Comunes Operativas y Administrativas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ApreciacionOperAdm" class="col-3 col-form-label">Apreciaciones Operativas y Administrativas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtApreciacionOperAdme" name="txtApreciacionOperAdme" placeholder="Apreciaciones Operativas y Administrativas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ObservacionOperAdm" class="col-3 col-form-label">Observaciones Operativas y Administrativas </label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtObservacionOperAdme" name="txtObservacionOperAdme" placeholder="Observaciones Operativas y Administrativas " required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="IrregularidadOperAdm" class="col-3 col-form-label">Irregularidades Operativas y Administrativas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtIrregularidadOperAdme" name="txtIrregularidadOperAdme" placeholder="Irregularidades Operativas y Administrativas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DeficienciaControlGestion" class="col-3 col-form-label">Deficiencias Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDeficienciaControlGestione" name="txtDeficienciaControlGestione" placeholder="Deficiencias Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DeficienciaComunControlG" class="col-3 col-form-label">Deficiencias Comunes Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDeficienciaComunControlGe" name="txtDeficienciaComunControlGe" placeholder="Deficiencias Comunes Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ApreciacionControlGestion" class="col-3 col-form-label">Apreciaciones Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtApreciacionControlGestione" name="txtApreciacionControlGestione" placeholder="Apreciaciones Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ObservacionControlGestion" class="col-3 col-form-label">Observaciones Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtObservacionControlGestione" name="txtObservacionControlGestione" placeholder="Observaciones Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="IrregularidadControlGestion" class="col-3 col-form-label">Irregularidades Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtIrregularidadControlGestione" name="txtIrregularidadControlGestione" placeholder="Irregularidades Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DeficienciaPendOperAdm" class="col-3 col-form-label">Deficiencias Pendientes Operativas y Administrativas </label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDeficienciaPendOperAdme" name="txtDeficienciaPendOperAdme" placeholder="Deficiencias Pendientes Operativas y Administrativas " required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DeficienciaComunPendOperAdm" class="col-3 col-form-label">Deficiencias Comunes Pendientes Operativas y Administrativas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDeficienciaComunPendOperAdme" name="txtDeficienciaComunPendOperAdme" placeholder="Deficiencias Comunes Pendientes Operativas y Administrativas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ApreciacionPendOperAdm" class="col-3 col-form-label">Apreciaciones Pendientes Operativas y Administrativas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtApreciacionPendOperAdme" name="txtApreciacionPendOperAdme" placeholder="Apreciaciones Pendientes Operativas y Administrativas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ObservacionPendOperAdm" class="col-3 col-form-label">Observaciones Pendientes Operativas y Administrativas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtObservacionPendOperAdme" name="txtObservacionPendOperAdme" placeholder="Observaciones Pendientes Operativas y Administrativas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="IrregularidadPendOperAdm" class="col-3 col-form-label">Irregularidades Pendientes Operativas y Administrativas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtIrregularidadPendOperAdme" name="txtIrregularidadPendOperAdme" placeholder="Irregularidades Pendientes Operativas y Administrativas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DeficienciaPendControlGestion" class="col-3 col-form-label">Deficiencias Pendientes Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDeficienciaPendControlGestione" name="txtDeficienciaPendControlGestione" placeholder="Deficiencias Pendientes Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DeficienciaComunPendControlGestion" class="col-3 col-form-label">Deficiencias Comunes Pendientes Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDeficienciaComunPendControlGestione" name="txtDeficienciaComunPendControlGestione" placeholder="Deficiencias Comunes Pendientes Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ApreciacionPendControlGestion" class="col-3 col-form-label">Apreciaciones Pendientes Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtApreciacionPendControlGestione" name="txtApreciacionPendControlGestione" placeholder="Apreciaciones Pendientes Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ObservacionPendControlGestion" class="col-3 col-form-label">Observaciones Pendientes Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtObservacionPendControlGestione" name="txtObservacionPendControlGestione" placeholder="Observaciones Pendientes Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="IrregularidadPendControlGestion" class="col-3 col-form-label">Irregularidades Pendientes Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtIrregularidadPendControlGestione" name="txtIrregularidadPendControlGestione" placeholder="Irregularidades Pendientes Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DeficienciaSuperadaOperAdm" class="col-3 col-form-label">Deficiencias Superadas Operativas y Administrativas </label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDeficienciaSuperadaOperAdme" name="txtDeficienciaSuperadaOperAdme" placeholder="Deficiencias Superadas Operativas y Administrativas " required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DeficienciaComunSuperadaOperAdm" class="col-3 col-form-label">Deficiencias Comunes Superadas Operativas y Administrativas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDeficienciaComunSuperadaOperAdme" name="txtDeficienciaComunSuperadaOperAdme" placeholder="Deficiencias Comunes Superadas Operativas y Administrativas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ApreciacionSuperadaOperAdm" class="col-3 col-form-label">Apreciaciones Superadas Operativas y Administrativas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtApreciacionSuperadaOperAdme" name="txtApreciacionSuperadaOperAdme" placeholder="Apreciaciones Superadas Operativas y Administrativas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ObservacionSuperadaOperAdm" class="col-3 col-form-label">Observaciones Superadas Operativas y Administrativas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtObservacionSuperadaOperAdme" name="txtObservacionSuperadaOperAdme" placeholder="Observaciones Superadas Operativas y Administrativas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="IrregularidadSuperadaOperAdm" class="col-3 col-form-label">Irregularidades Superadas Operativas y Administrativas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtIrregularidadSuperadaOperAdme" name="txtIrregularidadSuperadaOperAdme" placeholder="Irregularidades Superadas Operativas y Administrativas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DeficienciaSuperadaControlGestion" class="col-3 col-form-label">Deficiencias Superadas Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDeficienciaSuperadaControlGestione" name="txtDeficienciaSuperadaControlGestione" placeholder="Deficiencias Superadas Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DeficienciaComunSuperadaControlGestion" class="col-3 col-form-label">Deficiencias Superadas Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDeficienciaComunSuperadaControlGestione" name="txtDeficienciaComunSuperadaControlGestione" placeholder="Deficiencias Superadas Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ApreciacionSuperadaControlGestion" class="col-3 col-form-label">Apreciaciones Superadas Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtApreciacionSuperadaControlGestione" name="txtApreciacionSuperadaControlGestione" placeholder="Apreciaciones Superadas Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ObservacionSuperadaControlGestion" class="col-3 col-form-label">Observaciones Superadas Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtObservacionSuperadaControlGestione" name="txtObservacionSuperadaControlGestione" placeholder="Observaciones Superadas Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="IrregularidadSuperadaControlGestion" class="col-3 col-form-label">Irregularidades Superadas Control de Gestión</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtIrregularidadSuperadaControlGestione" name="txtIrregularidadSuperadaControlGestione" placeholder="Irregularidades Superadas Control de Gestión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FTotalDeficiencias" class="col-3 col-form-label">Total Deficiencias</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtFTotalDeficienciase" name="txtFTotalDeficienciase" placeholder="Total Deficiencias" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FTotalApreciaciones" class="col-3 col-form-label">Total Apreciaciones</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtFTotalApreciacionese" name="txtFTotalApreciacionese" placeholder="Total Apreciaciones" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FTotalObservaciones" class="col-3 col-form-label">Total Observaciones</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtFTotalObservacionese" name="txtFTotalObservacionese" placeholder="Total Observaciones" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FTotalIrregularidades" class="col-3 col-form-label">Total Irregularidades</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtFTotalIrregularidadese" name="txtFTotalIrregularidadese" placeholder="Total Irregularidades" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FTotalDeficienciaSuperadas" class="col-3 col-form-label">Total Deficiencias Superadas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtFTotalDeficienciaSuperadase" name="txtFTotalDeficienciaSuperadase" placeholder="Total Deficiencias Superadas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FTotalApreciacionSuperadas" class="col-3 col-form-label">Total Apreciaciones Superadas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtFTotalApreciacionSuperadase" name="txtFTotalApreciacionSuperadase" placeholder="Total Apreciaciones Superadas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FTotalObservacionSuperadas" class="col-3 col-form-label">Total de Observaciones Superadas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtFTotalObservacionSuperadase" name="txtFTotalObservacionSuperadase" placeholder="Total de Observaciones Superadas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FTotalIrregularidadSuperadas" class="col-3 col-form-label">Total de Irregularidades Superadas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtFTotalIrregularidadSuperadase" name="txtFTotalIrregularidadSuperadase" placeholder="Total de Irregularidades Superadas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FTotalDeficienciasPendientes" class="col-3 col-form-label">Total de Deficiencias pendientes</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtFTotalDeficienciasPendientese" name="txtFTotalDeficienciasPendientese" placeholder="Total de Deficiencias pendientes" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FTotalApreciacionesPendientes" class="col-3 col-form-label">Total de Deficiencias Pendientes</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtFTotalApreciacionesPendientese" name="txtFTotalApreciacionesPendientese" placeholder="Total de Deficiencias Pendientes" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FTotalObservacionPendientes" class="col-3 col-form-label">Total de Observaciones  Pendientes</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtFTotalObservacionPendientese" name="txtFTotalObservacionPendientese" placeholder="Total de Observaciones  Pendientes" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FTotalIrregularidadPendientes" class="col-3 col-form-label">Total de Irregularidades Pendientes</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtFTotalIrregularidadPendientese" name="txtFTotalIrregularidadPendientese" placeholder="Total de Irregularidades Pendientes" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/IpecamarInspeccionInstitucionales">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/IpecamarInspeccionInstitucionales" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaIpecamarInspeccionInstitucionales()" />
+    <div class="row align-items-start">
+        <div class="col"><select class="form-select form-control-sm" id="cargas" name="cargas"></select></div>
+        <div class="col">
+            <input type='button' id="btn_search" value="Buscar" class="btn btn-primary">
+            <input type='button' id="btn_all" value="Mostrar Todos" class="btn btn-primary">
+        </div>
+
+    </div>
+    <table class="table table-striped" id="tblIpecamarInspeccionInstitucionales" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Fecha Inicio Inspección </th>
+                <th>Fecha Término Inspección </th>
+                <th>Duración (días) </th>
+                <th>Dependencia Inspeccionada </th>
+                <th>Dirección General a la que Pertenece la Dependencia</th>
+                <th>Nivel de Dependencia </th>
+                <th>Zona Naval </th>
+                <th>Inspección en cuanto al Conocimiento </th>
+                <th>Inspección en cuanto a su Extensión </th>
+                <th>Inspección en cuanto: a la Finalidad</th>
+                <th>Órgano de Control que pasó Inspección </th>
+                <th>Número de Inspectores Participantes </th>
+                <th>Deficiencias Operativas y Administrativas</th>
+                <th>Deficiencias Comunes Operativas y Administrativas</th>
+                <th>Apreciaciones Operativas y Administrativas</th>
+                <th>Observaciones Operativas y Administrativas </th>
+                <th>Irregularidades Operativas y Administrativas</th>
+                <th>Deficiencias Control de Gestión</th>
+                <th>Deficiencias Comunes Control de Gestión</th>
+                <th>Apreciaciones Control de Gestión</th>
+                <th>Observaciones Control de Gestión</th>
+                <th>Irregularidades Control de Gestión</th>
+                <th>Deficiencias Pendientes Operativas y Administrativas </th>
+                <th>Deficiencias Comunes Pendientes Operativas y Administrativas</th>
+                <th>Apreciaciones Pendientes Operativas y Administrativas</th>
+                <th>Observaciones Pendientes Operativas y Administrativas</th>
+                <th>Irregularidades Pendientes Operativas y Administrativas</th>
+                <th>Deficiencias Pendientes Control de Gestión</th>
+                <th>Deficiencias Comunes Pendientes Control de Gestión</th>
+                <th>Apreciaciones Pendientes Control de Gestión</th>
+                <th>Observaciones Pendientes Control de Gestión</th>
+                <th>Irregularidades Pendientes Control de Gestión</th>
+                <th>Deficiencias Superadas Operativas y Administrativas </th>
+                <th>Deficiencias Comunes Superadas Operativas y Administrativas</th>
+                <th>Apreciaciones Superadas Operativas y Administrativas</th>
+                <th>Observaciones Superadas Operativas y Administrativas</th>
+                <th>Irregularidades Superadas Operativas y Administrativas</th>
+                <th>Deficiencias Superadas Control de Gestión</th>
+                <th>Deficiencias Superadas Control de Gestión</th>
+                <th>Apreciaciones Superadas Control de Gestión</th>
+                <th>Observaciones Superadas Control de Gestión</th>
+                <th>Irregularidades Superadas Control de Gestión</th>
+                <th>Total Deficiencias</th>
+                <th>Total Apreciaciones</th>
+                <th>Total Observaciones</th>
+                <th>Total Irregularidades</th>
+                <th>Total Deficiencias Superadas</th>
+                <th>Total Apreciaciones Superadas</th>
+                <th>Total de Observaciones Superadas</th>
+                <th>Total de Irregularidades Superadas</th>
+                <th>Total de Deficiencias pendientes</th>
+                <th>Total de Deficiencias Pendientes</th>
+                <th>Total de Observaciones  Pendientes</th>
+                <th>Total de Irregularidades Pendientes</th>
+                <th>Código Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+
+@section Scripts{
+
+    <script src="/js/ipecamar/ipecamar-inspeccioninstitucionales.js" asp-append-version="true"></script>
+
+}

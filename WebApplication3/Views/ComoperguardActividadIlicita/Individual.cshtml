@@ -1,0 +1,410 @@
+﻿@{
+    ViewData["Title"] = "ActividadesIlicitas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/ComoperguardActividadIlicita/Individual" style="text-decoration:none;">Actividades Ilicitas</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="JefaturaDistritoCapitania" class="col-3 col-form-label"><a href="~/JefaturaDistritoCapitania">Jefatura De Distriro De Capitanias</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbJefaturaDistritoCapitania" name="cbJefaturaDistritoCapitania"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Capitania" class="col-3 col-form-label"><a href="~/Capitania">Capitania de Puerto</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbCapitania" name="cbCapitania"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaIntervencion" class="col-3 col-form-label">Fecha De Intervención</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaIntervencion" name="txtFechaIntervencion" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ActividadIlicita" class="col-3 col-form-label"><a href="~/ActividadIlicita">Tipo De Actividad Ilícita</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbActividadIlicita" name="cbActividadIlicita"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TomaConocimiento" class="col-3 col-form-label"><a href="~/TomaConocimiento">Como Se Tomo Conocimiento</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTomaConocimiento" name="cbTomaConocimiento"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Nombre De Unidad Interventora</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNaval" name="cbUnidadNaval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CascoNave" class="col-3 col-form-label">Matricula De Unidad Interventora</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCascoNave" name="txtCascoNave" placeholder="Matricula De Unidad Interventora" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="LatitudUbicacionN" class="col-3 col-form-label">Latitud(Ubicación De Nave Intervenida)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtLatitudUbicacionN" name="txtLatitudUbicacionN" placeholder="Latitud(Ubicación De Nave Intervenida)" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="LongitudUbicacionN" class="col-3 col-form-label">Longitud(Ubicación De Nave Intervenida)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtLongitudUbicacionN" name="txtLongitudUbicacionN" placeholder="Longitud(Ubicación De Nave Intervenida)" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="AmbitoNave" class="col-3 col-form-label"><a href="~/AmbitoNave">Ambito(Ubicación De Nave Intervenida)</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbAmbitoNave" name="cbAmbitoNave"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DistritoUbigeo" class="col-3 col-form-label"><a href="~/DistritoUbigeo">Distrito</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDistritoUbigeo" name="cbDistritoUbigeo"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ProvinciaUbigeo" class="col-3 col-form-label"><a href="~/ProvinciaUbigeo">Provincia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbProvinciaUbigeo" name="cbProvinciaUbigeo"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DepartamentoUbigeo" class="col-3 col-form-label"><a href="~/DepartamentoUbigeo">Departamento</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDepartamentoUbigeo" name="cbDepartamentoUbigeo"></select>
+                    </div>
+                </div>
+                <div class="divseccion">
+                    <div class="card-header">
+                        <label for="NavePersonIntervenida" class="col-3 col-form-label">Nave Y/O Persona Intervenida</label>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="NombreNave" class="col-3 col-form-label">Nombre Nave</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-sm" id="txtNombreNave" name="txtNombreNave" placeholder="Nombre Nave" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="MatriculaNave" class="col-3 col-form-label">Matricula Nave</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-sm" id="txtMatriculaNave" name="txtMatriculaNave" placeholder="Matricula Nave" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="PaisUbigeo" class="col-3 col-form-label"><a href="~/PaisUbigeo">Nacionalidad/Bandera</a></label>
+                        <div class="col-md-9">
+                            <select class="form-control form-select-sm" id="cbPaisUbigeo" name="cbPaisUbigeo"></select>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="TipoNave" class="col-3 col-form-label"><a href="~/TipoNave">Tipo De Nave</a></label>
+                        <div class="col-md-9">
+                            <select class="form-control form-select-sm" id="cbTipoNave" name="cbTipoNave"></select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row col-md-6">
+                    <label for="NumeroIntervenidos" class="col-3 col-form-label">Número De Personas Intervenidas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtNumeroIntervenidos" name="txtNumeroIntervenidos" placeholder="Número De Personas Intervenidas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MaterialIncautado" class="col-3 col-form-label"><a href="~/MaterialIncautado">Tipo De Material Incautado</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbMaterialIncautado" name="cbMaterialIncautado"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CantidadMaterialIncautado" class="col-3 col-form-label">Cantidad</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidadMaterialIncautado" name="txtCantidadMaterialIncautado" placeholder="Cantidad" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="UnidadMedida" class="col-3 col-form-label"><a href="~/UnidadMedida">Medida</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadMedida" name="cbUnidadMedida"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DocumentoInformacion" class="col-3 col-form-label">Referencia /Documento De Información Al Ministerio Publico Y PNP</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDocumentoInformacion" name="txtDocumentoInformacion" placeholder="Referencia /Documento De Información Al Ministerio Publico Y PNP" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaDocumento" class="col-3 col-form-label">Fecha Del Documento</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaDocumento" name="txtFechaDocumento" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ObservacionIntervencion" class="col-3 col-form-label">Observaciones/Resultado De La Intervención </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtObservacionIntervencion" name="txtObservacionIntervencion" placeholder="Observaciones/Resultado De La Intervención " required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComoperguardActividadIlicita">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="JefaturaDistritoCapitania" class="col-3 col-form-label"><a href="~/JefaturaDistritoCapitania">Jefatura De Distriro De Capitanias</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbJefaturaDistritoCapitaniae" name="cbJefaturaDistritoCapitaniae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Capitania" class="col-3 col-form-label"><a href="~/Capitania">Capitania de Puerto</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbCapitaniae" name="cbCapitaniae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaIntervencion" class="col-3 col-form-label">Fecha De Intervención</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaIntervencione" name="txtFechaIntervencione" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ActividadIlicita" class="col-3 col-form-label"><a href="~/ActividadIlicita">Tipo De Actividad Ilícita</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbActividadIlicitae" name="cbActividadIlicitae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TomaConocimiento" class="col-3 col-form-label"><a href="~/TomaConocimiento">Como Se Tomo Conocimiento</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTomaConocimientoe" name="cbTomaConocimientoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Nombre De Unidad Interventora</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNavale" name="cbUnidadNavale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CascoNave" class="col-3 col-form-label">Matricula De Unidad Interventora</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCascoNavee" name="txtCascoNavee" placeholder="Matricula De Unidad Interventora" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="LatitudUbicacionN" class="col-3 col-form-label">Latitud(Ubicación De Nave Intervenida)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtLatitudUbicacionNe" name="txtLatitudUbicacionNe" placeholder="Latitud(Ubicación De Nave Intervenida)" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="LongitudUbicacionN" class="col-3 col-form-label">Longitud(Ubicación De Nave Intervenida)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtLongitudUbicacionNe" name="txtLongitudUbicacionNe" placeholder="Longitud(Ubicación De Nave Intervenida)" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="AmbitoNave" class="col-3 col-form-label"><a href="~/AmbitoNave">Ambito(Ubicación De Nave Intervenida)</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbAmbitoNavee" name="cbAmbitoNavee"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DistritoUbigeo" class="col-3 col-form-label"><a href="~/DistritoUbigeo">Distrito</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDistritoUbigeoe" name="cbDistritoUbigeoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ProvinciaUbigeo" class="col-3 col-form-label"><a href="~/ProvinciaUbigeo">Provincia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbProvinciaUbigeoe" name="cbProvinciaUbigeoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DepartamentoUbigeo" class="col-3 col-form-label"><a href="~/DepartamentoUbigeo">Departamento</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDepartamentoUbigeoe" name="cbDepartamentoUbigeoe"></select>
+                    </div>
+                </div>
+                <div class="divseccion">
+                    <div class="card-header">
+                        <label for="NavePersonIntervenida" class="col-3 col-form-label">Nave Y/O Persona Intervenida</label>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="NombreNave" class="col-3 col-form-label">Nombre Nave</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-sm" id="txtNombreNavee" name="txtNombreNavee" placeholder="Nombre Nave" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="MatriculaNave" class="col-3 col-form-label">Matricula Nave</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-sm" id="txtMatriculaNavee" name="txtMatriculaNavee" placeholder="Matricula Nave" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="PaisUbigeo" class="col-3 col-form-label"><a href="~/PaisUbigeo">Nacionalidad/Bandera</a></label>
+                        <div class="col-md-9">
+                            <select class="form-control form-select-sm" id="cbPaisUbigeoe" name="cbPaisUbigeoe"></select>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="TipoNave" class="col-3 col-form-label"><a href="~/TipoNave">Tipo De Nave</a></label>
+                        <div class="col-md-9">
+                            <select class="form-control form-select-sm" id="cbTipoNavee" name="cbTipoNavee"></select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row col-md-6">
+                    <label for="NumeroIntervenidos" class="col-3 col-form-label">Número De Personas Intervenidas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtNumeroIntervenidose" name="txtNumeroIntervenidose" placeholder="Número De Personas Intervenidas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MaterialIncautado" class="col-3 col-form-label"><a href="~/MaterialIncautado">Tipo De Material Incautado</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbMaterialIncautadoe" name="cbMaterialIncautadoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CantidadMaterialIncautado" class="col-3 col-form-label">Cantidad</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidadMaterialIncautadoe" name="txtCantidadMaterialIncautadoe" placeholder="Cantidad" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="UnidadMedida" class="col-3 col-form-label"><a href="~/UnidadMedida">Medida</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadMedidae" name="cbUnidadMedidae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DocumentoInformacion" class="col-3 col-form-label">Referencia /Documento De Información Al Ministerio Publico Y PNP</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDocumentoInformacione" name="txtDocumentoInformacione" placeholder="Referencia /Documento De Información Al Ministerio Publico Y PNP" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaDocumento" class="col-3 col-form-label">Fecha Del Documento</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaDocumentoe" name="txtFechaDocumentoe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ObservacionIntervencion" class="col-3 col-form-label">Observaciones/Resultado De La Intervención </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtObservacionIntervencione" name="txtObservacionIntervencione" placeholder="Observaciones/Resultado De La Intervención " required>
+                    </div>
+                </div>
+
+            </>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComoperguardActividadIlicita">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaComoperguardActividadIlicita()" />
+    <div class="dropdown">
+        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Modos de Carga :
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="~/ComoperguardActividadIlicita">Masiva</a>
+            <a class="dropdown-item" href="~/ComoperguardActividadIlicita/Individual">Individual</a>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblComoperguardActividadIlicita" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Jefatura De Distriro De Capitanias</th>
+                <th>Capitania de Puerto</th>
+                <th>Fecha De Intervención</th>
+                <th>Tipo De Actividad Ilícita</th>
+                <th>Como Se Tomo Conocimiento</th>
+                <th>Nombre De Unidad Interventora</th>
+                <th>Matricula De Unidad Interventora</th>
+                <th>Latitud(Ubicación De Nave Intervenida)</th>
+                <th>Longitud(Ubicación De Nave Intervenida)</th>
+                <th>Ambito(Ubicación De Nave Intervenida)</th>
+                <th>Distrito</th>
+                <th>Provincia</th>
+                <th>Departamento</th>
+                <th>Nombre Nave</th>
+                <th>Matricula Nave</th>
+                <th>Nacionalidad/Bandera</th>
+                <th>Tipo De Nave</th>
+                <th>Número De Personas Intervenidas</th>
+                <th>Tipo De Material Incautado</th>
+                <th>Cantidad</th>
+                <th>Medida</th>
+                <th>Referencia /Documento De Información Al Ministerio Publico Y PNP</th>
+                <th>Fecha Del Documento</th>
+                <th>Observaciones/Resultado De La Intervención </th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/comoperguard/comoperguard-actividadilicita.js" asp-append-version="true"></script>
+}

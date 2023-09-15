@@ -1,0 +1,161 @@
+﻿@{
+    ViewData["Title"] = "Cambios Combinación Cajas Bóvedas Seguridad";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/DintemarCambiosCombinacionSeguridad/Individual" style="text-decoration:none;">Cambios de Combinación de Cajas/Bóvedas de Seguridad</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="form-group row col-md-6">
+                <label for="carga" class="col-3 col-form-label">Carga</label>
+                <div class="form-group row col-md-6">
+                    <div class="col"><select class="form-select-sm form-control-sm" id="cargasR" name="cargasR"></select></div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="Mes" class="col-3 col-form-label"><a href="~/Mes">Mes</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbMes" name="cbMes"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Anio" class="col-3 col-form-label">Año</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtAnio" name="txtAnio" placeholder="Año" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Zonanaval" class="col-3 col-form-label"><a href="~/ZonaNaval">Zona Naval</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbZonanaval" name="cbZonanaval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NroCambioComb" class="col-3 col-form-label"> Nro cambios combinación de cajas de seguridad</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtNroCambioComb" name="txtNroCambioComb" placeholder="Nro cambios combinación de cajas de seguridad" required>
+                    </div>
+                </div>               
+                <div class="form-group row col-md-6">
+                    <label for="PorcentajeAvance" class="col-3 col-form-label"> Porcentaje de Avance</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtPorcentajeAvance" name="txtPorcentajeAvance" placeholder="Porcentaje de Avance" required>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DintemarCambiosCombinacionSeguridad">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="Mes" class="col-3 col-form-label"><a href="~/Mes">Mes</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbMese" name="cbMese"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Anio" class="col-3 col-form-label">Año</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtAnioe" name="txtAnioe" placeholder="Año" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Zonanaval" class="col-3 col-form-label"><a href="~/ZonaNaval">Zona Naval</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbZonanavale" name="cbZonanavale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NroCambioComb" class="col-3 col-form-label"> Nro cambios combinación de cajas de seguridad</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtNroCambioCombe" name="txtNroCambioCombe" placeholder="Nro cambios combinación de cajas de seguridad" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PorcentajeAvance" class="col-3 col-form-label"> Porcentaje de Avance</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtPorcentajeAvancee" name="txtPorcentajeAvancee" placeholder="Porcentaje de Avance" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DintemarCambiosCombinacionSeguridad">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar">
+    <p><a href="~/DintemarCambiosCombinacionSeguridad" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDintemarCambiosCombinacionSeguridad()" />
+    <div class="row align-items-start">
+        <div class="col"><select class="form-select form-control-sm" id="cargas" name="cargas"></select></div>
+        <div class="col">
+            <input type='button' id="btn_search" value="Buscar" class="btn btn-primary">
+            <input type='button' id="btn_all" value="Mostrar Todos" class="btn btn-primary">
+        </div>
+    </div>
+    <table class="table table-striped" id="tblDintemarCambiosCombinacionSeguridad" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Mes</th>
+                <th>Año </th>
+                <th>Zona Naval </th>
+                <th>Nro cambios combinación de cajas de seguridad</th>
+                <th>Porcentaje de Avance </th>
+                <th>Código Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+
+@section Scripts{
+
+    <script src="/js/dintemar/dintemar-cambioscombinacionseguridad.js" asp-append-version="true"></script>
+
+}

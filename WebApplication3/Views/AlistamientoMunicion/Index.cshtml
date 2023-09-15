@@ -1,0 +1,187 @@
+﻿@{
+    ViewData["Title"] = "AlistamientosMuniciones";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/AlistamientoMunicion" style="text-decoration:none;">Alistamientos Municiones</a></h1>
+
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="cbMuni" class="col-3 col-form-label">Código Munición</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbMuni" name="cbMuni"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="cbSistema" class="col-3 col-form-label">Sistema Munición</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbSistema" name="cbSistema"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="cbSubsistema" class="col-3 col-form-label">Subsistema Munición</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbSubsistema" name="cbSubsistema"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtEquipo" class="col-3 col-form-label">Equipo</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtEquipo" name="txtEquipo" placeholder="Equipo" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtMunicion" class="col-3 col-form-label">Munición</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMunicion" name="txtMunicion" placeholder="Munición" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtExistente" class="col-3 col-form-label">Existente</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtExistente" name="txtExistente" placeholder="Existente" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtNecesaria" class="col-3 col-form-label">Necesario</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNecesaria" name="txtNecesaria" placeholder="Necesario" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtCoeficiente" class="col-3 col-form-label">Coeficiente Ponderación</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCoeficiente" name="txtCoeficiente" placeholder="Coeficiente" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/AlistamientoMunicion">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+</div>
+
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="cbMuni" class="col-3 col-form-label">Código Munición</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbMunie" name="cbMunie"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="cbSistemae" class="col-3 col-form-label">Sistema Munición</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbSistemae" name="cbSistemae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="cbSubsistemae" class="col-3 col-form-label">Subsistema Munición</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbSubsistemae" name="cbSubsistemae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtEquipoe" class="col-3 col-form-label">Equipo</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtEquipoe" name="txtEquipoe" placeholder="Equipo" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtMunicione" class="col-3 col-form-label">Munición</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMunicione" name="txtMunicione" placeholder="Munición" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtExistentee" class="col-3 col-form-label">Existente</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtExistentee" name="txtExistentee" placeholder="Existente" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtNecesariae" class="col-3 col-form-label">Necesaria</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNecesariae" name="txtNecesariae" placeholder="Necesario" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtCoeficientee" class="col-3 col-form-label">Coeficiente Ponderación</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCoeficientee" name="txtCoeficientee" placeholder="Coeficiente" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/AlistamientoMunicion">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+</div>
+
+
+<div id="listar">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaAlistamientoMunicion()" />
+    <table class="table table-striped" id="tblAlistamientoMunicions" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Código Munición</th>
+                <th>Sistema Munición</th>
+                <th>Subsistema Munición</th>
+                <th>Equipo</th>
+                <th>Municion</th>
+                <th>Existente</th>
+                <th>Necesaria</th>
+                <th>Coeficiente Ponderación</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/alistamientomunicion.js" asp-append-version="true"></script>
+}

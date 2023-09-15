@@ -1,0 +1,258 @@
+﻿@{
+    ViewData["Title"] = "Evaluación Presupuestal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/DirecomarEvaluacionPresupuestal/Individual" style="text-decoration:none;">Evaluación Presupuestal</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <select class="form-select form-control-sm" id="cargasR" name="cargasR"></select>
+                </div>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="Anio" class="col-3 col-form-label">Año</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtAnio" name="txtAnio" placeholder="Año" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Mes" class="col-3 col-form-label"><a href="~/Mes">Mes</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbMes" name="cbMes"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SUE" class="col-3 col-form-label"><a href="~/SubUnidadEjecutora">SUE</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbSUE" name="cbSUE"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FuenteFinanc" class="col-3 col-form-label"><a href="~/FuenteFinanciamiento">Fuente de Financiamiento</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbFuenteFinanc" name="cbFuenteFinanc"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Clasi" class="col-3 col-form-label"><a href="~/ClasificacionGenericaGasto">Codigo Clasif. Gen. Gastos</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbClasi" name="cbClasi"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ASIG" class="col-3 col-form-label">ASIG/PIM</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtASIG" name="txtASIG" placeholder="ASIG/PIM" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PCA" class="col-3 col-form-label">PCA</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPCA" name="txtPCA" placeholder="PCA" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Certificado" class="col-3 col-form-label">Certificado</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCertificado" name="txtCertificado" placeholder="Certificado" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Compromiso" class="col-3 col-form-label">Compromiso</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCompromiso" name="txtCompromiso" placeholder="Compromiso" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Devengado" class="col-3 col-form-label">Devengado</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDevengado" name="txtDevengado" placeholder="Devengado" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Girado" class="col-3 col-form-label">Girado</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtGirado" name="txtGirado" placeholder="Girado" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Avance" class="col-3 col-form-label">Avance</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtAvance" name="txtAvance" placeholder="Avance" required>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DirecomarEvaluacionPresupuestal">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="Anio" class="col-3 col-form-label">Año</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtAnioe" name="txtAnioe" placeholder="Año" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Mes" class="col-3 col-form-label"><a href="~/Mes">Mes</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbMese" name="cbMese"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SUE" class="col-3 col-form-label"><a href="~/SubUnidadEjecutora">SUE</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbSUEe" name="cbSUEe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FuenteFinanc" class="col-3 col-form-label"><a href="~/FuenteFinanciamiento">Fuente de Financiamiento</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbFuenteFinance" name="cbFuenteFinance"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Clasi" class="col-3 col-form-label"><a href="~/ClasificacionGenericaGasto">Codigo Clasif. Gen. Gastos</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbClasie" name="cbClasie"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ASIG" class="col-3 col-form-label">ASIG/PIM</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtASIGe" name="txtASIGe" placeholder="ASIG/PIM" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PCA" class="col-3 col-form-label">PCA</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPCAe" name="txtPCAe" placeholder="PCA" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Certificado" class="col-3 col-form-label">Certificado</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCertificadoe" name="txtCertificadoe" placeholder="Certificado" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Compromiso" class="col-3 col-form-label">Compromiso</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCompromisoe" name="txtCompromisoe" placeholder="Compromiso" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Devengado" class="col-3 col-form-label">Devengado</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDevengadoe" name="txtDevengadoe" placeholder="Devengado" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Girado" class="col-3 col-form-label">Girado</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtGiradoe" name="txtGiradoe" placeholder="Girado" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Avance" class="col-3 col-form-label">Avance</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtAvancee" name="txtAvancee" placeholder="Avance" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DirecomarEvaluacionPresupuestal">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/DirecomarEvaluacionPresupuestal" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDirecomarEvaluacionPresupuestal()" />
+    <div class="row align-items-start">
+        <div class="col">
+            <select class="form-select form-control-sm" id="cargas" name="cargas"></select>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" id="btn_search">Buscar</button>
+            <button class="btn btn-primary" id="btn_all">Mostrar Todos</button>
+            <button class="btn btn-danger" onclick="eliminarCarga()">Eliminar Carga</button>
+        </div>
+    </div>
+    <hr />
+    <table class="table table-striped" id="tblDirecomarEvaluacionPresupuestal" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Año</th>
+                <th>Mes</th>
+                <th>SUE</th>
+                <th>Fuente de Financiamiento</th>
+                <th>Codigo Clasif. Gen. Gastos</th>
+                <th>ASIG/PIM</th>
+                <th>PCA</th>
+                <th>Certificado</th>
+                <th>Compromiso</th>
+                <th>Devengado</th>
+                <th>Girado</th>
+                <th>Avance</th>
+                <th>Codigo Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+
+@section Scripts{
+
+    <script src="/js/direcomar/direcomar-evaluacionpresupuestal.js" asp-append-version="true"></script>
+
+}

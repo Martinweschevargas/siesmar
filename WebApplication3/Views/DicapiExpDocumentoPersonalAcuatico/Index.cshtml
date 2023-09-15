@@ -1,0 +1,99 @@
+﻿@{
+    ViewData["Title"] = "Formato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1><a href="~/DicapiExpDocumentoPersonalAcuatico" style="text-decoration:none;">Expedición de Documentos al Personal Acuatico</a></h1>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header">
+                    <a href="~/DicapiExpDocumentoPersonalAcuatico/Individual" class="btn btn-primary">Ir Carga Individual</a>
+                    <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ventanaModal">Reportes</a>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <input class="form-control" type="file" id="inputExcel" />
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-warning" onclick="mostrarDatos()">Mostrar Datos"</button>
+                        <button class="btn btn-success" onclick="enviarDatos()">Enviar Datos a BD</button>
+                        <label>Numero de Registros : </label><span id="NumRegistros"></span>
+                    </div>
+                </div>
+                <hr />
+                <div class="row" style="overflow:scroll">
+                    <div class="col-sm-12">
+                        <table id="tbData" class="table table-striped">
+                            <thead>
+                                <tr>
+                                  @*  <th>Código</th>*@
+                                    <th>N° Documento</th>
+                                    <th>Fecha de Ingreso Solicitud</th>
+                                    <th>Codigo Procedimiento TUPAM</th>
+                                    <th>Documento Expedido</th>
+                                    <th>Se Expide a:</th>
+                                    <th>Nombre y Apellido de Personal Acuatico / Nombre de la empresa</th>
+                                    <th>Clasificacion de Personal Acuatico</th>
+                                    <th>Actividad de la Empresa</th>
+                                    <th>Fecha de la Atencion Solicitud</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="ventanaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+                    <div class="card" style="width: 100%;">
+                        <div class="card-header nuevo">
+                            <h4>Reportes - DICAPI</h4>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onclick="optReporte(1)">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                EXPEDICION DE DOCUMENTOS AL PERSONAL ACUATICO
+                            </label>
+                        </div>
+                        <div class="form-group row col-md-6">
+                            <label for="carga" class="col-3 col-form-label">Carga</label>
+                            <div class="form-group row col-md-6">
+                                <div class="col"><select class="form-select form-control-sm" id="cargas" name="cargas"></select></div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6 text-center">
+                                <input type='button' id="btnReportView" value="Ver" class="btn btn-primary align-self-end">
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <button type="button" class="btn btn-danger align-self-end" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal1-footer">
+            <button type="button" class="btn" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="/js/dicapi/dicapi-expdocumentopersonalacuatico.js" asp-append-version="true"></script>
+}

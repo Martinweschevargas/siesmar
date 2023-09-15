@@ -1,0 +1,186 @@
+﻿@{
+    ViewData["Title"] = "Perfiles Profesional Sistema";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/DirtelPerfilProfesionalSistema/Individual" style="text-decoration:none;">Perfiles Profesionales del Personal que Labora en el Area de Desarrollo de Sistemas</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="form-group row col-md-6">
+                <label for="carga" class="col-3 col-form-label">Carga</label>
+                <div class="form-group row col-md-6">
+                    <div class="col"><select class="form-select-sm form-control-sm" id="cargasR" name="cargasR"></select></div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="Dni" class="col-3 col-form-label">DNI</label>
+                    <div class="col-md-13">
+                        <input type="text" class="form-control form-control-sm" id="txtDni" name="txtDni" placeholder="DNI" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoP" class="col-3 col-form-label">Tipo Personal</label>
+                    <select class="form-select form-select-sm" id="txtTipoP" name="txtTipoP" data-placeholder="Seleccione ...">
+                        <option value="1">Militar</option>
+                        <option value="2">Civil</option>
+                    </select>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GPMilitar" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado Personal Militar</a></label>
+                    <div class="col-md-13">
+                        <select class="form-control form-select-sm" id="cbGPMilitar" name="cbGPMilitar"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NivelEs" class="col-3 col-form-label">Nivel Especializacion</label>
+                    <select class="form-select form-select-sm" id="txtNivelEs" name="txtNivelEs" data-placeholder="Seleccione ...">
+                        <option value="1">Senior</option>
+                        <option value="2">Semi senior</option>
+                        <option value="3">Junior</option>
+                    </select>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Perfil" class="col-3 col-form-label"><a href="~/PerfilProfesional">Perfil</a></label>
+                    <div class="col-md-13">
+                        <select class="form-control form-select-sm" id="cbPerfil" name="cbPerfil"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Expe" class="col-3 col-form-label">Años Experiencia Area</label>
+                    <div class="col-md-13">
+                        <input type="number" class="form-control form-control-sm" id="txtExpe" name="txtExpe" placeholder="Años Experiencia Area" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Tiempo" class="col-3 col-form-label">Tiempo Servicio Institucion</label>
+                    <div class="col-md-13">
+                        <input type="number" class="form-control form-control-sm" id="txtTiempo" name="txtTiempo" placeholder="Tiempo Servicio Institucion" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DirtelPerfilProfesionalSistema">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="Dni" class="col-3 col-form-label">DNI</label>
+                    <div class="col-md-13">
+                        <input type="text" class="form-control form-control-sm" id="txtDnie" name="txtDnie" placeholder="DNI" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoP" class="col-3 col-form-label">Tipo Personal</label>
+                    <select class="form-select form-select-sm" id="txtTipoPe" name="txtTipoPe" data-placeholder="Seleccione ...">
+                        <option value="1">Militar</option>
+                        <option value="2">Civil</option>
+                    </select>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GPMilitar" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado Personal Militar</a></label>
+                    <div class="col-md-13">
+                        <select class="form-control form-select-sm" id="cbGPMilitare" name="cbGPMilitare"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NivelEs" class="col-3 col-form-label">Nivel Especializacion</label>
+                    <select class="form-select form-select-sm" id="txtNivelEse" name="txtNivelEse" data-placeholder="Seleccione ...">
+                        <option value="1">Senior</option>
+                        <option value="2">Semi senior</option>
+                        <option value="3">Junior</option>
+                    </select>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Perfil" class="col-3 col-form-label"><a href="~/PerfilProfesional">Perfil</a></label>
+                    <div class="col-md-13">
+                        <select class="form-control form-select-sm" id="cbPerfile" name="cbPerfile"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Expe" class="col-3 col-form-label">Años Experiencia Area</label>
+                    <div class="col-md-13">
+                        <input type="number" class="form-control form-control-sm" id="txtExpee" name="txtExpee" placeholder="Años Experiencia Area" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Tiempo" class="col-3 col-form-label">Tiempo Servicio Institucion</label>
+                    <div class="col-md-13">
+                        <input type="number" class="form-control form-control-sm" id="txtTiempoe" name="txtTiempoe" placeholder="Tiempo Servicio Institucion" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DirtelPerfilProfesionalSistema">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/DirtelPerfilProfesionalSistema" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDirtelPerfilProfesionalSistema()" />
+    <div class="row align-items-start">
+        <div class="col"><select class="form-select form-control-sm" id="cargas" name="cargas"></select></div>
+        <div class="col">
+            <input type='button' id="btn_search" value="Buscar" class="btn btn-primary">
+            <input type='button' id="btn_all" value="Mostrar Todos" class="btn btn-primary">
+        </div>
+    </div>
+    <table class="table table-striped" id="tblDirtelPerfilProfesionalSistema" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>DNI</th>
+                <th>Tipo Personal</th>
+                <th>Grado Personal Militar</th>
+                <th>Nivel Especializacion</th>
+                <th>Perfil</th>
+                <th>Años Experiencia Area</th>
+                <th>Tiempo Servicio Institucion</th>
+                <th>Código Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/dirtel/dirtel-perfilprofesionalsistema.js" asp-append-version="true"></script>
+}

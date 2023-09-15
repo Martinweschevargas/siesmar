@@ -1,0 +1,90 @@
+﻿@{
+    ViewData["Title"] = "Formato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1><a href="~/DimarAtencionProtocolarAeropuertoCallao" style="text-decoration:none;">Atenciones protocolares VIP y facilidades protocolares aduaneros en el Aeropuerto Internacional Jorge Chavez</a></h1>
+        <div class="card">
+            <div class="card-header">
+                <a href="~/DimarAtencionProtocolarAeropuertoCallao/Individual" class="btn btn-primary">Ir Carga Individual</a>
+                <a href="~/DimarAtencionProtocolarAeropuertoCallao/DownloadFile" class="btn btn-primary">Descargar Formato</a>
+                <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ventanaModal">Reportes</a>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <input class="form-control" type="file" id="inputExcel" />
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-warning" onclick="mostrarDatos()">Vista Previa</button>
+                        <button class="btn btn-success" onclick="enviarDatos()">Guardar Formato</button>
+                    </div>
+                    <div class="col-sm-4">
+                        <label>Numero de Registros : </label><span id="NumRegistros"></span>
+                    </div>
+                </div>
+                <hr />
+                <div class="row" style="overflow:scroll">
+                    <div class="col-sm-12">
+                        <table class="table table-striped" id="tbData" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+                            <thead>
+                                <tr class="colorbg">
+                                    <th>Fecha de adquisición</th>
+                                    <th>Tipo de presente protocolar</th>
+                                    <th>Cantidad</th>
+                                    <th>Unidad de medida</th>
+                                    <th>Costo unitario</th>
+                                    <th>Frecuencia</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal fade" id="ventanaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+                    <div class="card" style="width: 100%;">
+                        <div class="card-header nuevo">
+                            <h4>Reportes - DIMAR</h4>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onclick="optReporte(1)">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                ATENCIONES PROTOCOLOS VIP Y FELICIDADES PROTOCOLARES ADUANEROS EN EL AEROPUERTO INTERNACIONAL JORGE CHAVEZ
+                            </label>
+                        </div>
+                        <div class="form-group row col-md-6">
+                            <label for="carga" class="col-3 col-form-label">Carga</label>
+                            <div class="form-group row col-md-6">
+                                <div class="col"><select class="form-select form-control-sm" id="cargas" name="cargas"></select></div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6 text-center">
+                                <input type='button' id="btnReportView" value="Ver" class="btn btn-primary align-self-end">
+                                <button type="button" class="btn btn-danger align-self-end" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal1-footer">
+            <button type="button" class="btn" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="/js/dimar/dimar-atencionprotocolaraeropuertocallao.js" asp-append-version="true"></script>
+}

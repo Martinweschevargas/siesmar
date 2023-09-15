@@ -1,0 +1,178 @@
+﻿@{
+    ViewData["Title"] = "Evaluación del alistamiento del entrenamiento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>
+    <a href="~/ComfoeEvaluacionAlistamientoEntrenamientoComfoe/Individual" style="text-decoration:none;">
+        Evaluación del alistamiento del entrenamiento (ALIENT)
+    </a>
+</h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <select class="form-select form-control-sm" id="cargasR" name="cargasR"></select>
+                </div>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="cbUnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Identificación unidad naval y/o dependencia de entrenamiento</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNaval" name="cbUnidadNaval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CapacidadOperativa" class="col-3 col-form-label"><a href="~/CapacidadOperativa">Capacidad Operativa</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbCapacidadOperativa" name="cbCapacidadOperativa"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EjercicioEntrenamiento" class="col-3 col-form-label"><a href="~/EjercicioEntrenamientoComfoe">Código de ejercicio</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEjercicioEntrenamiento" name="cbEjercicioEntrenamiento"></select>
+                    </div>
+                </div>
+
+                <div class="form-group row col-md-6">
+                    <label for="txtPuntajeObtenidoEjercicio" class="col-3 col-form-label">Puntaje obtenido por ejercicio</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtPuntajeObtenidoEjercicio" name="txtPuntajeObtenidoEjercicio" placeholder="Puntaje obtenido por ejercicio" required />
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaPeriodoEvaluar" class="col-3 col-form-label">Fecha del periodo a evaluar el ejercicio</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaPeriodoEvaluar" name="txtFechaPeriodoEvaluar" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaRealizacionEjercicio" class="col-3 col-form-label">Fecha de realización del ejercicio</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaRealizacionEjercicio" name="txtFechaRealizacionEjercicio" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComfoeEvaluacionAlistamientoEntrenamientoComfoe">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+
+                <div class="form-group row col-md-6">
+                    <label for="cbUnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Identificación unidad naval y/o dependencia de entrenamiento</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNavale" name="cbUnidadNavale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CapacidadOperativa" class="col-3 col-form-label"><a href="~/CapacidadOperativa">Capacidad Operativa</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbCapacidadOperativae" name="cbCapacidadOperativae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EjercicioEntrenamiento" class="col-3 col-form-label"><a href="~/EjercicioEntrenamientoComfoe">Código de ejercicio</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEjercicioEntrenamientoe" name="cbEjercicioEntrenamientoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtPuntajeObtenidoEjercicio" class="col-3 col-form-label">Puntaje obtenido por ejercicio</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtPuntajeObtenidoEjercicioe" name="txtPuntajeObtenidoEjercicioe" placeholder="Puntaje obtenido por ejercicio" required />
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaPeriodoEvaluar" class="col-3 col-form-label">Fecha del periodo a evaluar el ejercicio</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaPeriodoEvaluare" name="txtFechaPeriodoEvaluare" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaRealizacionEjercicio" class="col-3 col-form-label">Fecha de realización del ejercicio</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaRealizacionEjercicioe" name="txtFechaRealizacionEjercicioe" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComfoeEvaluacionAlistamientoEntrenamientoComfoe/Individual">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/ComfoeEvaluacionAlistamientoEntrenamientoComfoe" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaComfoeEvaluacionAlistamientoEntrenamientoComfoe()" />
+    <div class="row align-items-start">
+        <div class="col">
+            <select class="form-select form-control-sm" id="cargas" name="cargas"></select>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" id="btn_search">Buscar</button>
+            <button class="btn btn-primary" id="btn_all">Mostrar Todos</button>
+            <button class="btn btn-danger" onclick="eliminarCarga()">Eliminar Carga</button>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblComfoeEvaluacionAlistamientoEntrenamientoComfoe" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Unidad naval y/o dependencia de entrenamiento</th>
+                <th>Capacidad Operativa</th>
+                <th>Código de ejercicio</th>
+                <th>Puntaje obtenido por ejercicio</th>
+                <th>Fecha del periodo a evaluar el ejercicio</th>
+                <th>Fecha de realización del ejercicio</th>
+                <th>Código Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/comfoe/comfoe-evaluacionalistamientoentrenamientocomfoe.js" asp-append-version="true"></script>
+}

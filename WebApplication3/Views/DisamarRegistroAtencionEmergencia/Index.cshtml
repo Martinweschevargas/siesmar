@@ -1,0 +1,109 @@
+﻿@{
+    ViewData["Title"] = "Formato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1>
+            <a href="~/DisamarRegistroAtencionEmergencia" style="text-decoration:none;">
+                Registro de atención en emergencia
+            </a>
+        </h1>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header">
+                    <a href="~/DisamarRegistroAtencionEmergencia/Individual" class="btn btn-primary">Ir Carga Individual</a>
+                    <a href="~/DisamarRegistroAtencionEmergencia/DownloadFile" class="btn btn-primary">Descargar Formato</a>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <input class="form-control-file" type="file" id="inputExcel" />
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-warning" onclick="mostrarDatos()">Mostrar Datos"</button>
+                        <button class="btn btn-success" onclick="enviarDatos()">Enviar Datos a BD</button>
+                    </div>
+                    <div class="col-sm-4">
+                        <label>Numero de Registros : </label><span id="NumRegistros"></span>
+                    </div>
+                </div>
+                <hr />
+                <div class="row" style="overflow:scroll">
+                    <div class="col-sm-12">
+                        <table lass="table table-striped" id="tbData" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+                            <thead>
+                                <tr>
+      
+                                    <th></th>
+                                    <th>II AA</th>
+                                    <th>Zona</th>
+                                    <th>Establecimiento de salud</th>
+                                    <th>Fecha de atención</th>
+                                    <th>Hora de atención</th>
+                                    <th>Dpto</th>
+                                    <th>Prov</th>
+                                    <th>Dist</th>
+                                    <th>Esperecialidad</th>
+                                    <th>Profesional responsable de la atención</th>
+                                    <th>NSA/CIP</th>
+                                    <th>N° de col. prof</th>
+                                    <th>Turno</th>
+                                    <th>Hora de inicio</th>
+                                    <th>Hora de termino</th>
+                                    <th>Historia clinica</th>
+                                    <th>Dni</th>
+                                    <th>Unidad de procedencia</th>
+                                    <th>Distrito</th>
+                                    <th>Grupo</th>
+                                    <th>Grado o parentesco</th>
+                                    <th>Situación</th>
+                                    <th>Condición</th>
+                                    <th>Edad</th>
+                                    <th>Tipo edad</th>
+                                    <th>Sexo</th>
+                                    <th>Diagnóstico o motivo de atención1</th>
+                                    <th>Tipo de dx1</th>
+                                    <th>CIE101</th>
+                                    <th>Diagnóstico o motivo de atención2</th>
+                                    <th>Tipo de dx2</th>
+                                    <th>CIE102</th>
+                                    <th>Diagnóstico o motivo de atención3</th>
+                                    <th>Tipo de dx3</th>
+                                    <th>CIE103</th>
+                                    <th>Diagnóstico o motivo de atención4</th>
+                                    <th>Tipo de dx4</th>
+                                    <th>CIE104</th>
+                                    <th>Diagnóstico o motivo de atención5</th>
+                                    <th>Tipo de dx5</th>
+                                    <th>CIE105</th>
+                                    <th>Diagnóstico o motivo de atención6</th>
+                                    <th>Tipo de dx6</th>
+                                    <th>CIE106</th>
+                                    <th>Tipo de emergencia</th>
+                                    <th>Interconsulta</th>
+                                    <th>Especialidad de interconsulta</th>
+                                    <th>motivo de la emergencia</th>
+                                    <th>acompañante</th>
+                                    <th>Dni</th>
+                                    <th>Condición de alta</th>
+                                    <th>Destino posterior</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Scripts{
+    <script src="/js/disamar/disamar-registroatencionemergencia.js" asp-append-version="true"></script>
+}

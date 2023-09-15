@@ -1,0 +1,219 @@
+﻿@{
+    ViewData["Title"] = "InformesEmitidosMarinadeGuerradelPerúsobreAcciones";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/DintemarInformeAccionTransgredenSeguridad/Individual" style="text-decoration:none;">Informes emitidos por la Marina de Guerra del Perú sobre acciones que transgreden la seguridad del territorio nacional</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="InformeTrans" class="col-3 col-form-label">Informe de transgresión</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtInformeTrans" name="txtInformeTrans" placeholder="Informe de transgresión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaInforme" class="col-3 col-form-label">Fecha del informe</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaInforme" name="txtFechaInforme" placeholder="Fecha del informe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechasucesoTrans" class="col-3 col-form-label">Fecha suceso de transgresión</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechasucesoTrans" name="txtFechasucesoTrans" placeholder="Fecha suceso de transgresión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DepartamentoU" class="col-3 col-form-label"><a href="~/DepartamentoUbigeo" style="text-decoration:none;">Departamento</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbDepartamentoU" name="cbDepartamentoU"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ProvinciaU" class="col-3 col-form-label"><a href="~/ProvinciaUbigeo" style="text-decoration:none;">Provincia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbProvinciaU" name="cbProvinciaU"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DistritoU" class="col-3 col-form-label"><a href="~/DistritoUbigeo" style="text-decoration:none;">Distrito</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbDistritoU" name="cbDistritoU"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Zonanaval" class="col-3 col-form-label"><a href="~/ZonaNaval" style="text-decoration:none;">Zona Naval </a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbZonanaval" name="cbZonanaval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label"><a href="~/Dependencia" style="text-decoration:none;">Dependencia Informante </a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbDependencia" name="cbDependencia"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoTransgresion" class="col-3 col-form-label"><a href="~/TipoTransgresion" style="text-decoration:none;">Tipo de Transgresión </a> </label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbTipoTransgresion" name="cbTipoTransgresion"></select>
+                    </div>
+                </div>
+                 <div class="form-group row col-md-6">
+                    <label for="DetalleHecho" class="col-3 col-form-label"> Detalle del hecho </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDetalleHecho" name="txtDetalleHecho" placeholder="Detalle del hecho" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DintemarInformeAccionTransgredenSeguridad">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="InformeTrans" class="col-3 col-form-label">Informe de transgresión</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtInformeTranse" name="txtInformeTranse" placeholder="Informe de transgresión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaInforme" class="col-3 col-form-label">Fecha del informe</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaInformee" name="txtFechaInformee" placeholder="Fecha del informe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechasucesoTrans" class="col-3 col-form-label">Fecha suceso de transgresión</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechasucesoTranse" name="txtFechasucesoTranse" placeholder="Fecha suceso de transgresión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DepartamentoU" class="col-3 col-form-label"><a href="~/DepartamentoUbigeo" style="text-decoration:none;">Departamento</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbDepartamentoUe" name="cbDepartamentoUe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ProvinciaU" class="col-3 col-form-label"><a href="~/ProvinciaUbigeo" style="text-decoration:none;">Provincia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbProvinciaUe" name="cbProvinciaUe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DistritoU" class="col-3 col-form-label"><a href="~/DistritoUbigeo" style="text-decoration:none;">Distrito</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbDistritoUe" name="cbDistritoUe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Zonanaval" class="col-3 col-form-label"><a href="~/ZonaNaval" style="text-decoration:none;">Zona Naval </a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbZonanavale" name="cbZonanavale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label"><a href="~/Dependencia" style="text-decoration:none;">Dependencia Informante </a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbDependenciae" name="cbDependenciae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoTransgresion" class="col-3 col-form-label"><a href="~/" style="text-decoration:none;">Tipo de Transgresión </a> </label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbTipoTransgresione" name="cbTipoTransgresione"></select>
+                    </div>
+                </div>
+                 <div class="form-group row col-md-6">
+                    <label for="DetalleHecho" class="col-3 col-form-label"> Detalle del hecho </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDetalleHechoe" name="txtDetalleHechoe" placeholder="Detalle del hecho" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                        <a class="btn btn-danger" href="~/DintemarInformeAccionTransgredenSeguridad">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDintemarInformeAccionTransgredenSeguridad()" />
+    <div class="dropdown">
+        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Modos de Carga :
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="~/DintemarInformeAccionTransgredenSeguridad">Masiva</a>
+            <a class="dropdown-item" href="~/DintemarInformeAccionTransgredenSeguridad/Individual">Individual</a>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblDintemarInformeAccionTransgredenSeguridad" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Informe de transgresión</th>
+                <th>Fecha del informe</th>
+                <th>Fecha suceso de transgresión </th>
+                <th>Departamento</th>
+                <th>Provincia</th>
+                <th>Distrito</th>
+                <th>Zona Naval </th>
+                <th>Dependencia Informante</th>
+                <th>Tipo de Transgresión</th>
+                <th>Detalle del hecho </th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+
+@section Scripts{
+
+    <script src="/js/dintemar/dintemar-informeacciontransseg.js" asp-append-version="true"></script>
+
+}

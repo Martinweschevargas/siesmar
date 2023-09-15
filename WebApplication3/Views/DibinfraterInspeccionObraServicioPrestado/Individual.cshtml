@@ -1,0 +1,268 @@
+﻿@{
+    ViewData["Title"] = "InspeccionesdeObrasyServiciosPrestados";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/DibinfraterInspeccionObraServicioPrestado/Individual" style="text-decoration:none;">Inspecciones de Obras y Servicios Prestados</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <select class="form-select form-control-sm" id="cargasR" name="cargasR"></select>
+                </div>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="IdentificacionSolicitud" class="col-3 col-form-label">Solicitud</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtIdentificacionSolicitud" name="txtIdentificacionSolicitud" placeholder="Solicitud" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NombreObra" class="col-3 col-form-label">Nombre de Obra </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNombreObra" name="txtNombreObra" placeholder="Nombre de Obra " required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="AreaDiperadmon" class="col-3 col-form-label"><a href="~/AreaDiperadmon">Área Usuaria(UU.DD)</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbAreaDiperadmon" name="cbAreaDiperadmon"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ZonaNaval" class="col-3 col-form-label"><a href="~/ZonaNaval">Zona Naval</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbZonaNaval" name="cbZonaNaval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EstadoSolicitud" class="col-3 col-form-label">Estado Solicitud</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtEstadoSolicitud" name="txtEstadoSolicitud" data-placeholder="Seleccione ...">
+                            <option value="1">Ejecución</option>
+                            <option value="2">Se hizo Inspección</option>
+                            <option value="3">Paralizada</option>
+                            <option value="4">Se rechazó la solicitud</option>
+                            <option value="5">Liquidación</option>
+                            <option value="6">Pendiente</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="IdentificacionContrato" class="col-3 col-form-label">Identificación del Contrato</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtIdentificacionContrato" name="txtIdentificacionContrato" placeholder="Identificación del Contrato" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoObraServicio" class="col-3 col-form-label"><a href="~/TipoObraServicio">Tipo de Obra o Servicio</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoObraServicio" name="cbTipoObraServicio"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoProceso" class="col-3 col-form-label"><a href="~/TipoProceso">Tipo de Proceso</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoProceso" name="cbTipoProceso"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MontoContrato" class="col-3 col-form-label">Monto de Contrato</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMontoContrato" name="txtMontoContrato" placeholder="Monto de Contrato" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaInicioObraServicio" class="col-3 col-form-label">Fecha inicio de la Obra / Servicio</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaInicioObraServicio" name="txtFechaInicioObraServicio" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaTerminoEstimada" class="col-3 col-form-label">Fecha de Término Estimada </label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaTerminoEstimada" name="txtFechaTerminoEstimada" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PorcentajeAvanceFisico" class="col-3 col-form-label">Avance Físico </label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtPorcentajeAvanceFisico" name="txtPorcentajeAvanceFisico" placeholder="Avance Físico " required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DibinfraterInspeccionObraServicioPrestado">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="IdentificacionSolicitud" class="col-3 col-form-label">Solicitud</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtIdentificacionSolicitude" name="txtIdentificacionSolicitude" placeholder="Solicitud" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NombreObra" class="col-3 col-form-label">Nombre de Obra </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNombreObrae" name="txtNombreObrae" placeholder="Nombre de Obra " required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="AreaDiperadmon" class="col-3 col-form-label"><a href="~/AreaDiperadmon">Área Usuaria(UU.DD)</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbAreaDiperadmone" name="cbAreaDiperadmone"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ZonaNaval" class="col-3 col-form-label"><a href="~/ZonaNaval">Zona Naval</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbZonaNavale" name="cbZonaNavale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EstadoSolicitud" class="col-3 col-form-label">Estado Solicitud</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtEstadoSolicitude" name="txtEstadoSolicitude" data-placeholder="Seleccione ...">
+                            <option value="1">Ejecución</option>
+                            <option value="2">Se hizo Inspección</option>
+                            <option value="3">Paralizada</option>
+                            <option value="4">Se rechazó la solicitud</option>
+                            <option value="5">Liquidación</option>
+                            <option value="6">Pendiente</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="IdentificacionContrato" class="col-3 col-form-label">Identificación del Contrato</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtIdentificacionContratoe" name="txtIdentificacionContratoe" placeholder="Identificación del Contrato" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoObraServicio" class="col-3 col-form-label"><a href="~/TipoObraServicio">Tipo de Obra o Servicio</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoObraServicioe" name="cbTipoObraServicioe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoProceso" class="col-3 col-form-label"><a href="~/TipoProceso">Tipo de Proceso</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoProcesoe" name="cbTipoProcesoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MontoContrato" class="col-3 col-form-label">Monto de Contrato</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMontoContratoe" name="txtMontoContratoe" placeholder="Monto de Contrato" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaInicioObraServicio" class="col-3 col-form-label">Fecha inicio de la Obra / Servicio</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaInicioObraServicioe" name="txtFechaInicioObraServicioe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaTerminoEstimada" class="col-3 col-form-label">Fecha de Término Estimada </label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaTerminoEstimadae" name="txtFechaTerminoEstimadae" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PorcentajeAvanceFisico" class="col-3 col-form-label">Avance Físico </label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtPorcentajeAvanceFisicoe" name="txtPorcentajeAvanceFisicoe" placeholder="Avance Físico " required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DibinfraterInspeccionObraServicioPrestado">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/DibinfraterInspeccionObraServicioPrestado" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDibinfraterInspeccionObraServicioPrestado()" />
+    <div class="row align-items-start mb-4">
+        <div class="col">
+            <select class="form-select form-control-sm" id="cargas" name="cargas"></select>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" id="btn_search">Buscar</button>
+            <button class="btn btn-primary" id="btn_all">Mostrar Todos</button>
+            <button class="btn btn-danger" onclick="eliminarCarga()">Eliminar Carga</button>
+        </div>
+    </div>
+    <hr />
+    <table class="table table-striped" id="tblDibinfraterInspeccionObraServicioPrestado" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Solicitud</th>
+                <th>Nombre de Obra </th>
+                <th>Área Usuaria(UU.DD)</th>
+                <th>Zona Naval</th>
+                <th>Estado Solicitud</th>
+                <th>Identificación del Contrato</th>
+                <th>Tipo de Obra o Servicio</th>
+                <th>Tipo de Proceso</th>
+                <th>Monto de Contrato</th>
+                <th>Fecha inicio de la Obra / Servicio</th>
+                <th>Fecha de Término Estimada </th>
+                <th>Avance Físico </th>
+                <th>Código Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/dibinfrater/dibinfrater-inspeccionobraservicioprestado.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,394 @@
+﻿@{
+    ViewData["Title"] = "Fallos Resueltos por Siniestros Acuáticos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/ComoperguardFalloResueltoSiniestroAcuatico/Individual" style="text-decoration:none;">Fallos Resueltos por Siniestros Acuáticos</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="JefaturaDistritoCapitania" class="col-3 col-form-label"><a href="~/JefaturaDistritoCapitania">Jefatura De Distrito De Capitanias</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbJefaturaDistritoCapitania" name="cbJefaturaDistritoCapitania"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Capitania" class="col-3 col-form-label"><a href="~/Capitania">Capitania De Puerto</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbCapitania" name="cbCapitania"></select>
+                    </div>
+                </div>
+                <div class="divseccion">
+                    <div class="card-header">
+                        <label for="FehcaOcurrido" class="col-3 col-form-label"> Fecha Ocurrió El Siniestro Y/O Incidente</label>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="HoraCaptura" class="col-3 col-form-label">Hora</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-sm" id="txtHoraCaptura" name="txtHoraCaptura" placeholder="Hora" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="DiaCaptura" class="col-3 col-form-label">Dia</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtDiaCaptura" name="txtDiaCaptura" placeholder="Dia" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="Mes" class="col-3 col-form-label"><a href="~/Mes">Mes</a></label>
+                        <div class="col-md-9">
+                            <select class="form-control form-select-sm" id="cbMes" name="cbMes"></select>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="AnioCaptura" class="col-3 col-form-label">Año</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtAnioCaptura" name="txtAnioCaptura" placeholder="Año" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="divseccion">
+                    <div class="card-header">
+                        <label for="NaveInvolucrada" class="col-3 col-form-label"> Nave O Persona Involucrada</label>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="TipoNave" class="col-3 col-form-label"><a href="~/TipoNave">Tipo Nave/Persona</a></label>
+                        <div class="col-md-9">
+                            <select class="form-control form-select-sm" id="cbTipoNave" name="cbTipoNave"></select>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="Nombre" class="col-3 col-form-label">Nombre</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-sm" id="txtNombre" name="txtNombre" placeholder="Nombre" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="MatriculaNave" class="col-3 col-form-label">Matrícula / Indicativo / Dni</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-sm" id="txtMatriculaNave" name="txtMatriculaNave" placeholder="Matrícula / Indicativo / Dni" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="ABEdad" class="col-3 col-form-label">AB. / Edad</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtABEdad" name="txtABEdad" placeholder="AB. / Edad" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="PaisUbigeo" class="col-3 col-form-label"><a href="~/PaisUbigeo">Nacionalidad/Bandera</a></label>
+                        <div class="col-md-9">
+                            <select class="form-control form-select-sm" id="cbPaisUbigeo" name="cbPaisUbigeo"></select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row col-md-6">
+                    <label for="TipoSiniestro" class="col-3 col-form-label"><a href="~/TipoSiniestro">Tipo De Siniestro Y/O Incidente</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoSiniestro" name="cbTipoSiniestro"></select>
+                    </div>
+                </div>
+                <div class="divseccion">
+                    <div class="card-header">
+                        <label for="SituacionActual " class="col-3 col-form-label">Situación Actual De Las Personas Involucradas</label>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="PersonasRescatada" class="col-3 col-form-label">Personas Rescatados Con Vida</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtPersonasRescatada" name="txtPersonasRescatada" placeholder="Personas Rescatados Con Vida" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="PersonasFallecidas" class="col-3 col-form-label">Personas Fallecidas</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtPersonasFallecidas" name="txtPersonasFallecidas" placeholder="Personas Fallecidas" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="PersonasDesaparecida" class="col-3 col-form-label">Personas Desaparecidas</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtPersonasDesaparecida" name="txtPersonasDesaparecida" placeholder="Personas Desaparecidas" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="PersonasEvacuadas" class="col-3 col-form-label">Personas Evacuadas</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtPersonasEvacuadas" name="txtPersonasEvacuadas" placeholder="Personas Evacuadas" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row col-md-6">
+                    <label for="TotalPersonas" class="col-3 col-form-label">Total</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtTotalPersonas" name="txtTotalPersonas" placeholder="Total" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ReferenciaDocumento" class="col-3 col-form-label">Referencia Del Documento</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtReferenciaDocumento" name="txtReferenciaDocumento" data-placeholder="Seleccione ...">
+                            <option value="1">RD</option>
+                            <option value="2">RC</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaDocumento" class="col-3 col-form-label">Fecha</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaDocumento" name="txtFechaDocumento" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ResumenFallo" class="col-3 col-form-label">Resumen del Fallo</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtResumenFallo" name="txtResumenFallo" data-placeholder="Seleccione ...">
+                            <option value="1">Perdida total de la nave</option>
+                            <option value="2">Hundimiento parcial</option>
+                            <option value="3">Nave desaparecida</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComoperguardFalloResueltoSiniestroAcuatico">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="JefaturaDistritoCapitania" class="col-3 col-form-label"><a href="~/JefaturaDistritoCapitania">Jefatura De Distrito De Capitanias</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbJefaturaDistritoCapitaniae" name="cbJefaturaDistritoCapitaniae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Capitania" class="col-3 col-form-label"><a href="~/Capitania">Capitania De Puerto</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbCapitaniae" name="cbCapitaniae"></select>
+                    </div>
+                </div>
+                <div class="divseccion">
+                    <div class="card-header">
+                        <label for="FehcaOcurrido" class="col-3 col-form-label"> Fecha Ocurrió El Siniestro Y/O Incidente</label>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="HoraCaptura" class="col-3 col-form-label">Hora</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-sm" id="txtHoraCapturae" name="txtHoraCapturae" placeholder="Hora" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="DiaCaptura" class="col-3 col-form-label">Dia</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtDiaCapturae" name="txtDiaCapturae" placeholder="Dia" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="Mes" class="col-3 col-form-label"><a href="~/Mes">Mes</a></label>
+                        <div class="col-md-9">
+                            <select class="form-control form-select-sm" id="cbMese" name="cbMese"></select>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="AnioCaptura" class="col-3 col-form-label">Año</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtAnioCapturae" name="txtAnioCapturae" placeholder="Año" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="divseccion">
+                    <div class="card-header">
+                        <label for="NaveInvolucrada" class="col-3 col-form-label"> Nave O Persona Involucrada</label>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="TipoNave" class="col-3 col-form-label"><a href="~/TipoNave">Tipo Nave/Persona</a></label>
+                        <div class="col-md-9">
+                            <select class="form-control form-select-sm" id="cbTipoNavee" name="cbTipoNavee"></select>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="Nombre" class="col-3 col-form-label">Nombre</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-sm" id="txtNombree" name="txtNombree" placeholder="Nombre" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="MatriculaNave" class="col-3 col-form-label">Matrícula / Indicativo / Dni</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-sm" id="txtMatriculaNavee" name="txtMatriculaNavee" placeholder="Matrícula / Indicativo / Dni" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="ABEdad" class="col-3 col-form-label">AB. / Edad</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtABEdade" name="txtABEdade" placeholder="AB. / Edad" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="PaisUbigeo" class="col-3 col-form-label"><a href="~/PaisUbigeo">Nacionalidad/Bandera</a></label>
+                        <div class="col-md-9">
+                            <select class="form-control form-select-sm" id="cbPaisUbigeoe" name="cbPaisUbigeoe"></select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row col-md-6">
+                    <label for="TipoSiniestro" class="col-3 col-form-label"><a href="~/TipoSiniestro">Tipo De Siniestro Y/O Incidente</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoSiniestroe" name="cbTipoSiniestroe"></select>
+                    </div>
+                </div>
+                <div class="divseccion">
+                    <div class="card-header">
+                        <label for="SituacionActual " class="col-3 col-form-label">Situación Actual De Las Personas Involucradas</label>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="PersonasRescatada" class="col-3 col-form-label">Personas Rescatados Con Vida</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtPersonasRescatadae" name="txtPersonasRescatadae" placeholder="Personas Rescatados Con Vida" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="PersonasFallecidas" class="col-3 col-form-label">Personas Fallecidas</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtPersonasFallecidase" name="txtPersonasFallecidase" placeholder="Personas Fallecidas" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="PersonasDesaparecida" class="col-3 col-form-label">Personas Desaparecidas</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtPersonasDesaparecidae" name="txtPersonasDesaparecidae" placeholder="Personas Desaparecidas" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="PersonasEvacuadas" class="col-3 col-form-label">Personas Evacuadas</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtPersonasEvacuadase" name="txtPersonasEvacuadase" placeholder="Personas Evacuadas" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row col-md-6">
+                    <label for="TotalPersonas" class="col-3 col-form-label">Total</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtTotalPersonase" name="txtTotalPersonase" placeholder="Total" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ReferenciaDocumento" class="col-3 col-form-label">Referencia Del Documento</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtReferenciaDocumentoe" name="txtReferenciaDocumentoe" data-placeholder="Seleccione ...">
+                            <option value="1">RD</option>
+                            <option value="2">RC</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaDocumento" class="col-3 col-form-label">Fecha</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaDocumentoe" name="txtFechaDocumentoe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ResumenFallo" class="col-3 col-form-label">Resumen del Fallo</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtResumenFalloe" name="txtResumenFalloe" data-placeholder="Seleccione ...">
+                            <option value="1">Perdida total de la nave</option>
+                            <option value="2">Hundimiento parcial</option>
+                            <option value="3">Nave desaparecida</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComoperguardFalloResueltoSiniestroAcuatico">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaComoperguardFalloResueltoSiniestroAcuatico()" />
+    <div class="dropdown">
+        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Modos de Carga :
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="~/ComoperguardFalloResueltoSiniestroAcuatico">Masiva</a>
+            <a class="dropdown-item" href="~/ComoperguardFalloResueltoSiniestroAcuatico/Individual">Individual</a>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblComoperguardFalloResueltoSiniestroAcuatico" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Jefatura De Distrito De Capitanias</th>
+                <th>Capitania De Puerto</th>
+                <th>Hora</th>
+                <th>Dia</th>
+                <th>Mes</th>
+                <th>Año</th>
+                <th>Tipo Nave/Persona</th>
+                <th>Nombre</th>
+                <th>Matrícula / Indicativo / Dni</th>
+                <th>AB. / Edad</th>
+                <th>Nacionalidad/Bandera</th>
+                <th>Tipo De Siniestro Y/O Incidente</th>
+                <th>Personas Rescatados Con Vida</th>
+                <th>Personas Fallecidas</th>
+                <th>Personas Desaparecidas</th>
+                <th>Personas Evacuadas</th>
+                <th>Total</th>
+                <th>Referencia Del Documento</th>
+                <th>Fecha</th>
+                <th>Resumen del Fallo</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/comoperguard/comoperguard-falloresueltosiniestroacuatico.js" asp-append-version="true"></script>
+}

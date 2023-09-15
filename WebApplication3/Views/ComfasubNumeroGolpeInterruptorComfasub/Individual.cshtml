@@ -1,0 +1,172 @@
+﻿@{
+    ViewData["Title"] = "Numero Golpe Interruptor Comfasub";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/ComfasubNumeroGolpeInterruptorComfasub/Individual" style="text-decoration:none;">Número de Golpes de Interruptores Principales</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <select class="form-select form-control-sm" id="cargasR" name="cargasR"></select>
+                </div>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="Unidad" class="col-3 col-form-label"><a href="~/UnidadNaval">Unidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidad" name="cbUnidad"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Equipo" class="col-3 col-form-label"><a href="~/EquipoSistemaPropulsion">Equipo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEquipo" name="cbEquipo"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Total" class="col-3 col-form-label">Golpes Fijados Para Recorrido Total</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtTotal" name="txtTotal" placeholder="Golpes Fijados Para Recorrido Total" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Parcial" class="col-3 col-form-label">Golpes Fijados Para Recorrido Parcial</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtParcial" name="txtParcial" placeholder="Golpes Fijados Para Recorrido Parcial" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Ultimo" class="col-3 col-form-label">Golpes Desde Ultimo Recorrido</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtUltimo" name="txtUltimo" placeholder="Golpes Desde Ultimo Recorrido" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Instalacion" class="col-3 col-form-label">Golpes Totales de su Instalacion</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtInstalacion" name="txtInstalacion" placeholder="Golpes Totales de su Instalacion" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComfasubNumeroGolpeInterruptorComfasub">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="Unidad" class="col-3 col-form-label"><a href="~/UnidadNaval">Unidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidade" name="cbUnidade"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Equipo" class="col-3 col-form-label"><a href="~/EquipoSistemaPropulsion">Equipo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEquipoe" name="cbEquipoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Total" class="col-3 col-form-label">Golpes Fijados Para Recorrido Total</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtTotale" name="txtTotale" placeholder="Golpes Fijados Para Recorrido Total" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Parcial" class="col-3 col-form-label">Golpes Fijados Para Recorrido Parcial</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtParciale" name="txtParciale" placeholder="Golpes Fijados Para Recorrido Parcial" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Ultimo" class="col-3 col-form-label">Golpes Desde Ultimo Recorrido</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtUltimoe" name="txtUltimoe" placeholder="Golpes Desde Ultimo Recorrido" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Instalacion" class="col-3 col-form-label">Golpes Totales de su Instalacion</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtInstalacione" name="txtInstalacione" placeholder="Golpes Totales de su Instalacion" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComfasubNumeroGolpeInterruptorComfasub">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/ComfasubNumeroGolpeInterruptorComfasub" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaComfasubNumeroGolpeInterruptorComfasub()" />
+    <div class="row align-items-start">
+        <div class="col">
+            <select class="form-select form-control-sm" id="cargas" name="cargas"></select>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" id="btn_search">Buscar</button>
+            <button class="btn btn-primary" id="btn_all">Mostrar Todos</button>
+            <button class="btn btn-danger" onclick="eliminarCarga()">Eliminar Carga</button>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblComfasubNumeroGolpeInterruptorComfasub" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Unidad</th>
+                <th>Equipo</th>
+                <th>Golpes Fijados Para Recorrido Total</th>
+                <th>Golpes Fijados Para Recorrido Parcial</th>
+                <th>Golpes Desde Ultimo Recorrido</th>
+                <th>Golpes Totales de su Instalacion</th>
+                <th>Código Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/comfasub/comfasub-numerogolpeinterruptorcomfasub.js" asp-append-version="true"></script>
+}

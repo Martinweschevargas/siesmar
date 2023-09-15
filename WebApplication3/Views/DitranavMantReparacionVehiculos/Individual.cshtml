@@ -1,0 +1,272 @@
+﻿@{
+    ViewData["Title"] = "MantenimientoReparacionVehiculoTransporteT";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/DitranavMantReparacionVehiculos/Individual" style="text-decoration:none;">Mantenimiento y Reparación Vehiculos de Transporte Terrestre</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <select class="form-select form-control-sm" id="cargasR" name="cargasR"></select>
+                </div>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="PlacaVehiculo" class="col-3 col-form-label">Placa Vehiculo</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPlacaVehiculo" name="txtPlacaVehiculo" placeholder="Placa Vehiculo" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaIngreso" class="col-3 col-form-label">Fecha Ingreso</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaIngreso" name="txtFechaIngreso" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ClasificacionFlota" class="col-3 col-form-label">Clasificación Flota</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtClasificacionFlota" name="txtClasificacionFlota" data-placeholder="Seleccione ...">
+                            <option value="Liviana">Liviana</option>
+                            <option value="Pesada">Pesada</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Marca" class="col-3 col-form-label"><a href="~/MarcaVehiculo" style="text-decoration:none;">Marca</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbMarca" name="cbMarca"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="AnioFabricacion" class="col-3 col-form-label">Año Fabricación</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtAnioFabricacion" name="txtAnioFabricacion" placeholder="Año fabricación" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Kilometros" class="col-3 col-form-label">Kilometros </label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtKilometros" name="txtKilometros" placeholder="Kilometros" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label">Dependencia</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDependencia" name="txtDependencia" placeholder="Dependencia" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MotivoServicioV" class="col-3 col-form-label">Motivo Servicio</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtMotivoServicioV" name="txtMotivoServicioV" data-placeholder="Seleccione ...">
+                            <option value="Mantenimiento">Mantenimiento</option>
+                            <option value="Reparación">Reparación</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaSalidaV" class="col-3 col-form-label">Fecha Salida</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaSalidaV" name="txtFechaSalidaV" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="RequerimientoRepuesto" class="col-3 col-form-label">Requerimiento Repuesto</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtRequerimientoRepuesto" name="txtRequerimientoRepuesto" data-placeholder="Seleccione ...">
+                            <option value="1">Si</option>
+                            <option value="2">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CostoRepuestos" class="col-3 col-form-label">Costo Repuestos</label>
+                    <div class="col-md-9">
+                        <input type="decimal" class="form-control form-control-sm" id="txtCostoRepuestos" name="txtCostoRepuestos" placeholder="Costo Repuestos" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="OrdenCompraS" class="col-3 col-form-label">Orden Compra Servicio</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtOrdenCompraS" name="txtOrdenCompraS" placeholder="Orden Compra Servicio" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DitranavMantReparacionVehiculos">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="PlacaVehiculo" class="col-3 col-form-label">Placa Vehiculo</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPlacaVehiculoe" name="txtPlacaVehiculoe" placeholder="Placa Vehiculo" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaIngreso" class="col-3 col-form-label">Fecha Ingreso</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaIngresoe" name="txtFechaIngresoe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ClasificacionFlota" class="col-3 col-form-label">Clasificación Flota</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtClasificacionFlotae" name="txtClasificacionFlotae" data-placeholder="Seleccione ...">
+                            <option value="Liviana">Liviana</option>
+                            <option value="Pesada">Pesada</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Marca" class="col-3 col-form-label"><a href="~/MarcaVehiculo" style="text-decoration:none;">Marca</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbMarcae" name="cbMarcae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="AnioFabricacion" class="col-3 col-form-label">Año Fabricación</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtAnioFabricacione" name="txtAnioFabricacione" placeholder="Año fabricación" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Kilometros" class="col-3 col-form-label">Kilometros </label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtKilometrose" name="txtKilometrose" placeholder="Kilometros" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label">Dependencia</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDependenciae" name="txtDependenciae" placeholder="Dependencia" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MotivoServicioV" class="col-3 col-form-label">Motivo Servicio</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtMotivoServicioVe" name="txtMotivoServicioVe" data-placeholder="Seleccione ...">
+                            <option value="Mantenimiento">Mantenimiento</option>
+                            <option value="Reparación">Reparación</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaSalidaV" class="col-3 col-form-label">Fecha Salida</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaSalidaVe" name="txtFechaSalidaVe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="RequerimientoRepuesto" class="col-3 col-form-label">Requerimiento Repuesto</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtRequerimientoRepuestoe" name="txtRequerimientoRepuestoe" data-placeholder="Seleccione ...">
+                            <option value="1">Si</option>
+                            <option value="2">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CostoRepuestos" class="col-3 col-form-label">Costo Repuestos</label>
+                    <div class="col-md-9">
+                        <input type="decimal" class="form-control form-control-sm" id="txtCostoRepuestose" name="txtCostoRepuestose" placeholder="Costo Repuestos" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="OrdenCompraS" class="col-3 col-form-label">Orden Compra Servicio</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtOrdenCompraSe" name="txtOrdenCompraSe" placeholder="Orden Compra Servicio" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DitranavMantReparacionVehiculos">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/DitranavMantReparacionVehiculos" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDitranavMantReparacionVehiculos()" />
+    <div class="row align-items-start">
+        <div class="col">
+            <select class="form-select form-control-sm" id="cargas" name="cargas"></select>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" id="btn_search">Buscar</button>
+            <button class="btn btn-primary" id="btn_all">Mostrar Todos</button>
+            <button class="btn btn-danger" onclick="eliminarCarga()">Eliminar Carga</button>
+        </div>
+    </div>
+    <hr />
+    <table class="table table-striped" id="tblDitranavMantReparacionVehiculos" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Placa</th>
+                <th>Fecha Ingreso</th>
+                <th>Clasificación Flota </th>
+                <th>Marca</th>
+                <th>Año Fabricación</th>
+                <th>Kilometros</th>
+                <th>Dependencia</th>
+                <th>Motivo Servicio </th>
+                <th>Fecha Salida</th>
+                <th>Requerimiento Repuesto</th>
+                <th>Costo Repuestos</th>
+                <th>Orden Compra Servicio</th>
+                <th>Código Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+
+@section Scripts{
+    <script src="/js/ditranav/ditranav-mantereparacionvehiculos.js" asp-append-version="true"></script>
+}

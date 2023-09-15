@@ -1,0 +1,192 @@
+﻿@using System.Security.Claims;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Sistema de Información Estadística</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="~/css/loading.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/modal.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/menu.css" asp-append-version="true" />
+    <link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css" rel="stylesheet" />
+    @await RenderSectionAsync("Estilos", required: false)
+</head>
+<body>
+    <header class="linea"></header>
+    <header class="header-distributed">
+        <div class="header-left">
+            <img class="imgheader1" src="~/img/mgplogo.png" />
+        </div>
+        <div class="header-center">
+            <p class="p1">
+                <span>MARINA DE GUERRA DEL PERU</span>
+            <p class="p2">Sistema de Información Estadística</p>
+            <p class="p3">JEMGEMAR</p>
+            </p>
+        </div>
+        <div class="header-right">
+            <button class="dropdown-toggle dt-nc" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-user" aria-hidden="true" style="color: #23527c;"></i>
+                @{
+                    if (User.Identity.IsAuthenticated)
+                        @(String.Format("{0} {1}", @User.FindFirstValue(ClaimTypes.Email), @User.FindFirstValue(ClaimTypes.Email)))
+                }
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <img class="imgperfil" src="~/img/fotoperfil.jpeg" />
+                <p class="perfilte"> <i class="fa fa-envelope" aria-hidden="true" style="color: #337ab7;"></i> @User.FindFirstValue(ClaimTypes.Email) </p>
+                <p class="perfilte"> <i class="fa fa-phone-square" aria-hidden="true" style="color: #337ab7;"></i> @User.FindFirstValue(ClaimTypes.Email) </p>
+                <p class="perfilte"> <i class="fa fa-server" aria-hidden="true" style="color: #338ab7;"></i>  Usuario de dependencia </p>
+                <div class="dropdown-divider"></div>
+                <p class="perfilte"> <i class="fa fa-globe" aria-hidden="true" style="color: #337ab7;"></i>  DIRECCION DE LA TELEMATICA DE LA MARINA </p>
+                <p class="perfilte"> <i class="fa fa-briefcase" aria-hidden="true" style="color: #337ab7;"></i>  Division de programacion y Administracion de sistemas </p>
+                <p class="perfilte"> <i class="fa fa-certificate" aria-hidden="true" style="color: #337ab7;"></i>  Tecnico de cargo de area </p>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="~/Login/Salir">Cerrar sesion</a>
+            </div>
+            <button class="dropdown-toggle dt-nc" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-question-circle" aria-hidden="true" style="color: #23527c;"></i>
+                Ayuda
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#acercade">Acerca de</a>
+                <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#contacto">Contacto</a>
+                <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#requisitos">Requisitos</a>
+                <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#formatos">Formatos</a>
+            </div>
+        </div>
+    </header>
+    <header class="cabecera"></header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 sidenav">
+                <div class="flex-shrink-0 p-3 bg-white">
+                    <a href="~/Home" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+                        <svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+                        <span class="fs-5 fw-semibold">Inicio</span>
+                    </a>
+                    <ol class="tree" id="menumgp" style="font-size:10px">
+                    </ol>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <breadcrumb></breadcrumb>
+                @RenderBody()
+            </div>
+        </div>
+        <div class="row footer">
+            <footer class="footer-distributed">
+
+                <div class="footer-left">
+                    <img class="imgfooter" src="~/img/imgfooter.png" />
+                </div>
+
+                <div class="footer-center">
+                    <p class="footer-company-about">
+                        <span>DIRECCIÓN</span>
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                        ESTACIÓN NAVAL DE LA COMANDANCIA GENERAL DE LA MARINA
+                    <p class="footer-di-name">Avenida de La Marina Cuadra 36 S/N - La Perla Callao</p>
+                    </p>
+                </div>
+                <div class="footer-right">
+                    <p class="footer-company-about">
+                        <span>CENTRAL TELEFÓNICA</span>
+                        (01) 207 8900 / (01) 514 2930 Anexos: 2284
+                    </p>
+                </div>
+            </footer>
+            <div class="lineaf"></div>
+            <div class="footerfinal">  Todos los derechos reservados / Nombre de la dependencia desarrolladora  </div>
+        </div>
+    </div>
+    <!-- acerca de -->
+    <div class="modal fade" id="acercade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal1-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Acerca de</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Acerca de ...
+                </div>
+                <div class="modal1-footer">
+                    <button type="button" class="btn" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- contacto -->
+    <div class="modal fade" id="contacto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal1-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Contacto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Contacto ...
+                </div>
+                <div class="modal1-footer">
+                    <button type="button" class="btn" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- requisitos -->
+    <div class="modal fade" id="requisitos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal1-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Requisitos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Requisitos ...
+                </div>
+                <div class="modal1-footer">
+                    <button type="button" class="btn" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/confirmation.js"></script>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>*@
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @*SCRIPTS DE BOTONES*@
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    @*excel*@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+    @*pdf*@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    @*imprimir*@
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/seguridad/menu.js" asp-append-version="true"></script>
+    @{
+        if (User.Identity.IsAuthenticated)
+        {
+            if (@User.FindFirstValue(ClaimTypes.Role) == "1" || @User.FindFirstValue(ClaimTypes.Role) == "2")
+            {
+                <script src="~/js/seguridad/menuseguridad.js" asp-append-version="true"></script>
+            }
+        }
+    }
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,193 @@
+﻿@{
+    ViewData["Title"] = "Alistamiento de Repuestos Críticos (ARC)";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/ComfasAlistamientoRepuestoCritico/Individual" style="text-decoration:none;">Alistamiento de Repuestos Críticos (ARC)</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Unidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNaval" name="cbUnidadNaval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SistemaRespuestoCritico" class="col-3 col-form-label"><a href="~/SistemaRespuestoCritico">Sistema</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbSistemaRespuestoCritico" name="cbSistemaRespuestoCritico"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SubsistemaRepuestoCritico" class="col-3 col-form-label"><a href="~/SubsistemaRepuestoCritico">Sub-Sistema</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbSubsistemaRepuestoCritico" name="cbSubsistemaRepuestoCritico"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EquipoRepuestoCritico" class="col-3 col-form-label">Equipo</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtEquipoRepuestoCritico" name="txtEquipoRepuestoCritico" placeholder="Equipo" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Repuesto" class="col-3 col-form-label">Alistamiento Repuesto</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtRepuesto" name="txtRepuesto" placeholder="Alistamiento Repuesto" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="RepuestoExistente" class="col-3 col-form-label">N° de Repuestos Existentes</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtRepuestoExistente" name="txtRepuestoExistente" placeholder="N° de Repuestos Existentes" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="RepuestoNecesario" class="col-3 col-form-label">N° de Repuestos Necesarios</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtRepuestoNecesario" name="txtRepuestoNecesario" placeholder="N° de Repuestos Necesarios" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CoeficientePonderacion" class="col-3 col-form-label">Coeficiente de Ponderación</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCoeficientePonderacion" name="txtCoeficientePonderacion" placeholder="Coeficiente de Ponderación" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComfasAlistamientoRepuestoCritico">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Unidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNavale" name="cbUnidadNavale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaInforme" class="col-3 col-form-label">Fecha de Informe</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaInformee" name="txtFechaInformee" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GradoPersonalMilitar" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbGradoPersonalMilitare" name="cbGradoPersonalMilitare"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EspecialidadGenericaPersonal" class="col-3 col-form-label"><a href="~/EspecialidadGenericaPersonal">Especilidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEspecialidadGenericaPersonale" name="cbEspecialidadGenericaPersonale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CIPPersonal" class="col-3 col-form-label">CIP</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCIPPersonale" name="txtCIPPersonale" placeholder="CIP" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaIncidente" class="col-3 col-form-label">Fecha Incidente</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaIncidentee" name="txtFechaIncidentee" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Motivo" class="col-3 col-form-label">Motivo</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtMotivoe" name="txtMotivoe" data-placeholder="Seleccione ...">
+                            <option value="R">Robo</option>
+                            <option value="P">Pérdida</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MensajeNavalReferencia" class="col-3 col-form-label">Mensaje Naval de Referencia</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMensajeNavalReferenciae" name="txtMensajeNavalReferenciae" placeholder="Mensaje Naval de Referencia" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComfasAlistamientoRepuestoCritico">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaComfasAlistamientoRepuestoCritico()" />
+    <div class="dropdown">
+        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Modos de Carga :
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="~/ComfasAlistamientoRepuestoCritico">Masiva</a>
+            <a class="dropdown-item" href="~/ComfasAlistamientoRepuestoCritico/Individual">Individual</a>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblComfasAlistamientoRepuestoCritico" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Unidad</th>
+                <th>Sistema</th>
+                <th>Sub-Sistema</th>
+                <th>Equipo</th>
+                <th>Alistamiento Repuesto</th>
+                <th>N° de Repuestos Existentes</th>
+                <th>N° de Repuestos Necesarios</th>
+                <th>Coeficiente de Ponderación</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/comfas/comfas-alistamientorepuestocritico.js" asp-append-version="true"></script>
+}

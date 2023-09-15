@@ -1,0 +1,199 @@
+﻿@{
+    ViewData["Title"] = "Publicacion Interés Institucional";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/DirintemarPubliInteresInsti" style="text-decoration:none;">Publicacion Interés Institucional</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="TipoPublicacion" class="col-3 col-form-label"><a href="~/TipoPublicacion" style="text-decoration:none;">Tipo Publicación</a></label>
+                    <div class="col-md-9">                  
+                        <select class="form-select form-control-sm" id="cbTipoPublicacion" name="cbTipoPublicacion" required ></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DenominacionTemaP" class="col-3 col-form-label">Denominación TemaPublicación</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDenominacionTemaP" name="txtDenominacionTemaP" placeholder="Denominación TemaPublicación" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NPublicacion" class="col-3 col-form-label">Nro Publicación</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNPublicacion" name="txtNPublicacion" placeholder="N° Publicacion" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaPublicacion" class="col-3 col-form-label">Fecha Publicación</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaPublicacion" name="txtFechaPublicacion" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NumeroEjemplresP" class="col-3 col-form-label">Número Ejemplares Publicados</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNumeroEjemplresP" name="txtNumeroEjemplresP" placeholder="NumeroEjemplresP" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NSuscripctores" class="col-3 col-form-label">N° Suscriptores</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNSuscripctores" name="txtNSuscripctores" placeholder="N° Suscripctores" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PromotorPublic" class="col-3 col-form-label">Promotor Publicaciones</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPromotorPublic" name="txtPromotorPublic" placeholder="Promotor Publicaciones" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Responsable" class="col-3 col-form-label">Responsable</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtResponsable" name="txtResponsable" placeholder="Responsable" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Inversion" class="col-3 col-form-label">Inversión</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtInversion" name="txtInversion" placeholder="Inversión" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DirintemarPubliInteresInsti">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="TipoPublicacion" class="col-3 col-form-label"><a href="~/TipoPublicacion" style="text-decoration:none;">Tipo Publicación</a></label>
+                    <div class="col-md-9">                     
+                        <select class="form-select form-control-sm" id="cbTipoPublicacione" name="cbTipoPublicacioe" ></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DenominacionTemaP" class="col-3 col-form-label">Denominación TemaPublicación</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDenominacionTemaPe" name="txtDenominacionTemaPe" placeholder="Denominación TemaPublicación" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NPublicacion" class="col-3 col-form-label">Nro Publicación</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNPublicacione" name="txtNPublicacione" placeholder="N° Publicacion" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaPublicacion" class="col-3 col-form-label">Fecha Publicación</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaPublicacione" name="txtFechaPublicacione" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NumeroEjemplresP" class="col-3 col-form-label">Número Ejemplares Publicados</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNumeroEjemplresPe" name="txtNumeroEjemplresPe" placeholder="NumeroEjemplresP" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NSuscripctores" class="col-3 col-form-label">Númnero Suscriptores</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNSuscripctorese" name="txtNSuscripctorese" placeholder="N° Suscripctores" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PromotorPublic" class="col-3 col-form-label">Promotor Publicaciones</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPromotorPublice" name="txtPromotorPublice" placeholder="Promotor Publicaciones" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Responsable" class="col-3 col-form-label">Responsable</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtResponsablee" name="txtResponsablee" placeholder="Responsable" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Inversion" class="col-3 col-form-label">Inversión</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtInversione" name="txtInversione" placeholder="Inversión" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DirintemarPubliInteresInsti">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/DirintemarPubliInteresInsti" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDirintemarPubliInteresInsti()" />
+    <div class="dropdown">
+        <input type='text' readonly id='buscar_inicio' class="datepicker" placeholder='Fecha Inicio' class="form-control form-control-sm">
+        <input type='text' readonly id='buscar_fin' class="datepicker" placeholder='Fecha fin' class="form-control form-control-sm">
+        <input type='button' id="btn_search" value="Buscar" class="btn btn-primary btn-sm">
+        @*<input type='button' id="btnLimpiar" value="Limpiar" class="btn btn-danger btn-sm">*@
+    </div>
+    <table class="table table-striped" id="tblDirintemarPubliInteresInsti" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>TipoPublicacion</th>
+                <th>Denominación TemaPublicación</th>
+                <th>Nro Publicación</th>
+                <th>Fecha Publicación</th>
+                <th>Número Ejemplares Publicados</th>
+                <th>Númnero Suscriptores</th>
+                <th>Promotor Publicaciones</th>
+                <th>Responsable</th>
+                <th>Inversión</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+
+@section Scripts{
+    <script src="/js/dirintemar/dirintemar-publiinteresInst.js" asp-append-version="true"></script>
+}

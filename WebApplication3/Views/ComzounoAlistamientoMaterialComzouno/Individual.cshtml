@@ -1,0 +1,284 @@
+﻿@{
+    ViewData["Title"] = "Alistamiento de material";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>
+    <a href="~/ComzounoAlistamientoMaterialComzouno/Individual" style="text-decoration:none;">
+        Alistamiento de material
+    </a>
+</h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <select class="form-select form-control-sm" id="cargasR" name="cargasR"></select>
+                </div>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Unidad/Batallón</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNaval" name="cbUnidadNaval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="cbCapacidadOperativa" class="col-3 col-form-label"><a href="~/CapacidadOperativa">Capacidad Operativa</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbCapacidadOperativa" name="cbCapacidadOperativa"></select>
+                    </div>
+                </div>
+
+                <div class="form-group row col-md-6">
+                    <label for="cbAlistamientoMaterialRequerido3N" class="col-3 col-form-label"><a href="~/AlistamientoMaterialRequerido3N">Alistamiento Material Requerido 3N</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbAlistamientoMaterialRequerido3N" name="cbAlistamientoMaterialRequerido3N"></select>
+                    </div>
+                </div>
+@* 
+                <div class="form-group row col-md-6">
+                    <label for="txtCapacidadIntrinseca" class="col-3 col-form-label">Capacidad intrínseca (I nivel)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCapacidadIntrinseca" name="txtCapacidadIntrinseca" placeholder="Capacidad intrínseca (I nivel)" disabled>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtPonderado1N" class="col-3 col-form-label">Ponderación de capacidad intrínseca (I nivel)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPonderado1N" name="txtPonderado1N" placeholder="Ponderación de capacidad intrínseca (I nivel)" disabled>
+                    </div>
+                </div>
+
+                <div class="form-group row col-md-6">
+                    <label for="txtSubclasificacion2" class="col-3 col-form-label">Sub-clasificación (II nivel)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtSubclasificacion2" name="txtSubclasificacion2" placeholder="Sub-clasificación (II nivel)" disabled>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtPonderado2Nivel" class="col-3 col-form-label">Ponderación de capacidad intrínseca (II nivel)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPonderado2Nivel" name="txtPonderado2Nivel" placeholder="Ponderación de capacidad intrínseca (II nivel)" disabled>
+                    </div>
+                </div>
+
+                <div class="form-group row col-md-6">
+                    <label for="txtSubclasificacion3" class="col-3 col-form-label">Sub-clasificación (III nivel)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtSubclasificacion3" name="txtSubclasificacion3" placeholder="Sub-clasificación (III nivel)" disabled>
+                    </div>
+                </div> *@
+@*                 <div class="form-group row col-md-6">
+                    <label for="txtPonderado3Nivel" class="col-3 col-form-label">Ponderación de capacidad intrínseca (III nivel)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPonderado3Nivel" name="txtPonderado3Nivel" placeholder="Ponderación de capacidad intrínseca (III nivel)" disabled>
+                    </div>
+                </div> *@
+                <div class="form-group row col-md-6">
+                    <label for="Requerido" class="col-3 col-form-label">Requerido</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtRequerido" name="txtRequerido" placeholder="Requerido" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Operativo" class="col-3 col-form-label">Operativo</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtOperativo" name="txtOperativo" placeholder="Operativo" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PorcentajeOperativo" class="col-3 col-form-label">(%) de operatividad</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPorcentajeOperativo" name="txtPorcentajeOperativo" placeholder="(%) de operatividad" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PonderadoFuncional" class="col-3 col-form-label">Ponderado funcional</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPonderadoFuncional" name="txtPonderadoFuncional" placeholder="Ponderado funcional" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NivelAlistamiento" class="col-3 col-form-label">Nivel de alistamiento parcial</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNivelAlistamiento" name="txtNivelAlistamiento" placeholder="Nivel de alistamiento parcial" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComzounoAlistamientoMaterialComzouno">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+
+                <div class="form-group row col-md-6">
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Unidad/Batallón</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNavale" name="cbUnidadNavale"></select>
+                    </div>
+                </div>
+
+                <div class="form-group row col-md-6">
+                    <label for="cbCapacidadOperativa" class="col-3 col-form-label"><a href="~/CapacidadOperativa">Capacidad Operativa</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbCapacidadOperativae" name="cbCapacidadOperativae"></select>
+                    </div>
+                </div>
+
+                <div class="form-group row col-md-6">
+                    <label for="cbAlistamientoMaterialRequerido3N" class="col-3 col-form-label"><a href="~/AlistamientoMaterialRequerido3N">Alistamiento Material Requerido 3N</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbAlistamientoMaterialRequerido3Ne" name="cbAlistamientoMaterialRequerido3Ne"></select>
+                    </div>
+                </div>
+@* 
+                <div class="form-group row col-md-6">
+                    <label for="txtCapacidadIntrinseca" class="col-3 col-form-label">Capacidad intrínseca (I nivel)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCapacidadIntrinsecae" name="txtCapacidadIntrinsecae" placeholder="Capacidad intrínseca (I nivel)" disabled>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtPonderado1Ne" class="col-3 col-form-label">Ponderación de capacidad intrínseca (I nivel)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPonderado1Ne" name="txtPonderado1Ne" placeholder="Ponderación de capacidad intrínseca (I nivel)" disabled>
+                    </div>
+                </div>
+
+                <div class="form-group row col-md-6">
+                    <label for="txtSubclasificacion2" class="col-3 col-form-label">Sub-clasificación (II nivel)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtSubclasificacion2e" name="txtSubclasificacion2e" placeholder="Sub-clasificación (II nivel)" disabled>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtPonderado2Nivel" class="col-3 col-form-label">Ponderación de capacidad intrínseca (II nivel)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPonderado2Nivele" name="txtPonderado2Nivele" placeholder="Ponderación de capacidad intrínseca (II nivel)" disabled>
+                    </div>
+                </div>
+
+                <div class="form-group row col-md-6">
+                    <label for="txtSubclasificacion3" class="col-3 col-form-label">Sub-clasificación (III nivel)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtSubclasificacion3e" name="txtSubclasificacion3e" placeholder="Sub-clasificación (III nivel)" disabled>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtPonderado3Nivel" class="col-3 col-form-label">Ponderación de capacidad intrínseca (III nivel)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPonderado3Nivele" name="txtPonderado3Nivele" placeholder="Ponderación de capacidad intrínseca (III nivel)" disabled>
+                    </div>
+                </div> *@
+                <div class="form-group row col-md-6">
+                    <label for="Requerido" class="col-3 col-form-label">Requerido</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtRequeridoe" name="txtRequeridoe" placeholder="Requerido" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Operativo" class="col-3 col-form-label">Operativo</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtOperativoe" name="txtOperativoe" placeholder="Operativo" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PorcentajeOperativo" class="col-3 col-form-label">(%) de operatividad</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPorcentajeOperativoe" name="txtPorcentajeOperativoe" placeholder="(%) de operatividad" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PonderadoFuncional" class="col-3 col-form-label">Ponderado funcional</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPonderadoFuncionale" name="txtPonderadoFuncionale" placeholder="Ponderado funcional" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NivelAlistamiento" class="col-3 col-form-label">Nivel de alistamiento parcial</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNivelAlistamientoe" name="txtNivelAlistamientoe" placeholder="Nivel de alistamiento parcial" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComzounoAlistamientoMaterialComzouno/Individual">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/ComzounoAlistamientoMaterialComzouno" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaComzounoAlistamientoMaterialComzouno()" />
+    <div class="row align-items-start">
+        <div class="col">
+            <select class="form-select form-control-sm" id="cargas" name="cargas"></select>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" id="btn_search">Buscar</button>
+            <button class="btn btn-primary" id="btn_all">Mostrar Todos</button>
+            <button class="btn btn-danger" onclick="eliminarCarga()">Eliminar Carga</button>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblComzounoAlistamientoMaterialComzouno" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>CODIGO</th>
+                <th>UNIDAD NAVAL</th>
+                <th>CAPACIDAD OPERATIVA</th>
+                <th>ALISTAMIENTO MATERIAL REQUERIDO 3N</th>
+                <th>REQUERIDO</th>
+                <th>OPERATIVO</th>
+                <th>(%) OPERATIVIDAD</th>
+                <th>PONDERADO FUNCIONAL</th>
+                <th>NIVEL ALISTAMIENTO PARCIAL</th>
+                <th>CODIGO</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/comzouno/comzouno-alistamientomaterialcomzouno.js" asp-append-version="true"></script>
+}

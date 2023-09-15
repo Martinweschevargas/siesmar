@@ -1,0 +1,226 @@
+﻿@{
+    ViewData["Title"] = "PostulantesAsimiladosOficialesdeServicio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/DirespromPostulanteAsimiladoOficialServicio/Individual" style="text-decoration:none;">Postulantes como Asimilados como Oficiales de Servicio</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <select class="form-select form-control-sm" id="cargasR" name="cargasR"></select>
+                </div>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="DNI" class="col-3 col-form-label">DNI</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDNI" name="txtDNI" placeholder="DNI" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Género" class="col-3 col-form-label">Género</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtGenero" name="txtGenero" data-placeholder="Seleccione ...">
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaNacimiento" class="col-3 col-form-label">Fecha Nacimiento</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaNacimiento" name="txtFechaNacimiento" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="LugarNacimiento" class="col-3 col-form-label">Lugar Nacimiento</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtLugarNacimiento" name="txtLugarNacimiento" placeholder="Lugar Nacimiento" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="InstitucionEducativaS" class="col-3 col-form-label"><a href="~/InstitucionEducativaSuperior">Universidad de procedencia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbInstitucionEducativaS" name="cbInstitucionEducativaS"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CarreraUniversitariaEspe" class="col-3 col-form-label"><a href="~/CarreraUniversitariaEspecialidad">Carreras de Educación Superior</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbCarreraUniversitariaEspe" name="cbCarreraUniversitariaEspe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EspecialidadPostulacion" class="col-3 col-form-label"><a href="~/EspecialidadPostulacion">Especialidad a que Postula</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEspecialidadPostulacion" name="cbEspecialidadPostulacion"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ZonaNaval" class="col-3 col-form-label"><a href="~/ZonaNaval">Zona Naval</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbZonaNaval" name="cbZonaNaval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SituacionIngreso" class="col-3 col-form-label">Situación de Ingreso</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtSituacionIngreso" name="txtSituacionIngreso" data-placeholder="Seleccione ...">
+                            <option value="1">Ingresó</option>
+                            <option value="2">No Ingresó</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DirespromPostulanteAsimiladoOficialServicio">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="DNI" class="col-3 col-form-label">DNI</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDNIe" name="txtDNIe" placeholder="DNI" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Género" class="col-3 col-form-label">Género</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtGeneroe" name="txtGeneroe" data-placeholder="Seleccione ...">
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaNacimiento" class="col-3 col-form-label">Fecha Nacimiento</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaNacimientoe" name="txtFechaNacimientoe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="LugarNacimiento" class="col-3 col-form-label">Lugar Nacimiento</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtLugarNacimientoe" name="txtLugarNacimientoe" placeholder="Lugar Nacimiento" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="InstitucionEducativaS" class="col-3 col-form-label"><a href="~/InstitucionEducativaSuperior">Universidad de procedencia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbInstitucionEducativaSe" name="cbInstitucionEducativaSe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CarreraUniversitariaEspe" class="col-3 col-form-label"><a href="~/CarreraUniversitariaEspecialidad">Carreras de Educación Superior</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbCarreraUniversitariaEspee" name="cbCarreraUniversitariaEspee"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EspecialidadPostulacion" class="col-3 col-form-label"><a href="~/EspecialidadPostulacion">Especialidad a que Postula</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEspecialidadPostulacione" name="cbEspecialidadPostulacione"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ZonaNaval" class="col-3 col-form-label"><a href="~/ZonaNaval">Zona Naval</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbZonaNavale" name="cbZonaNavale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SituacionIngreso" class="col-3 col-form-label">Situación de Ingreso</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtSituacionIngresoe" name="txtSituacionIngresoe" data-placeholder="Seleccione ...">
+                            <option value="1">Ingresó</option>
+                            <option value="2">No Ingresó</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DirespromPostulanteAsimiladoOficialServicio">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/DirespromPostulanteAsimiladoOficialServicio" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDirespromPostulanteAsimiladoOficialServicio()" />
+    <div class="row align-items-start">
+        <div class="col">
+            <select class="form-select form-control-sm" id="cargas" name="cargas"></select>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" id="btn_search">Buscar</button>
+            <button class="btn btn-primary" id="btn_all">Mostrar Todos</button>
+            <button class="btn btn-danger" onclick="eliminarCarga()">Eliminar Carga</button>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblDirespromPostulanteAsimiladoOficialServicio" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>DNI</th>
+                <th>Género</th>
+                <th>Fecha Nacimiento</th>
+                <th>Lugar Nacimiento</th>
+                <th>Universidad de procedencia</th>
+                <th>Carreras de Educación Superior</th>
+                <th>Especialidad a que Postula</th>
+                <th>Zona Naval</th>
+                <th>Situación de Ingreso</th>
+                <th>Código Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/diresprom/diresprom-postulanteasimiladooficialservicio.js" asp-append-version="true"></script>
+}

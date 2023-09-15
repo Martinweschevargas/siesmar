@@ -1,0 +1,70 @@
+curillo_10@hotmail.com
+
+USE [MGP_SIESMAR]
+GO
+/****** Object:  StoredProcedure [Seguridad].[usp_UsuariosRegistrar]    Script Date: 6/26/2023 12:04:51 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+/* ===============================================
+-- Author: Jean Zarate
+-- Copyright 2023 Nexuss
+-- Version: 1.0.0
+-- Descripcion: Crear de Usuario
+-- Fecha		Analista		Descripcion
+---------------------------------------------------------------------------------------------
+-- 29/03/2023	Jean Zarate		Registro del procedimiento
+=============================================== */
+ALTER PROCEDURE [Seguridad].[usp_UsuariosRegistrar]
+@TipoDocumento INT,
+@Documento VARCHAR(20),
+@Nombre1 VARCHAR(100),
+@Nombre2 VARCHAR(100),
+@Nombre3 VARCHAR(100),
+@NombreCompleto VARCHAR(500),
+@ApellidoPaterno VARCHAR(100),
+@ApellidoMaterno VARCHAR(100),
+@Sexo CHAR(1),
+@Cip VARCHAR(20),
+@TipoPersona INT,
+@Grado INT,
+@Especialidad INT,
+@Calificacion INT,
+@FechaIngreso VARCHAR(20),
+@UbigeoOldDomicilio VARCHAR(20),
+@UbigeoDomicilio VARCHAR(20),
+@CorreoInterno VARCHAR(20),
+@CorreoExterno VARCHAR(20),
+@TelefonoCelular VARCHAR(20),
+@TelefonoFijo VARCHAR(20),
+@Dependencia VARCHAR(20),
+@GradoInstruccion VARCHAR(20),
+@Foto NCHAR(10),
+@Usuario NVARCHAR(100),
+@IP VARCHAR(50),
+@MAC VARCHAR(50)
+
+AS
+BEGIN TRY
+	SET NOCOUNT ON;
+
+	INSERT INTO Usuarios
+			(EmailUsuario,			ContrasenaUsuario,			DniUsuario,			
+			DependenciaId,			Nombre,						ApellidoPaterno,
+			CIP,					ApellidoMaterno,			GradoId,
+			EspecialidadId,			Foto,						UsuarioIngresoRegistro,	
+			FechaIngresoRegistro,	NroIpRegistro,				NroMacRegistro,	
+			UsuarioBaseDatos,		CodigoIngreso)
+	VALUES	(@Foto,						@Usuario,		
+			 GETDATE(),				@IP,						@MAC,
+			 SYSTEM_USER,			0)
+			
+	SELECT 1 IND_OPERACION
+END TRY
+BEGIN CATCH
+	DECLARE @ERROR_MESSAGE VARCHAR(250);
+	SELECT @ERROR_MESSAGE = ERROR_MESSAGE();
+
+	RAISERROR (@ERROR_MESSAGE, 16 , 1);
+END CATCH

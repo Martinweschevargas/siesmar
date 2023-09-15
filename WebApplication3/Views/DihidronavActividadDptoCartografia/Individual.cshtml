@@ -1,0 +1,262 @@
+﻿@{
+    ViewData["Title"] = "Actividad Departamento Cartografia";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/DihidronavActividadDptoCartografia/Individual" style="text-decoration:none;">Actividades del Departamento de Cartografía</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="form-group row col-md-6">
+                <label for="carga" class="col-3 col-form-label">Carga</label>
+                <div class="form-group row col-md-6">
+                    <div class="col"><select class="form-select-sm form-control-sm" id="cargasR" name="cargasR"></select></div>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="Orden" class="col-3 col-form-label">N° Orden</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtOrden" name="txtOrden" placeholder="N° Orden" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Requerimiento" class="col-3 col-form-label">Requerimiento</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtRequerimiento" name="txtRequerimiento" data-placeholder="Seleccione ...">
+                            <option value="Plan cartográfico de cartas náuticas">Plan cartográfico de cartas náuticas</option>
+                            <option value="Plan de cartas clasificadas coma">Plan de cartas clasificadas coma</option>
+                            <option value="Comandancias navales">Comandancias navales</option>
+                            <option value="Convenios">Convenios</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Carta" class="col-3 col-form-label"><a href="~/TipoCarta">Tipo de Cartas</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbCarta" name="cbCarta"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Proceso" class="col-3 col-form-label">Proceso</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtProceso" name="txtProceso" data-placeholder="Seleccione ...">
+                            <option value="Compilación">Compilación</option>
+                            <option value="Diseño">Diseño</option>
+                            <option value="Terminado">Terminado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Clasificacion" class="col-3 col-form-label">Clasificacion</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtClasificacion" name="txtClasificacion" data-placeholder="Seleccione ...">
+                            <option value="General">General</option>
+                            <option value="Portulano">Portulano</option>
+                            <option value="Recalada">Recalada</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Nombre" class="col-3 col-form-label">Codigo Nombre</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNombre" name="txtNombre" placeholder="Codigo Nombre" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Edicion" class="col-3 col-form-label">Edicion</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtEdicion" name="txtEdicion" placeholder="Edicion" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Escala" class="col-3 col-form-label">Escala</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtEscala" name="txtEscala" placeholder="Escala" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Situacion" class="col-3 col-form-label">Situacion</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtSituacion" name="txtSituacion" placeholder="Situacion" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaAutori" class="col-3 col-form-label">Fecha de Autorizacion de la Produccion</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaAutori" name="txtFechaAutori" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaTer" class="col-3 col-form-label">Fecha de Termino</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaTer" name="txtFechaTer" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DihidronavActividadDptoCartografia">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="Orden" class="col-3 col-form-label">N° Orden</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtOrdene" name="txtOrdene" placeholder="N° Orden" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Requerimiento" class="col-3 col-form-label">Requerimiento</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtRequerimientoe" name="txtRequerimientoe" data-placeholder="Seleccione ...">
+                            <option value="Plan cartográfico de cartas náuticas">Plan cartográfico de cartas náuticas</option>
+                            <option value="Plan de cartas clasificadas coma">Plan de cartas clasificadas coma</option>
+                            <option value="Comandancias navales">Comandancias navales</option>
+                            <option value="Convenios">Convenios</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Carta" class="col-3 col-form-label"><a href="~/TipoCarta">Tipo de Cartas</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbCartae" name="cbCartae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Proceso" class="col-3 col-form-label">Proceso</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtProcesoe" name="txtProcesoe" data-placeholder="Seleccione ...">
+                            <option value="Compilación">Compilación</option>
+                            <option value="Diseño">Diseño</option>
+                            <option value="Terminado">Terminado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Clasificacion" class="col-3 col-form-label">Clasificacion</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtClasificacione" name="txtClasificacione" data-placeholder="Seleccione ...">
+                            <option value="General">General</option>
+                            <option value="Portulano">Portulano</option>
+                            <option value="Recalada">Recalada</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Nombre" class="col-3 col-form-label">Codigo Nombre</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNombree" name="txtNombree" placeholder="Codigo Nombre" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Edicion" class="col-3 col-form-label">Edicion</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtEdicione" name="txtEdicione" placeholder="Edicion" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Escala" class="col-3 col-form-label">Escala</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtEscalae" name="txtEscalae" placeholder="Escala" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Situacion" class="col-3 col-form-label">Situacion</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtSituacione" name="txtSituacione" placeholder="Situacion" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaAutori" class="col-3 col-form-label">Fecha de Autorizacion de la Produccion</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaAutorie" name="txtFechaAutorie" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaTer" class="col-3 col-form-label">Fecha de Termino</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaTere" name="txtFechaTere" required>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6 text-center">
+                        <button type="submit" class="btn btn-primary">Grabar</button>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <a class="btn btn-danger" href="~/DihidronavActividadDptoCartografia">Cancelar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/DihidronavActividadDptoCartografia" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDihidronavActividadDptoCartografia()" />
+    <div class="row align-items-start">
+        <div class="col"><select class="form-select form-control-sm" id="cargas" name="cargas"></select></div>
+        <div class="col">
+            <input type='button' id="btn_search" value="Buscar" class="btn btn-primary">
+            <input type='button' id="btn_all" value="Mostrar Todos" class="btn btn-primary">
+        </div>
+
+    </div>
+    <table class="table table-striped" id="tblDihidronavActividadDptoCartografia" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>N° Orden</th>
+                <th>Requerimiento</th>
+                <th>Tipo de Cartas</th>
+                <th>Proceso</th>
+                <th>Clasificacion</th>
+                <th>Codigo Nombre</th>
+                <th>Edicion</th>
+                <th>Escala</th>
+                <th>Situacion</th>
+                <th>Fecha de Autorizacion de la Produccion</th>
+                <th>Fecha de Termino</th>
+                <th>Código Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/dihidronav/dihidronav-actividaddptocartografia.js" asp-append-version="true"></script>
+}

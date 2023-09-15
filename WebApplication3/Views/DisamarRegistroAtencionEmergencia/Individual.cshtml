@@ -1,0 +1,879 @@
+﻿@{
+    ViewData["Title"] = "Registro de atención en emergencia";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>
+    <a href="~/DisamarRegistroAtencionEmergencia/Individual" style="text-decoration:none;">
+        Registro de atención en emergencia
+    </a>
+</h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="form-group row col-md-6">
+                <label for="carga" class="col-3 col-form-label">Carga</label>
+                <div class="form-group row col-md-6">
+                    <div class="col"><select class="form-select-sm form-control-sm" id="cargasR" name="cargasR"></select></div>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+
+                <div class="form-group row col-md-6">
+                    <label for="EntidadMilitar" class="col-3 col-form-label"><a href="~/EntidadMilitar">II AA</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEntidadMilitar" name="cbEntidadMilitar"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ZonaNaval" class="col-3 col-form-label"><a href="~/ZonaNaval">Zona</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbZonaNaval" name="cbZonaNaval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EstablecimientoSaludMGPId" class="col-3 col-form-label"><a href="~/EstablecimientoSaludMGPId">Establecimiento de salud</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEstablecimientoSaludMGPId" name="cbEstablecimientoSaludMGPId"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaAtencion" class="col-3 col-form-label">Fecha de atención</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaAtencion" name="txtFechaAtencion" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="HoraAtencion" class="col-3 col-form-label">Hora de atención</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtHoraAtencion" name="txtHoraAtencion" placeholder="Hora de atención" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DepartamentoUbigeo" class="col-3 col-form-label"><a href="~/DepartamentoUbigeo">Dpto</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDepartamentoUbigeo" name="cbDepartamentoUbigeo"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ProvinciaUbigeo" class="col-3 col-form-label"><a href="~/ProvinciaUbigeo">Prov</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbProvinciaUbigeo" name="cbProvinciaUbigeo"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DistritoUbigeo" class="col-3 col-form-label"><a href="~/DistritoUbigeo">Dist</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDistritoUbigeo" name="cbDistritoUbigeo"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EspecialidadMedicaNoMedica" class="col-3 col-form-label"><a href="~/EspecialidadMedicaNoMedica">Esperecialidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEspecialidadMedicaNoMedica" name="cbEspecialidadMedicaNoMedica"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ResponsableRegistro" class="col-3 col-form-label">Profesional responsable de la atención</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtResponsableRegistro" name="txtResponsableRegistro" placeholder="Profesional responsable de la atención" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NSACIP" class="col-3 col-form-label">NSA/CIP</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtNSACIP" name="txtNSACIP" placeholder="NSA/CIP" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CMP" class="col-3 col-form-label">N° de col. prof</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCMP" name="txtCMP" placeholder="N° de col. prof" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Turno" class="col-3 col-form-label">Turno</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtTurno" name="txtTurno">
+                            <option value="M">MAÑANA</option>
+                            <option value="T">TARDE</option>
+                            <option value="N">NOCHE</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="HoraInicio" class="col-3 col-form-label">Hora de inicio</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtHoraInicio" name="txtHoraInicio" placeholder="Hora de inicio" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="HoraFin" class="col-3 col-form-label">Hora de termino</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtHoraFin" name="txtHoraFin" placeholder="Hora de termino" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="HistoriaClinica" class="col-3 col-form-label">Historia clinica</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtHistoriaClinica" name="txtHistoriaClinica" placeholder="Historia clinica" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DNIPaciente" class="col-3 col-form-label">Dni</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDNIPaciente" name="txtDNIPaciente" placeholder="Dni" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="UnidadDependencia" class="col-3 col-form-label"><a href="~/UnidadDependencia">Unidad de procedencia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadDependencia" name="cbUnidadDependencia"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DistritoPaciente" class="col-3 col-form-label">Distrito</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtDistritoPaciente" name="txtDistritoPaciente"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoPersonalMilitar" class="col-3 col-form-label"><a href="~/TipoPersonalMilitar">Grupo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoPersonalMilitar" name="cbTipoPersonalMilitar"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GradoPersonalMilitar" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado o parentesco</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbGradoPersonalMilitar" name="cbGradoPersonalMilitar"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SituacionPaciente" class="col-3 col-form-label">Situación</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtSituacionPaciente" name="txtSituacionPaciente">
+                            <option value="A">ACTIVIDAD</option>
+                            <option value="R">RETIRO</option>
+                            <option value="N">NINGUNO</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CondicionPaciente" class="col-3 col-form-label">Condición</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtCondicionPaciente" name="txtCondicionPaciente">
+                            <option value="E">EXCOMBATIENTE</option>
+                            <option value="D">DISCAPACITADO</option>
+                            <option value="O">OTRO</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EdadPaciente" class="col-3 col-form-label">Edad</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtEdadPaciente" name="txtEdadPaciente" placeholder="Edad" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoEdad" class="col-3 col-form-label">Tipo edad</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtTipoEdad" name="txtTipoEdad">
+                            <option value="M">MASCULINO</option>
+                            <option value="F">FEMENINO</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SexoPaciente" class="col-3 col-form-label">Sexo</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtSexoPaciente" name="txtSexoPaciente" placeholder="Sexo" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DiagnosticoMotivoAtencion1" class="col-3 col-form-label">Diagnóstico o motivo de atención1</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDiagnosticoMotivoAtencion1" name="txtDiagnosticoMotivoAtencion1" placeholder="Diagnóstico o motivo de atención1" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoDX1" class="col-3 col-form-label">Tipo de dx1</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtTipoDX1" name="txtTipoDX1">
+                            <option value="P">PRESUNTIVO</option>
+                            <option value="D">DEFINITIVO</option>
+                            <option value="R">REPETIDO</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CIE10_1" class="col-3 col-form-label">CIE101</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCIE10_1" name="txtCIE10_1" placeholder="CIE101" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DiagnosticoMotivoAtencion2" class="col-3 col-form-label">Diagnóstico o motivo de atención2</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDiagnosticoMotivoAtencion2" name="txtDiagnosticoMotivoAtencion2" placeholder="Diagnóstico o motivo de atención2" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoDX2" class="col-3 col-form-label">Tipo de dx2</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtTipoDX2" name="txtTipoDX2">
+                            <option value="P">PRESUNTIVO</option>
+                            <option value="D">DEFINITIVO</option>
+                            <option value="R">REPETIDO</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CIE10_2" class="col-3 col-form-label">CIE102</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCIE10_2" name="txtCIE10_2" placeholder="CIE102" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DiagnosticoMotivoAtencion3" class="col-3 col-form-label">Diagnóstico o motivo de atención3</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDiagnosticoMotivoAtencion3" name="txtDiagnosticoMotivoAtencion3" placeholder="Diagnóstico o motivo de atención3" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoDX3" class="col-3 col-form-label">Tipo de dx3</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtTipoDX3" name="txtTipoDX3">
+                            <option value="P">PRESUNTIVO</option>
+                            <option value="D">DEFINITIVO</option>
+                            <option value="R">REPETIDO</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row col-md-6">
+                    <label for="CIE10_3" class="col-3 col-form-label">CIE103</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCIE10_3" name="txtCIE10_3" placeholder="CIE103" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DiagnosticoMotivoAtencion4" class="col-3 col-form-label">Diagnóstico o motivo de atención4</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDiagnosticoMotivoAtencion4" name="txtDiagnosticoMotivoAtencion4" placeholder="Diagnóstico o motivo de atención4" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoDX4" class="col-3 col-form-label">Tipo de dx4</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtTipoDX4" name="txtTipoDX4">
+                            <option value="P">PRESUNTIVO</option>
+                            <option value="D">DEFINITIVO</option>
+                            <option value="R">REPETIDO</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row col-md-6">
+                    <label for="CIE10_4" class="col-3 col-form-label">CIE104</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCIE10_4" name="txtCIE10_4" placeholder="CIE104" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DiagnosticoMotivoAtencion5" class="col-3 col-form-label">Diagnóstico o motivo de atención5</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDiagnosticoMotivoAtencion5" name="txtDiagnosticoMotivoAtencion5" placeholder="Diagnóstico o motivo de atención5" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoDX5" class="col-3 col-form-label">Tipo de dx5</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtTipoDX5" name="txtTipoDX5">
+                            <option value="P">PRESUNTIVO</option>
+                            <option value="D">DEFINITIVO</option>
+                            <option value="R">REPETIDO</option>
+                        </select>
+                    </div>
+                </div>
+  
+                <div class="form-group row col-md-6">
+                    <label for="CIE10_5" class="col-3 col-form-label">CIE105</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCIE10_5" name="txtCIE10_5" placeholder="CIE105" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DiagnosticoMotivoAtencion6" class="col-3 col-form-label">Diagnóstico o motivo de atención6</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDiagnosticoMotivoAtencion6" name="txtDiagnosticoMotivoAtencion6" placeholder="Diagnóstico o motivo de atención6" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoDX6" class="col-3 col-form-label">Tipo de dx6</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtTipoDX6" name="txtTipoDX6">
+                            <option value="P">PRESUNTIVO</option>
+                            <option value="D">DEFINITIVO</option>
+                            <option value="R">REPETIDO</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CIE10_6" class="col-3 col-form-label">CIE106</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCIE10_6" name="txtCIE10_6" placeholder="CIE106" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoEmergencia" class="col-3 col-form-label">Tipo de emergencia</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtTipoEmergencia" name="txtTipoEmergencia" placeholder="Tipo de emergencia" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Interconsulta" class="col-3 col-form-label">Interconsulta</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtInterconsulta" name="txtInterconsulta">
+                            <option value="S">SI</option>
+                            <option value="N">NO</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EspecialidadMedicaInterconsulta" class="col-3 col-form-label">Especialidad de interconsulta</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtEspecialidadMedicaInterconsulta" name="txtEspecialidadMedicaInterconsulta" placeholder="Especialidad de interconsulta" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MotivoEmergencia" class="col-3 col-form-label"><a href="~/MotivoEmergencia">motivo de la emergencia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbMotivoEmergencia" name="cbMotivoEmergencia"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Acompaniante" class="col-3 col-form-label">acompañante</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtAcompaniante" name="txtAcompaniante">
+                            <option value="F">Familiar</option>
+                            <option value="A">Amistad</option>
+                            <option value="S">Solo</option>
+                            <option value="P">Policía</option>
+                            <option value="O">Otro</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DNIAcompaniante" class="col-3 col-form-label">Dni</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDNIAcompaniante" name="txtDNIAcompaniante" placeholder="Dni" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CondicionAlta" class="col-3 col-form-label"><a href="~/CondicionAlta">Condición de alta</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbCondicionAlta" name="cbCondicionAlta"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DestinoPaciente" class="col-3 col-form-label"><a href="~/DestinoPaciente">Destino posterior</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDestinoPaciente" name="cbDestinoPaciente"></select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DisamarRegistroAtencionEmergencia">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+
+                <div class="form-group row col-md-6">
+                    <label for="EntidadMilitar" class="col-3 col-form-label"><a href="~/EntidadMilitar">II AA</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEntidadMilitare" name="cbEntidadMilitare"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ZonaNaval" class="col-3 col-form-label"><a href="~/ZonaNaval">Zona</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbZonaNavale" name="cbZonaNavale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EstablecimientoSaludMGPId" class="col-3 col-form-label"><a href="~/EstablecimientoSaludMGPId">Establecimiento de salud</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEstablecimientoSaludMGPIde" name="cbEstablecimientoSaludMGPIde"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaAtencion" class="col-3 col-form-label">Fecha de atención</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaAtencione" name="txtFechaAtencione" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="HoraAtencion" class="col-3 col-form-label">Hora de atención</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtHoraAtencione" name="txtHoraAtencione" placeholder="Hora de atención" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DepartamentoUbigeo" class="col-3 col-form-label"><a href="~/DepartamentoUbigeo">Dpto</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDepartamentoUbigeoe" name="cbDepartamentoUbigeoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ProvinciaUbigeo" class="col-3 col-form-label"><a href="~/ProvinciaUbigeo">Prov</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbProvinciaUbigeoe" name="cbProvinciaUbigeoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DistritoUbigeo" class="col-3 col-form-label"><a href="~/DistritoUbigeo">Dist</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDistritoUbigeoe" name="cbDistritoUbigeoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EspecialidadMedicaNoMedica" class="col-3 col-form-label"><a href="~/EspecialidadMedicaNoMedica">Esperecialidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEspecialidadMedicaNoMedicae" name="cbEspecialidadMedicaNoMedicae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ResponsableRegistro" class="col-3 col-form-label">Profesional responsable de la atención</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtResponsableRegistroe" name="txtResponsableRegistroe" placeholder="Profesional responsable de la atención" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NSACIP" class="col-3 col-form-label">NSA/CIP</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtNSACIPe" name="txtNSACIPe" placeholder="NSA/CIP" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CMP" class="col-3 col-form-label">N° de col. prof</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCMPe" name="txtCMPe" placeholder="N° de col. prof" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Turno" class="col-3 col-form-label">Turno</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtTurnoe" name="txtTurnoe">
+                            <option value="M">MAÑANA</option>
+                            <option value="T">TARDE</option>
+                            <option value="N">NOCHE</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="HoraInicio" class="col-3 col-form-label">Hora de inicio</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtHoraInicioe" name="txtHoraInicioe" placeholder="Hora de inicio" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="HoraFin" class="col-3 col-form-label">Hora de termino</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtHoraFine" name="txtHoraFine" placeholder="Hora de termino" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="HistoriaClinica" class="col-3 col-form-label">Historia clinica</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtHistoriaClinicae" name="txtHistoriaClinicae" placeholder="Historia clinica" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DNIPaciente" class="col-3 col-form-label">Dni</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDNIPacientee" name="txtDNIPacientee" placeholder="Dni" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="UnidadDependencia" class="col-3 col-form-label"><a href="~/UnidadDependencia">Unidad de procedencia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadDependenciae" name="cbUnidadDependenciae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DistritoPaciente" class="col-3 col-form-label">Distrito</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtDistritoPacientee" name="txtDistritoPacientee"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoPersonalMilitar" class="col-3 col-form-label"><a href="~/TipoPersonalMilitar">Grupo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoPersonalMilitare" name="cbTipoPersonalMilitare"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GradoPersonalMilitar" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado o parentesco</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbGradoPersonalMilitare" name="cbGradoPersonalMilitare"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SituacionPaciente" class="col-3 col-form-label">Situación</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtSituacionPacientee" name="txtSituacionPacientee">
+                            <option value="A">ACTIVIDAD</option>
+                            <option value="R">RETIRO</option>
+                            <option value="N">NINGUNO</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CondicionPaciente" class="col-3 col-form-label">Condición</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtCondicionPacientee" name="txtCondicionPacientee">
+                            <option value="E">EXCOMBATIENTE</option>
+                            <option value="D">DISCAPACITADO</option>
+                            <option value="O">OTRO</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EdadPaciente" class="col-3 col-form-label">Edad</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtEdadPacientee" name="txtEdadPacientee" placeholder="Edad" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoEdad" class="col-3 col-form-label">Tipo edad</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtTipoEdade" name="txtTipoEdade">
+                            <option value="M">MASCULINO</option>
+                            <option value="F">FEMENINO</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SexoPaciente" class="col-3 col-form-label">Sexo</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtSexoPacientee" name="txtSexoPacientee" placeholder="Sexo" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DiagnosticoMotivoAtencion1" class="col-3 col-form-label">Diagnóstico o motivo de atención1</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDiagnosticoMotivoAtencion1e" name="txtDiagnosticoMotivoAtencion1e" placeholder="Diagnóstico o motivo de atención1" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoDX1" class="col-3 col-form-label">Tipo de dx1</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtTipoDX1e" name="txtTipoDX1e">
+                            <option value="P">PRESUNTIVO</option>
+                            <option value="D">DEFINITIVO</option>
+                            <option value="R">REPETIDO</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row col-md-6">
+                    <label for="CIE10_1" class="col-3 col-form-label">CIE101</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCIE10_1e" name="txtCIE10_1e" placeholder="CIE101" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DiagnosticoMotivoAtencion2" class="col-3 col-form-label">Diagnóstico o motivo de atención2</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDiagnosticoMotivoAtencion2e" name="txtDiagnosticoMotivoAtencion2e" placeholder="Diagnóstico o motivo de atención2" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoDX2" class="col-3 col-form-label">Tipo de dx2</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtTipoDX2e" name="txtTipoDX2e">
+                            <option value="P">PRESUNTIVO</option>
+                            <option value="D">DEFINITIVO</option>
+                            <option value="R">REPETIDO</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row col-md-6">
+                    <label for="CIE10_2" class="col-3 col-form-label">CIE102</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCIE10_2e" name="txtCIE10_2e" placeholder="CIE102" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DiagnosticoMotivoAtencion3" class="col-3 col-form-label">Diagnóstico o motivo de atención3</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDiagnosticoMotivoAtencion3e" name="txtDiagnosticoMotivoAtencion3e" placeholder="Diagnóstico o motivo de atención3" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoDX3" class="col-3 col-form-label">Tipo de dx3</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtTipoDX3e" name="txtTipoDX3e">
+                            <option value="P">PRESUNTIVO</option>
+                            <option value="D">DEFINITIVO</option>
+                            <option value="R">REPETIDO</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row col-md-6">
+                    <label for="CIE10_3" class="col-3 col-form-label">CIE103</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCIE10_3e" name="txtCIE10_3e" placeholder="CIE103" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DiagnosticoMotivoAtencion4" class="col-3 col-form-label">Diagnóstico o motivo de atención4</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDiagnosticoMotivoAtencion4e" name="txtDiagnosticoMotivoAtencion4e" placeholder="Diagnóstico o motivo de atención4" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoDX4" class="col-3 col-form-label">Tipo de dx4</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtTipoDX4e" name="txtTipoDX4e">
+                            <option value="P">PRESUNTIVO</option>
+                            <option value="D">DEFINITIVO</option>
+                            <option value="R">REPETIDO</option>
+                        </select>
+                    </div>
+                </div>
+    
+                <div class="form-group row col-md-6">
+                    <label for="CIE10_4" class="col-3 col-form-label">CIE104</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCIE10_4e" name="txtCIE10_4e" placeholder="CIE104" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DiagnosticoMotivoAtencion5" class="col-3 col-form-label">Diagnóstico o motivo de atención5</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDiagnosticoMotivoAtencion5e" name="txtDiagnosticoMotivoAtencion5e" placeholder="Diagnóstico o motivo de atención5" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoDX5" class="col-3 col-form-label">Tipo de dx5</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtTipoDX5e" name="txtTipoDX5e">
+                            <option value="P">PRESUNTIVO</option>
+                            <option value="D">DEFINITIVO</option>
+                            <option value="R">REPETIDO</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row col-md-6">
+                    <label for="CIE10_5" class="col-3 col-form-label">CIE105</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCIE10_5e" name="txtCIE10_5e" placeholder="CIE105" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DiagnosticoMotivoAtencion6" class="col-3 col-form-label">Diagnóstico o motivo de atención6</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDiagnosticoMotivoAtencion6e" name="txtDiagnosticoMotivoAtencion6e" placeholder="Diagnóstico o motivo de atención6" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoDX6" class="col-3 col-form-label">Tipo de dx6</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtTipoDX6e" name="txtTipoDX6e">
+                            <option value="P">PRESUNTIVO</option>
+                            <option value="D">DEFINITIVO</option>
+                            <option value="R">REPETIDO</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CIE10_6" class="col-3 col-form-label">CIE106</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCIE10_6e" name="txtCIE10_6e" placeholder="CIE106" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoEmergencia" class="col-3 col-form-label">Tipo de emergencia</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtTipoEmergenciae" name="txtTipoEmergenciae" placeholder="Tipo de emergencia" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Interconsulta" class="col-3 col-form-label">Interconsulta</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtInterconsultae" name="txtInterconsultae">
+                            <option value="S">SI</option>
+                            <option value="N">NO</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EspecialidadMedicaInterconsulta" class="col-3 col-form-label">Especialidad de interconsulta</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtEspecialidadMedicaInterconsultae" name="txtEspecialidadMedicaInterconsultae" placeholder="Especialidad de interconsulta" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MotivoEmergencia" class="col-3 col-form-label"><a href="~/MotivoEmergencia">motivo de la emergencia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbMotivoEmergenciae" name="cbMotivoEmergenciae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Acompaniante" class="col-3 col-form-label">acompañante</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtAcompaniantee" name="txtAcompaniantee">
+                            <option value="F">Familiar</option>
+                            <option value="A">Amistad</option>
+                            <option value="S">Solo</option>
+                            <option value="P">Policía</option>
+                            <option value="O">Otro</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DNIAcompaniante" class="col-3 col-form-label">Dni</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDNIAcompaniantee" name="txtDNIAcompaniantee" placeholder="Dni" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CondicionAlta" class="col-3 col-form-label"><a href="~/CondicionAlta">Condición de alta</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbCondicionAltae" name="cbCondicionAltae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DestinoPaciente" class="col-3 col-form-label"><a href="~/DestinoPaciente">Destino posterior</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDestinoPacientee" name="cbDestinoPacientee"></select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DisamarRegistroAtencionEmergencia/Individual">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/DisamarRegistroAtencionEmergencia" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDisamarRegistroAtencionEmergencia()" />
+    <div class="row align-items-start">
+        <div class="col"><select class="form-select form-control-sm" id="cargas" name="cargas"></select></div>
+        <div class="col">
+            <input type='button' id="btn_search" value="Buscar" class="btn btn-primary">
+            <input type='button' id="btn_all" value="Mostrar Todos" class="btn btn-primary">
+        </div>
+
+    </div>
+    <table class="table table-striped" id="tblDisamarRegistroAtencionEmergencia" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>II AA</th>
+                <th>Zona</th>
+                <th>Establecimiento de salud</th>
+                <th>Fecha de atención</th>
+                <th>Hora de atención</th>
+                <th>Dpto</th>
+                <th>Prov</th>
+                <th>Dist</th>
+                <th>Esperecialidad</th>
+                <th>Profesional responsable de la atención</th>
+                <th>NSA/CIP</th>
+                <th>N° de col. prof</th>
+                <th>Turno</th>
+                <th>Hora de inicio</th>
+                <th>Hora de termino</th>
+                <th>Historia clinica</th>
+                <th>Dni</th>
+                <th>Unidad de procedencia</th>
+                <th>Distrito</th>
+                <th>Grupo</th>
+                <th>Grado o parentesco</th>
+                <th>Situación</th>
+                <th>Condición</th>
+                <th>Edad</th>
+                <th>Tipo edad</th>
+                <th>Sexo</th>
+                <th>Diagnóstico o motivo de atención1</th>
+                <th>Tipo de dx1</th>
+                <th>CIE101</th>
+                <th>Diagnóstico o motivo de atención2</th>
+                <th>Tipo de dx2</th>
+                <th>CIE102</th>
+                <th>Diagnóstico o motivo de atención3</th>
+                <th>Tipo de dx3</th>
+                <th>CIE103</th>
+                <th>Diagnóstico o motivo de atención4</th>
+                <th>Tipo de dx4</th>
+                <th>CIE104</th>
+                <th>Diagnóstico o motivo de atención5</th>
+                <th>Tipo de dx5</th>
+                <th>CIE105</th>
+                <th>Diagnóstico o motivo de atención6</th>
+                <th>Tipo de dx6</th>
+                <th>CIE106</th>
+                <th>Tipo de emergencia</th>
+                <th>Interconsulta</th>
+                <th>Especialidad de interconsulta</th>
+                <th>motivo de la emergencia</th>
+                <th>acompañante</th>
+                <th>Dni</th>
+                <th>Condición de alta</th>
+                <th>Destino posterior</th>
+                <th>Codigo Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/disamar/disamar-registroatencionemergencia.js" asp-append-version="true"></script>
+}

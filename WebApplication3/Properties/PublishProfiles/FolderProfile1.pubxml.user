@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\inetpub\Siesmar</_PublishTargetUrl>
+    <History>False|2023-06-22T06:05:04.5107854Z;False|2023-06-22T01:03:49.3775712-05:00;False|2023-06-22T01:02:32.7846556-05:00;False|2023-06-22T01:01:57.2357555-05:00;False|2023-06-22T00:59:06.4696372-05:00;False|2023-06-22T00:58:34.4315495-05:00;True|2023-06-13T09:13:55.8805245-05:00;False|2023-06-13T09:08:36.4469423-05:00;False|2023-06-13T08:57:55.3290359-05:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

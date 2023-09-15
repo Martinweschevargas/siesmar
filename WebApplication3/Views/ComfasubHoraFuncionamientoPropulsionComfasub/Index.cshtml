@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Formato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1><a href="~/ComfasubHoraFuncionamientoPropulsionComfasub" style="text-decoration:none;">Horas Funcionamiento Motor de Propulsion</a></h1>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header">
+                    <a href="~/ComfasubHoraFuncionamientoPropulsionComfasub/Individual" class="btn btn-primary">Ir Carga Individual</a>
+                    <a href="~/ComfasubHoraFuncionamientoPropulsionComfasub/DownloadFile" class="btn btn-primary">Descargar Formato</a>
+                    <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ventanaModal">Reportes</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <input class="form-control form-control-sm" type="file" id="inputExcel" />
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-sm-6 text-center">
+                            <button class="btn btn-warning" onclick="mostrarDatos()">Previsualizar Datos</button>
+                        </div>
+                        <div class="col-sm-6 text-center">
+                            <button class="btn btn-success" onclick="enviarDatos()">Grabar Formato</button>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table class="table table-striped" id="tbData" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+                            <thead>
+                                <tr class="colorbg">
+                                    <th>Unidad</th>
+                                    <th>Equipo</th>
+                                    <th>Horas Fijadas Para Recorrido Total</th>
+                                    <th>Horas Fijadas Para Recorrido Parcial</th>
+                                    <th>Fecha de Ultimo Recorrido</th>
+                                    <th>Horas Desde Ultimo Recorrido</th>
+                                    <th>Horas Totales desde su Instalacion</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Scripts{
+    <script src="/js/comfasub/comfasub-horafuncionamientopropulsioncomfasub.js" asp-append-version="true"></script>
+}

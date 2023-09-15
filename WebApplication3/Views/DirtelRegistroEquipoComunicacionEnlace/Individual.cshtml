@@ -1,0 +1,251 @@
+﻿@{
+    ViewData["Title"] = "Registo Equipo Comunicacion Enlace";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/DirtelRegistroEquipoComunicacionEnlace/Individual" style="text-decoration:none;">Equipos de Comunicacion de Enlaces</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="form-group row col-md-6">
+                <label for="carga" class="col-3 col-form-label">Carga</label>
+                <div class="form-group row col-md-6">
+                    <div class="col"><select class="form-select-sm form-control-sm" id="cargasR" name="cargasR"></select></div>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="CodigoIBP" class="col-3 col-form-label">Codigo BP</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCodigoIBP" name="txtCodigoIBP" placeholder="Codigo BP" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Marca" class="col-3 col-form-label"><a href="~/Marca">Marca</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbMarca" name="cbMarca"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Modelo" class="col-3 col-form-label">Modelo</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtModelo" name="txtModelo" placeholder="Modelo" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Modo" class="col-3 col-form-label">Modo</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtModo" name="txtModo" data-placeholder="Seleccione ...">
+                            <option value="1">Fijo</option>
+                            <option value="2">Movil</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Canal" class="col-3 col-form-label">Numero Canales</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCanal" name="txtCanal" placeholder="Numero Canales" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Banda" class="col-3 col-form-label">Ancho de Banda (KBPS)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtBanda" name="txtBanda" placeholder="Ancho de Banda (KBPS)" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Enlace" class="col-3 col-form-label">Tipo de Equipo Comunicacion Enlace</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtEnlace" name="txtEnlace" data-placeholder="Seleccione ...">
+                            <option value="1">Analogo(SDH)</option>
+                            <option value="2">Digital(PDH)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Estado" class="col-3 col-form-label">Estado de Operatividad</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtEstado" name="txtEstado" data-placeholder="Seleccione ...">
+                            <option value="1">Operativo</option>
+                            <option value="2">Inoperativo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Adquisicion" class="col-3 col-form-label">Año de Adquisicion</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtAdquisicion" name="txtAdquisicion" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label"><a href="~/Dependencia">Dependencia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDependencia" name="cbDependencia"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Departamento" class="col-3 col-form-label"><a href="~/Departamento">Departamento</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDepartamento" name="cbDepartamento"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DirtelRegistroEquipoComunicacionEnlace">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="CodigoIBP" class="col-3 col-form-label">Codigo BP</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCodigoIBPe" name="txtCodigoIBPe" placeholder="Codigo BP" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Marca" class="col-3 col-form-label"><a href="~/Marca">Marca</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbMarcae" name="cbMarcae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Modelo" class="col-3 col-form-label">Modelo</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtModeloe" name="txtModeloe" placeholder="Modelo" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Modo" class="col-3 col-form-label">Modo</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtModoe" name="txtModoe" data-placeholder="Seleccione ...">
+                            <option value="1">Fijo</option>
+                            <option value="2">Movil</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Canal" class="col-3 col-form-label">Numero Canales</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCanale" name="txtCanale" placeholder="Numero Canales" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Banda" class="col-3 col-form-label">Ancho de Banda (KBPS)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtBandae" name="txtBandae" placeholder="Ancho de Banda (KBPS)" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Enlace" class="col-3 col-form-label">Tipo de Equipo Comunicacion Enlace</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtEnlacee" name="txtEnlacee" data-placeholder="Seleccione ...">
+                            <option value="1">Analogo(SDH)</option>
+                            <option value="2">Digital(PDH)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Estado" class="col-3 col-form-label">Estado de Operatividad</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtEstadoe" name="txtEstadoe" data-placeholder="Seleccione ...">
+                            <option value="1">Operativo</option>
+                            <option value="2">Inoperativo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Adquisicion" class="col-3 col-form-label">Año de Adquisicion</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtAdquisicione" name="txtAdquisicione" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label"><a href="~/Dependencia">Dependencia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDependenciae" name="cbDependenciae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Departamento" class="col-3 col-form-label"><a href="~/Departamento">Departamento</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDepartamentoe" name="cbDepartamentoe"></select>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6 text-center">
+                        <button type="submit" class="btn btn-primary">Grabar</button>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <a class="btn btn-danger" href="~/DirtelRegistroEquipoComunicacionEnlace">Cancelar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/BienestarMovilidadEscolar" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDirtelRegistroEquipoComunicacionEnlace()" />
+    <div class="row align-items-start">
+        <div class="col"><select class="form-select form-control-sm" id="cargas" name="cargas"></select></div>
+        <div class="col">
+            <input type='button' id="btn_search" value="Buscar" class="btn btn-primary">
+            <input type='button' id="btn_all" value="Mostrar Todos" class="btn btn-primary">
+        </div>
+
+    </div>
+    <table class="table table-striped" id="tblDirtelRegistroEquipoComunicacionEnlace" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Codigo BP</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Modo</th>
+                <th>Numero Canales</th>
+                <th>Ancho de Banda (KBPS)</th>
+                <th>Tipo de Equipo Comunicacion Enlace</th>
+                <th>Estado de Operatividad</th>
+                <th>Año de Adquisicion</th>
+                <th>Dependencia</th>
+                <th>Departamento</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/dirtel/dirtel-registroequipocomunicacionenlace.js" asp-append-version="true"></script>
+}

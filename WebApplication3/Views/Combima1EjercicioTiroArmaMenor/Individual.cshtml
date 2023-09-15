@@ -1,0 +1,177 @@
+﻿@{
+    ViewData["Title"] = "Ejercicios de Tiro con Armas Menores";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/Combima1EjercicioTiroArmaMenor/Individual" style="text-decoration:none;">Ejercicios de Tiro con Armas Menores</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="TipoPersonalMilitar" class="col-3 col-form-label"><a href="~/TipoPersonalMilitar">Tipo de Personal</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoPersonalMilitar" name="cbTipoPersonalMilitar"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GradoPersonalMilitar" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbGradoPersonalMilitar" name="cbGradoPersonalMilitar"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaEjercicio" class="col-3 col-form-label">Fecha</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaEjercicio" name="txtFechaEjercicio" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoArmamento" class="col-3 col-form-label"><a href="~/TipoArmamento">Tipo de Armamento Mentor</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoArmamento" name="cbTipoArmamento"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PosicionTipoArma" class="col-3 col-form-label"><a href="~/PosicionTipoArma">Posición</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbPosicionTipoArma" name="cbPosicionTipoArma"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DistanciaMetros" class="col-3 col-form-label">Distancia mts</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDistanciaMetros" name="txtDistanciaMetros" placeholder="Distancia mts" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CantidadTiro" class="col-3 col-form-label">Cantidad de Tiro</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidadTiro" name="txtCantidadTiro" placeholder="Cantidad de Tiro" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/Combima1EjercicioTiroArmaMenor">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="TipoPersonalMilitar" class="col-3 col-form-label"><a href="~/TipoPersonalMilitar">Tipo de Personal</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoPersonalMilitare" name="cbTipoPersonalMilitare"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GradoPersonalMilitar" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbGradoPersonalMilitare" name="cbGradoPersonalMilitare"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaEjercicio" class="col-3 col-form-label">Fecha</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaEjercicioe" name="txtFechaEjercicioe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoArmamento" class="col-3 col-form-label"><a href="~/TipoArmamento">Tipo de Armamento Mentor</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoArmamentoe" name="cbTipoArmamentoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PosicionTipoArma" class="col-3 col-form-label"><a href="~/PosicionTipoArma">Posición</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbPosicionTipoArmae" name="cbPosicionTipoArmae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DistanciaMetros" class="col-3 col-form-label">Distancia mts</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDistanciaMetrose" name="txtDistanciaMetrose" placeholder="Distancia mts" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CantidadTiro" class="col-3 col-form-label">Cantidad de Tiro</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidadTiroe" name="txtCantidadTiroe" placeholder="Cantidad de Tiro" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/Combima1EjercicioTiroArmaMenor">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaCombima1EjercicioTiroArmaMenor()" />
+    <div class="dropdown">
+        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Modos de Carga :
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="~/Combima1EjercicioTiroArmaMenor">Masiva</a>
+            <a class="dropdown-item" href="~/Combima1EjercicioTiroArmaMenor/Individual">Individual</a>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblCombima1EjercicioTiroArmaMenor" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Tipo de Personal</th>
+                <th>Grado</th>
+                <th>Fecha</th>
+                <th>Tipo de Armamento Mentor</th>
+                <th>Posición</th>
+                <th>Distancia mts</th>
+                <th>Cantidad de Tiro</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/combima1/combima1-ejerciciotiroarmamenor.js" asp-append-version="true"></script>
+}

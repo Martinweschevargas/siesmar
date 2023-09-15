@@ -1,0 +1,188 @@
+﻿@{
+    ViewData["Title"] ="EfectivosporCompañíasdeIntervenciónRápida";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/ComoperpacEfectivoCompaniaIntervencionRapida/Individual" style="text-decoration:none;">Efectivos por Compañías de Intervención Rápida</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <select class="form-select form-control-sm" id="cargasR" name="cargasR"></select>
+                </div>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="ComandanciaNaval" class="col-3 col-form-label"><a href="~/ComandanciaNaval">Comandancia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbComandanciaNaval" name="cbComandanciaNaval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="UbicacionCIRD" class="col-3 col-form-label"><a href="~/UbicacionCIRD">Ubicación CIRD</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUbicacionCIRD" name="cbUbicacionCIRD"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CantidadEfectivos" class="col-3 col-form-label">Cantidad de efectivos</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidadEfectivos" name="txtCantidadEfectivos" placeholder="Cantidad de efectivos" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NivelOrganizacion" class="col-3 col-form-label">Nivel Organización</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNivelOrganizacion" name="txtNivelOrganizacion" placeholder="Nivel Organización" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NivelEquipamiento" class="col-3 col-form-label">Nivel Equipamiento </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNivelEquipamiento" name="txtNivelEquipamiento" placeholder="Nivel Equipamiento " required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NivelInstruccion" class="col-3 col-form-label">Nivel Instrucción</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNivelInstruccion" name="txtNivelInstruccion" placeholder="Nivel Instrucción" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NivelEntrenamiento" class="col-3 col-form-label">Nivel Entrenamiento</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNivelEntrenamiento" name="txtNivelEntrenamiento" placeholder="Nivel Entrenamiento" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComoperpacEfectivoCompaniaIntervencionRapida">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="ComandanciaNaval" class="col-3 col-form-label"><a href="~/ComandanciaNaval">Comandancia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbComandanciaNavale" name="cbComandanciaNavale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="UbicacionCIRD" class="col-3 col-form-label"><a href="~/UbicacionCIRD">Ubicación CIRD</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUbicacionCIRDe" name="cbUbicacionCIRDe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CantidadEfectivos" class="col-3 col-form-label">Cantidad de efectivos</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidadEfectivose" name="txtCantidadEfectivose" placeholder="Cantidad de efectivos" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NivelOrganizacion" class="col-3 col-form-label">Nivel Organización</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNivelOrganizacione" name="txtNivelOrganizacione" placeholder="Nivel Organización" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NivelEquipamiento" class="col-3 col-form-label">Nivel Equipamiento </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNivelEquipamientoe" name="txtNivelEquipamientoe" placeholder="Nivel Equipamiento " required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NivelInstruccion" class="col-3 col-form-label">Nivel Instrucción</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNivelInstruccione" name="txtNivelInstruccione" placeholder="Nivel Instrucción" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NivelEntrenamiento" class="col-3 col-form-label">Nivel Entrenamiento</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNivelEntrenamientoe" name="txtNivelEntrenamientoe" placeholder="Nivel Entrenamiento" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComoperpacEfectivoCompaniaIntervencionRapida">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/ComoperpacEfectivoCompaniaIntervencionRapida" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaComoperpacEfectivoCompaniaIntervencionRapida()" />
+    <div class="row align-items-start">
+        <div class="col">
+            <select class="form-select form-control-sm" id="cargas" name="cargas"></select>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" id="btn_search">Buscar</button>
+            <button class="btn btn-primary" id="btn_all">Mostrar Todos</button>
+            <button class="btn btn-danger" onclick="eliminarCarga()">Eliminar Carga</button>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblComoperpacEfectivoCompaniaIntervencionRapida" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Comandancia</th>
+                <th>Ubicación CIRD</th>
+                <th>Cantidad de efectivos</th>
+                <th>Nivel Organización</th>
+                <th>Nivel Equipamiento </th>
+                <th>Nivel Instrucción</th>
+                <th>Nivel Entrenamiento</th>
+                <th>Código Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/comoperpac/comoperpac-efectivocompaniaintervencionr.js" asp-append-version="true"></script>
+}

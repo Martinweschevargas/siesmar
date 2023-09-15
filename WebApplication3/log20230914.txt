@@ -1,0 +1,91 @@
+<<<<<<< HEAD
+2023-09-14 10:02:45.059 -05:00 [WRN] Entro al Login Http
+2023-09-14 10:05:59.230 -05:00 [WRN] Entro al Login Http
+2023-09-14 11:06:42.630 -05:00 [WRN] Entro al Login Http
+2023-09-14 11:39:20.423 -05:00 [WRN] Entro al Login Http
+2023-09-14 11:51:48.158 -05:00 [WRN] Entro al Login Http
+2023-09-14 14:25:26.437 -05:00 [WRN] Entro al Login Http
+2023-09-14 14:28:52.410 -05:00 [WRN] Entro al Login Http
+2023-09-14 15:45:25.278 -05:00 [WRN] Entro al Login Http
+2023-09-14 16:17:59.062 -05:00 [WRN] Entro al Login Http
+2023-09-14 16:20:36.130 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.IO.FileNotFoundException: Could not find file 'E:\Proyecto Git\Marina\siesmar\WebApplication3\wwwroot\Formatos\ComzodosServicioBrindadoBaseCallao.xlsx'.
+File name: 'E:\Proyecto Git\Marina\siesmar\WebApplication3\wwwroot\Formatos\ComzodosServicioBrindadoBaseCallao.xlsx'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategy(FileStream fileStream, String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, Int64 preallocationSize)
+   at System.IO.FileStream..ctor(String path, FileMode mode)
+   at Marina.Siesmar.Presentacion.Controllers.ComzodosServicioBrindadoBaseCallaoController.DownloadFile() in E:\Proyecto Git\Marina\siesmar\WebApplication3\Controllers\ComzodosServicioBrindadoBaseCallaoController.cs:line 242
+   at lambda_method52(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2023-09-14 16:48:25.069 -05:00 [WRN] Entro al Login Http
+2023-09-14 16:48:55.128 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentException: Input array is longer than the number of columns in this table.
+   at System.Data.DataTable.NewRecordFromArray(Object[] value)
+   at System.Data.DataRowCollection.Add(Object[] values)
+   at Marina.Siesmar.Presentacion.Controllers.ComzodosServicioBrindadoBaseCallaoController.EnviarDatos(IFormFile ArchivoExcel, String Fecha) in E:\Proyecto Git\Marina\siesmar\WebApplication3\Controllers\ComzodosServicioBrindadoBaseCallaoController.cs:line 200
+   at lambda_method56(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+=======
+<<<<<<< HEAD
+2023-09-14 09:07:52.260 -05:00 [WRN] Entro al Login Http
+2023-09-14 09:08:13.342 -05:00 [WRN] Entro al Login Http
+2023-09-14 09:40:54.512 -05:00 [WRN] Entro al Login Http
+2023-09-14 09:48:24.848 -05:00 [WRN] Entro al Login Http
+2023-09-14 13:01:23.814 -05:00 [WRN] Entro al Login Http
+2023-09-14 14:04:20.452 -05:00 [WRN] Entro al Login Http
+2023-09-14 15:14:59.915 -05:00 [WRN] Entro al Login Http
+=======
+2023-09-14 08:15:25.978 -05:00 [WRN] Entro al Login Http
+2023-09-14 09:19:42.602 -05:00 [WRN] Entro al Login Http
+2023-09-14 11:48:55.139 -05:00 [WRN] Entro al Login Http
+2023-09-14 15:26:16.904 -05:00 [WRN] Entro al Login Http
+2023-09-14 15:58:02.692 -05:00 [WRN] Entro al Login Http
+2023-09-14 15:58:32.631 -05:00 [WRN] Entro al Login Http
+2023-09-14 16:50:06.692 -05:00 [WRN] Entro al Login Http
+>>>>>>> 2332aa124a14407097ab24588b82b56290289e36
+>>>>>>> b6c35aeda6a15890adb3c44bd881e163cda1db76

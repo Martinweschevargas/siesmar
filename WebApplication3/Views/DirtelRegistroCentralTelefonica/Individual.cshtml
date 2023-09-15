@@ -1,0 +1,257 @@
+﻿@{
+    ViewData["Title"] = "Registo Central Telefonica";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/DirtelRegistroCentralTelefonica/Individual" style="text-decoration:none;">Centrales Telefonicas</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="form-group row col-md-6">
+                <label for="carga" class="col-3 col-form-label">Carga</label>
+                <div class="form-group row col-md-6">
+                    <div class="col"><select class="form-select-sm form-control-sm" id="cargasR" name="cargasR"></select></div>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="CodigoIBP" class="col-3 col-form-label">Codigo IBP</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCodigoIBP" name="txtCodigoIBP" placeholder="Codigo IBP" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Denominacion" class="col-3 col-form-label"><a href="~/ModeloBienServicioSubcampo">Subcampo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDenominacion" name="cbDenominacion"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Denominacion" class="col-3 col-form-label"><a href="~/ModeloBienServicioDenominacion">Denominacion</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDenominacion" name="cbDenominacion"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Marca" class="col-3 col-form-label"><a href="~/Marca">Marca</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbMarca" name="cbMarca"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Protocolo" class="col-3 col-form-label">Tipo de Protocolo </label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtProtocolo" name="txtProtocolo" data-placeholder="Seleccione ...">
+                            <option value="1">H.323</option>
+                            <option value="2">SIP</option>
+                            <option value="3">Otro</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Soporta" class="col-3 col-form-label">Terminales que Soporta</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtSoporta" name="txtSoporta" data-placeholder="Seleccione ...">
+                            <option value="1">Menor a 50</option>
+                            <option value="2">Entre 50 a 200</option>
+                            <option value="3">Mayor a 200</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Instalado" class="col-3 col-form-label">Terminales Instalados </label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtInstalado" name="txtInstalado" data-placeholder="Seleccione ...">
+                            <option value="1">Menor a 50</option>
+                            <option value="2">Entre 50 a 100</option>
+                            <option value="3">Entre 100 a 200</option>
+                            <option value="4">Mayor a 200</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="AnioAdquisicion" class="col-3 col-form-label">Año de Adquisicion</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtAnioAdquisicion" name="txtAnioAdquisicion" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EstadoOperatividad" class="col-3 col-form-label">Estado de Operatividad</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtEstadoOperatividad" name="txtEstadoOperatividad" data-placeholder="Seleccione ...">
+                            <option value="1">Operativo</option>
+                            <option value="2">Inoperativo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label"><a href="~/Dependencia">Dependencia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDependencia" name="cbDependencia"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Departamento" class="col-3 col-form-label"><a href="~/DepartamentoUbigeo">Departamento</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDepartamento" name="cbDepartamento"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DirtelRegistroCentralTelefonica">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="CodigoIBP" class="col-3 col-form-label">Codigo IBP</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCodigoIBPe" name="txtCodigoIBPe" placeholder="Codigo IBP" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Denominacion" class="col-3 col-form-label"><a href="~/ModeloBienServicioSubcampo">Subcampo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDenominacione" name="cbDenominacione"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Denominacion" class="col-3 col-form-label"><a href="~/ModeloBienServicioDenominacion">Denominacion</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDenominacione" name="cbDenominacione"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Marca" class="col-3 col-form-label"><a href="~/Marca">Marca</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbMarcae" name="cbMarcae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Protocolo" class="col-3 col-form-label">Tipo de Protocolo </label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtProtocoloe" name="txtProtocoloe" data-placeholder="Seleccione ...">
+                            <option value="1">H.323</option>
+                            <option value="2">SIP</option>
+                            <option value="3">Otro</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Soporta" class="col-3 col-form-label">Terminales que Soporta</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtSoportae" name="txtSoportae" data-placeholder="Seleccione ...">
+                            <option value="1">Menor a 50</option>
+                            <option value="2">Entre 50 a 200</option>
+                            <option value="3">Mayor a 200</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Instalado" class="col-3 col-form-label">Terminales Instalados </label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtInstaladoe" name="txtInstaladoe" data-placeholder="Seleccione ...">
+                            <option value="1">Menor a 50</option>
+                            <option value="2">Entre 50 a 100</option>
+                            <option value="3">Entre 100 a 200</option>
+                            <option value="4">Mayor a 200</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="AnioAdquisicion" class="col-3 col-form-label">Año de Adquisicion</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtAnioAdquisicione" name="txtAnioAdquisicione" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EstadoOperatividad" class="col-3 col-form-label">Estado de Operatividad</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtEstadoOperatividade" name="txtEstadoOperatividade" data-placeholder="Seleccione ...">
+                            <option value="1">Operativo</option>
+                            <option value="2">Inoperativo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label"><a href="~/Dependencia">Dependencia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDependenciae" name="cbDependenciae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Departamento" class="col-3 col-form-label"><a href="~/DepartamentoUbigeo">Departamento</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDepartamentoe" name="cbDepartamentoe"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/BienestarMovilidadEscolar" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDirtelRegistroCentralTelefonica()" />
+    <div class="row align-items-start">
+        <div class="col"><select class="form-select form-control-sm" id="cargas" name="cargas"></select></div>
+        <div class="col">
+            <input type='button' id="btn_search" value="Buscar" class="btn btn-primary">
+            <input type='button' id="btn_all" value="Mostrar Todos" class="btn btn-primary">
+        </div>
+
+    </div>
+    <table class="table table-striped" id="tblDirtelRegistroCentralTelefonica" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Codigo IBP</th>
+                <th>Subcampo</th>
+                <th>Denominacion</th>
+                <th>Marca</th>
+                <th>Tipo de Protocolo </th>
+                <th>Terminales que Soporta</th>
+                <th>Terminales Instalados </th>
+                <th>Año de Adquisicion</th>
+                <th>Estado de Operatividad</th>
+                <th>Dependencia</th>
+                <th>Departamento</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/dirtel/dirtel-registrocentraltelefonica.js" asp-append-version="true"></script>
+}

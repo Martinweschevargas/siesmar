@@ -1,0 +1,13 @@
+WebApplication3/bin
+WebApplication3/obj
+Utilitarios\obj
+Proyecto.BLL\obj
+Proyecto.DAL\obj
+Proyecto.Entities\obj
+WcfService1\obj
+.vs
+Utilitarios\bin
+Proyecto.BLL\bin
+Proyecto.DAL\bin
+Proyecto.Entities\bin
+WcfService1\bin

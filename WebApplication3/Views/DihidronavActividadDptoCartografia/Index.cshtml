@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Formato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1><a href="~/DihidronavActividadDptoCartografia" style="text-decoration:none;">Actividades del Departamento de Cartografía</a></h1>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header">
+                    <a href="~/DihidronavActividadDptoCartografia/Individual" class="btn btn-primary">Ir Carga Individual</a>
+                    <a href="~/DihidronavActividadDptoCartografia/DownloadFile" class="btn btn-primary">Descargar Formato</a>
+
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <input class="form-control-file" type="file" id="inputExcel" />
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-warning" onclick="mostrarDatos()">Mostrar Datos"</button>
+                        <button class="btn btn-success" onclick="enviarDatos()">Enviar Datos a BD</button>
+                    </div>
+                    <div class="col-sm-4">
+                        <label>Numero de Registros : </label><span id="NumRegistros"></span>
+                    </div>
+                </div>
+                <hr />
+                <div class="row" style="overflow:scroll">
+                    <div class="col-sm-12">
+                        <table class="table table-striped" id="tbData" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+                            <thead>
+                                <tr class="colorbg">
+                                    <th>N° Orden</th>
+                                    <th>Requerimiento</th>
+                                    <th>Tipo de Cartas</th>
+                                    <th>Proceso</th>
+                                    <th>Clasificacion</th>
+                                    <th>Codigo Nombre</th>
+                                    <th>Edicion</th>
+                                    <th>Escala</th>
+                                    <th>Situacion</th>
+                                    <th>Fecha de Autorizacion de la Produccion</th>
+                                    <th>Fecha de Termino</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Scripts{
+    <script src="/js/dihidronav/dihidronav-actividaddptocartografia.js" asp-append-version="true"></script>
+}
