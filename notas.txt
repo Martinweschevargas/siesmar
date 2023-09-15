@@ -1,5 +1,5 @@
 curillo_10@hotmail.com
-ok
+listo
 
 USE [MGP_SIESMAR]
 GO
