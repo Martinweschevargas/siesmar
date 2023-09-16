@@ -458,7 +458,7 @@ function cargaDatos() {
         $("select#cbGradoPersonalM").html("");
         $("select#cbGradoPersonalMe").html("");
         $.each(gradoPersonalMilitar, function () {
-            var RowContent = '<option value=' + this.codigoGradoPersonalMilitar + '>' + this.descGrado + '</option>'
+            var RowContent = '<option value=' + this.codigoGradoPersonalMilitar + '>' + this.abreviatura + '</option>'
             $("select#cbGradoPersonalM").append(RowContent);
             $("select#cbGradoPersonalMe").append(RowContent);
         });

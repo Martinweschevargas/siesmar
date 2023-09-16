@@ -59,8 +59,8 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd.Parameters.Add("@CodigoGradoPersonal", SqlDbType.VarChar, 10);
                     cmd.Parameters["@CodigoGradoPersonal"].Value = gradoPersonalDTO.CodigoGradoPersonal;
 
-                    cmd.Parameters.Add("@EntidadMilitarId", SqlDbType.Int);
-                    cmd.Parameters["@EntidadMilitarId"].Value = gradoPersonalDTO.EntidadMilitarId;
+                    cmd.Parameters.Add("@CodigoEntidadMilitar", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoEntidadMilitar"].Value = gradoPersonalDTO.CodigoEntidadMilitar;
 
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
                     cmd.Parameters["@Usuario"].Value = gradoPersonalDTO.UsuarioIngresoRegistro;
@@ -113,8 +113,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                         gradoPersonalDTO.GradoPersonalId = Convert.ToInt32(dr["GradoPersonalId"]);
                         gradoPersonalDTO.DescGradoPersonal = dr["DescGradoPersonal"].ToString();
                         gradoPersonalDTO.CodigoGradoPersonal = dr["CodigoGradoPersonal"].ToString();
-                        gradoPersonalDTO.EntidadMilitarId = Convert.ToInt32(dr["EntidadMilitarId"]);
-
+                        gradoPersonalDTO.CodigoEntidadMilitar = dr["CodigoEntidadMilitar"].ToString();
                     }
 
                 }
@@ -149,8 +148,8 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd.Parameters.Add("@CodigoGradoPersonal", SqlDbType.VarChar, 10);
                     cmd.Parameters["@CodigoGradoPersonal"].Value = gradoPersonalDTO.CodigoGradoPersonal;
 
-                    cmd.Parameters.Add("@EntidadMilitarId", SqlDbType.Int);
-                    cmd.Parameters["@EntidadMilitarId"].Value = gradoPersonalDTO.EntidadMilitarId;
+                    cmd.Parameters.Add("@CodigoEntidadMilitar", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoEntidadMilitar"].Value = gradoPersonalDTO.CodigoEntidadMilitar;
 
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
                     cmd.Parameters["@Usuario"].Value = gradoPersonalDTO.UsuarioIngresoRegistro;
