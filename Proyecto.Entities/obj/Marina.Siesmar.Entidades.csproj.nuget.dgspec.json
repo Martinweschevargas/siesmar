@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj": {}
+    "E:\\Proyecto\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj": {}
   },
   "projects": {
-    "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj": {
+    "E:\\Proyecto\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj",
+        "projectUniqueName": "E:\\Proyecto\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj",
         "projectName": "Marina.Siesmar.Entidades",
-        "projectPath": "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.Entities\\obj\\",
+        "projectPath": "E:\\Proyecto\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "E:\\Proyecto\\siesmar\\Proyecto.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

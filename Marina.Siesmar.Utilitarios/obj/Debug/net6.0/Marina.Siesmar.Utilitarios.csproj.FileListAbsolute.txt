@@ -10,3 +10,15 @@ D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Marina.Siesmar.Utilitarios\obj\De
 D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Marina.Siesmar.Utilitarios\obj\Debug\net6.0\refint\Marina.Siesmar.Utilitarios.dll
 D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Marina.Siesmar.Utilitarios\obj\Debug\net6.0\Marina.Siesmar.Utilitarios.pdb
 D:\WORK\FREE\Externo\Proyectos\Fuentes\siesmar\Marina.Siesmar.Utilitarios\obj\Debug\net6.0\ref\Marina.Siesmar.Utilitarios.dll
+E:\Proyecto\siesmar\Marina.Siesmar.Utilitarios\bin\Debug\net6.0\Marina.Siesmar.Utilitarios.deps.json
+E:\Proyecto\siesmar\Marina.Siesmar.Utilitarios\bin\Debug\net6.0\Marina.Siesmar.Utilitarios.dll
+E:\Proyecto\siesmar\Marina.Siesmar.Utilitarios\bin\Debug\net6.0\Marina.Siesmar.Utilitarios.pdb
+E:\Proyecto\siesmar\Marina.Siesmar.Utilitarios\obj\Debug\net6.0\Marina.Siesmar.Utilitarios.csproj.AssemblyReference.cache
+E:\Proyecto\siesmar\Marina.Siesmar.Utilitarios\obj\Debug\net6.0\Marina.Siesmar.Utilitarios.GeneratedMSBuildEditorConfig.editorconfig
+E:\Proyecto\siesmar\Marina.Siesmar.Utilitarios\obj\Debug\net6.0\Marina.Siesmar.Utilitarios.AssemblyInfoInputs.cache
+E:\Proyecto\siesmar\Marina.Siesmar.Utilitarios\obj\Debug\net6.0\Marina.Siesmar.Utilitarios.AssemblyInfo.cs
+E:\Proyecto\siesmar\Marina.Siesmar.Utilitarios\obj\Debug\net6.0\Marina.Siesmar.Utilitarios.csproj.CoreCompileInputs.cache
+E:\Proyecto\siesmar\Marina.Siesmar.Utilitarios\obj\Debug\net6.0\Marina.Siesmar.Utilitarios.dll
+E:\Proyecto\siesmar\Marina.Siesmar.Utilitarios\obj\Debug\net6.0\refint\Marina.Siesmar.Utilitarios.dll
+E:\Proyecto\siesmar\Marina.Siesmar.Utilitarios\obj\Debug\net6.0\Marina.Siesmar.Utilitarios.pdb
+E:\Proyecto\siesmar\Marina.Siesmar.Utilitarios\obj\Debug\net6.0\ref\Marina.Siesmar.Utilitarios.dll

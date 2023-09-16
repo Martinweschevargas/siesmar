@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.BLL\\Marina.Siesmar.LogicaNegocios.csproj": {}
+    "E:\\Proyecto\\siesmar\\Proyecto.BLL\\Marina.Siesmar.LogicaNegocios.csproj": {}
   },
   "projects": {
-    "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Marina.Siesmar.Utilitarios\\Marina.Siesmar.Utilitarios.csproj": {
+    "E:\\Proyecto\\siesmar\\Marina.Siesmar.Utilitarios\\Marina.Siesmar.Utilitarios.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Marina.Siesmar.Utilitarios\\Marina.Siesmar.Utilitarios.csproj",
+        "projectUniqueName": "E:\\Proyecto\\siesmar\\Marina.Siesmar.Utilitarios\\Marina.Siesmar.Utilitarios.csproj",
         "projectName": "Marina.Siesmar.Utilitarios",
-        "projectPath": "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Marina.Siesmar.Utilitarios\\Marina.Siesmar.Utilitarios.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Marina.Siesmar.Utilitarios\\obj\\",
+        "projectPath": "E:\\Proyecto\\siesmar\\Marina.Siesmar.Utilitarios\\Marina.Siesmar.Utilitarios.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "E:\\Proyecto\\siesmar\\Marina.Siesmar.Utilitarios\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -73,17 +73,17 @@
         }
       }
     },
-    "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.BLL\\Marina.Siesmar.LogicaNegocios.csproj": {
+    "E:\\Proyecto\\siesmar\\Proyecto.BLL\\Marina.Siesmar.LogicaNegocios.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.BLL\\Marina.Siesmar.LogicaNegocios.csproj",
+        "projectUniqueName": "E:\\Proyecto\\siesmar\\Proyecto.BLL\\Marina.Siesmar.LogicaNegocios.csproj",
         "projectName": "Marina.Siesmar.LogicaNegocios",
-        "projectPath": "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.BLL\\Marina.Siesmar.LogicaNegocios.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.BLL\\obj\\",
+        "projectPath": "E:\\Proyecto\\siesmar\\Proyecto.BLL\\Marina.Siesmar.LogicaNegocios.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "E:\\Proyecto\\siesmar\\Proyecto.BLL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -97,11 +97,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.DAL\\Marina.Siesmar.AccesoDatos.csproj": {
-                "projectPath": "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.DAL\\Marina.Siesmar.AccesoDatos.csproj"
+              "E:\\Proyecto\\siesmar\\Proyecto.DAL\\Marina.Siesmar.AccesoDatos.csproj": {
+                "projectPath": "E:\\Proyecto\\siesmar\\Proyecto.DAL\\Marina.Siesmar.AccesoDatos.csproj"
               },
-              "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj": {
-                "projectPath": "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj"
+              "E:\\Proyecto\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj": {
+                "projectPath": "E:\\Proyecto\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj"
               }
             }
           }
@@ -149,17 +149,17 @@
         }
       }
     },
-    "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.DAL\\Marina.Siesmar.AccesoDatos.csproj": {
+    "E:\\Proyecto\\siesmar\\Proyecto.DAL\\Marina.Siesmar.AccesoDatos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.DAL\\Marina.Siesmar.AccesoDatos.csproj",
+        "projectUniqueName": "E:\\Proyecto\\siesmar\\Proyecto.DAL\\Marina.Siesmar.AccesoDatos.csproj",
         "projectName": "Marina.Siesmar.AccesoDatos",
-        "projectPath": "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.DAL\\Marina.Siesmar.AccesoDatos.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.DAL\\obj\\",
+        "projectPath": "E:\\Proyecto\\siesmar\\Proyecto.DAL\\Marina.Siesmar.AccesoDatos.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "E:\\Proyecto\\siesmar\\Proyecto.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -173,11 +173,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Marina.Siesmar.Utilitarios\\Marina.Siesmar.Utilitarios.csproj": {
-                "projectPath": "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Marina.Siesmar.Utilitarios\\Marina.Siesmar.Utilitarios.csproj"
+              "E:\\Proyecto\\siesmar\\Marina.Siesmar.Utilitarios\\Marina.Siesmar.Utilitarios.csproj": {
+                "projectPath": "E:\\Proyecto\\siesmar\\Marina.Siesmar.Utilitarios\\Marina.Siesmar.Utilitarios.csproj"
               },
-              "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj": {
-                "projectPath": "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj"
+              "E:\\Proyecto\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj": {
+                "projectPath": "E:\\Proyecto\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj"
               }
             }
           }
@@ -245,17 +245,17 @@
         }
       }
     },
-    "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj": {
+    "E:\\Proyecto\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj",
+        "projectUniqueName": "E:\\Proyecto\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj",
         "projectName": "Marina.Siesmar.Entidades",
-        "projectPath": "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.Entities\\obj\\",
+        "projectPath": "E:\\Proyecto\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "E:\\Proyecto\\siesmar\\Proyecto.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

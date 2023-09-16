@@ -44,7 +44,12 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                             AlistamientoMaterialId = Convert.ToInt32(dr["AlistamientoMaterialId"]),
                             DescUnidadNaval = dr["DescUnidadNaval"].ToString(),
                             DescCapacidadOperativa = dr["DescCapacidadOperativa"].ToString(),
-                            Subclasificacionn = dr["Subclasificacionn"].ToString(),
+                            CapacidadIntrinseca1N = dr["CapacidadIntrinseca"].ToString(),
+                            Ponderado1N = dr["Ponderado1N"].ToString(),
+                            Subclasificacion2N = dr["Subclasificacion"].ToString(),
+                            Ponderado2Nivel = dr["Ponderado2Nivel"].ToString(),
+                            Subclasificacion3N = dr["Subclasificacion"].ToString(),
+                            Ponderado3Nivel = dr["Ponderado3Nivel"].ToString(),
                             Requerido = Convert.ToInt32(dr["Requerido"]),
                             Operativo = Convert.ToInt32(dr["Operativo"]),
                             PorcentajeOperativo = Convert.ToDecimal(dr["PorcentajeOperativo"]),
@@ -195,7 +200,6 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
 
                     cmd.Parameters.Add("@PorcentajeOperativo", SqlDbType.Decimal);
                     cmd.Parameters["@PorcentajeOperativo"].Value = alistamientoMaterialComfuavinavDTO.PorcentajeOperativo;
-
 
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
                     cmd.Parameters["@Usuario"].Value = alistamientoMaterialComfuavinavDTO.UsuarioIngresoRegistro;

@@ -1,5 +1,6 @@
 ﻿var tblComfuavinavAlistamientoCombustibleLubricante;
-var alistamientoCombustibleLubricante;
+var reporteSeleccionado;
+var optReporteSelect;
 
 $(document).ready(function () {
     var forms = document.querySelectorAll('.needs-validation')
@@ -126,7 +127,7 @@ $(document).ready(function () {
             }, false)
         })
 
-    $('#tblComfuavinavAlistamientoCombustibleLubricante').DataTable({
+    tblComfuavinavAlistamientoCombustibleLubricante = $('#tblComfuavinavAlistamientoCombustibleLubricante').DataTable({
         ajax: {
             "url": '/ComfuavinavAlistamientoCombustibleLubricante/CargaTabla',
             "type": "GET",
@@ -135,7 +136,14 @@ $(document).ready(function () {
         "columns": [
             { "data": "alistamientoCombustibleLubricanteComfuavinavId" },
             { "data": "descUnidadNaval" },
-            { "data": "descAlistamientoCombustibleLubricante" },
+            { "data": "codigoSistemaCombustibleLubricante" },
+            { "data": "codigoSubsistemaCombustibleLubricante" },
+            { "data": "equipo" },
+            { "data": "combustibleLubricante" },
+            { "data": "existente" },
+            { "data": "necesariasGLS" },
+            { "data": "coeficientePonderacion" },
+            { "data": "cargaId" },
             {
                 "render": function (data, type, row) {
                     return '<a class="txt" onclick=edit(' + row.alistamientoCombustibleLubricanteComfuavinavId + ') title="Actualizar"><i class="fa fa-check-square-o" aria-hidden="true" style="color:black; padding-right:5px"></i>Editar</a>';
@@ -223,11 +231,11 @@ $('#btn_all').click(function () {
 
 function cargaBusqueda() {
     var CodigoCarga = $('#cargas').val();
-    tblComfuavinavAlistamientoCombustibleLubricante.columns(2).search(CodigoCarga).draw();
+    tblComfuavinavAlistamientoCombustibleLubricante.columns(9).search(CodigoCarga).draw();
 }
 
 function mostrarTodos() {
-    tblComfuavinavAlistamientoCombustibleLubricante.columns(2).search('').draw();
+    tblComfuavinavAlistamientoCombustibleLubricante.columns(9).search('').draw();
 }
 
 function edit(Id) {
@@ -402,14 +410,14 @@ function cargaDatos() {
 
         $("select#cbAlistamientoCombustibleLubricante").html("");
         $.each(alistamientoCombustibleLubricante, function () {
-            var RowContent = '<option value=' + this.codigoAlistamientoCombustibleLubricante + '>' + this.descAlistamientoCombustibleLubricante + '</option>'
+            var RowContent = '<option value=' + this.codigoAlistamientoCombustibleLubricante + '>' + this.codigoAlistamientoCombustibleLubricante + '</option>'
             $("select#cbAlistamientoCombustibleLubricante").append(RowContent);
 
         });
 
         $("select#cbAlistamientoCombustibleLubricantee").html("");
         $.each(alistamientoCombustibleLubricante, function () {
-            var RowContent = '<option value=' + this.codigoAlistamientoCombustibleLubricante + '>' + this.descAlistamientoCombustibleLubricante + '</option>'
+            var RowContent = '<option value=' + this.codigoAlistamientoCombustibleLubricante + '>' + this.codigoAlistamientoCombustibleLubricante + '</option>'
             $("select#cbAlistamientoCombustibleLubricantee").append(RowContent);
         });
 

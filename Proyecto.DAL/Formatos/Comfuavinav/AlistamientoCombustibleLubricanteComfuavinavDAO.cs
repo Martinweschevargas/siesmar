@@ -41,9 +41,15 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                     {
                         lista.Add(new AlistamientoCombustibleLubricanteComfuavinavDTO()
                         {
-                            AlistamientoCombustibleLubricanteComfuavinavId = Convert.ToInt32(dr["AlistamientoCombustibleLubricanteId"]),
+                            AlistamientoCombustibleLubricanteComfuavinavId = Convert.ToInt32(dr["AlistamientoCombustibleLubricanteComfuavinavId"]),
                             DescUnidadNaval = dr["DescUnidadNaval"].ToString(),
-                            DescAlistamientoCombustibleLubricante = dr["DescAlistamientoCombustibleLubricante"].ToString(),
+                            CodigoSistemaCombustibleLubricante = dr["CodigoSistemaCombustibleLubricante"].ToString(),
+                            CodigoSubsistemaCombustibleLubricante = dr["CodigoSubsistemaCombustibleLubricante"].ToString(),
+                            Equipo = dr["Equipo"].ToString(),
+                            CombustibleLubricante = dr["CombustibleLubricante"].ToString(),
+                            Existente = dr["Existente"].ToString(),
+                            NecesariasGLS = dr["NecesariasGLS"].ToString(),
+                            CoeficientePonderacion = dr["CoeficientePonderacion"].ToString(),
                             CargaId = Convert.ToInt32(dr["CargaId"])
                         });
                     }

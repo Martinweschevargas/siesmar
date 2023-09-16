@@ -49,7 +49,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
             List<UnidadNavalDTO> unidadNavalDTO = unidadNavalBL.ObtenerUnidadNavals();
             List<CapacidadOperativaDTO> capacidadOperativaDTO = capacidadOperativaBL.ObtenerCapacidadOperativas();
             List<AlistamientoMaterialRequerido3NDTO> alistamientoMaterialRequerido3NDTO = alistamientoMaterialRequerido3NBL.ObtenerAlistamientoMaterialRequerido3Ns();
-            List<CargaDTO> listaCargas = cargaBL.ObtenerListaCargas("ComfuavinavAlistamientoMaterial");
+            List<CargaDTO> listaCargas = cargaBL.ObtenerListaCargas("AlistamientoMaterialComfuavinav");
             return Json(new { data1 = unidadNavalDTO, data2 = capacidadOperativaDTO, data3 = alistamientoMaterialRequerido3NDTO, data4 = listaCargas });
         }
 
@@ -89,7 +89,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
         }
 
         //[AuthorizePermission(Formato: 150, Permiso: 2)]//Actualizar
-        public ActionResult Actualizar(int Id, string CodigoCapacidadOperativa, string CodigoUnidadNaval, string CodigoAlistamientoMaterialRequerido3N, int Requerido, int Operativo,
+        public ActionResult Actualizar(int Id, string CodigoCapacidadOperativa, string CodigoUnidadNaval,string CodigoAlistamientoMaterialRequerido3N, int Requerido, int Operativo,
             decimal PorcentajeOperativo)
         {
             AlistamientoMaterialComfuavinavDTO alistamientoMaterialComfuavinavDTO = new();
@@ -204,7 +204,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
                     new DataColumn("CodigoAlistamientoMaterialRequerido3N", typeof(string)),
                     new DataColumn("Requerido", typeof(int)),
                     new DataColumn("Operativo", typeof(int)),
-                    new DataColumn("PorcentajeOperativo", typeof(int)),
+                    new DataColumn("PorcentajeOperativo", typeof(decimal)),
                     new DataColumn("UsuarioIngresoRegistro", typeof(string))
             });
 

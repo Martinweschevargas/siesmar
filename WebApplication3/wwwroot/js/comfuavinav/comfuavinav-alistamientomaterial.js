@@ -28,7 +28,7 @@ $(document).ready(function () {
                                 data: {
                                     'CodigoUnidadNaval': $('#cbUnidadNaval').val(),
                                     'CodigoCapacidadOperativa': $('#cbCapacidadOperativa').val(),
-                                    'CodigoAlistamientoMaterialRequerido3N': $('#cbAlistamientoMaterialRequerido3N').val(),
+                                    'CodigoAlistamientoMaterialRequerido3N': $('#cbAlistamiento').val(),
                                     'Requerido': $('#txtRequerido').val(),
                                     'Operativo': $('#txtOperativo').val(),
                                     'PorcentajeOperativo': $('#txtPorcentajeOperatividad').val(),
@@ -95,7 +95,7 @@ $(document).ready(function () {
                                     'Id': $('#txtCodigo').val(),
                                     'CodigoUnidadNaval': $('#cbUnidadNavale').val(),
                                     'CodigoCapacidadOperativa': $('#cbCapacidadOperativae').val(),
-                                    'CodigoAlistamientoMaterialRequerido3N': $('#cbAlistamientoMaterialRequerido3Ne').val(),
+                                    'CodigoAlistamientoMaterialRequerido3N': $('#cbAlistamientoe').val(),
                                     'Requerido': $('#txtRequeridoe').val(),
                                     'Operativo': $('#txtOperativoe').val(),
                                     'PorcentajeOperativo': $('#txtPorcentajeOperatividade').val(),
@@ -135,7 +135,7 @@ $(document).ready(function () {
             }, false)
         })
 
-    $('#tblComfuavinavAlistamientoMaterial').DataTable({
+    tblComfuavinavAlistamientoMaterial = $('#tblComfuavinavAlistamientoMaterial').DataTable({
         ajax: {
             "url": '/ComfuavinavAlistamientoMaterial/CargaTabla',
             "type": "GET",
@@ -145,10 +145,15 @@ $(document).ready(function () {
             { "data": "alistamientoMaterialId" },
             { "data": "descUnidadNaval" },
             { "data": "descCapacidadOperativa" },
-            { "data": "subclasificacionn" },
+            { "data": "capacidadIntrinseca1N" },
+            { "data": "ponderado1N" },
+            { "data": "subclasificacion2N" },
+            { "data": "ponderado2Nivel" },
+            { "data": "subclasificacion3N" },
+            { "data": "ponderado3Nivel" },
             { "data": "requerido" },
             { "data": "operativo" },
-            { "data": "PorcentajeOperativo" },
+            { "data": "porcentajeOperativo" },
             { "data": "cargaId" }, 
 
             {
@@ -238,11 +243,11 @@ $('#btn_all').click(function () {
 
 function cargaBusqueda() {
     var CodigoCarga = $('#cargas').val();
-    tblComfuavinavAlistamientoMaterial.columns(9).search(CodigoCarga).draw();
+    tblComfuavinavAlistamientoMaterial.columns(12).search(CodigoCarga).draw();
 }
 
 function mostrarTodos() {
-    tblComfuavinavAlistamientoMaterial.columns(9).search('').draw();
+    tblComfuavinavAlistamientoMaterial.columns(12).search('').draw();
 }
 
 function edit(Id) {
@@ -252,7 +257,7 @@ function edit(Id) {
         $('#txtCodigo').val(AlistamientoMaterialComfuavinavDTO.alistamientoMaterialId);
         $('#cbUnidadNavale').val(AlistamientoMaterialComfuavinavDTO.codigoUnidadNaval);
         $('#cbCapacidadOperativae').val(AlistamientoMaterialComfuavinavDTO.codigoCapacidadOperativa);
-        $('#cbAlistamientoMaterialRequerido3Ne').val(AlistamientoMaterialComfuavinavDTO.codigoAlistamientoMaterialRequerido3N);
+        $('#cbAlistamientoe').val(AlistamientoMaterialComfuavinavDTO.codigoAlistamientoMaterialRequerido3N);
         $('#txtRequeridoe').val(AlistamientoMaterialComfuavinavDTO.requerido);
         $('#txtOperativoe').val(AlistamientoMaterialComfuavinavDTO.operativo);
         $('#txtPorcentajeOperatividade').val(AlistamientoMaterialComfuavinavDTO.porcentajeOperativo);
@@ -384,7 +389,7 @@ function mostrarDatos() {
                             $("<td>").text(item.porcentajeOperativo),
 
                         )
-                    )
+                    )       
                 })
                 Swal.fire(
                     'Cargado!',
@@ -437,7 +442,7 @@ function cargaDatos() {
     $.getJSON('/ComfuavinavAlistamientoMaterial/cargaCombs', [], function (Json) {
         var UnidadNaval = Json["data1"];
         var CapacidadOperativa = Json["data2"];
-        var AlistamientoMaterialRequerido3N = Json["data3"];
+        var alistamientoMaterialRequerido3N = Json["data3"];
         var listaCargas = Json["data4"];
 
         $("select#cbUnidadNaval").html("");
@@ -462,16 +467,12 @@ function cargaDatos() {
             $("select#cbCapacidadOperativae").append(RowContent);
         });
 
-
-        $("select#cbAlistamientoMaterialRequerido3N").html("");
-        $.each(AlistamientoMaterialRequerido3N, function () {
-            var RowContent = '<option value=' + this.codigoAlistamientoMaterialRequerido3N + '>' + this.subclasificacionn + '</option>'
-            $("select#cbAlistamientoMaterialRequerido3N").append(RowContent);
-        });
-        $("select#cbAlistamientoMaterialRequerido3Ne").html("");
-        $.each(AlistamientoMaterialRequerido3N, function () {
-            var RowContent = '<option value=' + this.codigoAlistamientoMaterialRequerido3N + '>' + this.subclasificacionn + '</option>'
-            $("select#cbAlistamientoMaterialRequerido3Ne").append(RowContent);
+        $("select#cbAlistamiento").html("");
+        $("select#cbAlistamientoe").html("");
+        $.each(alistamientoMaterialRequerido3N, function () {
+            var RowContent = '<option value=' + this.codigoAlistamientoMaterialRequerido3N + '>' + this.codigoAlistamientoMaterialRequerido3N + '</option>'
+            $("select#cbAlistamiento").append(RowContent);
+            $("select#cbAlistamientoe").append(RowContent);
         });
 
         $("select#cargasR").html("");
