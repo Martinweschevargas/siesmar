@@ -27,7 +27,7 @@ $(document).ready(function () {
                                     'DescEspecialidad': $('#txtDescripcion').val(),
                                     'Abreviatura': $('#txtAbreviatura').val(),
                                     'CodigoEspecialidadGenericaPersonal': $('#txtCode').val(),
-                                    'GradoPersonalMilitarId': $('#cbGPMilitar').val()
+                                    'CodigoGradoPersonalMilitar': $('#cbGPMilitar').val()
                                 },
                                 beforeSend: function () {
                                     $('#loader-6').show();
@@ -91,7 +91,7 @@ $(document).ready(function () {
                                     'DescEspecialidad': $('#txtDescripcione').val(),
                                     'Abreviatura': $('#txtAbreviaturae').val(),
                                     'CodigoEspecialidadGenericaPersonal': $('#txtCodee').val(),
-                                    'GradoPersonalMilitarId': $('#cbGPMilitare').val()
+                                    'CodigoGradoPersonalMilitar': $('#cbGPMilitare').val()
                                 },
                                 beforeSend: function () {
                                     $('#loader-6').show();
@@ -175,7 +175,7 @@ function edit(EspecialidadGenericaPersonalId) {
         $('#txtDescripcione').val(EspecialidadGenericaPersonalDTO.descEspecialidad);
         $('#txtAbreviaturae').val(EspecialidadGenericaPersonalDTO.abreviatura);
         $('#txtCodee').val(EspecialidadGenericaPersonalDTO.codigoEspecialidadGenericaPersonal);
-        $('#cbGPMilitare').val(EspecialidadGenericaPersonalDTO.gradoPersonalMilitarId);
+        $('#cbGPMilitare').val(EspecialidadGenericaPersonalDTO.codigoGradoPersonalMilitar);
     });
 }
 
@@ -235,12 +235,12 @@ function cargaCombo() {
         var gradoPersonalMilitar = Json["data"];
         $("select#cbGPMilitar").html("");
         $.each(gradoPersonalMilitar, function () {
-            var RowContent = '<option value=' + this.gradoPersonalMilitarId + '>' + this.descGrado + '</option>'
+            var RowContent = '<option value=' + this.codigoGradoPersonalMilitar + '>' + this.descGrado + '</option>'
             $("select#cbGPMilitar").append(RowContent);
         });
         $("select#cbGPMilitare").html("");
         $.each(gradoPersonalMilitar, function () {
-            var RowContent = '<option value=' + this.gradoPersonalMilitarId + '>' + this.descGrado + '</option>'
+            var RowContent = '<option value=' + this.codigoGradoPersonalMilitar + '>' + this.descGrado + '</option>'
             $("select#cbGPMilitare").append(RowContent);
         });
     });

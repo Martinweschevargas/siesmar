@@ -4,7 +4,6 @@ using Marina.Siesmar.LogicaNegocios.Seguridad;
 using Marina.Siesmar.Utilitarios;
 using Microsoft.AspNetCore.Mvc;
 using SmartBreadcrumbs.Attributes;
-using System.Security.Claims;
 using WebApplication3.Controllers;
 
 namespace Marina.Siesmar.Presentacion.Controllers
@@ -44,7 +43,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Json(new { data = listaEspecialidadGenericaPersonales });
         }
 
-        public ActionResult InsertarEspecialidadGenericaPersonal(string DescEspecialidad, string Abreviatura, string CodigoEspecialidadGenericaPersonal, int GradoPersonalMilitarId)
+        public ActionResult InsertarEspecialidadGenericaPersonal(string DescEspecialidad, string Abreviatura, string CodigoEspecialidadGenericaPersonal, string CodigoGradoPersonalMilitar)
         {
             var IND_OPERACION = "";
             try
@@ -53,7 +52,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
                 especialidadGenericaPersonalDTO.DescEspecialidad = DescEspecialidad;
                 especialidadGenericaPersonalDTO.Abreviatura = Abreviatura;
                 especialidadGenericaPersonalDTO.CodigoEspecialidadGenericaPersonal = CodigoEspecialidadGenericaPersonal;
-                especialidadGenericaPersonalDTO.GradoPersonalMilitarId = GradoPersonalMilitarId;
+                especialidadGenericaPersonalDTO.CodigoGradoPersonalMilitar = CodigoGradoPersonalMilitar;
                 especialidadGenericaPersonalDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
                 IND_OPERACION = especialidadGenericaPersonalBL.AgregarEspecialidadGenericaPersonal(especialidadGenericaPersonalDTO);
@@ -73,14 +72,15 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Json(especialidadGenericaPersonalBL.BuscarEspecialidadGenericaPersonalID(EspecialidadGenericaPersonalId));
         }
 
-        public ActionResult ActualizarEspecialidadGenericaPersonal(int EspecialidadGenericaPersonalId, string DescEspecialidad, string Abreviatura, string CodigoEspecialidadGenericaPersonal, int GradoPersonalMilitarId)
+        public ActionResult ActualizarEspecialidadGenericaPersonal(int EspecialidadGenericaPersonalId, string DescEspecialidad, string Abreviatura, 
+            string CodigoEspecialidadGenericaPersonal, string CodigoGradoPersonalMilitar)
         {
             EspecialidadGenericaPersonalDTO especialidadGenericaPersonalDTO = new();
             especialidadGenericaPersonalDTO.EspecialidadGenericaPersonalId = EspecialidadGenericaPersonalId;
             especialidadGenericaPersonalDTO.DescEspecialidad = DescEspecialidad;
             especialidadGenericaPersonalDTO.Abreviatura = Abreviatura;
             especialidadGenericaPersonalDTO.CodigoEspecialidadGenericaPersonal = CodigoEspecialidadGenericaPersonal;
-            especialidadGenericaPersonalDTO.GradoPersonalMilitarId = GradoPersonalMilitarId;
+            especialidadGenericaPersonalDTO.CodigoGradoPersonalMilitar = CodigoGradoPersonalMilitar;
             especialidadGenericaPersonalDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
             var IND_OPERACION = especialidadGenericaPersonalBL.ActualizarEspecialidadGenericaPersonal(especialidadGenericaPersonalDTO);

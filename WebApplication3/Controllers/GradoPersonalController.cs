@@ -1,10 +1,8 @@
 ﻿using Marina.Siesmar.AccesoDatos.Mantenimiento;
 using Marina.Siesmar.Entidades.Mantenimiento;
-using Marina.Siesmar.LogicaNegocios.Seguridad;
 using Marina.Siesmar.Utilitarios;
 using Microsoft.AspNetCore.Mvc;
 using SmartBreadcrumbs.Attributes;
-using System.Security.Claims;
 using WebApplication3.Controllers;
 
 namespace Marina.Siesmar.Presentacion.Controllers
@@ -43,7 +41,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Json(new { data = listaGradoPersonals });
         }
 
-        public ActionResult InsertarGradoPersonal(string DescGradoPersonal, string CodigoGradoPersonal, int EntidadMilitarId)
+        public ActionResult InsertarGradoPersonal(string DescGradoPersonal, string CodigoGradoPersonal, string CodigoEntidadMilitar)
         {
             var IND_OPERACION = "";
             try
@@ -51,7 +49,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
                 GradoPersonalDTO gradoPersonalDTO = new();
                 gradoPersonalDTO.DescGradoPersonal = DescGradoPersonal;
                 gradoPersonalDTO.CodigoGradoPersonal = CodigoGradoPersonal;
-                gradoPersonalDTO.EntidadMilitarId = EntidadMilitarId;
+                gradoPersonalDTO.CodigoEntidadMilitar = CodigoEntidadMilitar;
                 gradoPersonalDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
                 IND_OPERACION = gradoPersonalBL.AgregarGradoPersonal(gradoPersonalDTO);
@@ -71,13 +69,13 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Json(gradoPersonalBL.BuscarGradoPersonalID(GradoPersonalId));
         }
 
-        public ActionResult ActualizarGradoPersonal(int GradoPersonalId, string DescGradoPersonal, string CodigoGradoPersonal, int EntidadMilitarId)
+        public ActionResult ActualizarGradoPersonal(int GradoPersonalId, string DescGradoPersonal, string CodigoGradoPersonal, string CodigoEntidadMilitar)
         {
             GradoPersonalDTO gradoPersonalDTO = new();
             gradoPersonalDTO.GradoPersonalId = GradoPersonalId;
             gradoPersonalDTO.DescGradoPersonal = DescGradoPersonal;
             gradoPersonalDTO.CodigoGradoPersonal = CodigoGradoPersonal;
-            gradoPersonalDTO.EntidadMilitarId = EntidadMilitarId;
+            gradoPersonalDTO.CodigoEntidadMilitar = CodigoEntidadMilitar;
             gradoPersonalDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
             var IND_OPERACION = gradoPersonalBL.ActualizarGradoPersonal(gradoPersonalDTO);

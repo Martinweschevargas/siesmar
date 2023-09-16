@@ -64,8 +64,8 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd.Parameters.Add("@CodigoEspecialidadGenericaPersonal", SqlDbType.VarChar, 80);
                     cmd.Parameters["@CodigoEspecialidadGenericaPersonal"].Value = especialidadGenericaPersonalDTO.CodigoEspecialidadGenericaPersonal;
 
-                    cmd.Parameters.Add("@GradoPersonalMilitarId", SqlDbType.Int);
-                    cmd.Parameters["@GradoPersonalMilitarId"].Value = especialidadGenericaPersonalDTO.GradoPersonalMilitarId;
+                    cmd.Parameters.Add("@CodigoGradoPersonalMilitar", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoGradoPersonalMilitar"].Value = especialidadGenericaPersonalDTO.CodigoGradoPersonalMilitar;
 
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
                     cmd.Parameters["@Usuario"].Value = especialidadGenericaPersonalDTO.UsuarioIngresoRegistro;
@@ -117,7 +117,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                         especialidadGenericaPersonalDTO.DescEspecialidad = dr["DescEspecialidad"].ToString();
                         especialidadGenericaPersonalDTO.Abreviatura = dr["Abreviatura"].ToString();
                         especialidadGenericaPersonalDTO.CodigoEspecialidadGenericaPersonal = dr["CodigoEspecialidadGenericaPersonal"].ToString();
-                        especialidadGenericaPersonalDTO.GradoPersonalMilitarId = Convert.ToInt32(dr["GradoPersonalMilitarId"]);
+                        especialidadGenericaPersonalDTO.CodigoGradoPersonalMilitar = dr["CodigoGradoPersonalMilitar"].ToString();
                     }
 
                 }
@@ -155,8 +155,8 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd.Parameters.Add("@CodigoEspecialidadGenericaPersonal", SqlDbType.VarChar, 80);
                     cmd.Parameters["@CodigoEspecialidadGenericaPersonal"].Value = especialidadGenericaPersonalDTO.CodigoEspecialidadGenericaPersonal;
 
-                    cmd.Parameters.Add("@GradoPersonalMilitarId", SqlDbType.Int);
-                    cmd.Parameters["@GradoPersonalMilitarId"].Value = especialidadGenericaPersonalDTO.GradoPersonalMilitarId;
+                    cmd.Parameters.Add("@CodigoGradoPersonalMilitar", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoGradoPersonalMilitar"].Value = especialidadGenericaPersonalDTO.CodigoGradoPersonalMilitar;
 
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
                     cmd.Parameters["@Usuario"].Value = especialidadGenericaPersonalDTO.UsuarioIngresoRegistro;
