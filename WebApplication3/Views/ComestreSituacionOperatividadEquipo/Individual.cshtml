@@ -1,0 +1,212 @@
+﻿@{
+    ViewData["Title"] = "Situacion Operatividad Equipo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/ComestreSituacionOperatividadEquipo/Individual" style="text-decoration:none;">Formato de Situacion de Operatividad de Equipo XS</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="Material" class="col-3 col-form-label"><a href="~/DescripcionMaterial">Descripcion del Material</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbMaterial" name="cbMaterial"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Cantidad" class="col-3 col-form-label">Cantidad</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidad" name="txtCantidad" placeholder="Cantidad" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Unidad" class="col-3 col-form-label">Unidad</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtUnidad" name="txtUnidad" placeholder="Unidad" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Ubicacion" class="col-3 col-form-label">Ubicacion</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtUbicacion" name="txtUbicacion" placeholder="Ubicacion" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Departamento" class="col-3 col-form-label"><a href="~/DepartamentoUbigeo">Departamento</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDepartamento" name="cbDepartamento"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Provincia" class="col-3 col-form-label"><a href="~/ProvinciaUbigeo">Provincia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbProvincia" name="cbProvincia"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Distrito" class="col-3 col-form-label"><a href="~/DistritoUbigeo">Distrito</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDistrito" name="cbDistrito"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Condicion" class="col-3 col-form-label">Condicion</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtCondicion" name="txtCondicion" data-placeholder="Seleccione ...">
+                            <option value="1">Operativo completamente listo (76% al 100%)</option>
+                            <option value="2">Operativo sustancialmente listo (51% al 75%)</option>
+                            <option value="3">Marginalmente listo(26% al 50%)</option>
+                            <option value="4">Operativo con limitaciones (10% al 25%)</option>
+                            <option value="5">No operativo (0% al 9%)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Observacion" class="col-3 col-form-label">Observaciones</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtObservacion" name="txtObservacion" placeholder="Observaciones" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComestreSituacionOperatividadEquipo">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="Material" class="col-3 col-form-label"><a href="~/DescripcionMaterial">Descripcion del Material</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbMateriale" name="cbMateriale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Cantidad" class="col-3 col-form-label">Cantidad</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidade" name="txtCantidade" placeholder="Cantidad" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Unidad" class="col-3 col-form-label">Unidad</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtUnidade" name="txtUnidade" placeholder="Unidad" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Ubicacion" class="col-3 col-form-label">Ubicacion</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtUbicacione" name="txtUbicacione" placeholder="Ubicacion" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Departamento" class="col-3 col-form-label"><a href="~/DepartamentoUbigeo">Departamento</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDepartamentoe" name="cbDepartamentoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Provincia" class="col-3 col-form-label"><a href="~/ProvinciaUbigeo">Provincia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbProvinciae" name="cbProvinciae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Distrito" class="col-3 col-form-label"><a href="~/DistritoUbigeo">Distrito</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDistritoe" name="cbDistritoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Condicion" class="col-3 col-form-label">Condicion</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtCondicione" name="txtCondicione" data-placeholder="Seleccione ...">
+                            <option value="1">Operativo completamente listo (76% al 100%)</option>
+                            <option value="2">Operativo sustancialmente listo (51% al 75%)</option>
+                            <option value="3">Marginalmente listo(26% al 50%)</option>
+                            <option value="4">Operativo con limitaciones (10% al 25%)</option>
+                            <option value="5">No operativo (0% al 9%)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Observacion" class="col-3 col-form-label">Observaciones</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtObservacione" name="txtObservacione" placeholder="Observaciones" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComestreSituacionOperatividadEquipo">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaComestreSituacionOperatividadEquipo()" />
+    <div class="dropdown">
+        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Modos de Carga :
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="~/ComestreSituacionOperatividadEquipo">Masiva</a>
+            <a class="dropdown-item" href="~/ComestreSituacionOperatividadEquipo/Individual">Individual</a>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblComestreSituacionOperatividadEquipo" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Descripcion del Material</th>
+                <th>Cantidad</th>
+                <th>Unidad</th>
+                <th>Ubicacion</th>
+                <th>Departamento</th>
+                <th>Provincia</th>
+                <th>Distrito</th>
+                <th>Condicion</th>
+                <th>Observaciones</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/comestre/comestre-situacionoperatividadequipo.js" asp-append-version="true"></script>
+}

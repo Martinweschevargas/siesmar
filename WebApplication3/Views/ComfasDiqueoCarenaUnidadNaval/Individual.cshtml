@@ -1,0 +1,190 @@
+﻿@{
+    ViewData["Title"] = "Cuadro de Diqueo y Carena de Unidades Navales";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/ComfasDiqueoCarenaUnidadNaval/Individual" style="text-decoration:none;">Cuadro de Diqueo y Carena de Unidades Navales</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Unidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNaval" name="cbUnidadNaval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaIngresoUltimoDiqueo" class="col-3 col-form-label">Fecha Ingreso De Ultimo Diqueo</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaIngresoUltimoDiqueo" name="txtFechaIngresoUltimoDiqueo" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaSalidaUltimoDiqueo" class="col-3 col-form-label">Fecha De Salida Ultimo Diqueo</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaSalidaUltimoDiqueo" name="txtFechaSalidaUltimoDiqueo" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaIngresoProximoDiqueo" class="col-3 col-form-label">Próximo Diqueo Fecha Ingreso</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaIngresoProximoDiqueo" name="txtFechaIngresoProximoDiqueo" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaSalidaProximoDiqueo" class="col-3 col-form-label">Próximo Diqueo Fecha Salida</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaSalidaProximoDiqueo" name="txtFechaSalidaProximoDiqueo" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PrioridadProximoDiqueo" class="col-3 col-form-label">Prioridad Para Próximo Diqueo </label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtPrioridadProximoDiqueo" name="txtPrioridadProximoDiqueo" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Lugar" class="col-3 col-form-label">Lugar</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtLugar" name="txtLugar" placeholder="Lugar" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Observaciones" class="col-3 col-form-label">Observaciones</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtObservaciones" name="txtObservaciones" placeholder="Observaciones" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComfasDiqueoCarenaUnidadNaval">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Unidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNavale" name="cbUnidadNavale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaIngresoUltimoDiqueo" class="col-3 col-form-label">Fecha Ingreso De Ultimo Diqueo</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaIngresoUltimoDiqueoe" name="txtFechaIngresoUltimoDiqueoe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaSalidaUltimoDiqueo" class="col-3 col-form-label">Fecha De Salida Ultimo Diqueo</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaSalidaUltimoDiqueoe" name="txtFechaSalidaUltimoDiqueoe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaIngresoProximoDiqueo" class="col-3 col-form-label">Próximo Diqueo Fecha Ingreso</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaIngresoProximoDiqueoe" name="txtFechaIngresoProximoDiqueoe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaSalidaProximoDiqueo" class="col-3 col-form-label">Próximo Diqueo Fecha Salida</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaSalidaProximoDiqueoe" name="txtFechaSalidaProximoDiqueoe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PrioridadProximoDiqueo" class="col-3 col-form-label">Prioridad Para Próximo Diqueo </label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtPrioridadProximoDiqueoe" name="txtPrioridadProximoDiqueoe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Lugar" class="col-3 col-form-label">Lugar</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtLugare" name="txtLugare" placeholder="Lugar" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Observaciones" class="col-3 col-form-label">Observaciones</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtObservacionese" name="txtObservacionese" placeholder="Observaciones" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComfasDiqueoCarenaUnidadNaval">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaComfasDiqueoCarenaUnidadNaval()" />
+    <div class="dropdown">
+        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Modos de Carga :
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="~/ComfasDiqueoCarenaUnidadNaval">Masiva</a>
+            <a class="dropdown-item" href="~/ComfasDiqueoCarenaUnidadNaval/Individual">Individual</a>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblComfasDiqueoCarenaUnidadNaval" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Unidad</th>
+                <th>Fecha Ingreso De Ultimo Diqueo</th>
+                <th>Fecha De Salida Ultimo Diqueo</th>
+                <th>Próximo Diqueo Fecha Ingreso</th>
+                <th>Próximo Diqueo Fecha Salida</th>
+                <th>Prioridad Para Próximo Diqueo </th>
+                <th>Lugar</th>
+                <th>Observaciones</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/comfas/comfas-diqueocarenaunidadnaval.js" asp-append-version="true"></script>
+}

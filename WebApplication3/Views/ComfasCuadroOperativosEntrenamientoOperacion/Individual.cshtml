@@ -1,0 +1,185 @@
+﻿@{
+    ViewData["Title"] = "Cuadro de Operativos y Entrenamiento Operacionales en la Mar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/ComfasCuadroOperativosEntrenamientoOperacion/Individual" style="text-decoration:none;">Cuadro de Operativos y Entrenamiento Operacionales en la Mar</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="Fecha" class="col-3 col-form-label">Fecha</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="HoraInicio" class="col-3 col-form-label">Hora Inicio</label>
+                    <div class="col-md-9">
+                        <input type="time" class="form-control form-control-sm" id="txtHoraInicio" name="txtHoraInicio" placeholder="Hora Inicio" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="HoraTermino" class="col-3 col-form-label">Hora Termino</label>
+                    <div class="col-md-9">
+                        <input type="time" class="form-control form-control-sm" id="txtHoraTermino" name="txtHoraTermino" placeholder="Hora Termino" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Evento" class="col-3 col-form-label">Operativo / Evento</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtEvento" name="txtEvento" data-placeholder="Seleccione ...">
+                            <option value="B">BÁSICO</option>
+                            <option value="I">INTERMEDIO</option>
+                            <option value="A">AVANZADO</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="OCEConductorControl" class="col-3 col-form-label">OCE</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtOCEConductorControl" name="txtOCEConductorControl" placeholder="OCE" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="UnidadAeronaveParticipante" class="col-3 col-form-label">Unidad y/o Aeronaves Participantes</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtUnidadAeronaveParticipante" name="txtUnidadAeronaveParticipante" placeholder="Unidad y/o Aeronaves Participantes" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Area" class="col-3 col-form-label">Área</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtArea" name="txtArea" placeholder="Área" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComfasCuadroOperativosEntrenamientoOperacion">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="Fecha" class="col-3 col-form-label">Fecha</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechae" name="txtFechae" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="HoraInicio" class="col-3 col-form-label">Hora Inicio</label>
+                    <div class="col-md-9">
+                        <input type="time" class="form-control form-control-sm" id="txtHoraInicioe" name="txtHoraInicioe" placeholder="Hora Inicio" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="HoraTermino" class="col-3 col-form-label">Hora Termino</label>
+                    <div class="col-md-9">
+                        <input type="time" class="form-control form-control-sm" id="txtHoraTerminoe" name="txtHoraTerminoe" placeholder="Hora Termino" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Evento" class="col-3 col-form-label">Operativo / Evento</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtEventoe" name="txtEventoe" data-placeholder="Seleccione ...">
+                            <option value="B">BÁSICO</option>
+                            <option value="I">INTERMEDIO</option>
+                            <option value="A">AVANZADO</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="OCEConductorControl" class="col-3 col-form-label">OCE</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtOCEConductorControle" name="txtOCEConductorControle" placeholder="OCE" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="UnidadAeronaveParticipante" class="col-3 col-form-label">Unidad y/o Aeronaves Participantes</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtUnidadAeronaveParticipantee" name="txtUnidadAeronaveParticipantee" placeholder="Unidad y/o Aeronaves Participantes" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Area" class="col-3 col-form-label">Área</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtAreae" name="txtAreae" placeholder="Área" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComfasCuadroOperativosEntrenamientoOperacion">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaComfasCuadroOperativosEntrenamientoOperacion()" />
+    <div class="dropdown">
+        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Modos de Carga :
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="~/ComfasCuadroOperativosEntrenamientoOperacion">Masiva</a>
+            <a class="dropdown-item" href="~/ComfasCuadroOperativosEntrenamientoOperacion/Individual">Individual</a>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblComfasCuadroOperativosEntrenamientoOperacion" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Fecha</th>
+                <th>Hora Inicio</th>
+                <th>Hora Termino</th>
+                <th>Operativo / Evento</th>
+                <th>OCE</th>
+                <th>Unidad y/o Aeronaves Participantes</th>
+                <th>Área</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/comfas/comfas-cuadrooperativosentrenamientooperacion.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,177 @@
+﻿@{
+    ViewData["Title"] = "Cuadro de Plan Anual Recar Distribución Anual deL Presupuesto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/ComfasPlanAnualRecaerDistribucionPresupuesto/Individual" style="text-decoration:none;">Cuadro de Plan Anual Recar Distribución Anual deL Presupuesto</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Unidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNaval" name="cbUnidadNaval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TotalAsignadoDependencia" class="col-3 col-form-label">Total Asignado A Unidad O Dependencia</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtTotalAsignadoDependencia" name="txtTotalAsignadoDependencia" placeholder="Total Asignado A Unidad O Dependencia" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ServicioSimac" class="col-3 col-form-label">Servicios Simac</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtServicioSimac" name="txtServicioSimac" placeholder="Servicios Simac" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ServicioIndustriaPrivada" class="col-3 col-form-label">Servicios Industria Privada</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtServicioIndustriaPrivada" name="txtServicioIndustriaPrivada" placeholder="Servicios Industria Privada" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="AdquisicionRepuestos" class="col-3 col-form-label">Adquisición De Repuestos</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtAdquisicionRepuestos" name="txtAdquisicionRepuestos" placeholder="Adquisición De Repuestos" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Equipos" class="col-3 col-form-label">Equipos</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtEquipos" name="txtEquipos" placeholder="Equipos" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PorcentajeAvanceEjecucion" class="col-3 col-form-label">Porcentaje Avance Ejecución</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPorcentajeAvanceEjecucion" name="txtPorcentajeAvanceEjecucion" placeholder="Porcentaje Avance Ejecución" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComfasPlanAnualRecaerDistribucionPresupuesto">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Unidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNavale" name="cbUnidadNavale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TotalAsignadoDependencia" class="col-3 col-form-label">Total Asignado A Unidad O Dependencia</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtTotalAsignadoDependenciae" name="txtTotalAsignadoDependenciae" placeholder="Total Asignado A Unidad O Dependencia" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ServicioSimac" class="col-3 col-form-label">Servicios Simac</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtServicioSimace" name="txtServicioSimace" placeholder="Servicios Simac" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ServicioIndustriaPrivada" class="col-3 col-form-label">Servicios Industria Privada</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtServicioIndustriaPrivadae" name="txtServicioIndustriaPrivadae" placeholder="Servicios Industria Privada" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="AdquisicionRepuestos" class="col-3 col-form-label">Adquisición De Repuestos</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtAdquisicionRepuestose" name="txtAdquisicionRepuestose" placeholder="Adquisición De Repuestos" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Equipos" class="col-3 col-form-label">Equipos</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtEquipose" name="txtEquipose" placeholder="Equipos" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PorcentajeAvanceEjecucion" class="col-3 col-form-label">Porcentaje Avance Ejecución</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPorcentajeAvanceEjecucione" name="txtPorcentajeAvanceEjecucione" placeholder="Porcentaje Avance Ejecución" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComfasPlanAnualRecaerDistribucionPresupuesto">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaComfasPlanAnualRecaerDistribucionPresupuesto()" />
+    <div class="dropdown">
+        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Modos de Carga :
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="~/ComfasPlanAnualRecaerDistribucionPresupuesto">Masiva</a>
+            <a class="dropdown-item" href="~/ComfasPlanAnualRecaerDistribucionPresupuesto/Individual">Individual</a>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblComfasPlanAnualRecaerDistribucionPresupuesto" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Unidad</th>
+                <th>Total Asignado A Unidad O Dependencia</th>
+                <th>Servicios Simac</th>
+                <th>Servicios Industria Privada</th>
+                <th>Adquisición De Repuestos</th>
+                <th>Equipos</th>
+                <th>Porcentaje Avance Ejecución</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/comfas/comfas-plananualrecaerdistribucionpresupuesto.js" asp-append-version="true"></script>
+}

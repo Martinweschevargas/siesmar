@@ -1,0 +1,318 @@
+﻿@{
+    ViewData["Title"] = "Material de Recreación, Entretenimiento y Recreativo Asignado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/BienestarMaterialRecreacionEntretenamiento/Individual" style="text-decoration:none;">Material de Recreación, Entretenimiento y Recreativo Asignado</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <select class="form-select form-control-sm" id="cargasR" name="cargasR"></select>
+                </div>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                </div>
+            </div>
+            <div class="row mt-2">
+
+                <div class="form-group row col-md-6">
+                    <label for="FechaSolicitud" class="col-3 col-form-label">Fecha Solicitud</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaSolicitud" name="txtFechaSolicitud" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label"><a href="~/Dependencia">Dependencia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDependencia" name="cbDependencia"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MaterialDeportiva" class="col-3 col-form-label"><a href="~/MaterialDeportivo">Material Deportiva</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbMaterialDeportiva" name="cbMaterialDeportiva"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CantidadSolicitadoD" class="col-3 col-form-label">Cantidad Material Deportivo Solicitado</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidadSolicitadoD" name="txtCantidadSolicitadoD" placeholder="Cantidad Material Deportivo Solicitado" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CantidadAtendidoD" class="col-3 col-form-label">Cantidad Material Deportivo Atendido</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidadAtendidoD" name="txtCantidadAtendidoD" placeholder="Cantidad Material Deportivo Atendido" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MontoSolesSolicitadoD" class="col-3 col-form-label">Monto en Soles Solicitado (material deportivo)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMontoSolesSolicitadoD" name="txtMontoSolesSolicitadoD" placeholder="Monto en Soles Solicitado (material deportivo)" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MontoSolesAtendidoD" class="col-3 col-form-label">Monto Soles Atendido (material deportivo)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMontoSolesAtendidoD" name="txtMontoSolesAtendidoD" placeholder="Monto Soles Atendido (material deportivo)" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MaterialRecreativo" class="col-3 col-form-label"><a href="~/MaterialRecreativo">Material Recreativo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbMaterialRecreativo" name="cbMaterialRecreativo"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CantidadSolicitadoR" class="col-3 col-form-label">Cantidad Solicitado (material recreativo)</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidadSolicitadoR" name="txtCantidadSolicitadoR" placeholder="Cantidad Solicitado (material recreativo)" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CantidadAtendidoR" class="col-3 col-form-label">Cantidad Atendido (material recreativo)</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidadAtendidoR" name="txtCantidadAtendidoR" placeholder="Cantidad Atendido (material recreativo)" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MontoSolesSolicitanteR" class="col-3 col-form-label">Monto en Soles Solicitado (material recreativo)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMontoSolesSolicitanteR" name="txtMontoSolesSolicitanteR" placeholder="Monto en Soles Solicitado (material recreativo)" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MontoSolesAtendidoR" class="col-3 col-form-label">Monto Soles Atendido (material recreativo)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMontoSolesAtendidoR" name="txtMontoSolesAtendidoR" placeholder="Monto Soles Atendido (material recreativo)" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MaterialEntretenimiento" class="col-3 col-form-label"><a href="~/MaterialEntretenimiento">Material de Entretenimiento</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbMaterialEntretenimiento" name="cbMaterialEntretenimiento"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CantidadSolicitadoE" class="col-3 col-form-label">Cantidad Material Solicitado (entretenimiento)</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidadSolicitadoE" name="txtCantidadSolicitadoE" placeholder="Cantidad Material Solicitado (entretenimiento)" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CantidadAtendidoE" class="col-3 col-form-label">Cantidad Material Atendido (entretenimiento)</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidadAtendidoE" name="txtCantidadAtendidoE" placeholder="Cantidad Material Atendido (entretenimiento)" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MontoSolesSolicitadoE" class="col-3 col-form-label">Monto Soles Solicitado (material Entretenimiento)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMontoSolesSolicitadoE" name="txtMontoSolesSolicitadoE" placeholder="Monto Soles Solicitado (material Entretenimiento)" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MontoSolesAtendidoE" class="col-3 col-form-label">Monto Soles Atendido (material entretenimiento)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMontoSolesAtendidoE" name="txtMontoSolesAtendidoE" placeholder="Monto Soles Atendido (material entretenimiento)" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/BienestarMaterialRecreacionEntretenamiento">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="FechaSolicitud" class="col-3 col-form-label">Fecha Solicitud</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaSolicitude" name="txtFechaSolicitude" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label"><a href="~/Dependencia">Dependencia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDependenciae" name="cbDependenciae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MaterialDeportiva" class="col-3 col-form-label"><a href="~/MaterialDeportivo">Material Deportiva</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbMaterialDeportivae" name="cbMaterialDeportivae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CantidadSolicitadoD" class="col-3 col-form-label">Cantidad Material Deportivo Solicitado</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidadSolicitadoDe" name="txtCantidadSolicitadoDe" placeholder="Cantidad Material Deportivo Solicitado" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CantidadAtendidoD" class="col-3 col-form-label">Cantidad Material Deportivo Atendido</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidadAtendidoDe" name="txtCantidadAtendidoDe" placeholder="Cantidad Material Deportivo Atendido" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MontoSolesSolicitadoD" class="col-3 col-form-label">Monto en Soles Solicitado (material deportivo)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMontoSolesSolicitadoDe" name="txtMontoSolesSolicitadoDe" placeholder="Monto en Soles Solicitado (material deportivo)" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MontoSolesAtendidoD" class="col-3 col-form-label">Monto Soles Atendido (material deportivo)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMontoSolesAtendidoDe" name="txtMontoSolesAtendidoDe" placeholder="Monto Soles Atendido (material deportivo)" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MaterialRecreativo" class="col-3 col-form-label"><a href="~/MaterialRecreativo">Material Recreativo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbMaterialRecreativoe" name="cbMaterialRecreativoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CantidadSolicitadoR" class="col-3 col-form-label">Cantidad Solicitado (material recreativo)</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidadSolicitadoRe" name="txtCantidadSolicitadoRe" placeholder="Cantidad Solicitado (material recreativo)" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CantidadAtendidoR" class="col-3 col-form-label">Cantidad Atendido (material recreativo)</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidadAtendidoRe" name="txtCantidadAtendidoRe" placeholder="Cantidad Atendido (material recreativo)" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MontoSolesSolicitanteR" class="col-3 col-form-label">Monto en Soles Solicitado (material recreativo)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMontoSolesSolicitanteRe" name="txtMontoSolesSolicitanteRe" placeholder="Monto en Soles Solicitado (material recreativo)" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MontoSolesAtendidoR" class="col-3 col-form-label">Monto Soles Atendido (material recreativo)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMontoSolesAtendidoRe" name="txtMontoSolesAtendidoRe" placeholder="Monto Soles Atendido (material recreativo)" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MaterialEntretenimiento" class="col-3 col-form-label"><a href="~/MaterialEntretenimiento">Material de Entretenimiento</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbMaterialEntretenimientoe" name="cbMaterialEntretenimientoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CantidadSolicitadoE" class="col-3 col-form-label">Cantidad Material Solicitado (entretenimiento)</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidadSolicitadoEe" name="txtCantidadSolicitadoEe" placeholder="Cantidad Material Solicitado (entretenimiento)" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CantidadAtendidoE" class="col-3 col-form-label">Cantidad Material Atendido (entretenimiento)</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidadAtendidoEe" name="txtCantidadAtendidoEe" placeholder="Cantidad Material Atendido (entretenimiento)" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MontoSolesSolicitadoE" class="col-3 col-form-label">Monto Soles Solicitado (material Entretenimiento)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMontoSolesSolicitadoEe" name="txtMontoSolesSolicitadoEe" placeholder="Monto Soles Solicitado (material Entretenimiento)" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MontoSolesAtendidoE" class="col-3 col-form-label">Monto Soles Atendido (material entretenimiento)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMontoSolesAtendidoEe" name="txtMontoSolesAtendidoEe" placeholder="Monto Soles Atendido (material entretenimiento)" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/BienestarMaterialRecreacionEntretenamiento">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/BienestarMaterialRecreacionEntretenamiento" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaBienestarMaterialRecreacionEntretenamiento()" />
+    <div class="row align-items-start">
+        <div class="col"><select class="form-select form-control-sm" id="cargas" name="cargas"></select></div>
+        <div class="col">
+            <button class="btn btn-primary" id="btn_search">Buscar</button>
+            <button class="btn btn-primary" id="btn_all">Mostrar Todos</button>
+            <button class="btn btn-danger" onclick="eliminarCarga()">Eliminar Carga</button>
+        </div>
+
+    </div>
+    <table class="table table-striped" id="tblBienestarMaterialRecreacionEntretenamiento" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Fecha Solicitud</th>
+                <th>Dependencia</th>
+                <th>Material Deportiva</th>
+                <th>Cantidad Material Deportivo Solicitado</th>
+                <th>Cantidad Material Deportivo Atendido</th>
+                <th>Monto en Soles Solicitado (material deportivo)</th>
+                <th>Monto Soles Atendido (material deportivo)</th>
+                <th>Material Recreativo</th>
+                <th>Cantidad Solicitado (material recreativo)</th>
+                <th>Cantidad Atendido (material recreativo)</th>
+                <th>Monto en Soles Solicitado (material recreativo)</th>
+                <th>Monto Soles Atendido (material recreativo)</th>
+                <th>Material de Entretenimiento</th>
+                <th>Cantidad Material Solicitado (entretenimiento)</th>
+                <th>Cantidad Material Atendido (entretenimiento)</th>
+                <th>Monto Soles Solicitado (material Entretenimiento)</th>
+                <th>Monto Soles Atendido (material entretenimiento)</th>
+                <th>CodigoCarga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/bienestar/bienestar-materialrecreacionentretenamiento.js" asp-append-version="true"></script>
+}

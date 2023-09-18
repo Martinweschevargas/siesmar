@@ -1,0 +1,250 @@
+﻿@{
+    ViewData["Title"] = "Formato para el ingreso de datos del servicio de alimentación";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>
+    <a href="~/ComesguardIngresoDatoServicioAlimentacion/Individual" style="text-decoration:none;">
+        Formato para el ingreso de datos del servicio de alimentación
+    </a>
+</h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="form-group row col-md-6">
+                <label for="carga" class="col-3 col-form-label">Carga</label>
+                <div class="form-group row col-md-6">
+                    <div class="col"><select class="form-select form-control-sm" id="cargasR" name="cargasR"></select></div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="NumeroRacion" class="col-3 col-form-label">Numero de Raciones</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtNumeroRacion" name="txtNumeroRacion" placeholder="Numero de Raciones" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Mes" class="col-3 col-form-label"><a href="~/Mes">Mes</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbMes" name="cbMes"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PeriodoDias" class="col-3 col-form-label">Periodo días</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtPeriodoDias" name="txtPeriodoDias" placeholder="Periodo días" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label"><a href="~/Dependencia">Dependencia/Oficina</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDependencia" name="cbDependencia"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CantidadPersupe" class="col-3 col-form-label">Persupe</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidadPersupe" name="txtCantidadPersupe" placeholder="Persupe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CantidadPersuba" class="col-3 col-form-label">Persuba</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidadPersuba" name="txtCantidadPersuba" placeholder="Persuba" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CantidadPermar" class="col-3 col-form-label">Permar</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidadPermar" name="txtCantidadPermar" placeholder="Permar" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TotalPersonalVacaciones" class="col-3 col-form-label">Total personal de vacaciones</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtTotalPersonalVacaciones" name="txtTotalPersonalVacaciones" placeholder="Total personal de vacaciones" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TotalPersonalDiaHabil" class="col-3 col-form-label">Total personal días hábiles</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtTotalPersonalDiaHabil" name="txtTotalPersonalDiaHabil" placeholder="Total personal días hábiles" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TotalPersonalDiaNoHabil" class="col-3 col-form-label">Total personal días no hábiles</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtTotalPersonalDiaNoHabil" name="txtTotalPersonalDiaNoHabil" placeholder="Total personal días no hábiles" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DiaHabil" class="col-3 col-form-label">Días hábiles</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDiaHabil" name="txtDiaHabil" placeholder="Días hábiles" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DiaNoHabil" class="col-3 col-form-label">Días no hábiles</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDiaNoHabil" name="txtDiaNoHabil" placeholder="Días no hábiles" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComesguardIngresoDatoServicioAlimentacion">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+
+                <div class="form-group row col-md-6">
+                    <label for="NumeroRacion" class="col-3 col-form-label">Numero de Raciones</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtNumeroRacione" name="txtNumeroRacione" placeholder="Numero de Raciones" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Mes" class="col-3 col-form-label"><a href="~/Mes">Mes</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbMese" name="cbMese"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PeriodoDias" class="col-3 col-form-label">Periodo días</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtPeriodoDiase" name="txtPeriodoDiase" placeholder="Periodo días" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label"><a href="~/Dependencia">Dependencia/Oficina</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDependenciae" name="cbDependenciae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CantidadPersupe" class="col-3 col-form-label">Persupe</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidadPersupee" name="txtCantidadPersupee" placeholder="Persupe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CantidadPersuba" class="col-3 col-form-label">Persuba</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidadPersubae" name="txtCantidadPersubae" placeholder="Persuba" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CantidadPermar" class="col-3 col-form-label">Permar</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidadPermare" name="txtCantidadPermare" placeholder="Permar" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TotalPersonalVacaciones" class="col-3 col-form-label">Total personal de vacaciones</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtTotalPersonalVacacionese" name="txtTotalPersonalVacacionese" placeholder="Total personal de vacaciones" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TotalPersonalDiaHabil" class="col-3 col-form-label">Total personal días hábiles</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtTotalPersonalDiaHabile" name="txtTotalPersonalDiaHabile" placeholder="Total personal días hábiles" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TotalPersonalDiaNoHabil" class="col-3 col-form-label">Total personal días no hábiles</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtTotalPersonalDiaNoHabile" name="txtTotalPersonalDiaNoHabile" placeholder="Total personal días no hábiles" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DiaHabil" class="col-3 col-form-label">Días hábiles</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDiaHabile" name="txtDiaHabile" placeholder="Días hábiles" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DiaNoHabil" class="col-3 col-form-label">Días no hábiles</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDiaNoHabile" name="txtDiaNoHabile" placeholder="Días no hábiles" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComesguardIngresoDatoServicioAlimentacion/Individual">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="/ComesguardIngresoDatoServicioAlimentacion" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaComesguardIngresoDatoServicioAlimentacion()" />
+    <div class="row align-items-start">
+        <div class="col"><select class="form-select form-control-sm" id="cargas" name="cargas"></select></div>
+        <div class="col">
+            <input type='button' id="btn_search" value="Buscar" class="btn btn-primary">
+            <input type='button' id="btn_all" value="Mostrar Todos" class="btn btn-primary">
+    <table class="table table-striped" id="tblComesguardIngresoDatoServicioAlimentacion" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Numero de Raciones</th>
+                <th>Mes</th>
+                <th>Periodo días</th>
+                <th>Dependencia/Oficina</th>
+                <th>Persupe</th>
+                <th>Persuba</th>
+                <th>Permar</th>
+                <th>Total personal de vacaciones</th>
+                <th>Total personal días hábiles</th>
+                <th>Total personal días no hábiles</th>
+                <th>Días hábiles</th>
+                <th>Días no hábiles</th>
+                <th>Codigo Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/comesguard/comesguard-ingresodatoservicioalimentacion.js" asp-append-version="true"></script>
+}

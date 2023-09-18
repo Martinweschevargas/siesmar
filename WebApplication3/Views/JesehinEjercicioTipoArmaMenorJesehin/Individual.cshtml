@@ -1,0 +1,188 @@
+﻿@{
+    ViewData["Title"] = "Ejercicio Tipo Arma Menor Jesehin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/JesehinEjercicioTipoArmaMenorJesehin/Individual" style="text-decoration:none;">Ejercicios de Tiro con Armas Menores</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="Personal" class="col-3 col-form-label"><a href="~/TipoPersonalMilitar">Tipo de Personal</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbPersonal" name="cbPersonal"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Grado" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbGrado" name="cbGrado"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Fecha" class="col-3 col-form-label">Fecha</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Armamento" class="col-3 col-form-label"><a href="~/TipoArmamento">Tipo de Armamento Menor</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbArmamento" name="cbArmamento"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Posicion" class="col-3 col-form-label"><a href="~/PosicionTipoArma">Posicion</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbPosicion" name="cbPosicion"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Distancia" class="col-3 col-form-label">Distancia mt.</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtDistancia" name="txtDistancia" data-placeholder="Seleccione ...">
+                            <option value="1">25</option>
+                            <option value="2">100</option>
+                            <option value="3">200</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Tiro" class="col-3 col-form-label">Cantidad de Tiro</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtTiro" name="txtTiro" data-placeholder="Seleccione ...">
+                            <option value="1">5</option>
+                            <option value="2">10</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/JesehinEjercicioTipoArmaMenorJesehin">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="Personal" class="col-3 col-form-label"><a href="~/TipoPersonalMilitar">Tipo de Personal</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbPersonale" name="cbPersonale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Grado" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbGradoe" name="cbGradoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Fecha" class="col-3 col-form-label">Fecha</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechae" name="txtFechae" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Armamento" class="col-3 col-form-label"><a href="~/TipoArmamento">Tipo de Armamento Menor</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbArmamentoe" name="cbArmamentoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Posicion" class="col-3 col-form-label"><a href="~/PosicionTipoArma">Posicion</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbPosicione" name="cbPosicione"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Distancia" class="col-3 col-form-label">Distancia mt.</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtDistanciae" name="txtDistanciae" data-placeholder="Seleccione ...">
+                            <option value="1">25</option>
+                            <option value="2">100</option>
+                            <option value="3">200</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Tiro" class="col-3 col-form-label">Cantidad de Tiro</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtTiroe" name="txtTiroe" data-placeholder="Seleccione ...">
+                            <option value="1">5</option>
+                            <option value="2">10</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/JesehinEjercicioTipoArmaMenorJesehin">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaJesehinEjercicioTipoArmaMenorJesehin()" />
+    <div class="dropdown">
+        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Modos de Carga :
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="~/JesehinEjercicioTipoArmaMenorJesehin">Masiva</a>
+            <a class="dropdown-item" href="~/JesehinEjercicioTipoArmaMenorJesehin/Individual">Individual</a>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblJesehinEjercicioTipoArmaMenorJesehin" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Tipo de Personal</th>
+                <th>Grado</th>
+                <th>Fecha</th>
+                <th>Tipo de Armamento Menor</th>
+                <th>Posicion</th>
+                <th>Distancia mt.</th>
+                <th>Cantidad de Tiro</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/jesehin/jesehin-ejerciciotipoarmamenorjesehin.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,206 @@
+﻿@{
+    ViewData["Title"] = "Servicio Sastreria Comestre";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/ComestreServicioSastreriaComestre/Individual" style="text-decoration:none;">Servicio de Sastreria</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="FechaIngre" class="col-3 col-form-label">Fecha de Ingreso</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaIngre" name="txtFechaIngre" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaReco" class="col-3 col-form-label">Fecha de Recojo</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaReco" name="txtFechaReco" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CIP" class="col-3 col-form-label">CIP</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCIP" name="txtCIP" placeholder="CIP" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Grado" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbGrado" name="cbGrado"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Especialidad" class="col-3 col-form-label"><a href="~/EspecialidadGenericaPersonal">Especialidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEspecialidad" name="cbEspecialidad"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Sexo" class="col-3 col-form-label">Sexo</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtSexo" name="txtSexo" data-placeholder="Seleccione ...">
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label"><a href="~/Dependencia">Dependencia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDependencia" name="cbDependencia"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Prendas" class="col-3 col-form-label">N° Prendas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtPrendas" name="txtPrendas" placeholder="N° Prendas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Servicio" class="col-3 col-form-label"><a href="~/ServicioSastreria">Descripcion de Servicio</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbServicio" name="cbServicio"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComestreServicioSastreriaComestre">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="FechaIngre" class="col-3 col-form-label">Fecha de Ingreso</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaIngree" name="txtFechaIngree" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaReco" class="col-3 col-form-label">Fecha de Recojo</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaRecoe" name="txtFechaRecoe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CIP" class="col-3 col-form-label">CIP</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCIPe" name="txtCIPe" placeholder="CIP" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Grado" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbGradoe" name="cbGradoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Especialidad" class="col-3 col-form-label"><a href="~/EspecialidadGenericaPersonal">Especialidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEspecialidade" name="cbEspecialidade"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Sexo" class="col-3 col-form-label">Sexo</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtSexoe" name="txtSexoe" data-placeholder="Seleccione ...">
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label"><a href="~/Dependencia">Dependencia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDependenciae" name="cbDependenciae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Prendas" class="col-3 col-form-label">N° Prendas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtPrendase" name="txtPrendase" placeholder="N° Prendas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Servicio" class="col-3 col-form-label"><a href="~/ServicioSastreria">Descripcion de Servicio</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbServicioe" name="cbServicioe"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComestreServicioSastreriaComestre">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaComestreServicioSastreriaComestre()" />
+    <div class="dropdown">
+        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Modos de Carga :
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="~/ComestreServicioSastreriaComestre">Masiva</a>
+            <a class="dropdown-item" href="~/ComestreServicioSastreriaComestre/Individual">Individual</a>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblComestreServicioSastreriaComestre" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Fecha de Ingreso</th>
+                <th>Fecha de Recojo</th>
+                <th>CIP</th>
+                <th>Grado</th>
+                <th>Especialidad</th>
+                <th>Sexo</th>
+                <th>Dependencia</th>
+                <th>N° Prendas</th>
+                <th>Descripcion de Servicio</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/comestre/comestre-serviciosastreriacomestre.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,161 @@
+﻿@{
+    ViewData["Title"] = "EjercicioEntrenamientoComfasub";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/EjercicioEntrenamientoComfasub" style="text-decoration:none;">Ejercicios Entrenamientos Comfasub</a></h1>
+
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="txtCode" class="col-3 col-form-label">Código de Ejercicio Entrenamiento Comfasub</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCode" name="txtCode" placeholder="Código" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtDescripcion" class="col-3 col-form-label">Ejercicio Entrenamiento Comfasub</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDescripcion" name="txtDescripcion" placeholder="Descripción" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtFK" class="col-3 col-form-label">Capacidad Operativa</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbFK" name="cbFK"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtNivel" class="col-3 col-form-label">Nivel Ejercicio</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNivel" name="txtNivel" placeholder="Nivel" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtVigenciaIslay" class="col-3 col-form-label">Vigencia Días Clase Islay</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtVigenciaIslay" name="txtVigenciaIslay" placeholder="Vigencia días clases Islay" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtVigenciaAngamos" class="col-3 col-form-label">Vigencia Días Clase Angamos</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtVigenciaAngamos" name="txtVigenciaAngamos" placeholder="Vigencia días clases Angamos" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/EjercicioEntrenamientoComfasub">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+</div>
+
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="txtCode" class="col-3 col-form-label">Código de Ejercicio Entrenamiento Comfasub</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCodee" name="txtCodee" placeholder="Código" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtDescripcion" class="col-3 col-form-label">Ejercicio Entrenamiento Comfasub</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDescripcione" name="txtDescripcione" placeholder="Descripción" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtFK" class="col-3 col-form-label">Capacidad Operativa</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbFKe" name="cbFKe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtNivele" class="col-3 col-form-label">Nivel Ejercicio</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNivele" name="txtNivele" placeholder="Nivel" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtVigenciaIslaye" class="col-3 col-form-label">Vigencia Días Clase Islay</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtVigenciaIslaye" name="txtVigenciaIslaye" placeholder="Vigencia días clases Islay" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtVigenciaAngamose" class="col-3 col-form-label">Vigencia Días Clase Angamos</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtVigenciaAngamose" name="txtVigenciaAngamose" placeholder="Vigencia días clases Angamos" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/EjercicioEntrenamientoComfasub">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+</div>
+
+
+<div id="listar">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaEjercicioEntrenamientoComfasub()" />
+    <table class="table table-striped" id="tblEjercicioEntrenamientoComfasubs" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Codigo de Ejercicio</th>
+                <th>Capacidad Operativa</th>
+                <th>Nivel Ejercicio</th>
+                <th>Vigencia Días Clases Islay</th>
+                <th>Vigencia Días Clases Angamos</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/ejercicioentrenamientocomfasub.js" asp-append-version="true"></script>
+}

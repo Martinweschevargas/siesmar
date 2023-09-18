@@ -1,0 +1,77 @@
+﻿@{
+    ViewData["Title"] = "Formato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1><a href="~/DiredumarCapacitacionPerfecDeberPSupSub" style="text-decoration:none;">Capacitación y Perfeccionamiento del Personal Superior y Subalterno de acuerdo linea de carrera </a></h1>
+        <div class="card">
+            <div class="card-header">
+                <a href="~/DiredumarCapacitacionPerfecDeberPSupSub/Individual" class="btn btn-primary">Ir Carga Individual</a>
+                <a href="~/DiredumarCapacitacionPerfecDeberPSupSub/DownloadFile" class="btn btn-primary">Descargar Formato</a>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <input class="form-control form-control-sm" type="file" id="inputExcel" />
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-sm-6 text-center">
+                            <button class="btn btn-warning" onclick="mostrarDatos()">Previsualizar Datos</button>
+                        </div>
+                        <div class="col-sm-6 text-center">
+                            <button class="btn btn-success" onclick="enviarDatos()">Grabar Formato</button>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row" style="overflow:scroll">
+                    <div class="col-sm-12">
+                        <table class="table table-striped" id="tbData" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+                            <thead>
+                                <tr class="colorbg">
+                                    <th>CIP</th>
+                                    <th>DNI</th>
+                                    <th>Nombre</th>
+                                    <th>Fecha Nacimiento</th>
+                                    <th>Sexo</th>
+                                    <th>Dependencia</th>
+                                    <th>Tipo de personal</th>
+                                    <th>Grado Personal Militar</th>
+                                    <th>Especialidad Generica Personal</th>
+                                    <th>Capacitación línea carrera</th>
+                                    <th>Inscripción</th>
+                                    <th>Tipo Programa</th>
+                                    <th>País Ubigeo</th>
+                                    <th>Entidad Militar</th>
+                                    <th>Código Escuela</th>
+                                    <th>Mención Curso</th>
+                                    <th>Clasificación Curso</th>
+                                    <th>Financiamiento</th>
+                                    <th>Fecha Inicio</th>
+                                    <th>Fecha Termino</th>
+                                    <th>Fecha Registro</th>
+                                    <th>Hora Capacitación</th>
+                                    <th>Motivo TerminoCurso</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Scripts{
+    <script src="/js/diredumar/diredumar-capacitacionperfecdebersupsub.js" asp-append-version="true"></script>
+}

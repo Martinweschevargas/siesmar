@@ -1,0 +1,201 @@
+﻿@{
+    ViewData["Title"] = "RegistroEvaluaciónMuestra";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/DirnotematRegistroEvaluacionMuestra/Individual" style="text-decoration:none;">Registro de Evaluación de Muestra </a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <select class="form-select form-control-sm" id="cargasR" name="cargasR"></select>
+                </div>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="NombreProceso" class="col-3 col-form-label">Nombre Proceso</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNombreProceso" name="txtNombreProceso" placeholder="Nombre Proceso" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NroProceso" class="col-3 col-form-label">Nro Proceso</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNroProceso" name="txtNroProceso" placeholder="Nro Proceso" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NroMuestra" class="col-3 col-form-label">Nro Muestra</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNroMuestra" name="txtNroMuestra" placeholder="Nro Muestra" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MuestrasCumple" class="col-3 col-form-label">Muestra Cumple</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMuestrasCumple" name="txtMuestrasCumple" placeholder="Muestra Cumple" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MuestrasNoCumple" class="col-3 col-form-label">Muesta No Cumple</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMuestrasNoCumple" name="txtMuestrasNoCumple" placeholder="Muesta No Cumple" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaInicio" class="col-3 col-form-label">Fecha Inicio</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaInicio" name="txtFechaInicio" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaTermino" class="col-3 col-form-label">Fecha Termino</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaTermino" name="txtFechaTermino" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Laboratorio" class="col-3 col-form-label">Laboratorio</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtLaboratorio" name="txtLaboratorio" placeholder="Laboratorio" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DirnotematRegistroEvaluacionMuestra">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="NombreProceso" class="col-3 col-form-label">Nombre Proceso</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNombreProcesoe" name="txtNombreProcesoe" placeholder="Nombre Proceso" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NroProceso" class="col-3 col-form-label">Nro Proceso</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNroProcesoe" name="txtNroProcesoe" placeholder="Nro Proceso" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NroMuestra" class="col-3 col-form-label">Nro Muestra</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNroMuestrae" name="txtNroMuestrae" placeholder="Nro Muestra" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MuestrasCumple" class="col-3 col-form-label">Muestra Cumple</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMuestrasCumplee" name="txtMuestrasCumplee" placeholder="Muestra Cumple" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MuestrasNoCumple" class="col-3 col-form-label">Muesta No Cumple</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMuestrasNoCumplee" name="txtMuestrasNoCumplee" placeholder="Muesta No Cumple" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaInicio" class="col-3 col-form-label">Fecha Inicio</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaInicioe" name="txtFechaInicioe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaTermino" class="col-3 col-form-label">Fecha Termino</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaTerminoe" name="txtFechaTerminoe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Laboratorio" class="col-3 col-form-label">Laboratorio</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtLaboratorioe" name="txtLaboratorioe" placeholder="Laboratorio" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DirnotematRegistroEvaluacionMuestra">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar">
+    <p><a href="~/DirnotematRegistroEvaluacionMuestra" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDirnotematRegistroEvaluacionMuestra()" />
+    <div class="row align-items-start">
+        <div class="col">
+            <select class="form-select form-control-sm" id="cargas" name="cargas"></select>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" id="btn_search">Buscar</button>
+            <button class="btn btn-primary" id="btn_all">Mostrar Todos</button>
+            <button class="btn btn-danger" onclick="eliminarCarga()">Eliminar Carga</button>
+        </div>
+    </div>
+    <hr />
+    <table class="table table-striped" id="tblDirnotematRegistroEvaluacionMuestra" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Nombre Proceso</th>
+                <th>Nro Proceso</th>
+                <th>Nro Muestra</th>
+                <th>Muestra Cumple </th>
+                <th>Muesta No Cumple</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Termino </th>
+                <th>Laboratorio CT </th>
+                <th>Código Cargo</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/dirnotemat/dirnotemat-registroevaluacionmuestra.js" asp-append-version="true"></script>
+}

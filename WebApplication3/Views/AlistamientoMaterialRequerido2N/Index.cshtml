@@ -1,0 +1,148 @@
+﻿@{
+    ViewData["Title"] = "AlistamientosMaterialesRequeridos2N";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/AlistamientoMaterialRequerido2N" style="text-decoration:none;">Alistamientos Materiales Requeridos 2N</a></h1>
+
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="txtSubclasificacion" class="col-3 col-form-label">Subclasificación</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtSubclasificacion" name="txtSubclasificacion" placeholder="Subclasificación" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtPonderado" class="col-3 col-form-label">Ponderado 2 Nivel</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPonderado" name="txtPonderado" placeholder="Ponderado" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtEquipo" class="col-3 col-form-label">Equipo</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtEquipo" name="txtEquipo" placeholder="Equipo" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtFK" class="col-3 col-form-label">Alistamiento Material Requerido 2N</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtFK" name="txtFK" placeholder="Codigo Alistamiento Material Requerido 2N" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtFKR" class="col-3 col-form-label">Alistamiento Material Requerido 1N</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbFKR" name="cbFKR"></select>
+                    </div>
+                </div>
+                </div>
+                <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/AlistamientoMaterialRequerido2N">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+</div>
+
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="txtSubclasificacione" class="col-3 col-form-label">Subclasificación</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtSubclasificacione" name="txtSubclasificacione" placeholder="Subclasificación" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtPonderadoe" class="col-3 col-form-label">Ponderado 2 Nivel</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPonderadoe" name="txtPonderadoe" placeholder="Ponderado" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtEquipoe" class="col-3 col-form-label">Equipo</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtEquipoe" name="txtEquipoe" placeholder="Equipo" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtFKe" class="col-3 col-form-label">Alistamiento Material Requerido 2N</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtFKe" name="txtFKe" placeholder="Codigo Alistamiento Material Requerido 2N" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtFKRe" class="col-3 col-form-label">Alistamiento Material Requerido 1N</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbFKRe" name="cbFKRe"></select>
+                     </div>
+                </div>
+                </div>
+                <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/AlistamientoMaterialRequerido2N">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+</div>
+
+
+<div id="listar">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaAlistamientoMaterialRequerido2N()" />
+    <table class="table table-striped" id="tblAlistamientoMaterialRequerido2Ns" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Subclasificación</th>
+                <th>Ponderado 2 Nivel</th>
+                <th>Equipo</th>
+                <th>Codigo Alistamiento Material Requerido 2N</th>
+                <th>Alistamiento Material Requerido 1N</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/alistamientomaterialrequerido2n.js" asp-append-version="true"></script>
+}

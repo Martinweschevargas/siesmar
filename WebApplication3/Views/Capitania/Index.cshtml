@@ -1,0 +1,129 @@
+﻿@{
+    ViewData["Title"] = "Capitanias";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/Capitania" style="text-decoration:none;">Capitanías</a></h1>
+
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="txtCapitania" class="col-3 col-form-label">Capitanía</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCapitania" name="txtCapitania" placeholder="Capitanía" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtDescripcion" class="col-3 col-form-label">Descripción</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDescripcion" name="txtDescripcion" placeholder="Descripción" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtCodigo" class="col-3 col-form-label">Codigo</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCodigo" name="txtCodigo" placeholder="Descripción" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label class="col-3 col-form-label">Jefatura Distrito</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbJefaturaDistritoCapitania" name="cbJefaturaDistritoCapitania"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/Capitania">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="txtCapitania" class="col-3 col-form-label">Capitanía</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCapitaniae" name="txtCapitaniae" placeholder="Capitanía" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtDescripcion" class="col-3 col-form-label">Descripción</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDescripcione" name="txtDescripcione" placeholder="Descripción" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtCodigo" class="col-3 col-form-label">Codigo</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCodigoe" name="txtCodigoe" placeholder="Descripción" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label class="col-3 col-form-label">Jefatura Distrito</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbJefaturaDistritoCapitaniae" name="cbJefaturaDistritoCapitaniae"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/Capitania">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+
+<div id="listar">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaCapitania()" />
+    <table class="table table-striped" id="tblCapitanias" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Capitanía</th>
+                <th>Descripción</th>
+                <th>Codigo Capitania</th>
+                <th>Jefatura Distrito</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/capitania.js" asp-append-version="true"></script>
+}

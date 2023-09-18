@@ -1,0 +1,257 @@
+﻿@{
+    ViewData["Title"] = "Actividades de Difusión de realidad e Intereses Maritimos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/DirintemarActividadDifusionMaritimo/Individual" style="text-decoration:none;">Actividades de Difusión de realidad e Intereses Maritimos</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="TipoActivDifusion" class="col-3 col-form-label"><a href="~/TipoActividadDifusion">Tipo Actividad Difusión</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbTipoActivDifusion" name="cbTipoActivDifusion"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NombreActivida" class="col-3 col-form-label">Nombre Actividad</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNombreActivida" name="txtNombreActivida" placeholder="Nombre Actividad" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Area" class="col-3 col-form-label">Área</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtArea" name="txtArea" data-placeholder="Seleccione ...">
+                            <option value="Interés Marítimo">Interés Marítimo</option>
+                            <option value="Realidad Marítima">Realidad Marítima</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Responsable" class="col-3 col-form-label">Responsable </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtResponsable" name="txtResponsable" placeholder="Responsable" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaI" class="col-3 col-form-label">Fecha Inicio</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaI" name="txtFechaI" placeholder="Fecha Inicio" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaT" class="col-3 col-form-label">Fecha Término</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaT" name="txtFechaT" placeholder="Fecha Término" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Lugar" class="col-3 col-form-label">Lugar</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtLugar" name="txtLugar" placeholder="Lugar" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Participante" class="col-3 col-form-label">Participantes</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtParticipante" name="txtParticipante" placeholder="Participantes" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ParticipanteE" class="col-3 col-form-label">Participantes Encuesta</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtParticipanteE" name="txtParticipanteE" placeholder="Participantes Encuesta" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PreguntaEOBS" class="col-3 col-form-label">Preguntas Encuesta OBS</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPreguntaEOBS" name="txtPreguntaEOBS" placeholder="Preguntas Encuesta OBS" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="RespuestaC" class="col-3 col-form-label">Respuesta Correcta</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtRespuestaC" name="txtRespuestaC" placeholder="Respuesta Correcta" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="RespuestaI" class="col-3 col-form-label">Respuesta Incorrecta</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtRespuestaI" name="txtRespuestaI" placeholder="Respuesta Incorrecta" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PorcentajeR" class="col-3 col-form-label">Porcentaje Respuestas Correctas</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPorcentajeR" name="txtPorcentajeR" placeholder="Porcentaje Respuestas Correctas" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DirintemarActividadDifusionMaritimo">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="TipoActivDifusion" class="col-3 col-form-label"><a href="~/TipoActividadDifusion" >Tipo Actividad Difusión</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbTipoActivDifusione" name="cbTipoActivDifusione"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NombreActivida" class="col-3 col-form-label">Nombre Actividad</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNombreActividae" name="txtNombreActividae" placeholder="Nombre Actividad" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Area" class="col-3 col-form-label">Área</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtAreae" name="txtAreae" data-placeholder="Seleccione ...">
+                            <option value="Interés Marítimo">Interés Marítimo</option>
+                            <option value="Realidad Marítima">Realidad Marítima</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Responsable" class="col-3 col-form-label">Responsable </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtResponsablee" name="txtResponsablee" placeholder="Responsable" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaI" class="col-3 col-form-label">Fecha Inicio</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaIe" name="txtFechaIe" placeholder="Fecha Inicio" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaT" class="col-3 col-form-label">Fecha Término</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaTe" name="txtFechaTe" placeholder="Fecha Término" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Lugar" class="col-3 col-form-label">Lugar</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtLugare" name="txtLugare" placeholder="Lugar" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Participante" class="col-3 col-form-label">Participantes</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtParticipantee" name="txtParticipantee" placeholder="Participantes" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ParticipanteE" class="col-3 col-form-label">Participantes Encuesta</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtParticipanteEe" name="txtParticipanteEe" placeholder="Participantes Encuesta" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PreguntaEOBS" class="col-3 col-form-label">Preguntas Encuesta OBS</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPreguntaEOBSe" name="txtPreguntaEOBSe" placeholder="Preguntas Encuesta OBS" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="RespuestaC" class="col-3 col-form-label">Respuesta Correcta</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtRespuestaCe" name="txtRespuestaCe" placeholder="Respuesta Correcta" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="RespuestaI" class="col-3 col-form-label">Respuesta Incorrecta</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtRespuestaIe" name="txtRespuestaIe" placeholder="Respuesta Incorrecta" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PorcentajeR" class="col-3 col-form-label">Porcentaje Respuestas Correctas</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPorcentajeRe" name="txtPorcentajeRe" placeholder="Porcentaje Respuestas Correctas" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DirintemarActividadDifusionMaritimo">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/DirintemarActividadDifusionMaritimo" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDirintemarActividadDifusionMaritimo()" />
+    <div class="dropdown">
+        <input type='text' readonly id='buscar_inicio' class="datepicker" placeholder='Fecha Inicio' class="form-control form-control-sm">
+        <input type='text' readonly id='buscar_fin' class="datepicker" placeholder='Fecha fin' class="form-control form-control-sm">
+        <input type='button' id="btn_search" value="Buscar" class="btn btn-primary btn-sm">
+        @*<input type='button' id="btnLimpiar" value="Limpiar" class="btn btn-danger btn-sm">*@
+    </div>
+    <table class="table table-striped" id="tblDirintemarActividadDifusionMaritimo" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Tipo Actividad Difusión </th>
+                <th>Nombre Actividad </th>
+                <th>Área </th>
+                <th>Responsable </th>
+                <th>Fecha Inicio </th>
+                <th>Fecha Término</th>
+                <th>Lugar </th>
+                <th>Participantes</th>
+                <th>Participantes Encuesta</th>
+                <th>Preguntas Encuesta OBS</th>
+                <th>Respuesta Correcta</th>
+                <th>Respuesta Incorrecta</th>
+                <th>Porcentaje Respuestas Correctas</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+
+@section Scripts{
+    <script src="/js/dirintemar/dirintemar-activdifusionmaritimo.js" asp-append-version="true"></script>
+}

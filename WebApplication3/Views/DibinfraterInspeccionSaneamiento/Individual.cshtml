@@ -1,0 +1,210 @@
+﻿@{
+    ViewData["Title"] = "InspeccionesdeSaneamiento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/DibinfraterInspeccionSaneamiento/Individual" style="text-decoration:none;">Inspecciones de Saneamiento</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <select class="form-select form-control-sm" id="cargasR" name="cargasR"></select>
+                </div>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="SolicitudInspeccion" class="col-3 col-form-label">Solicitud inspección</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtSolicitudInspeccion" name="txtSolicitudInspeccion" placeholder="Solicitud inspección" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="AreaDiperadmon" class="col-3 col-form-label"><a href="~/AreaDiperadmon">Área Usuaria(UU.DD)</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbAreaDiperadmon" name="cbAreaDiperadmon"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ZonaNaval" class="col-3 col-form-label"><a href="~/ZonaNaval">Zona Naval</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbZonaNaval" name="cbZonaNaval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EstadoSolicitud" class="col-3 col-form-label">Estado solicitud</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtEstadoSolicitud" name="txtEstadoSolicitud" data-placeholder="Seleccione ...">
+                            <option value="1"> Se hizo inspección saneamiento</option>
+                            <option value="2">Se rechazó la solicitud saneamiento</option>
+                            <option value="3">Pendiente realizar saneamiento</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DistritoUbigeo" class="col-3 col-form-label"><a href="~/DistritoUbigeo">Ubicación predio</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDistritoUbigeo" name="cbDistritoUbigeo"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SituacionLegal" class="col-3 col-form-label"><a href="~/SituacionLegal">Situación legal</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbSituacionLegal" name="cbSituacionLegal"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="AreaM2" class="col-3 col-form-label">Área m2</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtAreaM2" name="txtAreaM2" placeholder="Área m2" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaInspeccion" class="col-3 col-form-label">Fecha Inspección</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaInspeccion" name="txtFechaInspeccion" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DibinfraterInspeccionSaneamiento">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="SolicitudInspeccion" class="col-3 col-form-label">Solicitud inspección</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtSolicitudInspeccione" name="txtSolicitudInspeccione" placeholder="Solicitud inspección" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="AreaDiperadmon" class="col-3 col-form-label"><a href="~/AreaDiperadmon">Área Usuaria(UU.DD)</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbAreaDiperadmone" name="cbAreaDiperadmone"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ZonaNaval" class="col-3 col-form-label"><a href="~/ZonaNaval">Zona Naval</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbZonaNavale" name="cbZonaNavale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EstadoSolicitud" class="col-3 col-form-label">Estado solicitud</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtEstadoSolicitude" name="txtEstadoSolicitude" data-placeholder="Seleccione ...">
+                            <option value="1"> Se hizo inspección saneamiento</option>
+                            <option value="2">Se rechazó la solicitud saneamiento</option>
+                            <option value="3">Pendiente realizar saneamiento</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DistritoUbigeo" class="col-3 col-form-label"><a href="~/DistritoUbigeo">Ubicación predio</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDistritoUbigeoe" name="cbDistritoUbigeoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SituacionLegal" class="col-3 col-form-label"><a href="~/SituacionLegal">Situación legal</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbSituacionLegale" name="cbSituacionLegale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="AreaM2" class="col-3 col-form-label">Área m2</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtAreaM2e" name="txtAreaM2e" placeholder="Área m2" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaInspeccion" class="col-3 col-form-label">Fecha Inspección</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaInspeccione" name="txtFechaInspeccione" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DibinfraterInspeccionSaneamiento">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/DibinfraterInspeccionSaneamiento" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDibinfraterInspeccionSaneamiento()" />
+    <div class="row align-items-start mb-4">
+        <div class="col">
+            <select class="form-select form-control-sm" id="cargas" name="cargas"></select>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" id="btn_search">Buscar</button>
+            <button class="btn btn-primary" id="btn_all">Mostrar Todos</button>
+            <button class="btn btn-danger" onclick="eliminarCarga()">Eliminar Carga</button>
+        </div>
+    </div>
+    <hr />
+    <table class="table table-striped" id="tblDibinfraterInspeccionSaneamiento" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Solicitud inspección</th>
+                <th>Área Usuaria(UU.DD)</th>
+                <th>Zona Naval</th>
+                <th>Estado solicitud</th>
+                <th>Ubicación predio</th>
+                <th>Situación legal</th>
+                <th>Área m2</th>
+                <th>Fecha Inspección</th>
+                <th>Código Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/dibinfrater/dibinfrater-inspeccionsaneamiento.js" asp-append-version="true"></script>
+}

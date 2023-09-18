@@ -1,0 +1,186 @@
+﻿@{
+    ViewData["Title"] = "Movilidad Escolar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/BienestarMovilidadEscolar/Individual" style="text-decoration:none;">Movilidad Escolar</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <select class="form-select form-control-sm" id="cargasR" name="cargasR"></select>
+                </div>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="Fecha" class="col-3 col-form-label">Fecha</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NumeroPlaca" class="col-3 col-form-label">Número de Placa</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNumeroPlaca" name="txtNumeroPlaca" placeholder="Número de Placa" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MarcaUnidad" class="col-3 col-form-label"><a href="~/MarcaVehiculo">Marca</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbMarcaUnidad" name="cbMarcaUnidad"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="AnioFabricacion" class="col-3 col-form-label">Año Fabricación </label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtAnioFabricacion" name="txtAnioFabricacion" placeholder="Año Fabricación " required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CapacidadTransporte" class="col-3 col-form-label">Capacidad de Transporte</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCapacidadTransporte" name="txtCapacidadTransporte" placeholder="Capacidad de Transporte" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="InstitucionEducativa" class="col-3 col-form-label"><a href="~/InstitucionEducativa">Institución Educativa Asignada</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbInstitucionEducativa" name="cbInstitucionEducativa"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CantidadPersonasTrans" class="col-3 col-form-label">Personas Transportadas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidadPersonasTrans" name="txtCantidadPersonasTrans" placeholder="Personas Transportadas" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/BienestarMovilidadEscolar">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="Fecha" class="col-3 col-form-label">Fecha</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechae" name="txtFechae" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NumeroPlaca" class="col-3 col-form-label">Número de Placa</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNumeroPlacae" name="txtNumeroPlacae" placeholder="Número de Placa" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MarcaUnidad" class="col-3 col-form-label"><a href="~/MarcaVehiculo">Marca</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbMarcaUnidade" name="cbMarcaUnidade"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="AnioFabricacion" class="col-3 col-form-label">Año Fabricación </label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtAnioFabricacione" name="txtAnioFabricacione" placeholder="Año Fabricación " required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CapacidadTransporte" class="col-3 col-form-label">Capacidad de Transporte</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCapacidadTransportee" name="txtCapacidadTransportee" placeholder="Capacidad de Transporte" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="InstitucionEducativa" class="col-3 col-form-label"><a href="~/InstitucionEducativa">Institución Educativa Asignada</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbInstitucionEducativae" name="cbInstitucionEducativae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CantidadPersonasTrans" class="col-3 col-form-label">Personas Transportadas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidadPersonasTranse" name="txtCantidadPersonasTranse" placeholder="Personas Transportadas" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/BienestarMovilidadEscolar">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/BienestarMovilidadEscolar" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaBienestarMovilidadEscolar()" />
+    <div class="row align-items-start">
+        <div class="col"><select class="form-select form-control-sm" id="cargas" name="cargas"></select></div>
+        <div class="col">
+            <button class="btn btn-primary" id="btn_search">Buscar</button>
+            <button class="btn btn-primary" id="btn_all">Mostrar Todos</button>
+            <button class="btn btn-danger" onclick="eliminarCarga()">Eliminar Carga</button>
+        </div>
+
+    </div>
+    <table class="table table-striped" id="tblBienestarMovilidadEscolar" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Fecha</th>
+                <th>Número de Placa</th>
+                <th>Marca</th>
+                <th>Año Fabricación </th>
+                <th>Capacidad de Transporte</th>
+                <th>Institución Educativa Asignada</th>
+                <th>Personas Transportadas</th>
+                <th>Código Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/bienestar/bienestar-movilidadescolar.js" asp-append-version="true"></script>
+}

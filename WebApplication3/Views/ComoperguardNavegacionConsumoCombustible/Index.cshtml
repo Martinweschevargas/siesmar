@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Formato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1><a href="~/ComoperguardNavegacionConsumoCombustible" style="text-decoration:none;">Millas, horas Navegadas y Consumo de Combustible</a></h1>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header">
+                    <a href="~/ComoperguardNavegacionConsumoCombustible/Individual" class="btn btn-primary">Ir Carga Individual</a>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <input class="form-control-file" type="file" id="inputExcel" />
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-warning" onclick="mostrarDatos()">Mostrar Datos"</button>
+                        <button class="btn btn-success" onclick="enviarDatos()">Enviar Datos a BD</button>
+                        <label>Numero de Registros : </label><span id="NumRegistros"></span>
+                    </div>
+                </div>
+                <hr />
+                <div class="row" style="overflow:scroll">
+                    <div class="col-sm-12">
+                        <table id="tbData" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Jefatura De Distriro De Capitanias</th>
+                                    <th>Capitania de Puerto</th>
+                                    <th>Unidades Naval</th>
+                                    <th>Número De Casco</th>
+                                    <th>Tipo</th>
+                                    <th>Tipo De Combustible</th>
+                                    <th>Stock Servicentro</th>
+                                    <th>Stock Tanque</th>
+                                    <th>Stock Total</th>
+                                    <th>Asignación Mes </th>
+                                    <th>Entrega De Otras  UU.GG</th>
+                                    <th>Consumo Total</th>
+                                    <th>Saldo Total Proximo Mes</th>
+                                    <th>Stock Servicentro</th>
+                                    <th>Stock Tanques</th>
+                                    <th>Fecha De Inicio</th>
+                                    <th>Fecha De Termino</th>
+                                    <th>Horas</th>
+                                    <th>Millas</th>
+                                    <th>Oficio</th>
+                                    <th>Fecha</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Scripts{
+    <script src="/js/comoperguard/comoperguard-navegacionconsumocombustible.js" asp-append-version="true"></script>
+}

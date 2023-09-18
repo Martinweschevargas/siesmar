@@ -1,0 +1,177 @@
+﻿@{
+    ViewData["Title"] = "Parte Numérico del Personal de la Fuerza de Superficie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/ComfasParteNumericoPersonal/Individual" style="text-decoration:none;">Parte Numérico del Personal de la Fuerza de Superficie</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Unidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNaval" name="cbUnidadNaval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaParte" class="col-3 col-form-label">Fecha</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaParte" name="txtFechaParte" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GradoPersonalMilitar" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbGradoPersonalMilitar" name="cbGradoPersonalMilitar"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EspecialidadGenericaPersonal" class="col-3 col-form-label"><a href="~/EspecialidadGenericaPersonal">Especialidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEspecialidadGenericaPersonal" name="cbEspecialidadGenericaPersonal"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PlantaOrganica" class="col-3 col-form-label">Planta Orgánica</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtPlantaOrganica" name="txtPlantaOrganica" placeholder="Planta Orgánica" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PlantaActual" class="col-3 col-form-label">Planta Actual</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtPlantaActual" name="txtPlantaActual" placeholder="Planta Actual" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EfectivoDeficit" class="col-3 col-form-label">Efectivo Deficit</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtEfectivoDeficit" name="txtEfectivoDeficit" placeholder="Efectivo Deficit" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComfasParteNumericoPersonal">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Unidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNavale" name="cbUnidadNavale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaParte" class="col-3 col-form-label">Fecha</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaPartee" name="txtFechaPartee" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GradoPersonalMilitar" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbGradoPersonalMilitare" name="cbGradoPersonalMilitare"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EspecialidadGenericaPersonal" class="col-3 col-form-label"><a href="~/EspecialidadGenericaPersonal">Especialidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEspecialidadGenericaPersonale" name="cbEspecialidadGenericaPersonale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PlantaOrganica" class="col-3 col-form-label">Planta Orgánica</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtPlantaOrganicae" name="txtPlantaOrganicae" placeholder="Planta Orgánica" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PlantaActual" class="col-3 col-form-label">Planta Actual</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtPlantaActuale" name="txtPlantaActuale" placeholder="Planta Actual" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EfectivoDeficit" class="col-3 col-form-label">Efectivo Deficit</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtEfectivoDeficite" name="txtEfectivoDeficite" placeholder="Efectivo Deficit" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComfasParteNumericoPersonal">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaComfasParteNumericoPersonal()" />
+    <div class="dropdown">
+        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Modos de Carga :
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="~/ComfasParteNumericoPersonal">Masiva</a>
+            <a class="dropdown-item" href="~/ComfasParteNumericoPersonal/Individual">Individual</a>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblComfasParteNumericoPersonal" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Unidad</th>
+                <th>Fecha</th>
+                <th>Grado</th>
+                <th>Especialidad</th>
+                <th>Planta Orgánica</th>
+                <th>Planta Actual</th>
+                <th>Efectivo Deficit</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/comfas/comfas-partenumericopersonal.js" asp-append-version="true"></script>
+}

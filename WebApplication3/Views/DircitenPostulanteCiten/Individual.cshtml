@@ -1,0 +1,328 @@
+﻿@{
+    ViewData["Title"] = "PostulanteCiten";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/DircitenPostulanteCiten/Individual" style="text-decoration:none;">Postulantes al Citen</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="form-group row col-md-6">
+                <label for="carga" class="col-3 col-form-label">Carga</label>
+                <div class="form-group row col-md-6">
+                    <div class="col"><select class="form-select-sm form-control-sm" id="cargasR" name="cargasR"></select></div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="DNI" class="col-3 col-form-label">DNI</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDNI" name="txtDNI" placeholder="DNI" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Genero" class="col-3 col-form-label">Género</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtGenero" name="txtGenero" data-placeholder="Seleccione ...">
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaNacimiento" class="col-3 col-form-label">Fecha Nacimiento </label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaNacimiento" name="txtFechaNacimiento"  required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="LugarDomicilio" class="col-3 col-form-label">Lugar Nacimiento </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtLugarDomicilio" name="txtLugarDomicilio" placeholder="Lugar Domicilio" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Procedencia" class="col-3 col-form-label">Procedencia </label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtProcedencia" name="txtProcedencia" data-placeholder="Seleccione ...">
+                            <option value="1">Procedencia civil</option>
+                            <option value="2">Procedencia naval (Servicio Militar Voluntario y reenganchado)</option>
+                            <option value="3">Militar (Ejército Peruano, Fuerza Aérea, Policía Nacional del Perú)</option>
+                            <option value="4">Licenciados Fuerzas Armadas</option>
+                            <option value="5">Deportistas Calificados</option>
+                            <option value="6">Primeros puestos centros educativos estatales y no estatales</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoColegio" class="col-3 col-form-label">Tipo de colegio </label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtTipoColegio" name="txtTipoColegio" data-placeholder="Seleccione ...">
+                            <option value="1">Publica</option>
+                            <option value="2">Privada</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ColegioProcedencia" class="col-3 col-form-label">Colegio Procedencia</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtColegioProcedencia" name="txtColegioProcedencia" placeholder="Colegio Procedencia" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="LugarColegio" class="col-3 col-form-label">Lugar Colegio </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtLugarColegio" name="txtLugarColegio" placeholder="Lugar Colegio" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PadresPertenenecen" class="col-3 col-form-label">Padres Pertenencen/on FF.AA Y PNP </label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtPadresPertenenecen" name="txtPadresPertenenecen" data-placeholder="Seleccione ...">
+                            <option value="1">Si</option>
+                            <option value="2">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ModalidadIngreso" class="col-3 col-form-label">Modalidad Ingreso </label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtModalidadIngreso" name="txtModalidadIngreso" data-placeholder="Seleccione ...">
+                            <option value="1">1era opción</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Otro (especificar)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoPreparacion" class="col-3 col-form-label">Tipo Preparación </label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtTipoPreparacion" name="txtTipoPreparacion" data-placeholder="Seleccione ...">
+                            <option value="1">Pre-CITEN</option>
+                            <option value="2">Otros</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="LugarPostulacion" class="col-3 col-form-label">Lugar Postulación</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtLugarPostulacion" name="txtLugarPostulacion" placeholder="Lugar Postulación" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ZonaNaval" class="col-3 col-form-label"><a href="~/ZonaNaval" style="text-decoration:none;">Zona Naval</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-control-sm" id="cbZonaNaval" name="cbZonaNaval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SituacionIngreso" class="col-3 col-form-label">Situación Ingreso</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtLSituacionIngreso" name="txtLSituacionIngreso" data-placeholder="Seleccione ...">
+                            <option value="1">Ingresó</option>
+                            <option value="2">No ingresó</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DircitenPostulanteCiten">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="DNI" class="col-3 col-form-label">DNI</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDNIe" name="txtDNIe" placeholder="DNI" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Genero" class="col-3 col-form-label">Género</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtGeneroe" name="txtGeneroe" data-placeholder="Seleccione ...">
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaNacimiento" class="col-3 col-form-label">Fecha Nacimiento </label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaNacimientoe" name="txtFechaNacimientoe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="LugarDomicilio" class="col-3 col-form-label">Lugar Nacimiento </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtLugarDomicilioe" name="txtLugarDomicilioe" placeholder="Lugar Domicilio" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Procedencia" class="col-3 col-form-label">Procedencia </label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtProcedenciae" name="txtProcedenciae" data-placeholder="Seleccione ...">
+                            <option value="1">Procedencia civil</option>
+                            <option value="2">Procedencia naval (Servicio Militar Voluntario y reenganchado)</option>
+                            <option value="3">Militar (Ejército Peruano, Fuerza Aérea, Policía Nacional del Perú)</option>
+                            <option value="4">Licenciados Fuerzas Armadas</option>
+                            <option value="5">Deportistas Calificados</option>
+                            <option value="6">Primeros puestos centros educativos estatales y no estatales</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoColegio" class="col-3 col-form-label">Tipo de colegio </label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtTipoColegioe" name="txtTipoColegioe" data-placeholder="Seleccione ...">
+                            <option value="1">Publica</option>
+                            <option value="2">Privada</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ColegioProcedencia" class="col-3 col-form-label">Colegio Procedencia</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtColegioProcedenciae" name="txtColegioProcedenciae" placeholder="Colegio Procedencia" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="LugarColegio" class="col-3 col-form-label">Lugar Colegio </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtLugarColegioe" name="txtLugarColegioe" placeholder="Lugar Colegio" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PadresPertenenecen" class="col-3 col-form-label">Padres Pertenencen/on FF.AA Y PNP </label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtPadresPertenenecene" name="txtPadresPertenenecene" data-placeholder="Seleccione ...">
+                            <option value="1">Si</option>
+                            <option value="2">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ModalidadIngreso" class="col-3 col-form-label">Modalidad Ingreso </label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtModalidadIngresoe" name="txtModalidadIngresoe" data-placeholder="Seleccione ...">
+                            <option value="1">1era opción</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Otro (especificar)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoPreparacion" class="col-3 col-form-label">Tipo Preparación </label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtTipoPreparacione" name="txtTipoPreparacione" data-placeholder="Seleccione ...">
+                            <option value="1">Pre-CITEN</option>
+                            <option value="2">Otros</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="LugarPostulacion" class="col-3 col-form-label">Lugar Postulación</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtLugarPostulacione" name="txtLugarPostulacione" placeholder="Lugar Postulación" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ZonaNaval" class="col-3 col-form-label"><a href="~/ZonaNaval" style="text-decoration:none;">Zona Naval</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-control-sm" id="cbZonaNavale" name="cbZonaNavale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SituacionIngreso" class="col-3 col-form-label">Situación Ingreso</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtLSituacionIngresoe" name="txtLSituacionIngresoe" data-placeholder="Seleccione ...">
+                            <option value="1">Ingresó</option>
+                            <option value="2">No ingresó</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DircitenPostulanteCiten">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDircitenPostulanteCiten()" />
+    <div class="dropdown">
+        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Modos de Carga :
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="~/DircitenPostulanteCiten">Masiva</a>
+            <a class="dropdown-item" href="~/DircitenPostulanteCiten/Individual">Individual</a>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblDircitenPostulanteCiten" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>DNI</th>
+                <th>Género</th>
+                <th>Fecha Nacimiento</th>
+                <th>Lugar Nacimiento</th>
+                <th>Procedencia</th>
+                <th>Tipo de colegio</th>
+                <th>Lugar Colegio</th>
+                <th>Padres Pertenencen/on FF.AA Y PNP</th>
+                <th>Colegio Procedenci</th>
+                <th>Modalidad Ingreso</th>
+                <th>Tipo Preparación</th>
+                <th>Lugar Postulación</th>
+                <th>Zona Naval</th>
+                <th>Situación Ingreso</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+
+@section Scripts{
+
+    <script src="/js/dirciten/dirciten-postulanteciten.js" asp-append-version="true"></script>
+
+}

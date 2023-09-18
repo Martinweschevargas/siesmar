@@ -1,0 +1,207 @@
+﻿@{
+    ViewData["Title"] = "TiemposServiciosExperiencias";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/TiempoServicioExperiencia" style="text-decoration:none;">Tiempos Servicios Experiencias</a></h1>
+
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="txtBAPAmazonas" class="col-3 col-form-label">BAP Amazonas</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtBAPAmazonas" name="txtBAPAmazonas" placeholder="BAP Amazonas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtBAPLoreto" class="col-3 col-form-label">BAP Loreto</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtBAPLoreto" name="txtBAPLoreto" placeholder="BAP Loreto" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtBAPMaranon" class="col-3 col-form-label">BAP Marañón</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtBAPMaranon" name="txtBAPMaranon" placeholder="BAP Maranon" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtBAPUcayali" class="col-3 col-form-label">BAP Ucayali</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtBAPUcayali" name="txtBAPUcayali" placeholder="BAP Ucayali" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtBAPClavero" class="col-3 col-form-label">BAP Clavero</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtBAPClavero" name="txtBAPClavero" placeholder="BAP Clavero" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtBAPCastillo" class="col-3 col-form-label">BAP Castillo</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtBAPCastillo" name="txtBAPCastillo" placeholder="BAP Castillo" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtBAPMorona" class="col-3 col-form-label">BAP Morona</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtBAPMorona" name="txtBAPMorona" placeholder="BAP Morona" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtBAPCorrientes" class="col-3 col-form-label">BAP Corrientes</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtBAPCorrientes" name="txtBAPCorrientes" placeholder="BAP Corrientes" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtBAPPastaza" class="col-3 col-form-label">BAP Pastaza</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtBAPPastaza" name="txtBAPPastaza" placeholder="BAP Pastaza" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtPersonal" class="col-3 col-form-label">Personal</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPersonal" name="txtPersonal" placeholder="Personal" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/TiempoServicioExperiencia">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="txtBAPAmazonase" class="col-3 col-form-label">BAP Amazonas</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtBAPAmazonase" name="txtBAPAmazonase" placeholder="BAP Amazonas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtBAPLoretoe" class="col-3 col-form-label">BAP Loreto</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtBAPLoretoe" name="txtBAPLoretoe" placeholder="BAP Loreto" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtBAPMaranone" class="col-3 col-form-label">BAP Marañón</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtBAPMaranone" name="txtBAPMaranone" placeholder="BAP Maranon" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtBAPUcayalie" class="col-3 col-form-label">BAP Ucayali</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtBAPUcayalie" name="txtBAPUcayalie" placeholder="BAP Ucayali" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtBAPClaveroe" class="col-3 col-form-label">BAP Clavero</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtBAPClaveroe" name="txtBAPClaveroe" placeholder="BAP Clavero" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtBAPCastillo" class="col-3 col-form-label">BAP Castillo</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtBAPCastilloe" name="txtBAPCastilloe" placeholder="BAP Castillo" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtBAPMoronae" class="col-3 col-form-label">BAP Morona</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtBAPMoronae" name="txtBAPMoronae" placeholder="BAP Morona" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtBAPCorrientese" class="col-3 col-form-label">BAP Corrientes</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtBAPCorrientese" name="txtBAPCorrientese" placeholder="BAP Corrientes" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtBAPPastazae" class="col-3 col-form-label">BAP Pastaza</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtBAPPastazae" name="txtBAPPastazae" placeholder="BAP Pastaza" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtPersonale" class="col-3 col-form-label">Personal</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPersonale" name="txtPersonale" placeholder="Personal" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/TiempoServicioExperiencia">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+
+<div id="listar" style="overflow:scroll">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaTiempoServicioExperiencia()" />
+    <table class="table table-striped" id="tblTiempoServicioExperiencias" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>BAP Amazonas</th>
+                <th>BAP Loreto</th>
+                <th>BAP Marañón</th>
+                <th>BAP Ucayali</th>
+                <th>BAP Clavero</th>
+                <th>BAP Castillo</th>
+                <th>BAP Morona</th>
+                <th>BAP Corrientes</th>
+                <th>BAP Pastaza</th>
+                <th>Personal</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/tiemposervicioexperiencia.js" asp-append-version="true"></script>
+}

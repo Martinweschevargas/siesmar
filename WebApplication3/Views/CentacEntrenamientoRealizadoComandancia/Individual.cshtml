@@ -1,0 +1,376 @@
+﻿@{
+    ViewData["Title"] = "Entrenamiento Realizado por las Comandancias de las Fuerzas Navales";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/CentacEntrenamientoRealizadoComandancia/Individual" style="text-decoration:none;">Entrenamiento Realizado por las Comandancias de las Fuerzas Navales</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <select class="form-select form-control-sm" id="cargasR" name="cargasR"></select>
+                </div>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="EventoEntrenamiento" class="col-3 col-form-label">Evento</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtEventoEntrenamiento" name="txtEventoEntrenamiento" placeholder="Evento" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaEvento" class="col-3 col-form-label">Fecha Evento</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaEvento" name="txtFechaEvento" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NumeroHoras" class="col-3 col-form-label">Número Horas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtNumeroHoras" name="txtNumeroHoras" placeholder="Número Horas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EventoProgramado" class="col-3 col-form-label">Evento Programado de Participantes</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtEventoProgramado" name="txtEventoProgramado">
+                            <option value="1">Si</option>
+                            <option value="2">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label"><a href="~/Dependencia">Fuerzas Navales</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDependencia" name="cbDependencia"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Unidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNaval" name="cbUnidadNaval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoOperacion" class="col-3 col-form-label"><a href="~/TipoOperacion">Tipo de Operación</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoOperacion" name="cbTipoOperacion"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NivelEntrenamiento" class="col-3 col-form-label">Nivel de Entrenamiento</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtNivelEntrenamiento" name="txtNivelEntrenamiento">
+                            <option value="1">Básico</option>
+                            <option value="2">Intermedio</option>
+                            <option value="3">Avanzado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoEjercicio" class="col-3 col-form-label"><a href="~/TipoEjercicio">Tipo de Ejercicio</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoEjercicio" name="cbTipoEjercicio"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FcComunicaciones" class="col-3 col-form-label">FC. Comunicaciones</label>
+                    <div class="col-md-9">
+                        <select type="number" class="form-select form-select-sm" id="txtFcComunicaciones" name="txtFcComunicaciones">
+                            <option value="1">No satisfactorio</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Bueno</option>
+                            <option value="4">Muy bueno</option>
+                            <option value="5">Excelente</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FcPosicionInicial" class="col-3 col-form-label">FC. PosicionInicial</label>
+                    <div class="col-md-9">
+                        <select type="number" class="form-select form-select-sm" id="txtFcPosicionInicial" name="txtFcPosicionInicial">
+                            <option value="1">No satisfactorio</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Bueno</option>
+                            <option value="4">Muy bueno</option>
+                            <option value="5">Excelente</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FcFunciones" class="col-3 col-form-label">FC. Funciones</label>
+                    <div class="col-md-9">
+                        <select type="number" class="form-select form-select-sm" id="txtFcFunciones" name="txtFcFunciones">
+                            <option value="1">No satisfactorio</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Bueno</option>
+                            <option value="4">Muy bueno</option>
+                            <option value="5">Excelente</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FcAcciones" class="col-3 col-form-label">FC. Acciones</label>
+                    <div class="col-md-9">
+                        <select type="number" class="form-select form-select-sm" id="txtFcAcciones" name="txtFcAcciones">
+                            <option value="1">No satisfactorio</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Bueno</option>
+                            <option value="4">Muy bueno</option>
+                            <option value="5">Excelente</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FcAtaque" class="col-3 col-form-label">FC. Ataque</label>
+                    <div class="col-md-9">
+                        <select type="number" class="form-select form-select-sm" id="txtFcAtaque" name="txtFcAtaque">
+                            <option value="1">No satisfactorio</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Bueno</option>
+                            <option value="4">Muy bueno</option>
+                            <option value="5">Excelente</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PorcentajeFinalEvaluacion" class="col-3 col-form-label">Porcentaje Final De Evaluación Unidad</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtPorcentajeFinalEvaluacion" name="txtPorcentajeFinalEvaluacion" placeholder="Porcentaje Final De Evaluación Unidad" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CalificativoUnidad" class="col-3 col-form-label"><a href="~/Formula2CalificativoCentac">Calificativo De La Unidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbFor2CalificativoCentac" name="cbFor2CalificativoCentac"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/CentacEntrenamientoRealizadoComandancia">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="EventoEntrenamiento" class="col-3 col-form-label">Evento</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtEventoEntrenamientoe" name="txtEventoEntrenamientoe" placeholder="Evento" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaEvento" class="col-3 col-form-label">Fecha Evento</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaEventoe" name="txtFechaEventoe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NumeroHoras" class="col-3 col-form-label">Número Horas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtNumeroHorase" name="txtNumeroHorase" placeholder="Número Horas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EventoProgramado" class="col-3 col-form-label">Evento Programado de Participantes</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtEventoProgramadoe" name="txtEventoProgramadoe">
+                            <option value="1">Si</option>
+                            <option value="2">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label"><a href="~/Dependencia">Fuerzas Navales</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDependenciae" name="cbDependenciae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Unidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNavale" name="cbUnidadNavale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoOperacion" class="col-3 col-form-label"><a href="~/TipoOperacion">Tipo de Operación</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoOperacione" name="cbTipoOperacione"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NivelEntrenamiento" class="col-3 col-form-label">Nivel de Entrenamiento</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtNivelEntrenamientoe" name="txtNivelEntrenamientoe">
+                            <option value="1">Básico</option>
+                            <option value="2">Intermedio</option>
+                            <option value="3">Avanzado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoEjercicio" class="col-3 col-form-label"><a href="~/TipoEjercicio">Tipo de Ejercicio</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoEjercicioe" name="cbTipoEjercicioe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FcComunicaciones" class="col-3 col-form-label">FC. Comunicaciones</label>
+                    <div class="col-md-9">
+                        <select type="number" class="form-select form-select-sm" id="txtFcComunicacionese" name="txtFcComunicacionese">
+                            <option value="1">No satisfactorio</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Bueno</option>
+                            <option value="4">Muy bueno</option>
+                            <option value="5">Excelente</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FcPosicionInicial" class="col-3 col-form-label">FC. PosicionInicial</label>
+                    <div class="col-md-9">
+                        <select type="number" class="form-select form-select-sm" id="txtFcPosicionIniciale" name="txtFcPosicionIniciale">
+                            <option value="1">No satisfactorio</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Bueno</option>
+                            <option value="4">Muy bueno</option>
+                            <option value="5">Excelente</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FcFunciones" class="col-3 col-form-label">FC. Funciones</label>
+                    <div class="col-md-9">
+                        <select type="number" class="form-select form-select-sm" id="txtFcFuncionese" name="txtFcFuncionese">
+                            <option value="1">No satisfactorio</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Bueno</option>
+                            <option value="4">Muy bueno</option>
+                            <option value="5">Excelente</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FcAcciones" class="col-3 col-form-label">FC. Acciones</label>
+                    <div class="col-md-9">
+                        <select type="number" class="form-select form-select-sm" id="txtFcAccionese" name="txtFcAccionese">
+                            <option value="1">No satisfactorio</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Bueno</option>
+                            <option value="4">Muy bueno</option>
+                            <option value="5">Excelente</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FcAtaque" class="col-3 col-form-label">FC. Ataque</label>
+                    <div class="col-md-9">
+                        <select type="number" class="form-select form-select-sm" id="txtFcAtaquee" name="txtFcAtaquee">
+                            <option value="1">No satisfactorio</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Bueno</option>
+                            <option value="4">Muy bueno</option>
+                            <option value="5">Excelente</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PorcentajeFinalEvaluacion" class="col-3 col-form-label">Porcentaje Final De Evaluación Unidad</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtPorcentajeFinalEvaluacione" name="txtPorcentajeFinalEvaluacione" placeholder="Porcentaje Final De Evaluación Unidad" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CalificativoUnidad" class="col-3 col-form-label"><a href="~/Formula2CalificativoCentac">Calificativo De La Unidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbFor2CalificativoCentace" name="cbFor2CalificativoCentace"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/CentacEntrenamientoRealizadoComandancia">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/CentacEntrenamientoRealizadoComandancia" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaCentacEntrenamientoRealizadoComandancia()" />
+    <div class="row align-items-start">
+        <div class="col">
+            <select class="form-select form-control-sm" id="cargas" name="cargas"></select>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" id="btn_search">Buscar</button>
+            <button class="btn btn-primary" id="btn_all">Mostrar Todos</button>
+            <button class="btn btn-danger" onclick="eliminarCarga()">Eliminar Carga</button>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblCentacEntrenamientoRealizadoComandancia" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Evento</th>
+                <th>Fecha Evento</th>
+                <th>Número Horas</th>
+                <th>Evento Programado de Participantes</th>
+                <th>Dependencia</th>
+                <th>Unidad Naval</th>
+                <th>Tipo de Operación</th>
+                <th>Nivel de Entrenamiento</th>
+                <th>Tipo de Ejercicio</th>
+                <th>FC. Comunicaciones</th>
+                <th>FC. PosicionInicial</th>
+                <th>FC. Funciones</th>
+                <th>FC. Acciones</th>
+                <th>FC. Ataque</th>
+                <th>Porcentaje Final De Evaluación Unidad</th>
+                <th>Calificativo De La Unidad</th>
+                <th>Código Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/centac/centac-entrenamientorealizadocomandancia.js" asp-append-version="true"></script>
+}

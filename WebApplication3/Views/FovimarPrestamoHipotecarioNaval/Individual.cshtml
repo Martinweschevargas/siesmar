@@ -1,0 +1,302 @@
+﻿@{
+    ViewData["Title"] = "Prestamo Hipotecario Naval";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/FovimarPrestamoHipotecarioNaval/Individual" style="text-decoration:none;">Préstamos Hipotecarios Dados al Personal Naval</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <select class="form-select form-control-sm" id="cargasR" name="cargasR"></select>
+                </div>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="DNI" class="col-3 col-form-label">DNI</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDNI" name="txtDNI" placeholder="DNI" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Grado" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbGrado" name="cbGrado"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Situacion" class="col-3 col-form-label"><a href="~/SituacionPersonalNaval">Situacion del Personal</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbSituacion" name="cbSituacion"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Monto" class="col-3 col-form-label">Monto</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMonto" name="txtMonto" placeholder="Monto" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Moneda" class="col-3 col-form-label"><a href="~/Moneda">Tipo de Moneda</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbMoneda" name="cbMoneda"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Cuotas" class="col-3 col-form-label">N° Cuotas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCuotas" name="txtCuotas" placeholder="N° Cuotas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Modalidad" class="col-3 col-form-label"><a href="~/ModalidadPrestamo">Modalidad ded Prestamo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbModalidad" name="cbModalidad"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Finalidad" class="col-3 col-form-label"><a href="~/FinalidadPrestamo">Finalidad del Prestamo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbFinalidad" name="cbFinalidad"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Entidad" class="col-3 col-form-label"><a href="~/EntidadFinanciera">Entidad Financiera</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEntidad" name="cbEntidad"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Rentabilidad" class="col-3 col-form-label">Rentabilidad Financiera</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtRentabilidad" name="txtRentabilidad" placeholder="Rentabilidad Financiera" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Proyecto" class="col-3 col-form-label"><a href="~/ProyectoFovimar">Proyecto</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbProyecto" name="cbProyecto"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Garantia" class="col-3 col-form-label">Garantia Constituida</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtGarantia" name="txtGarantia" data-placeholder="Seleccione ...">
+                            <option value="1">Si</option>
+                            <option value="2">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Cuotas" class="col-3 col-form-label">Cuotas Pagadas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCuotasP" name="txtCuotasP" placeholder="Cuotas Pagadas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Status" class="col-3 col-form-label">Status Deuda</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtStatus" name="txtStatus" data-placeholder="Seleccione ...">
+                            <option value="Vencida">Vencida (esta moroso)</option>
+                            <option value="Pagado">Pagado (al dia)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Morosidad" class="col-3 col-form-label">Monto de Morosidad</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMorosidad" name="txtMorosidad" placeholder="Monto de Morosidad" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/FovimarPrestamoHipotecarioNaval">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="DNI" class="col-3 col-form-label">DNI</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDNIe" name="txtDNIe" placeholder="DNI" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Grado" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbGradoe" name="cbGradoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Situacion" class="col-3 col-form-label"><a href="~/SituacionPersonalNaval">Situacion del Personal</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbSituacione" name="cbSituacione"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Monto" class="col-3 col-form-label">Monto</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMontoe" name="txtMontoe" placeholder="Monto" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Moneda" class="col-3 col-form-label"><a href="~/Moneda">Tipo de Moneda</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbMonedae" name="cbMonedae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Cuotas" class="col-3 col-form-label">N° Cuotas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCuotase" name="txtCuotase" placeholder="N° Cuotas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Modalidad" class="col-3 col-form-label"><a href="~/ModalidadPrestamo">Modalidad ded Prestamo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbModalidade" name="cbModalidade"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Finalidad" class="col-3 col-form-label"><a href="~/FinalidadPrestamo">Finalidad del Prestamo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbFinalidade" name="cbFinalidade"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Entidad" class="col-3 col-form-label"><a href="~/EntidadFinanciera">Entidad Financiera</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEntidade" name="cbEntidade"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Rentabilidad" class="col-3 col-form-label">Rentabilidad Financiera</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtRentabilidade" name="txtRentabilidade" placeholder="Rentabilidad Financiera" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Proyecto" class="col-3 col-form-label"><a href="~/ProyectoFovimar">Proyecto</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbProyectoe" name="cbProyectoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Garantia" class="col-3 col-form-label">Garantia Constituida</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtGarantiae" name="txtGarantiae" data-placeholder="Seleccione ...">
+                            <option value="1">Si</option>
+                            <option value="2">No</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Cuotas" class="col-3 col-form-label">Cuotas Pagadas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCuotasPe" name="txtCuotasPe" placeholder="Cuotas Pagadas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Status" class="col-3 col-form-label">Status Deuda</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtStatuse" name="txtStatuse" data-placeholder="Seleccione ...">
+                            <option value="Vencida">Vencida (esta moroso)</option>
+                            <option value="Pagado">Pagado (al dia)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Morosidad" class="col-3 col-form-label">Monto de Morosidad</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMorosidade" name="txtMorosidade" placeholder="Monto de Morosidad" required>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6 text-center">
+                        <button type="submit" class="btn btn-primary">Grabar</button>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <a class="btn btn-danger" href="~/FovimarPrestamoHipotecarioNaval">Cancelar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/FovimarPrestamoHipotecarioNaval" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaFovimarPrestamoHipotecarioNaval()" />
+    <div class="row align-items-start">
+        <div class="col">
+            <select class="form-select form-control-sm" id="cargas" name="cargas"></select>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" id="btn_search">Buscar</button>
+            <button class="btn btn-primary" id="btn_all">Mostrar Todos</button>
+            <button class="btn btn-danger" onclick="eliminarCarga()">Eliminar Carga</button>
+        </div>
+    </div>
+    <br />
+    <table class="table table-striped" id="tblFovimarPrestamoHipotecarioNaval" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>DNI</th>
+                <th>Grado</th>
+                <th>Situacion del Personal</th>
+                <th>Monto</th>
+                <th>Tipo de Moneda</th>
+                <th>N° Cuotas</th>
+                <th>Modalidad ded Prestamo</th>
+                <th>Finalidad del Prestamo</th>
+                <th>Entidad Financiera</th>
+                <th>Rentabilidad Financiera</th>
+                <th>Proyecto</th>
+                <th>Garantia Constituida</th>
+                <th>Cuotas Pagadas</th>
+                <th>Status Deuda</th>
+                <th>Monto de Morosidad</th>
+                <th>Código Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/fovimar/fovimar-prestamohipotecarionaval.js" asp-append-version="true"></script>
+}

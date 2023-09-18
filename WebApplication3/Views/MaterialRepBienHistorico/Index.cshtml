@@ -1,0 +1,129 @@
+﻿@{
+    ViewData["Title"] = "MaterialRepBienHistorico";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/MaterialRepBienHistorico" style="text-decoration:none;">Material Representacion Bien Historico</a></h1>
+
+
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="txtDescripcion" class="col-3 col-form-label">Descripcion</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="txtDescripcion" name="txtDescripcion" placeholder="Descripción" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtCode" class="col-3 col-form-label">Codigo</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="txtCode" name="txtCode" placeholder="Codigo" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/MaterialRepBienHistorico">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+</div>
+
+
+
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="txtDescripcion" class="col-3 col-form-label">Descripcion</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="txtDescripcione" name="txtDescripcione" placeholder="Descripción" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtCode" class="col-3 col-form-label">Codigo</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="txtCodee" name="txtCodee" placeholder="Codigo" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/MaterialRepBienHistorico">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+</div>
+
+
+<div id="listar">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaMaterialRepBienHistorico()" />
+    <table class="table table-striped" id="tblMaterialRepBienHistoricos" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Código de Material</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="mi-modal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal1-header">
+        <h4 class="modal-title" id="myModalLabel">Confirmar</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="modal-btn-si">Si</button>
+        <button type="button" class="btn btn-danger" id="modal-btn-no">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+@section Scripts{
+    <script src="/js/materialrepbienhistorico.js" asp-append-version="true"></script>
+}
+
+             
+
+
+

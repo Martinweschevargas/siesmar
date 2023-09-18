@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Formato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1><a href="~/ComoperguardAvisoInfraccionImpuesto" style="text-decoration:none;">Avisos de Infracción Impuestos por la Autoridad Maritima</a></h1>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header">
+                    <a href="~/ComoperguardAvisoInfraccionImpuesto/Individual" class="btn btn-primary">Ir Carga Individual</a>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <input class="form-control-file" type="file" id="inputExcel" />
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-warning" onclick="mostrarDatos()">Mostrar Datos"</button>
+                        <button class="btn btn-success" onclick="enviarDatos()">Enviar Datos a BD</button>
+                        <label>Numero de Registros : </label><span id="NumRegistros"></span>
+                    </div>
+                </div>
+                <hr />
+                <div class="row" style="overflow:scroll">
+                    <div class="col-sm-12">
+                        <table id="tbData" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Jefatura de Distritos de Capitanias</th>
+                                    <th>Capitania y/o Patrulla Maritima</th>
+                                    <th>Hora</th>
+                                    <th>Fecha</th>
+                                    <th>Nombre de la Nave Infractor</th>
+                                    <th>Matriculo de Nave Infractor</th>
+                                    <th>Tipo de Nave Infractor</th>
+                                    <th>Nacionalidad /Bandera Nave Infrator</th>
+                                    <th>Propietario de Nave Infractor</th>
+                                    <th>LAT</th>
+                                    <th>LONG</th>
+                                    <th>Área DE Intervención (Ubicación)</th>
+                                    <th>Ambito</th>
+                                    <th>Sector Extrainstitucional Participante</th>
+                                    <th>Tenor</th>
+                                    <th>Articulo</th>
+                                    <th>N° de Aviso de Infracción</th>
+                                    <th>Observaciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Scripts{
+    <script src="/js/comoperguard/comoperguard-avisoinfraccionimpuesto.js" asp-append-version="true"></script>
+}

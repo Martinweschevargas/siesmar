@@ -1,0 +1,264 @@
+﻿@{
+    ViewData["Title"] = "InvestigaciónDisciplinaInvestigación Disciplinarias (PERSUPE-PERSUBA)";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/DipermarInvestigacionDisciplinaria/Individual" style="text-decoration:none;">Investigación Disciplinarias (PERSUPE-PERSUBA)</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <select class="form-select form-control-sm" id="cargasR" name="cargasR"></select>
+                </div>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="FechaI" class="col-3 col-form-label">Fecha inicio investigación</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaI" name="txtFechaI" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GradoPersonal" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbGradoPersonal" name="cbGradoPersonal"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Sexo" class="col-3 col-form-label">Sexo</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtSexo" name="txtSexo" data-placeholder="Seleccione ...">
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="InfraccionDG" class="col-3 col-form-label"><a href="~/InfraccionDisciplinariaGenerica">Infracción Disciplinaria Genérica</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbInfraccionDG" name="cbInfraccionDG"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="InfraccionDE" class="col-3 col-form-label"><a href="~/InfraccionDisciplinariaEspecifica">Infracción Disciplinaria Específica</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbInfraccionDE" name="cbInfraccionDE"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NivelInfraccion" class="col-3 col-form-label">Nivel de Infracción</label>
+                    <div class="col-md-9">
+                       <select class="form-select form-select-sm" id="txtNivelInfraccion" name="txtNivelInfraccion" data-placeholder="Seleccione ...">
+                            <option value="Grave">Grave</option>
+                            <option value="Muy Grave">Muy Grave</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GradoPersonal" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtGradoPresidenteJunta" name="txtGradoPresidenteJunta"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NombrePresidenteJunta" class="col-3 col-form-label">Nombre Presidente Consejo o Junta</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNombrePresidenteJunta" name="txtNombrePresidenteJunta" placeholder="Nombre Presidente Consejo o Junta" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ConclusionFinal" class="col-3 col-form-label">Conclusión Final</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtConclusionFinal" name="txtConclusionFinal" data-placeholder="Seleccione ...">
+                            <option value="Procede">Procede</option>
+                            <option value="No procede">No procede</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ConclusionFinalDesc" class="col-3 col-form-label">Conclusión final descripción</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtConclusionFinalDesc" name="txtConclusionFinalDesc" placeholder="Conclusión final descripción" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SancionDisc" class="col-3 col-form-label"><a href="~/SancionDisciplinariaNaval">Sanción Disciplinaria Recomendada</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbSancionDisc" name="cbSancionDisc"></select>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DipermarInvestigacionDisciplinaria">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="FechaI" class="col-3 col-form-label">Fecha inicio investigación</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaIe" name="txtFechaIe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GradoPersonal" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbGradoPersonale" name="cbGradoPersonale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Sexo" class="col-3 col-form-label">Sexo</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtSexoe" name="txtSexoe" data-placeholder="Seleccione ...">
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="InfraccionDG" class="col-3 col-form-label"><a href="~/InfraccionDisciplinariaGenerica">Infracción Disciplinaria Genérica</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbInfraccionDGe" name="cbInfraccionDGe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="InfraccionDE" class="col-3 col-form-label"><a href="~/InfraccionDisciplinariaEspecifica">Infracción Disciplinaria Específica</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbInfraccionDEe" name="cbInfraccionDEe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NivelInfraccion" class="col-3 col-form-label">Nivel de Infracción</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtNivelInfraccione" name="txtNivelInfraccione" data-placeholder="Seleccione ...">
+                            <option value="Grave">Grave </option>
+                            <option value="Muy Grave">Muy Grave</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GradoPersonal" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtGradoPresidenteJuntae" name="txtGradoPresidenteJuntae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NombrePresidenteJunta" class="col-3 col-form-label">Nombre Presidente Consejo o Junta</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNombrePresidenteJuntae" name="txtNombrePresidenteJuntae" placeholder="Nombre Presidente Consejo o Junta" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ConclusionFinal" class="col-3 col-form-label">Conclusión Final</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtConclusionFinale" name="txtConclusionFinale" data-placeholder="Seleccione ...">
+                                <option value="Procede">Procede</option>
+                                <option value="No procede">No procede</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ConclusionFinalDesc" class="col-3 col-form-label">Conclusión final descripción</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtConclusionFinalDesce" name="txtConclusionFinalDesce" placeholder="Conclusión final descripción" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SancionDisc" class="col-3 col-form-label"><a href="~/SancionDisciplinariaNaval">Sanción Disciplinaria Recomendada</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbSancionDisce" name="cbSancionDisce"></select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DipermarInvestigacionDisciplinaria">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/DipermarInvestigacionDisciplinaria" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDipermarInvestigacionDisciplinaria()" />
+    <div class="row align-items-start">
+        <div class="col">
+            <select class="form-select form-control-sm" id="cargas" name="cargas"></select>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" id="btn_search">Buscar</button>
+            <button class="btn btn-primary" id="btn_all">Mostrar Todos</button>
+            <button class="btn btn-danger" onclick="eliminarCarga()">Eliminar Carga</button>
+        </div>  
+    </div>
+    <table class="table table-striped" id="tblDipermarInvestigacionDisciplinaria" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Fecha inicio investigación</th>
+                <th>Grado</th>
+                <th>Sexo</th>
+                <th>Infracción Disciplinaria Genérica</th>
+                <th>Infracción Disciplinaria Específica</th>
+                <th>Nivel de Infracción</th>
+                <th>Grado Presidente Consejo o Junta</th>
+                <th>Nombre Presidente Consejo o Junta</th>
+                <th>Conclusión Final</th>
+                <th>Conclusión final descripción</th>
+                <th>Sanción Disciplinaria Recomendada</th>
+                <th>Código Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+
+@section Scripts{
+
+    <script src="/js/dipermar/dipermar-investigaciondisciplinaria.js" asp-append-version="true"></script>
+
+}

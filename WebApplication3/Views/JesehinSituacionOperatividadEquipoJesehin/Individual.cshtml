@@ -1,0 +1,207 @@
+﻿@{
+    ViewData["Title"] = "Formato de situación de operatividad de equipos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>
+    <a href="~/JesehinSituacionOperatividadEquipoJesehin/Individual" style="text-decoration:none;">
+        Formato de situación de operatividad de equipos
+    </a>
+</h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+
+                <div class="form-group row col-md-6">
+                    <label for="DescripcionMaterial" class="col-3 col-form-label"><a href="~/DescripcionMaterial">Descripción del material</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDescripcionMaterial" name="cbDescripcionMaterial"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Cantidad" class="col-3 col-form-label">Cantidad</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidad" name="txtCantidad" placeholder="Cantidad" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Unidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNaval" name="cbUnidadNaval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Ubicacion" class="col-3 col-form-label">Ubicacion</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtUbicacion" name="txtUbicacion" placeholder="Ubicacion" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DepartamentoUbigeo" class="col-3 col-form-label"><a href="~/DepartamentoUbigeo">Departamento</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDepartamentoUbigeo" name="cbDepartamentoUbigeo"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ProvinciaUbigeo" class="col-3 col-form-label"><a href="~/ProvinciaUbigeo">Provincia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbProvinciaUbigeo" name="cbProvinciaUbigeo"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DistritoUbigeo" class="col-3 col-form-label"><a href="~/DistritoUbigeo">Distrito</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDistritoUbigeo" name="cbDistritoUbigeo"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Condicion" class="col-3 col-form-label"><a href="~/Condicion">Condición</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtCondicion" name="txtCondicion"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Observaciones" class="col-3 col-form-label">Observaciones</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtObservaciones" name="txtObservaciones" placeholder="Observaciones" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/JesehinSituacionOperatividadEquipoJesehin">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+
+                <div class="form-group row col-md-6">
+                    <label for="DescripcionMaterial" class="col-3 col-form-label"><a href="~/DescripcionMaterial">Descripción del material</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDescripcionMateriale" name="cbDescripcionMateriale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Cantidad" class="col-3 col-form-label">Cantidad</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidade" name="txtCantidade" placeholder="Cantidad" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Unidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNavale" name="cbUnidadNavale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Ubicacion" class="col-3 col-form-label">Ubicacion</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtUbicacione" name="txtUbicacione" placeholder="Ubicacion" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DepartamentoUbigeo" class="col-3 col-form-label"><a href="~/DepartamentoUbigeo">Departamento</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDepartamentoUbigeoe" name="cbDepartamentoUbigeoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ProvinciaUbigeo" class="col-3 col-form-label"><a href="~/ProvinciaUbigeo">Provincia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbProvinciaUbigeoe" name="cbProvinciaUbigeoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DistritoUbigeo" class="col-3 col-form-label"><a href="~/DistritoUbigeo">Distrito</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDistritoUbigeoe" name="cbDistritoUbigeoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Condicion" class="col-3 col-form-label"><a href="~/Condicion">Condición</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtCondicione" name="txtCondicione"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Observaciones" class="col-3 col-form-label">Observaciones</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtObservacionese" name="txtObservacionese" placeholder="Observaciones" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/JesehinSituacionOperatividadEquipoJesehin/Individual">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaJesehinSituacionOperatividadEquipoJesehin()" />
+    <div class="dropdown">
+        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Modos de Carga :
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="~/JesehinSituacionOperatividadEquipoJesehin">Masiva</a>
+            <a class="dropdown-item" href="~/JesehinSituacionOperatividadEquipoJesehin/Individual">Individual</a>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblJesehinSituacionOperatividadEquipoJesehin" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Descripción del material</th>
+                <th>Cantidad</th>
+                <th>Unidad</th>
+                <th>Ubicacion</th>
+                <th>Departamento</th>
+                <th>Provincia</th>
+                <th>Distrito</th>
+                <th>Condición</th>
+                <th>Observaciones</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/jesehin/jesehin-situacionoperatividadequipojesehin.js" asp-append-version="true"></script>
+}

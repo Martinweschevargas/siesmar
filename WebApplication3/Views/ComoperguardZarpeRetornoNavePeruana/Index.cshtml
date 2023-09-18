@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Formato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1><a href="~/ComoperguardZarpeRetornoNavePeruana" style="text-decoration:none;">Zarpe de Retorno de Naves Peruanas Capturadas en Aguas Internacionales</a></h1>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header">
+                    <a href="~/ComoperguardZarpeRetornoNavePeruana/Individual" class="btn btn-primary">Ir Carga Individual</a>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <input class="form-control-file" type="file" id="inputExcel" />
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-warning" onclick="mostrarDatos()">Mostrar Datos"</button>
+                        <button class="btn btn-success" onclick="enviarDatos()">Enviar Datos a BD</button>
+                        <label>Numero de Registros : </label><span id="NumRegistros"></span>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-sm-12" style="overflow:scroll">
+                        <table id="tbData" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>JNumero</th>
+                                    <th>Jefatura De Distriro De Capitanias</th>
+                                    <th>Hora</th>
+                                    <th>Dia</th>
+                                    <th>Mes</th>
+                                    <th>Año</th>
+                                    <th>Nombre</th>
+                                    <th>Matricula</th>
+                                    <th>Tipo</th>
+                                    <th>Autoridad que Emite el Zarpe</th>
+                                    <th>Hora</th>
+                                    <th>Dia</th>
+                                    <th>Mes</th>
+                                    <th>Año</th>
+                                    <th>Puerto</th>
+                                    <th>Jurisdicción(Capitanias)</th>
+                                    <th>Observaciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Scripts{
+    <script src="/js/comoperguard/comoperguard-zarperetornonaveperuana.js" asp-append-version="true"></script>
+}

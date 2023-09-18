@@ -1,0 +1,253 @@
+﻿@{
+    ViewData["Title"] = "Inventario SI Produccion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/DirtelInventarioSIProduccion/Individual" style="text-decoration:none;">Inventario de Sistemas de Informacion en Producción</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="form-group row col-md-6">
+                <label for="carga" class="col-3 col-form-label">Carga</label>
+                <div class="form-group row col-md-6">
+                    <div class="col"><select class="form-select-sm form-control-sm" id="cargasR" name="cargasR"></select></div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="NomSitema" class="col-3 col-form-label">Nombre Sistema</label>
+                    <div class="col-md-13">
+                        <input type="text" class="form-control form-control-sm" id="txtNomSitema" name="txtNomSitema" placeholder="Nombre Sistema" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SiglaSoft" class="col-3 col-form-label">Siglas Software</label>
+                    <div class="col-md-13">
+                        <input type="text" class="form-control form-control-sm" id="txtSiglaSoft" name="txtSiglaSoft" placeholder="Siglas Software" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Area" class="col-3 col-form-label"><a href="~/AreaSatisfaceDirtel">Area Satisface</a></label>
+                    <div class="col-md-13">
+                        <select class="form-control form-select-sm" id="cbArea" name="cbArea"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DescFun" class="col-3 col-form-label">Descripcion Funcionalidad</label>
+                    <div class="col-md-13">
+                        <input type="text" class="form-control form-control-sm" id="txtDescFun" name="txtDescFun" placeholder="Descripcion Funcionalidad" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CicloDe" class="col-3 col-form-label"><a href="~/CicloDesarrolloSoftware">Ciclo Desarrollo</a></label>
+                    <div class="col-md-13">
+                        <select class="form-control form-select-sm" id="cbCicloDe" name="cbCicloDe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="AlcanceSis" class="col-3 col-form-label">Alcance</label>
+                    <select class="form-select form-select-sm" id="txtAlcanceSis" name="txtAlcanceSis" data-placeholder="Seleccione ...">
+                        <option value="1">Unidades y Dependencias</option>
+                        <option value="2">Institucional</option>
+                        <option value="3">Sector Defensa</option>
+                    </select>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Procedencia" class="col-3 col-form-label">Procedencia</label>
+                    <select class="form-select form-select-sm" id="txtProcedencia" name="txtProcedencia" data-placeholder="Seleccione ...">
+                        <option value="1">Propio</option>
+                        <option value="2">Adquirido</option>
+                        <option value="3">Cedido</option>
+                    </select>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DenominacionBase" class="col-3 col-form-label"><a href="~/DenominacionBaseDatos">Base Datos</a></label>
+                    <div class="col-md-13">
+                        <select class="form-control form-select-sm" id="cbDenominacionBase" name="cbDenominacionBase"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ServidorBD" class="col-3 col-form-label">Servidor BD</label>
+                    <div class="col-md-13">
+                        <input type="text" class="form-control form-control-sm" id="txtServidorBD" name="txtServidorBD" placeholder="Servidor BD" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DenominacionLengu" class="col-3 col-form-label"><a href="~/DenominacionLenguajeProgramacion">Lenguaje Programacion</a></label>
+                    <div class="col-md-13">
+                        <select class="form-control form-select-sm" id="cbDenominacionLengu" name="cbDenominacionLengu"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ServidorWeb" class="col-3 col-form-label">Servidor Web</label>
+                    <div class="col-md-13">
+                        <input type="text" class="form-control form-control-sm" id="txtServidorWeb" name="txtServidorWeb" placeholder="Servidor Web" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label"><a href="~/Dependencia">Dependencia</a></label>
+                    <div class="col-md-13">
+                        <select class="form-control form-select-sm" id="cbDependencia" name="cbDependencia"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DirtelInventarioSIProduccion">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="NomSitema" class="col-3 col-form-label">Nombre Sistema</label>
+                    <div class="col-md-13">
+                        <input type="text" class="form-control form-control-sm" id="txtNomSitemae" name="txtNomSitemae" placeholder="Nombre Sistema" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SiglaSoft" class="col-3 col-form-label">Siglas Software</label>
+                    <div class="col-md-13">
+                        <input type="text" class="form-control form-control-sm" id="txtSiglaSofte" name="txtSiglaSofte" placeholder="Siglas Software" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Area" class="col-3 col-form-label"><a href="~/AreaSatisfaceDirtel">Area Satisface</a></label>
+                    <div class="col-md-13">
+                        <select class="form-control form-select-sm" id="cbAreae" name="cbAreae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DescFun" class="col-3 col-form-label">Descripcion Funcionalidad</label>
+                    <div class="col-md-13">
+                        <input type="text" class="form-control form-control-sm" id="txtDescFune" name="txtDescFune" placeholder="Descripcion Funcionalidad" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CicloDe" class="col-3 col-form-label"><a href="~/CicloDesarrolloSoftware">Ciclo Desarrollo</a></label>
+                    <div class="col-md-13">
+                        <select class="form-control form-select-sm" id="cbCicloDee" name="cbCicloDee"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="AlcanceSis" class="col-3 col-form-label">Alcance</label>
+                    <select class="form-select form-select-sm" id="txtAlcanceSise" name="txtAlcanceSise" data-placeholder="Seleccione ...">
+                        <option value="1">Unidades y Dependencias</option>
+                        <option value="2">Institucional</option>
+                        <option value="3">Sector Defensa</option>
+                    </select>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Procedencia" class="col-3 col-form-label">Procedencia</label>
+                    <select class="form-select form-select-sm" id="txtProcedenciae" name="txtProcedenciae" data-placeholder="Seleccione ...">
+                        <option value="1">Propio</option>
+                        <option value="2">Adquirido</option>
+                        <option value="3">Cedido</option>
+                    </select>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DenominacionBase" class="col-3 col-form-label"><a href="~/DenominacionBaseDatos">Base Datos</a></label>
+                    <div class="col-md-13">
+                        <select class="form-control form-select-sm" id="cbDenominacionBasee" name="cbDenominacionBasee"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ServidorBD" class="col-3 col-form-label">Servidor BD</label>
+                    <div class="col-md-13">
+                        <input type="text" class="form-control form-control-sm" id="txtServidorBDe" name="txtServidorBDe" placeholder="Servidor BD" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DenominacionLengu" class="col-3 col-form-label"><a href="~/DenominacionLenguajeProgramacion">Lenguaje Programacion</a></label>
+                    <div class="col-md-13">
+                        <select class="form-control form-select-sm" id="cbDenominacionLengue" name="cbDenominacionLengue"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ServidorWeb" class="col-3 col-form-label">Servidor Web</label>
+                    <div class="col-md-13">
+                        <input type="text" class="form-control form-control-sm" id="txtServidorWebe" name="txtServidorWebe" placeholder="Servidor Web" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label"><a href="~/Dependencia">Dependencia</a></label>
+                    <div class="col-md-13">
+                        <select class="form-control form-select-sm" id="cbDependenciae" name="cbDependenciae"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DirtelInventarioSIProduccion">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/DirtelInventarioSIProduccion" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDirtelInventarioSIProduccion()" />
+    <div class="row align-items-start">
+        <div class="col"><select class="form-select form-control-sm" id="cargas" name="cargas"></select></div>
+        <div class="col">
+            <input type='button' id="btn_search" value="Buscar" class="btn btn-primary">
+            <input type='button' id="btn_all" value="Mostrar Todos" class="btn btn-primary">
+        </div>
+    </div>
+    <table class="table table-striped" id="tblDirtelInventarioSIProduccion" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Nombre Sistema</th>
+                <th>Siglas Software</th>
+                <th>Area Satisface</th>
+                <th>Descripcion Funcionalidad</th>
+                <th>Ciclo Desarrollo</th>
+                <th>Alcance</th>
+                <th>Procedencia</th>
+                <th>Base Datos</th>
+                <th>Servidor BD</th>
+                <th>Lenguaje Programacion</th>
+                <th>Servidor Web</th>
+                <th>Dependencia</th>
+                <th>Código Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/dirtel/dirtel-inventariosiproduccion.js" asp-append-version="true"></script>
+}

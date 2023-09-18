@@ -1,0 +1,209 @@
+﻿@{
+    ViewData["Title"] = "Pedido de Acceso a la información Pública ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/DimarAccesoInformacionPublica/Individual" style="text-decoration:none;"> Pedido de Acceso a la información Pública</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="form-group row col-md-6">
+                <label for="carga" class="col-3 col-form-label">Carga</label>
+                <div class="form-group row col-md-6">
+                    <div class="col"><select class="form-select form-control-sm" id="cargasR" name="cargasR"></select></div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="FechaRecepcion" class="col-3 col-form-label">Fecha de recepción</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaRecepcion" name="txtFechaRecepcion" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NumeroDocumento" class="col-3 col-form-label">Documento</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNumeroDocumento" name="txtNumeroDocumento" placeholder="Documento" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaDocumento" class="col-3 col-form-label">Fecha del documento</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaDocumento" name="txtFechaDocumento" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Administrado" class="col-3 col-form-label">Administrado</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtAdministrado" name="txtAdministrado" placeholder="Administrado" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Asunto" class="col-3 col-form-label">Asunto</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtAsunto" name="txtAsunto" placeholder="Asunto" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DocumentoRespuesta" class="col-3 col-form-label">Documento de respuesta</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDocumentoRespuesta" name="txtDocumentoRespuesta" placeholder="Documento de respuesta" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaUsuario" class="col-3 col-form-label">Fecha de entrega al usuario</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaUsuario" name="txtFechaUsuario" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MontoRecaudado" class="col-3 col-form-label">Monto recaudado</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMontoRecaudado" name="txtMontoRecaudado" placeholder="Monto recaudado" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TiempoRespuestaDias" class="col-3 col-form-label">Tiempo de respuesta/ dias</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtTiempoRespuestaDias" name="txtTiempoRespuestaDias" placeholder="Tiempo de respuesta/ dias" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DimarAccesoInformacionPublica">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+
+                <div class="form-group row col-md-6">
+                    <label for="FechaRecepcion" class="col-3 col-form-label">Fecha de recepción</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaRecepcione" name="txtFechaRecepcione" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NumeroDocumento" class="col-3 col-form-label">Documento</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNumeroDocumentoe" name="txtNumeroDocumentoe" placeholder="Documento" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaDocumento" class="col-3 col-form-label">Fecha del documento</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaDocumentoe" name="txtFechaDocumentoe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Administrado" class="col-3 col-form-label">Administrado</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtAdministradoe" name="txtAdministradoe" placeholder="Administrado" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Asunto" class="col-3 col-form-label">Asunto</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtAsuntoe" name="txtAsuntoe" placeholder="Asunto" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DocumentoRespuesta" class="col-3 col-form-label">Documento de respuesta</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDocumentoRespuestae" name="txtDocumentoRespuestae" placeholder="Documento de respuesta" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaUsuario" class="col-3 col-form-label">Fecha de entrega al usuario</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaUsuarioe" name="txtFechaUsuarioe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MontoRecaudado" class="col-3 col-form-label">Monto recaudado</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMontoRecaudadoe" name="txtMontoRecaudadoe" placeholder="Monto recaudado" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TiempoRespuestaDias" class="col-3 col-form-label">Tiempo de respuesta/ dias</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtTiempoRespuestaDiase" name="txtTiempoRespuestaDiase" placeholder="Tiempo de respuesta/ dias" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DimarAccesoInformacionPublica/Individual">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/DimarAccesoInformacionPublica" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDimarAccesoInformacionPublica()" />
+    <div class="row align-items-start">
+        <div class="col"><select class="form-select form-control-sm" id="cargas" name="cargas"></select></div>
+        <div class="col">
+            <input type='button' id="btn_search" value="Buscar" class="btn btn-primary">
+            <input type='button' id="btn_all" value="Mostrar Todos" class="btn btn-primary">
+        </div>
+    </div>
+    <table class="table table-striped" id="tblDimarAccesoInformacionPublica" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Fecha de recepción</th>
+                <th>Documento</th>
+                <th>Fecha del documento</th>
+                <th>Administrado</th>
+                <th>Asunto</th>
+                <th>Documento de respuesta</th>
+                <th>Fecha de entrega al usuario</th>
+                <th>Monto recaudado</th>
+                <th>Tiempo de respuesta/ dias</th>
+                <th>Codigo Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/dimar/dimar-accesoinformacionpublica.js" asp-append-version="true"></script>
+}

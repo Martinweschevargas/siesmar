@@ -1,0 +1,161 @@
+﻿@{
+    ViewData["Title"] = "Formato para el ingreso de datos del servicio de peluquería";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>
+    <a href="~/ComesguardIngresoDatoServicioPeluqueria/Individual" style="text-decoration:none;">
+        Formato para el ingreso de datos del servicio de peluquería
+    </a>
+</h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="form-group row col-md-6">
+                <label for="carga" class="col-3 col-form-label">Carga</label>
+                <div class="form-group row col-md-6">
+                    <div class="col"><select class="form-select form-control-sm" id="cargasR" name="cargasR"></select></div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="FechaServicio" class="col-3 col-form-label">Fecha del Servicio</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaServicio" name="txtFechaServicio" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CIP" class="col-3 col-form-label">CIP</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCIP" name="txtCIP" placeholder="CIP" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GradoPersonalMilitar" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbGradoPersonalMilitar" name="cbGradoPersonalMilitar"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EspecialidadGenericaPersonal" class="col-3 col-form-label"><a href="~/EspecialidadGenericaPersonal">Especialidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEspecialidadGenericaPersonal" name="cbEspecialidadGenericaPersonal"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label"><a href="~/Dependencia">Dependencia/Oficina</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDependencia" name="cbDependencia"></select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComesguardIngresoDatoServicioPeluqueria">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+
+                <div class="form-group row col-md-6">
+                    <label for="FechaServicio" class="col-3 col-form-label">Fecha del Servicio</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaServicioe" name="txtFechaServicioe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CIP" class="col-3 col-form-label">CIP</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCIPe" name="txtCIPe" placeholder="CIP" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GradoPersonalMilitar" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbGradoPersonalMilitare" name="cbGradoPersonalMilitare"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EspecialidadGenericaPersonal" class="col-3 col-form-label"><a href="~/EspecialidadGenericaPersonal">Especialidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEspecialidadGenericaPersonale" name="cbEspecialidadGenericaPersonale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label"><a href="~/Dependencia">Dependencia/Oficina</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDependenciae" name="cbDependenciae"></select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComesguardIngresoDatoServicioPeluqueria/Individual">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/ComesguardIngresoDatoServicioPeluqueria" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaComesguardIngresoDatoServicioPeluqueria()" />
+    <div class="row align-items-start">
+        <div class="col"><select class="form-select form-control-sm" id="cargas" name="cargas"></select></div>
+        <div class="col">
+            <input type='button' id="btn_search" value="Buscar" class="btn btn-primary">
+            <input type='button' id="btn_all" value="Mostrar Todos" class="btn btn-primary">
+        </div>
+    </div>
+    <table class="table table-striped" id="tblComesguardIngresoDatoServicioPeluqueria" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Fecha del Servicio</th>
+                <th>CIP</th>
+                <th>Grado</th>
+                <th>Especialidad</th>
+                <th>Dependencia/Oficina</th>
+                <th>Codigo Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/comesguard/comesguard-ingresodatoserviciopeluqueria.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,169 @@
+﻿@{
+    ViewData["Title"] = "Estudios e Investigaciones Históricas Navales";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/DirintemarEstInvHistoricasNavales/Individual" style="text-decoration:none;">Estudios e Investigaciones Históricas Navales</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="form-group row col-md-6">
+                <label for="carga" class="col-3 col-form-label">Carga</label>
+                <div class="form-group row col-md-6">
+                    <div class="col"><select class="form-select form-control-sm" id="cargasR" name="cargasR"></select></div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="Nombre" class="col-3 col-form-label">Nombre Investigación</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNombre" name="txtNombre" placeholder="Nombre" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoActividad" class="col-3 col-form-label"><a href="~/TipoEstudioInvestigacion" style="text-decoration:none;">Tipo Estudio Investigación</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-control-sm" id="cbTipoEstudio" name="cbTipoEstudio"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaI" class="col-3 col-form-label">Fecha Inicio</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaI" name="txtFechaI" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaT" class="col-3 col-form-label">Fecha Término</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaT" name="txtFechaT" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Responsable" class="col-3 col-form-label">Responsable</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtResponsable" name="txtResponsable" placeholder="Responsable" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Solicitante" class="col-3 col-form-label">Solicitante</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtSolicitante" name="txtSolicitante" placeholder="Solicitante" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DirintemarEstInvHistoricasNavales">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="Nombre" class="col-3 col-form-label">Nombre Investigación</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNombree" name="txtNombree" placeholder="Nombre" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoActividad" class="col-3 col-form-label"><a href="~/TipoEstudioInvestigacion" style="text-decoration:none;">Tipo Estudio Investigación</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-control-sm" id="cbTipoEstudioe" name="cbTipoEstudioe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaI" class="col-3 col-form-label">Fecha Inicio</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaIe" name="txtFechaIe" placeholder="FechaInicio" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaT" class="col-3 col-form-label">Fecha Término</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaTe" name="txtFechaTe" placeholder="FechaTermino" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Responsable" class="col-3 col-form-label">Responsable</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtResponsablee" name="txtResponsablee" placeholder="Responsable" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Solicitante" class="col-3 col-form-label">Solicitante</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtSolicitantee" name="txtSolicitantee" placeholder="Solicitante" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DirintemarEstInvHistoricasNavales">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/DirintemarEstInvHistoricasNavales" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDirintemarEstInvHistoricasNavales()" />
+    <div class="row align-items-start">
+        <div class="col"><select class="form-select form-control-sm" id="cargas" name="cargas"></select></div>
+        <div class="col">
+            <input type='button' id="btn_search" value="Buscar" class="btn btn-primary">
+            <input type='button' id="btn_all" value="Mostrar Todos" class="btn btn-primary">
+        </div>
+    </div>
+    <table class="table table-striped" id="tblDirintemarEstInvHistoricasNavales" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Nombre Estudio Investigación</th>
+                <th>Tipo Estudio Investigación</th>
+                <th>FechaInicio</th>
+                <th>FechaTermino</th>
+                <th>Responsable</th>
+                <th>Solicitante</th>
+                <th>CodigoCarga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+
+@section Scripts{
+    <script src="~/js/dirintemar/dirintemar-estinvhistoricasnavales.js" asp-append-version="true"></script>
+}

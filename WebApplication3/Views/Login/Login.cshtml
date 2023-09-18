@@ -1,0 +1,41 @@
+﻿@model Marina.Siesmar.Entidades.Seguridad.UsuarioDTO;
+@{
+    ViewData["Title"] = "Login - Marina SIESMAR";
+    Layout = "~/Views/Shared/_Login.cshtml";
+}
+
+<section class="cajaazul-mc">
+    <div class="IS-mc">INGRESO AL SISTEMA</div>
+</section>
+
+<form action='@Url.Action("Login","Login")' method="post">
+    <div class="row">
+        <div class="col-md-6 d-flex justify-content-end">
+            <img style="width:25%" src="~/img/logo1.png" />
+        </div>
+        <div class="col-md-2" style="margin-top:30px">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </span>
+                </div>
+                <input type="text" class="form-control form-control-sm" placeholder=" Nombre de usuario" name="user" aria-describedby="basic-addon1" />
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon2">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    </span>
+                </div>
+                <input type="password" class="form-control form-control-sm" placeholder=" Contraseña" name="pass" aria-describedby="basic-addon2" />
+            </div>
+        </div>
+    </div>
+    <section class="cajadorada-mc">
+        <button type="submit" class="boton-mc">ACEPTAR</button>
+    </section>
+    <section class="cajablanca">
+        <h4 style="color:red">@ViewData["Mensaje"]</h4>
+    </section>
+</form>

@@ -1,0 +1,24 @@
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Marina.Siesmar.Entidades.Formatos.Comfuinmar
+{
+    public partial class AlistamientoMaterialComfuinmarDTO
+    {
+
+        public int? AlistamientoMaterialId { get; set; }
+        public string? CodigoUnidadNaval { get; set; }
+        public string? CodigoCapacidadOperativa { get; set; }
+        public string? CodigoAlistamientoMaterialRequerido3N { get; set; }
+        public int? Requerido { get; set; }
+        public int? Operativo { get; set; }
+        public decimal? PorcentajeOperativo { get; set; }
+        public int? CargaId { get; set; }
+        public string? DescUnidadNaval { get; set; }
+        public string? DescCapacidadOperativa { get; set; }
+        public string? Subclasificacion { get; set; }
+
+        [NotMapped]
+        public string? UsuarioIngresoRegistro { get; set; }
+
+    }
+}

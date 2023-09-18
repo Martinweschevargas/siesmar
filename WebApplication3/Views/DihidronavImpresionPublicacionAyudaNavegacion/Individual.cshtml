@@ -1,0 +1,182 @@
+﻿@{
+    ViewData["Title"] = "Impresion Publicacion Ayuda Navegacion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/DihidronavImpresionPublicacionAyudaNavegacion/Individual" style="text-decoration:none;">Impresión de publicaciones de ayudas a la navegación</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="form-group row col-md-6">
+                <label for="carga" class="col-3 col-form-label">Carga</label>
+                <div class="form-group row col-md-6">
+                    <div class="col"><select class="form-select-sm form-control-sm" id="cargasR" name="cargasR"></select></div>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="Orden" class="col-3 col-form-label">N° Orden</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtOrden" name="txtOrden" placeholder="N° Orden" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Producto" class="col-3 col-form-label"><a href="~/TipoProducto">Producto</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbProducto" name="cbProducto"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Hidronav" class="col-3 col-form-label">Hidronav N°</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtHidronav" name="txtHidronav" placeholder="Hidronav N°" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Fecha" class="col-3 col-form-label">Fecha de Emision</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Edicion" class="col-3 col-form-label">N° Edicion</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtEdicion" name="txtEdicion" placeholder="N° Edicion" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Cantidad" class="col-3 col-form-label">Cantidad Producida</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidad" name="txtCantidad" placeholder="Cantidad Producida" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Frecuencia" class="col-3 col-form-label"><a href="~/Frecuencia">Frecuencia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbFrecuencia" name="cbFrecuencia"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DihidronavImpresionPublicacionAyudaNavegacion">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="Orden" class="col-3 col-form-label">N° Orden</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtOrdene" name="txtOrdene" placeholder="N° Orden" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Producto" class="col-3 col-form-label"><a href="~/TipoProducto">Producto</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbProductoe" name="cbProductoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Hidronav" class="col-3 col-form-label">Hidronav N°</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtHidronave" name="txtHidronave" placeholder="Hidronav N°" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Fecha" class="col-3 col-form-label">Fecha de Emision</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechae" name="txtFechae" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Edicion" class="col-3 col-form-label">N° Edicion</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtEdicione" name="txtEdicione" placeholder="N° Edicion" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Cantidad" class="col-3 col-form-label">Cantidad Producida</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCantidade" name="txtCantidade" placeholder="Cantidad Producida" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Frecuencia" class="col-3 col-form-label"><a href="~/Frecuencia">Frecuencia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbFrecuenciae" name="cbFrecuenciae"></select>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6 text-center">
+                        <button type="submit" class="btn btn-primary">Grabar</button>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <a class="btn btn-danger" href="~/DihidronavImpresionPublicacionAyudaNavegacion">Cancelar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/DihidronavImpresionPublicacionAyudaNavegacion" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDihidronavImpresionPublicacionAyudaNavegacion()" />
+    <div class="row align-items-start">
+        <div class="col"><select class="form-select form-control-sm" id="cargas" name="cargas"></select></div>
+        <div class="col">
+            <input type='button' id="btn_search" value="Buscar" class="btn btn-primary">
+            <input type='button' id="btn_all" value="Mostrar Todos" class="btn btn-primary">
+        </div>
+
+    </div>
+    <table class="table table-striped" id="tblDihidronavImpresionPublicacionAyudaNavegacion" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>N° Orden</th>
+                <th>Producto</th>
+                <th>Hidronav N°</th>
+                <th>Fecha de Emision</th>
+                <th>N° Edicion</th>
+                <th>Cantidad Producida</th>
+                <th>Frecuencia</th>
+                <th>Código Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/dihidronav/dihidronav-impresionpublicacionayudanavegacion.js" asp-append-version="true"></script>
+}

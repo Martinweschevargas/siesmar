@@ -1,0 +1,106 @@
+﻿@{
+    ViewData["Title"] = "Formato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1><a href="~/IpecamarInspeccionInstitucionales" style="text-decoration:none;"> Inspecciones Institucionales, Supervisión y Seguimiento</a></h1>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header">
+                    <a href="~/IpecamarInspeccionInstitucionales/Individual" class="btn btn-primary">Ir Carga Individual</a>
+                    <a href="~/IpecamarInspeccionInstitucionales/DownloadFile" class="btn btn-primary">Descargar Formato</a>
+
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <input class="form-control-file" type="file" id="inputExcel" />
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-warning" onclick="mostrarDatos()">Mostrar Datos"</button>
+                        <button class="btn btn-success" onclick="enviarDatos()">Enviar Datos a BD</button>
+                    </div>
+                    <div class="col-sm-4">
+                        <label>Numero de Registros : </label><span id="NumRegistros"></span>
+                    </div>
+                </div>
+                <hr />
+                <div class="row" style="overflow:scroll">
+                    <div class="col-sm-12">
+                        <table class="table table-striped" id="tbData" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+                            <thead>
+                                <tr class="colorbg">
+                                    <th>Fecha Inicio Inspección </th>
+                                    <th>Fecha Término Inspección </th>
+                                    <th>Duración (días) </th>
+                                    <th>Dependencia Inspeccionada </th>
+                                    <th>Dirección General a la que Pertenece la Dependencia</th>
+                                    <th>Nivel de Dependencia </th>
+                                    <th>Zona Naval </th>
+                                    <th>Inspección en cuanto al Conocimiento </th>
+                                    <th>Inspección en cuanto a su Extensión </th>
+                                    <th>Inspección en cuanto: a la Finalidad</th>
+                                    <th>Órgano de Control que pasó Inspección </th>
+                                    <th>Número de Inspectores Participantes </th>
+                                    <th>Deficiencias Operativas y Administrativas</th>
+                                    <th>Deficiencias Comunes Operativas y Administrativas</th>
+                                    <th>Apreciaciones Operativas y Administrativas</th>
+                                    <th>Observaciones Operativas y Administrativas </th>
+                                    <th>Irregularidades Operativas y Administrativas</th>
+                                    <th>Deficiencias Control de Gestión</th>
+                                    <th>Deficiencias Comunes Control de Gestión</th>
+                                    <th>Apreciaciones Control de Gestión</th>
+                                    <th>Observaciones Control de Gestión</th>
+                                    <th>Irregularidades Control de Gestión</th>
+                                    <th>Deficiencias Pendientes Operativas y Administrativas </th>
+                                    <th>Deficiencias Comunes Pendientes Operativas y Administrativas</th>
+                                    <th>Apreciaciones Pendientes Operativas y Administrativas</th>
+                                    <th>Observaciones Pendientes Operativas y Administrativas</th>
+                                    <th>Irregularidades Pendientes Operativas y Administrativas</th>
+                                    <th>Deficiencias Pendientes Control de Gestión</th>
+                                    <th>Deficiencias Comunes Pendientes Control de Gestión</th>
+                                    <th>Apreciaciones Pendientes Control de Gestión</th>
+                                    <th>Observaciones Pendientes Control de Gestión</th>
+                                    <th>Irregularidades Pendientes Control de Gestión</th>
+                                    <th>Deficiencias Superadas Operativas y Administrativas </th>
+                                    <th>Deficiencias Comunes Superadas Operativas y Administrativas</th>
+                                    <th>Apreciaciones Superadas Operativas y Administrativas</th>
+                                    <th>Observaciones Superadas Operativas y Administrativas</th>
+                                    <th>Irregularidades Superadas Operativas y Administrativas</th>
+                                    <th>Deficiencias Superadas Control de Gestión</th>
+                                    <th>Deficiencias Superadas Control de Gestión</th>
+                                    <th>Apreciaciones Superadas Control de Gestión</th>
+                                    <th>Observaciones Superadas Control de Gestión</th>
+                                    <th>Irregularidades Superadas Control de Gestión</th>
+                                    <th>Total Deficiencias</th>
+                                    <th>Total Apreciaciones</th>
+                                    <th>Total Observaciones</th>
+                                    <th>Total Irregularidades</th>
+                                    <th>Total Deficiencias Superadas</th>
+                                    <th>Total Apreciaciones Superadas</th>
+                                    <th>Total de Observaciones Superadas</th>
+                                    <th>Total de Irregularidades Superadas</th>
+                                    <th>Total de Deficiencias pendientes</th>
+                                    <th>Total de Deficiencias Pendientes</th>
+                                    <th>Total de Observaciones  Pendientes</th>
+                                    <th>Total de Irregularidades Pendientes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Scripts{
+    <script src="/js/ipecamar/ipecamar-inspeccioninstitucionales.js" asp-append-version="true"></script>
+}

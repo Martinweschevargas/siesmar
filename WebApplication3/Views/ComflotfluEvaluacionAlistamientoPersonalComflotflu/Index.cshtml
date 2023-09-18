@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Formato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1>
+            <a href="~/ComflotfluEvaluacionAlistamientoPersonalComflotflu" style="text-decoration:none;">
+                Evaluación del alistamiento de personal
+            </a>
+        </h1>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header">
+                    <a href="~/ComflotfluEvaluacionAlistamientoPersonalComflotflu/Individual" class="btn btn-primary">Ir Carga Individual</a>
+                    <a href="~/ComflotfluEvaluacionAlistamientoPersonalComflotflu/DownloadFile" class="btn btn-primary">Descargar Formato</a>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <input class="form-control-file" type="file" id="inputExcel" />
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-warning" onclick="mostrarDatos()">Mostrar Datos"</button>
+                        <button class="btn btn-success" onclick="enviarDatos()">Enviar Datos a BD</button>
+                        <label>Numero de Registros : </label><span id="NumRegistros"></span>
+                    </div>
+                </div>
+                <hr />
+                <div class="row" style="overflow:scroll">
+                    <div class="col-sm-12">
+                        <table id="tbData" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Nombre unidad</th>
+                                    <th>FECHA</th>
+                                    <th>DNI</th>
+                                    <th>CIP</th>
+                                    <th>Cargo</th>
+                                    <th>Grado-Esperado</th>
+                                    <th>Especialidad-Esperado</th>
+                                    <th>Grado-Esperado</th>
+                                    <th>Especialidad-Actual</th>
+                                    <th>Grado Jerárquico</th>
+                                    <th>Servicio o experiencia</th>
+                                    <th>Especialización profesional o técnica complementaria</th>
+                                    <th>Cursos profesionales requeridos</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Scripts{
+    <script src="/js/comflotflu/comflotflu-evaluacionalistamientopersonalcomflotflu.js" asp-append-version="true"></script>
+}

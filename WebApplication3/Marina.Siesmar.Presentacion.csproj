@@ -1,0 +1,703 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>8f04e779-15e5-4ed1-a080-0423e6ff2d05</UserSecretsId>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="wwwroot\NewFolder1\**" />
+	  <Compile Remove="wwwroot\NewFolder2\**" />
+	  <Compile Remove="wwwroot\NewFolder3\**" />
+	  <Compile Remove="wwwroot\NewFolder\**" />
+	  <Content Remove="wwwroot\NewFolder1\**" />
+	  <Content Remove="wwwroot\NewFolder2\**" />
+	  <Content Remove="wwwroot\NewFolder3\**" />
+	  <Content Remove="wwwroot\NewFolder\**" />
+	  <EmbeddedResource Remove="wwwroot\NewFolder1\**" />
+	  <EmbeddedResource Remove="wwwroot\NewFolder2\**" />
+	  <EmbeddedResource Remove="wwwroot\NewFolder3\**" />
+	  <EmbeddedResource Remove="wwwroot\NewFolder\**" />
+	  <None Remove="wwwroot\NewFolder1\**" />
+	  <None Remove="wwwroot\NewFolder2\**" />
+	  <None Remove="wwwroot\NewFolder3\**" />
+	  <None Remove="wwwroot\NewFolder\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Remove="wwwroot\js\alistamientomaterialrequerido1N.js" />
+	  <Content Remove="wwwroot\Reports\Comciberdef\ComciberdefVCapacidadComandanciaCiberdefensa.xsc" />
+	  <Content Remove="wwwroot\Reports\Comciberdef\ComciberdefVCapacidadComandanciaCiberdefensa.xsd" />
+	  <Content Remove="wwwroot\Reports\Comciberdef\ComciberdefVCapacidadComandanciaCiberdefensa.xss" />
+	  <Content Remove="wwwroot\Reports\Diperadmon\PersonalSuperiorSubalterno.Designer.cs" />
+	  <Content Remove="wwwroot\Reports\Diperadmon\PersonalSuperiorSubalterno.xsc" />
+	  <Content Remove="wwwroot\Reports\Diperadmon\PersonalSuperiorSubalterno.xsd" />
+	  <Content Remove="wwwroot\Reports\Diperadmon\PersonalSuperiorSubalterno.xss" />
+	  <Content Remove="wwwroot\Reports\ReporteAAD.rdlc" />
+	  <Content Remove="wwwroot\Reports\ReporteEIHN.rdlc" />
+	  <Content Remove="wwwroot\Reports\ReportePII.rdlc" />
+	  <Content Remove="wwwroot\Reports\ReportePMCB.rdlc" />
+	  <Content Remove="wwwroot\Reports\ReportePMPADRIM.rdlc" />
+	  <Content Remove="wwwroot\Reports\ReportePMPIACR.rdlc" />
+	  <Content Remove="wwwroot\Reports\ReportePMPOADRIM.rdlc" />
+	  <Content Remove="wwwroot\Reports\ReportePMVAHM.rdlc" />
+	  <Content Remove="wwwroot\Reports\ReportePMVRMN.rdlc" />
+	  <Content Remove="wwwroot\Reports\ReporteRMHPRM.rdlc" />
+	  <Content Remove="wwwroot\Reports\ReporteTRC.rdlc" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Views\DibinfraterInspeccionSaneamiento\Index.cshtml~RF8e82c8c.TMP" />
+	</ItemGroup>
+	<ItemGroup>
+	  <_ContentIncludedByDefault Remove="wwwroot\js\alistamientomaterialrequerido1N.js" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="wwwroot\Reports\Dirintemar\ReportePMPIACR.rdlc" />
+		<EmbeddedResource Include="wwwroot\Reports\Dirintemar\ReportePII.rdlc" />
+		<EmbeddedResource Include="wwwroot\Reports\Dirintemar\ReportePMCB.rdlc" />
+		<EmbeddedResource Include="wwwroot\Reports\Dirintemar\ReportePMVRMN.rdlc" />
+		<EmbeddedResource Include="wwwroot\Reports\Dirintemar\ReporteTRC.rdlc" />
+		<EmbeddedResource Include="wwwroot\Reports\Dirintemar\ReportePMVAHM.rdlc" />
+		<EmbeddedResource Include="wwwroot\Reports\Dirintemar\ReportePMPOADRIM.rdlc" />
+		<EmbeddedResource Include="wwwroot\Reports\Dirintemar\ReportePMPADRIM.rdlc" />
+		<EmbeddedResource Include="wwwroot\Reports\Dirintemar\ReporteAAD.rdlc" />
+		<EmbeddedResource Include="wwwroot\Reports\Dirintemar\ReporteRMHPRM.rdlc" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="wwwroot\js\alistamientomaterialrequerido1N.js" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AspNetCore.Reporting" Version="2.1.0" />
+		<PackageReference Include="Dapper" Version="2.0.123" />
+		<PackageReference Include="EFCore.BulkExtensions" Version="7.0.1" />
+		<PackageReference Include="MessagePackAnalyzer" Version="2.5.108">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+		<PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
+		<PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0-preview.2.23128.3" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="NPOI" Version="2.6.0" />
+		<PackageReference Include="Serilog.AspNetCore" Version="6.1.1-dev-00295" />
+		<PackageReference Include="Serilog.Settings.Configuration" Version="4.0.0-dev-00499" />
+		<PackageReference Include="Serilog.Sinks.MSSqlServer" Version="6.3.0" />
+		<PackageReference Include="SmartBreadcrumbs" Version="3.6.1" />
+		<PackageReference Include="System.CodeDom" Version="7.0.0" />
+		<PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+		<PackageReference Include="System.ServiceModel.Duplex" Version="4.10.*" />
+		<PackageReference Include="System.ServiceModel.Federation" Version="4.10.*" />
+		<PackageReference Include="System.ServiceModel.Http" Version="4.10.*" />
+		<PackageReference Include="System.ServiceModel.NetTcp" Version="4.10.*" />
+		<PackageReference Include="System.ServiceModel.Security" Version="4.10.*" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Marina.Siesmar.Utilitarios\Marina.Siesmar.Utilitarios.csproj" />
+		<ProjectReference Include="..\Proyecto.BLL\Marina.Siesmar.LogicaNegocios.csproj" />
+		<ProjectReference Include="..\Proyecto.DAL\Marina.Siesmar.AccesoDatos.csproj" />
+		<ProjectReference Include="..\Proyecto.Entities\Marina.Siesmar.Entidades.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="Microsoft.Data.SqlClient">
+	    <HintPath>..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\Microsoft.Data.SqlClient.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Dataset\Bienestar\AlquilerAreaCentroEsparcimiento.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>AlquilerAreaCentroEsparcimiento.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Bienestar\ConvenioUniversidadInstituto.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>ConvenioUniversidadInstituto.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Bienestar\DocenteInstitucionEducativa.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>DocenteInstitucionEducativa.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Bienestar\HospedajeAdultoMayor.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>HospedajeAdultoMayor.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Bienestar\MaterialRecreacionEntretenmiento.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>MaterialRecreacionEntretenmiento.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Bienestar\MovilidadEscolar.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>MovilidadEscolar.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Bienestar\PoblacionEstudiantilMatriculado.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>PoblacionEstudiantilMatriculado.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Bienestar\prueba\armand.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>armand.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Bienestar\ServicioFunerario.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>ServicioFunerario.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Bienestar\ServicioLiturgico.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>ServicioLiturgico.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Bienestar\ServicioSocialBrindado.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>ServicioSocialBrindado.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Bienestar\ServicioViviendaPrestada.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>ServicioViviendaPrestada.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Bienestar\SolicitudCreditoConsumo.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>SolicitudCreditoConsumo.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Bienestar\SolicitudPrestamoConsumo.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>SolicitudPrestamoConsumo.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Bienestar\TotalVisitasMensualesCentrosEsparcimientosXTipoUsuarioAnio.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>TotalVisitasMensualesCentrosEsparcimientosXTipoUsuarioAnio.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Centac\UsoSalaConferencia.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>UsoSalaConferencia.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Centac\EntrenamientoInstruccion.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>EntrenamientoInstruccion.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Centac\EntrenamientoRealizadoComandancia.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>EntrenamientoRealizadoComandancia.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Comciberdef\ComciberdefCantCiberAtaqueXSeveridadSegunAccion.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>ComciberdefCantCiberAtaqueXSeveridadSegunAccion.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Comciberdef\ComciberdefCantidadCiberAXtipoAccionSTCiberAtaques.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>ComciberdefCantidadCiberAXtipoAccionSTCiberAtaques.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Comciberdef\ComciberdefVAlistIntegComandanciaCiberdefensa.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>ComciberdefVAlistIntegComandanciaCiberdefensa.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Comciberdef\ComciberdefVCapacidadComandanciaCiberdefensa.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>ComciberdefVCapacidadComandanciaCiberdefensa.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Comciberdef\ComciberdefVCoopBilateralMultilateralCiberdefensa.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>ComciberdefVCoopBilateralMultilateralCiberdefensa.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Comciberdef\ComciberdefVisualizacionCiberataque.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>ComciberdefVisualizacionCiberataque.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Difovimar\PrestamoHipotecarioNaval.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>PrestamoHipotecarioNaval.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Difovimar\SolicitudPrestamoHipotecariosNaval.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>SolicitudPrestamoHipotecariosNaval.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Dincydet\ArchivoInversionTecnologica.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>ArchivoInversionTecnologica.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Dincydet\ArchivoPersonalCTDocente.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>ArchivoPersonalCTDocente.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Dincydet\ArchivoPersonalCTecnologia.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>ArchivoPersonalCTecnologia.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Diperadmon\PersonalCivil.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>PersonalCivil.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Diperadmon\PersonalMilitarMarineria.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>PersonalMilitarMarineria.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Diperadmon\PersonalMilitarRetiroBaja.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>PersonalMilitarRetiroBaja.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Diperadmon\PersonalSuperiorSubalterno.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>PersonalSuperiorSubalterno.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Dipermar\InvestigacionDisciplinaria.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>InvestigacionDisciplinaria.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Dipermar\RecursosApelacionReconsideracion.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>RecursosApelacionReconsideracion.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Dipermar\DesarrolloAccionesClimaLaboral.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>DesarrolloAccionesClimaLaboral.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Dipermar\JuntaPermanenteTecnicoLegal.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>JuntaPermanenteTecnicoLegal.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Dipermar\ProcedimientoAdministrativoCivil.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>ProcedimientoAdministrativoCivil.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Dirconce\ContratoFirmadoSemestre.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>ContratoFirmadoSemestre.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Dirconce\ConsolidadoRecaudacionAnualContrato.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>ConsolidadoRecaudacionAnualContrato.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Dirconce\RecaudacionMensualContrato.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>RecaudacionMensualContrato.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Direcomar\RecaudacionSubunidadEjectura.Designer.cs">
+		  <DependentUpon>RecaudacionSubunidadEjectura.xsd</DependentUpon>
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		</Compile>
+		<Compile Update="Dataset\Direcomar\RendicionCuentasSBEGastos.Designer.cs">
+		  <DependentUpon>RendicionCuentasSBEGastos.xsd</DependentUpon>
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		</Compile>
+		<Compile Update="Dataset\Direcomar\PlanAnualAdquisicionContratacionesSUE.Designer.cs">
+		  <DependentUpon>PlanAnualAdquisicionContratacionesSUE.xsd</DependentUpon>
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		</Compile>
+		<Compile Update="Dataset\Direcomar\EvaluacionPresupuestal.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>EvaluacionPresupuestal.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Diredumar\CapacitacionPerfeccionamientoExtraPCivil.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>CapacitacionPerfeccionamientoExtraPCivil.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Diredumar\CapacitacionPerfeccionamientoExtraPSubalterno.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>CapacitacionPerfeccionamientoExtraPSubalterno.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Diredumar\CapacitacionPerfeccionamientoExtraPSuperior.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>CapacitacionPerfeccionamientoExtraPSuperior.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Diredumar\CapacitacionPerfeccionamientoMilitarPSubalterno.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>CapacitacionPerfeccionamientoMilitarPSubalterno.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Diredumar\CapacitacionPerfeccionamientoMilitarPSuperior.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>CapacitacionPerfeccionamientoMilitarPSuperior.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Ditranav\VehiculosTerActividadInstitucion.Designer.cs">
+		  <DependentUpon>VehiculosTerActividadInstitucion.xsd</DependentUpon>
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		</Compile>
+		<Compile Update="Dataset\Ditranav\VehiculoEmpleadoComision.Designer.cs">
+		  <DependentUpon>VehiculoEmpleadoComision.xsd</DependentUpon>
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		</Compile>
+		<Compile Update="Dataset\Ditranav\MantenimientoReparacionVehiculo.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>MantenimientoReparacionVehiculo.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="Dataset\Jemgemar\ArchivoRelacionTipoReunion.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>ArchivoRelacionTipoReunion.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="MGP_SIESMAR_DESARROLLO_BAKDataSet1.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>MGP_SIESMAR_DESARROLLO_BAKDataSet1.xsd</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Update="Views\DptoPersonalAcuatico\Index.cshtml">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Update="Views\EspecialidadGenericaPersonal\Index.cshtml">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Update="wwwroot\js\entidadfinanciera.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Update="wwwroot\js\dirintemar\dirintemar-actividadcultural.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Update="wwwroot\js\dirintemar\dirintemar-consultabibliografica.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Update="wwwroot\js\dirintemar\dirintemar-estinvhistoricasnavales.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Update="wwwroot\js\dirintemar\dirintemar-publiinteresInst.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<Content Update="wwwroot\js\dirintemar\dirintemar-represmonumentohisto.js">
+		  <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="Dataset\Bienestar\ConvenioUniversidadInstituto.xsd">
+		  <Generator>MSDataSetGenerator</Generator>
+		  <LastGenOutput>ConvenioUniversidadInstituto.Designer.cs</LastGenOutput>
+		</None>
+		<None Update="Dataset\Bienestar\DocenteInstitucionEducativa.xsd">
+		  <Generator>MSDataSetGenerator</Generator>
+		  <LastGenOutput>DocenteInstitucionEducativa.Designer.cs</LastGenOutput>
+		</None>
+		<None Update="Dataset\Bienestar\HospedajeAdultoMayor.xsd">
+		  <Generator>MSDataSetGenerator</Generator>
+		  <LastGenOutput>HospedajeAdultoMayor.Designer.cs</LastGenOutput>
+		</None>
+		<None Update="Dataset\Bienestar\MovilidadEscolar.xsd">
+		  <Generator>MSDataSetGenerator</Generator>
+		  <LastGenOutput>MovilidadEscolar.Designer.cs</LastGenOutput>
+		</None>
+		<None Update="Dataset\Bienestar\PoblacionEstudiantilMatriculado.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>PoblacionEstudiantilMatriculado.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Bienestar\prueba\armand.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>armand.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Bienestar\ServicioFunerario.xsd">
+		  <Generator>MSDataSetGenerator</Generator>
+		  <LastGenOutput>ServicioFunerario.Designer.cs</LastGenOutput>
+		</None>
+		<None Update="Dataset\Bienestar\ServicioLiturgico.xsd">
+		  <Generator>MSDataSetGenerator</Generator>
+		  <LastGenOutput>ServicioLiturgico.Designer.cs</LastGenOutput>
+		</None>
+		<None Update="Dataset\Bienestar\ServicioSocialBrindado.xsd">
+		  <Generator>MSDataSetGenerator</Generator>
+		  <LastGenOutput>ServicioSocialBrindado.Designer.cs</LastGenOutput>
+		</None>
+		<None Update="Dataset\Bienestar\SolicitudCreditoConsumo.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>SolicitudCreditoConsumo.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Bienestar\SolicitudPrestamoConsumo.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>SolicitudPrestamoConsumo.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Bienestar\TotalVisitasMensualesCentrosEsparcimientosXTipoUsuarioAnio.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>TotalVisitasMensualesCentrosEsparcimientosXTipoUsuarioAnio.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Bienestar\AlquilerAreaCentroEsparcimiento.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>AlquilerAreaCentroEsparcimiento.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Bienestar\MaterialRecreacionEntretenmiento.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>MaterialRecreacionEntretenmiento.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Centac\UsoSalaConferencia.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>UsoSalaConferencia.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Centac\EntrenamientoRealizadoComandancia.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>EntrenamientoRealizadoComandancia.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Centac\EntrenamientoInstruccion.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>EntrenamientoInstruccion.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Comciberdef\ComciberdefCantCiberAtaqueXSeveridadSegunAccion.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>ComciberdefCantCiberAtaqueXSeveridadSegunAccion.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Comciberdef\ComciberdefCantidadCiberAXtipoAccionSTCiberAtaques.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>ComciberdefCantidadCiberAXtipoAccionSTCiberAtaques.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Comciberdef\ComciberdefVAlistIntegComandanciaCiberdefensa.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>ComciberdefVAlistIntegComandanciaCiberdefensa.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Comciberdef\ComciberdefVCapacidadComandanciaCiberdefensa.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>ComciberdefVCapacidadComandanciaCiberdefensa.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Comciberdef\ComciberdefVCoopBilateralMultilateralCiberdefensa.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>ComciberdefVCoopBilateralMultilateralCiberdefensa.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Comciberdef\ComciberdefVisualizacionCiberataque.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>ComciberdefVisualizacionCiberataque.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Difovimar\PrestamoHipotecarioNaval.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>PrestamoHipotecarioNaval.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Difovimar\SolicitudPrestamoHipotecariosNaval.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>SolicitudPrestamoHipotecariosNaval.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Dincydet\ArchivoPersonalCTDocente.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>ArchivoPersonalCTDocente.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Dincydet\ArchivoInversionTecnologica.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>ArchivoInversionTecnologica.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Dincydet\ArchivoPersonalCTecnologia.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>ArchivoPersonalCTecnologia.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Diperadmon\PersonalCivil.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>PersonalCivil.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Diperadmon\PersonalMilitarMarineria.xsd">
+		  <Generator>MSDataSetGenerator</Generator>
+		  <LastGenOutput>PersonalMilitarMarineria.Designer.cs</LastGenOutput>
+		  <SubType>Designer</SubType>
+		</None>
+		<None Update="Dataset\Diperadmon\PersonalMilitarRetiroBaja.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>PersonalMilitarRetiroBaja.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Bienestar\ServicioViviendaPrestada.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>ServicioViviendaPrestada.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Bienestar\VisitaCentroEsparcimiento.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>VisitaCentroEsparcimiento.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Diperadmon\PersonalSuperiorSubalterno.xsd">
+		  <Generator>MSDataSetGenerator</Generator>
+		  <LastGenOutput>PersonalSuperiorSubalterno.Designer.cs</LastGenOutput>
+		</None>
+		<None Update="Dataset\Dipermar\InvestigacionDisciplinaria.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>InvestigacionDisciplinaria.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Dipermar\RecursosApelacionReconsideracion.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>RecursosApelacionReconsideracion.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Dipermar\JuntaPermanenteTecnicoLegal.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>JuntaPermanenteTecnicoLegal.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Dipermar\ProcedimientoAdministrativoCivil.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>ProcedimientoAdministrativoCivil.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Dipermar\DesarrolloAccionesClimaLaboral.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>DesarrolloAccionesClimaLaboral.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Dirconce\ContratoFirmadoSemestre.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>ContratoFirmadoSemestre.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Dirconce\ConsolidadoRecaudacionAnualContrato.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>ConsolidadoRecaudacionAnualContrato.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Dirconce\RecaudacionMensualContrato.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>RecaudacionMensualContrato.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Direcomar\RecaudacionSubunidadEjectura.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>RecaudacionSubunidadEjectura.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Direcomar\RendicionCuentasSBEGastos.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>RendicionCuentasSBEGastos.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Direcomar\PlanAnualAdquisicionContratacionesSUE.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>PlanAnualAdquisicionContratacionesSUE.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Direcomar\EvaluacionPresupuestal.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>EvaluacionPresupuestal.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Diredumar\CapacitacionPerfeccionamientoExtraPCivil.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>CapacitacionPerfeccionamientoExtraPCivil.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Diredumar\CapacitacionPerfeccionamientoExtraPSubalterno.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>CapacitacionPerfeccionamientoExtraPSubalterno.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Diredumar\CapacitacionPerfeccionamientoExtraPSuperior.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>CapacitacionPerfeccionamientoExtraPSuperior.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Diredumar\CapacitacionPerfeccionamientoMilitarPSubalterno.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>CapacitacionPerfeccionamientoMilitarPSubalterno.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Diredumar\CapacitacionPerfeccionamientoMilitarPSuperior.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>CapacitacionPerfeccionamientoMilitarPSuperior.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Ditranav\VehiculosTerActividadInstitucion.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>VehiculosTerActividadInstitucion.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Ditranav\VehiculoEmpleadoComision.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>VehiculoEmpleadoComision.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Ditranav\MantenimientoReparacionVehiculo.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>MantenimientoReparacionVehiculo.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="Dataset\Jemgemar\ArchivoRelacionTipoReunion.xsd">
+		  <SubType>Designer</SubType>
+		  <LastGenOutput>ArchivoRelacionTipoReunion.Designer.cs</LastGenOutput>
+		  <Generator>MSDataSetGenerator</Generator>
+		</None>
+		<None Update="MGP_SIESMAR_DESARROLLO_BAKDataSet1.xsd">
+			<Generator>MSDataSetGenerator</Generator>
+			<LastGenOutput>MGP_SIESMAR_DESARROLLO_BAKDataSet1.Designer.cs</LastGenOutput>
+		</None>
+	</ItemGroup>
+
+</Project>

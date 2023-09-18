@@ -1,0 +1,108 @@
+﻿@{
+    ViewData["Title"] = "DistritosUbigeos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/DistritoUbigeo" style="text-decoration:none;">Distritos Ubigeos</a></h1>
+
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="txtUbigeo" class="col-3 col-form-label">Ubigeo</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtUbigeo" name="txtUbigeo" placeholder="Ubigeo" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtDescripcion" class="col-4 col-form-label">Distrito</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control form-control-sm" id="txtDescripcion" name="txtDescripcion" placeholder="Distrito" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="cbProvinciaUbigeo" class="col-3 col-form-label"><a href="~/ProvinciaUbigeo">Provincia Ubigeo</a></label>
+                    <div class="col-md-9">
+                        <select type="text" class="form-control form-control-sm" id="cbProvinciaUbigeo" name="cbProvinciaUbigeo"><</select>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DistritoUbigeo">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <input type="hidden" id="txtCodigo" />
+                    <label for="txtDescripcion" class="col-4 col-form-label">Distrito</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control form-control-sm" id="txtDescripcione" name="txtDescripcione" placeholder="Distrito" required>
+                    </div>
+                </div>
+
+                <div class="form-group row col-md-6">
+                    <label for="cbProvinciaUbigeo" class="col-3 col-form-label"><a href="~/ProvinciaUbigeo">Provincia Ubigeo</a></label>
+                    <div class="col-md-9">
+                        <select type="text" class="form-control form-control-sm" id="cbProvinciaUbigeoe" name="cbProvinciaUbigeoe"><</select>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DistritoUbigeo">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDistritoUbigeo()" />
+    <table class="table table-striped" id="tblDistritoUbigeos" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Distrito</th>
+                <th>Código Ubigeo</th>
+                <th>Provincia</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+@section Scripts{
+    <script src="/js/distritoubigeo.js" asp-append-version="true"></script>
+}

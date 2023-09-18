@@ -1,0 +1,273 @@
+﻿@{
+    ViewData["Title"] = "Representaición y/o Monumentos Historicos en el Pais Relacionados a la Marina";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/DirintemarRepresMonumentoHistorico" style="text-decoration:none;">Representaición y/o Monumentos Historicos en el Pais Relacionados a la Marina</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="TipoRepres" class="col-3 col-form-label"><a href="~/TipoRepresentacionBienHistorico">Tipo Representación Bien Historico</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbTipoRepres" name="cbTipoRepres"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Denominacion" class="col-3 col-form-label">Denominación Monumento</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDenominacion" name="txtDenominacion" placeholder="Denominación Monumento" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoMaterialB" class="col-3 col-form-label"><a href="~/TipoMaterialBienHistorico" >Tipo Material Bien Histórico</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbTipoMaterialB" name="cbTipoMaterialB"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EstadoC" class="col-3 col-form-label">Estado Conservacion</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtEstadoC" name="txtEstadoC" data-placeholder="Seleccione ...">
+                            <option value="Bueno">Bueno</option>
+                            <option value="Regular">Regular</option>
+                            <option value="Deficiente">Deficiente</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NombreEscultor" class="col-3 col-form-label">Nombre Escultor</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNombreEscultor" name="txtNombreEscultor" placeholder="Nombre Escultor" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaEntrega" class="col-3 col-form-label">Entrega Inaguración</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaEntrega" name="txtFechaEntrega" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="UbicacionR" class="col-3 col-form-label">Ubicación Representación</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtUbicacionR" name="UbicacionR" placeholder="Ubicación Representación" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DistritoU" class="col-3 col-form-label"><a href="~/DistritoUbigeo" >Distrito Ubigeo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbDistritoU" name="cbDistritoU" required></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ProvinciaU" class="col-3 col-form-label"><a href="~/ProvinciaUbigeo" >Provincia Ubigeo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbProvinciaU" name="cbProvinciaU" required ></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DepartamentoU" class="col-3 col-form-label"><a href="~/DepartamentoUbigeo" >Departamento Ubigeo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbDepartamentoU" name="cbDepartamentoU"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PaisU" class="col-3 col-form-label"><a href="~/PaisUbigeo" >País Ubigeo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbPaisU" name="cbPaisU"></select>
+                     </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CustoMonumento" class="col-3 col-form-label">Custodio </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCustoMonumento" name="txtCustoMonumento" placeholder="Custodio Monumento Histórico" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Referencia" class="col-3 col-form-label">Referencia </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtReferencia" name="txtReferencia" placeholder="Referencia Monumento Histórico" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtInversion" class="col-3 col-form-label">Inversión </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtInversion" name="txtInversion" placeholder="Inversión" required>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DirintemarRepresMonumentoHistorico">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="TipoRepres" class="col-3 col-form-label"><a href="~/TipoRepresentacionBienHistorico">Tipo Representación Bien Historico</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbTipoReprese" name="cbTipoReprese"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Denominacion" class="col-3 col-form-label">Denominación Monumento</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDenominacione" name="txtDenominacione" placeholder="Denominación Monumento" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoMaterialB" class="col-3 col-form-label"><a href="~/TipoMaterialBienHistorico" >Tipo Material Bien Histórico</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbTipoMaterialBe" name="cbTipoMaterialBe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EstadoC" class="col-3 col-form-label">Estado Conservacion</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtEstadoCe" name="txtEstadoCe" data-placeholder="Seleccione ...">
+                            <option value="Bueno">Bueno</option>
+                            <option value="Regular">Regular</option>
+                            <option value="Deficiente">Deficiente</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NombreEscultor" class="col-3 col-form-label">Nombre Escultor</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNombreEscultore" name="txtNombreEscultore" placeholder="Nombre Escultor" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaEntrega" class="col-3 col-form-label">Entrega Inaguración</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaEntregae" name="txtFechaEntregae" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="UbicacionR" class="col-3 col-form-label">Ubicación Representación</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtUbicacionRe" name="UbicacionRe" placeholder="Ubicación Representación" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DistritoU" class="col-3 col-form-label"><a href="~/DistritoUbigeo" >Distrito Ubigeo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbDistritoUe" name="cbDistritoUe" required></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ProvinciaU" class="col-3 col-form-label"><a href="~/ProvinciaUbigeo" >Provincia Ubigeo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbProvinciaUe" name="cbProvinciaUe" required></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DepartamentoU" class="col-3 col-form-label"><a href="~/DepartamentoUbigeo" >Departamento Ubigeo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbDepartamentoUe" name="cbDepartamentoUe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PaisU" class="col-3 col-form-label"><a href="~/PaisUbigeo" >País Ubigeo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbPaisUe" name="cbPaisUe" required></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CustoMonumento" class="col-3 col-form-label">Custodio </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCustoMonumentoe" name="txtCustoMonumentoe" placeholder="Custodio Monumento Histórico" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Referencia" class="col-3 col-form-label">Referencia </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtReferenciae" name="txtReferenciae" placeholder="Referencia Monumento Histórico" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtInversion" class="col-3 col-form-label">Inversión </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtInversione" name="txtInversione" placeholder="Inversión" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DirintemarRepresMonumentoHistorico">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/DirintemarRepresMonumentoHistorico" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDirintemarRepresMonumentoHistorico()" />
+    <div class="dropdown">
+        <input type='text' readonly id='buscar_inicio' class="datepicker" placeholder='Fecha Inicio' class="form-control form-control-sm">
+        <input type='text' readonly id='buscar_fin' class="datepicker" placeholder='Fecha fin' class="form-control form-control-sm">
+        <input type='button' id="btn_search" value="Buscar" class="btn btn-primary btn-sm">
+        @*<input type='button' id="btnLimpiar" value="Limpiar" class="btn btn-danger btn-sm">*@
+    </div>
+    <table class="table table-striped" id="tblDirintemarRepresMonumentoHistorico" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Tipo Representación Bien Histórico</th>
+                <th>Denominación</th>
+                <th>Tipo Material Bien Histórico</th>
+                <th>Estado Conservación</th>
+                <th>Nombre Escultor</th>
+                <th>Entrega Inaguración</th>
+                <th>Ubicación Representación</th>
+                <th>Distrito</th>
+                <th>Provincia </th>
+                <th>Departamento</th>
+                <th>País</th>
+                <th>Custodio</th>
+                <th>Referencia</th>
+                <th>Inversión</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/dirintemar/dirintemar-represmonumentohisto.js" asp-append-version="true"></script>
+}

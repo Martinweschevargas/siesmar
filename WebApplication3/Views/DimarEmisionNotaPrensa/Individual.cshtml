@@ -1,0 +1,161 @@
+﻿@{
+    ViewData["Title"] = "Emisión de notas de prensa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>
+    <a href="~/DimarEmisionNotaPrensa/Individual" style="text-decoration:none;">
+        Emisión de notas de prensa
+    </a>
+</h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="form-group row col-md-6">
+                <label for="carga" class="col-3 col-form-label">Carga</label>
+                <div class="form-group row col-md-6">
+                    <div class="col"><select class="form-select form-control-sm" id="cargasR" name="cargasR"></select></div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="FechaEmision" class="col-3 col-form-label">Fecha de emisión</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaEmision" name="txtFechaEmision" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NumeroNotasProducidas" class="col-3 col-form-label">Número de notas producidas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtNumeroNotasProducidas" name="txtNumeroNotasProducidas" placeholder="Número de notas producidas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoInformacionEmitida" class="col-3 col-form-label"><a href="~/">Tema de información</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoInformacionEmitida" name="cbTipoInformacionEmitida"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PlataformaMedioComunicacion" class="col-3 col-form-label"><a href="~/">Plataforma y/o medio de comunicación</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbPlataformaMedioComunicacion" name="cbPlataformaMedioComunicacion"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PublicoObjetivo" class="col-3 col-form-label"><a href="~/">Público objetivo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbPublicoObjetivo" name="cbPublicoObjetivo"></select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DimarEmisionNotaPrensa">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+
+                <div class="form-group row col-md-6">
+                    <label for="FechaEmision" class="col-3 col-form-label">Fecha de emisión</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaEmisione" name="txtFechaEmisione" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NumeroNotasProducidas" class="col-3 col-form-label">Número de notas producidas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtNumeroNotasProducidase" name="txtNumeroNotasProducidase" placeholder="Número de notas producidas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoInformacionEmitida" class="col-3 col-form-label"><a href="~/">Tema de información</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoInformacionEmitidae" name="cbTipoInformacionEmitidae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PlataformaMedioComunicacion" class="col-3 col-form-label"><a href="~/">Plataforma y/o medio de comunicación</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbPlataformaMedioComunicacione" name="cbPlataformaMedioComunicacione"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PublicoObjetivo" class="col-3 col-form-label"><a href="~/">Público objetivo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbPublicoObjetivoe" name="cbPublicoObjetivoe"></select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DimarEmisionNotaPrensa/Individual">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/DimarEmisionNotaPrensa" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDimarEmisionNotaPrensa()" />
+    <div class="row align-items-start">
+        <div class="col"><select class="form-select form-control-sm" id="cargas" name="cargas"></select></div>
+        <div class="col">
+            <input type='button' id="btn_search" value="Buscar" class="btn btn-primary">
+            <input type='button' id="btn_all" value="Mostrar Todos" class="btn btn-primary">
+        </div>
+    </div>
+    <table class="table table-striped" id="tblDimarEmisionNotaPrensa" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Fecha de emisión</th>
+                <th>Número de notas producidas</th>
+                <th>Tema de información</th>
+                <th>Plataforma y/o medio de comunicación</th>
+                <th>Público objetivo</th>
+                <th>Codigo Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/dimar/dimar-emisionnotaprensa.js" asp-append-version="true"></script>
+}

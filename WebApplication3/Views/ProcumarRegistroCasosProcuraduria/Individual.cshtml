@@ -1,0 +1,387 @@
+﻿@{
+    ViewData["Title"] = "RegistroCasosProcuraduria";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/ProcumarRegistroCasosProcuraduria/Individual" style="text-decoration:none;">Registro de Casos de la Procuraduria</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="form-group row col-md-6">
+                <label for="carga" class="col-3 col-form-label">Carga</label>
+                <div class="form-group row col-md-6">
+                    <div class="col"><select class="form-select-sm form-control-sm" id="cargasR" name="cargasR"></select></div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="AnioDemanda" class="col-3 col-form-label">Año Demanda</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtAnioDemanda" name="txtAnioDemanda" placeholder="Año Demanda" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MesDemanda" class="col-3 col-form-label">Mes Demanda</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMesDemanda" name="txtMesDemanda" placeholder="Mes Demanda" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CanalD" class="col-3 col-form-label"><a href="~/AreaProcumar">Área Procumar</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtAreaProcumar" name="txtAreaProcumar"></select>
+
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NombreAbogado" class="col-3 col-form-label">Nombre Abogado</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNombreAbogado" name="txtNombreAbogado" placeholder="Nombre Abogado" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NroExpediente" class="col-3 col-form-label">Nro Expediente</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNroExpediente" name="txtNroExpediente" placeholder="Nro Expediente" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NroCodInterno" class="col-3 col-form-label">Nro Cod Interno</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNroCodInterno" name="txtNroCodInterno" placeholder="Nro Cod Interno" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NombreDemandante" class="col-3 col-form-label">Nombre Demandante </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNombreDemandante" name="txtNombreDemandante" placeholder="Nombre Demandante" required>
+                    </div>
+                </div>
+                 <div class="form-group row col-md-6">
+                    <label for="NombreDemandado" class="col-3 col-form-label">Nombre Demandado</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNombreDemandado" name="txtNombreDemandado" placeholder="Nombre Demandado" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GradoPersonal" class="col-3 col-form-label"><a href="~/GradoPeronal">Grado Personal</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbGradoPersonal" name="cbGradoPersonal"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EspecialidadPersonal" class="col-3 col-form-label"><a href="~/EspecialidadPersonal">Especialidad Personal</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbEspecialidadPersonal" name="cbEspecialidadPersonal"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MateriaProcumar" class="col-3 col-form-label"><a href="~/MateriaProcumar">Materia Procumar</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbMateriaProcumar" name="cbMateriaProcumar"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Petitorio" class="col-3 col-form-label">Petitorio</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPetitorio" name="txtPetitorio" placeholder="Petitorio" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DistritoJudicial" class="col-3 col-form-label"><a href="~/DistritoJudicial">Distrito Judicial</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbDistritoJudicial" name="cbDistritoJudicial"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="InstanciaJudicial" class="col-3 col-form-label"><a href="~/DistritoJudicial">Instancia Judicial</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbInstanciaJudicial" name="cbInstanciaJudicial"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CasoExcepcional" class="col-3 col-form-label"><a href="~/CasoExcepcional">Caso Excepcional</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbCasoExcepcional" name="cbCasoExcepcional"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="UltimoActuado" class="col-3 col-form-label">Último Actuado</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtUltimoActuado" name="txtUltimoActuado" placeholder="Último Actuado" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EstadoProceso" class="col-3 col-form-label"><a href="~/EstadoProceso">Estado Proceso</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbEstadoProceso" name="cbEstadoProceso"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SentenciaEjecutoria" class="col-3 col-form-label">Sentencia Ejecutoria </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtSentenciaEjecutoria" name="txtSentenciaEjecutoria" placeholder="Sentencia Ejecutoria" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="AnioTerminoP" class="col-3 col-form-label">Año Termino Proceso</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtAnioTerminoP" name="txtAnioTerminoP" placeholder="Año Termino Proceso" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Moneda" class="col-3 col-form-label">Moneda</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbMoneda" name="cbMoneda">
+                            <option value="SOLES">SOLES</option>
+                            <option value="DOALRES">DOLARES</option>
+                            <option value="EUROS">EUROS</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MontoPretencion" class="col-3 col-form-label">Monto Pretención </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMontoPretencion" name="txtMontoPretencion" placeholder="Monto Pretención" required>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ProcumarRegistroCasosProcuraduria">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="AnioDemanda" class="col-3 col-form-label">Año Demanda</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtAnioDemandae" name="txtAnioDemandae" placeholder="Año Demanda" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MesDemanda" class="col-3 col-form-label">Mes Demanda</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMesDemandae" name="txtMesDemandae" placeholder="Mes Demanda" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CanalD" class="col-3 col-form-label"><a href="~/AreaProcumar">Área Procumar</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtAreaProcumare" name="txtAreaProcumare"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NombreAbogado" class="col-3 col-form-label">Nombre Abogado</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNombreAbogadoe" name="txtNombreAbogadoe" placeholder="Nombre Abogado" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NroExpediente" class="col-3 col-form-label">Nro Expediente</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNroExpedientee" name="txtNroExpedientee" placeholder="Nro Expediente" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NroCodInterno" class="col-3 col-form-label">Nro Cod Interno</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNroCodInternoe" name="txtNroCodInternoe" placeholder="Nro Cod Interno" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NombreDemandante" class="col-3 col-form-label">Nombre Demandante </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNombreDemandantee" name="txtNombreDemandantee" placeholder="Nombre Demandante" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NombreDemandado" class="col-3 col-form-label">Nombre Demandado</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNombreDemandadoe" name="txtNombreDemandadoe" placeholder="Nombre Demandado" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GradoPersonal" class="col-3 col-form-label"><a href="~/GradoPeronal">Grado Personal</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbGradoPersonale" name="cbGradoPersonale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EspecialidadPersonal" class="col-3 col-form-label"><a href="~/EspecialidadPersonal">Especialidad Personal</a></label>     
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbEspecialidadPersonale" name="cbEspecialidadPersonale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MateriaProcumar" class="col-3 col-form-label"><a href="~/MateriaProcumar">Materia Procumar</a></label>   
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbMateriaProcumare" name="cbMateriaProcumare"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Petitorio" class="col-3 col-form-label">Petitorio</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPetitorioe" name="txtPetitorioe" placeholder="Petitorio" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DistritoJudicial" class="col-3 col-form-label"><a href="~/DistritoJudicial">Distrito Judicial</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbDistritoJudiciale" name="cbDistritoJudiciale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="InstanciaJudicial" class="col-3 col-form-label"><a href="~/DistritoJudicial">Instancia Judicial</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbInstanciaJudiciale" name="cbInstanciaJudiciale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CasoExcepcional" class="col-3 col-form-label"><a href="~/CasoExcepcional">Caso Excepcional</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbCasoExcepcionale" name="cbCasoExcepcionale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="UltimoActuado" class="col-3 col-form-label">Último Actuado</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtUltimoActuadoe" name="txtUltimoActuadoe" placeholder="Último Actuado" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EstadoProceso" class="col-3 col-form-label"><a href="~/EstadoProceso">Estado Proceso</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbEstadoProcesoe" name="cbEstadoProcesoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SentenciaEjecutoria" class="col-3 col-form-label">Sentencia Ejecutoria </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtSentenciaEjecutoriae" name="txtSentenciaEjecutoriae" placeholder="Sentencia Ejecutoria" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="AnioTerminoP" class="col-3 col-form-label">Año Termino Proceso</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtAnioTerminoPe" name="txtAnioTerminoPe" placeholder="Año Termino Proceso" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Moneda" class="col-3 col-form-label">Moneda</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbMonedae" name="cbMonedae">
+                            <option value="SOLES">SOLES</option>
+                            <option value="DOALRES">DOLARES</option>
+                            <option value="EUROS">EUROS</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MontoPretencion" class="col-3 col-form-label">Monto Pretención </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMontoPretencione" name="txtMontoPretencione" placeholder="Monto Pretención" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ProcumarRegistroCasosProcuraduria">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar">
+    <p><a href="~/ProcumarRegistroCasosProcuraduria" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaProcumarRegistroCasosProcuraduria()" />
+    <div class="row align-items-start">
+        <div class="col"><select class="form-select form-control-sm" id="cargas" name="cargas"></select></div>
+        <div class="col">
+            <input type='button' id="btn_search" value="Buscar" class="btn btn-primary">
+            <input type='button' id="btn_all" value="Mostrar Todos" class="btn btn-primary">
+        </div>
+
+    </div>
+
+    <table class="table table-striped" id="tblProcumarRegistroCasosProcuraduria" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Año Demanda</th>
+                <th>Mes Demanda</th>
+                <th>Área Procumar</th>
+                <th>Nombre Abogado</th>
+                <th>Nro Expediente</th>
+                <th>Nro Cod Interno</th>
+                <th>Nombre Demandante</th>
+                <th>Nombre Demandado </th>
+                <th>Grado Personal</th>
+                <th>Especialidad Personal</th>
+                <th>Materia Procumar </th>
+                <th>Petitorio</th>
+                <th>Distrito Judicial</th>
+                <th>Instancia Judicial</th>
+                <th>Caso Excepcional</th>
+                <th>Último Actuado</th>
+                <th>Estado Proceso</th>
+                <th>Sentencia Ejecutoria</th>
+                <th>Año Termino Proceso</th>
+                <th>Moneda</th>
+                <th>Monto Pretención</th>
+                <th>Código Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="mi-modal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal1-header">
+                <h4 class="modal-title" id="myModalLabel">Confirmar</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="modal-btn-si">Si</button>
+                <button type="button" class="btn btn-danger" id="modal-btn-no">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="/js/procumar/procumar-registrocasosprocuraduria.js" asp-append-version="true"></script>
+}

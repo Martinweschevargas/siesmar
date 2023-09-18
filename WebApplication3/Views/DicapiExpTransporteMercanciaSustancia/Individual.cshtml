@@ -1,0 +1,232 @@
+﻿@{
+    ViewData["Title"] = "Exp Transporte Mercancia Sustancia";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/DicapiExpTransporteMercanciaSustancia/Individual" style="text-decoration:none;">Expedición de Documentos para el Transporte Marítimo de Mercancías y Sustancias Peligrosas</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="form-group row col-md-6">
+                <label for="carga" class="col-3 col-form-label">Carga</label>
+                <div class="form-group row col-md-6">
+                    <div class="col"><select class="form-select-sm form-control-sm" id="cargasR" name="cargasR"></select></div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="Numero" class="col-3 col-form-label">N° Documento</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtNumero" name="txtNumero" placeholder="N° Documento" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaIngreso" class="col-3 col-form-label">Fecha de Ingreso Solicitud</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaIngreso" name="txtFechaIngreso" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DptoMaterial" class="col-3 col-form-label"><a href="~/DptoMercanciaPeligrosa">Codigo Procedimiento TUPAM</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDptoMaterial" name="cbDptoMaterial"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Documento" class="col-3 col-form-label">Documento Expedido</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDocumento" name="txtDocumento" placeholder="Documento Expedido" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Nave" class="col-3 col-form-label">Nombre de la Nave</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNave" name="txtNave" placeholder="Nombre de la Nave" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Propietario" class="col-3 col-form-label">Propietario</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPropietario" name="txtPropietario" placeholder="Propietario" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Razon" class="col-3 col-form-label">Razon Social</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtRazon" name="txtRazon" placeholder="Razon Social" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Clase" class="col-3 col-form-label"><a href="~/ClaseNave">Tipo de Nave</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbClase" name="cbClase"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Matricula" class="col-3 col-form-label">Matricula</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMatricula" name="txtMatricula" placeholder="Matricula" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Nacionalidad" class="col-3 col-form-label"><a href="~/PaisUbigeo">Nacionalidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbNacionalidad" name="cbNacionalidad"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaAtencion" class="col-3 col-form-label">Fecha de Atencion Solicitud</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaAtencion" name="txtFechaAtencion" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DicapiExpTransporteMercanciaSustancia">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="Numero" class="col-3 col-form-label">N° Documento</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtNumeroe" name="txtNumeroe" placeholder="N° Documento" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaIngreso" class="col-3 col-form-label">Fecha de Ingreso Solicitud</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaIngresoe" name="txtFechaIngresoe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DptoMaterial" class="col-3 col-form-label"><a href="~/DptoMercanciaPeligrosa">Codigo Procedimiento TUPAM</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDptoMateriale" name="cbDptoMateriale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Documento" class="col-3 col-form-label">Documento Expedido</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDocumentoe" name="txtDocumentoe" placeholder="Documento Expedido" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Nave" class="col-3 col-form-label">Nombre de la Nave</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNavee" name="txtNavee" placeholder="Nombre de la Nave" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Propietario" class="col-3 col-form-label">Propietario</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPropietarioe" name="txtPropietarioe" placeholder="Propietario" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Razon" class="col-3 col-form-label">Razon Social</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtRazone" name="txtRazone" placeholder="Razon Social" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Clase" class="col-3 col-form-label"><a href="~/ClaseNave">Tipo de Nave</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbClasee" name="cbClasee"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Matricula" class="col-3 col-form-label">Matricula</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMatriculae" name="txtMatriculae" placeholder="Matricula" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Nacionalidad" class="col-3 col-form-label"><a href="~/PaisUbigeo">Nacionalidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbNacionalidade" name="cbNacionalidade"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaAtencion" class="col-3 col-form-label">Fecha de Atencion Solicitud</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaAtencione" name="txtFechaAtencione" required>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6 text-center">
+                        <button type="submit" class="btn btn-primary">Grabar</button>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <a class="btn btn-danger" href="~/DicapiExpTransporteMercanciaSustancia">Cancelar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDicapiExpTransporteMercanciaSustancia()" />
+    <div class="dropdown">
+        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Modos de Carga :
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="~/DicapiExpTransporteMercanciaSustancia">Masiva</a>
+            <a class="dropdown-item" href="~/DicapiExpTransporteMercanciaSustancia/Individual">Individual</a>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblDicapiExpTransporteMercanciaSustancia" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>N° Documento</th>
+                <th>Fecha de Ingreso Solicitud</th>
+                <th>Codigo Procedimiento TUPAM</th>
+                <th>Documento Expedido</th>
+                <th>Nombre de la Nave</th>
+                <th>Propietario</th>
+                <th>Razon Social</th>
+                <th>Tipo de Nave</th>
+                <th>Matricula</th>
+                <th>Nacionalidad</th>
+                <th>Fecha de Atencion Solicitud</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/dicapi/dicapi-exptransportemercanciasustancia.js" asp-append-version="true"></script>
+}
