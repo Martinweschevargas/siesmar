@@ -10,7 +10,7 @@ namespace Marina.Siesmar.Entidades.Mantenimiento
         public string? DescGrado { get; set; }
         public string? Abreviatura { get; set; }
         public string? CodigoGradoPersonalMilitar { get; set; }
-        public int GradoPersonalId { get; set; }
+        public string? CodigoGradoPersonal { get; set; }
         public string? DescGradoPersonal { get; set; }
 
         [NotMapped]

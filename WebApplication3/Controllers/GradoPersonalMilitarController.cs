@@ -1,11 +1,9 @@
 ﻿using Marina.Siesmar.AccesoDatos.Mantenimiento;
 using Marina.Siesmar.Entidades.Mantenimiento;
 using Marina.Siesmar.LogicaNegocios.Mantenimiento;
-using Marina.Siesmar.LogicaNegocios.Seguridad;
 using Marina.Siesmar.Utilitarios;
 using Microsoft.AspNetCore.Mvc;
 using SmartBreadcrumbs.Attributes;
-using System.Security.Claims;
 using WebApplication3.Controllers;
 
 namespace Marina.Siesmar.Presentacion.Controllers
@@ -44,7 +42,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
         }
 
         public ActionResult InsertarGradoPersonalMilitar(string DescGrado, string Abreviatura,string CodigoGradoPersonalMilitar,
-            int GradoPersonalId)
+            string CodigoGradoPersonal)
         {
             var IND_OPERACION = "";
             try
@@ -53,7 +51,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
                 gradoPersonalMilitarDTO.DescGrado = DescGrado;
                 gradoPersonalMilitarDTO.Abreviatura = Abreviatura;
                 gradoPersonalMilitarDTO.CodigoGradoPersonalMilitar = CodigoGradoPersonalMilitar;
-                gradoPersonalMilitarDTO.GradoPersonalId = GradoPersonalId;
+                gradoPersonalMilitarDTO.CodigoGradoPersonal = CodigoGradoPersonal;
                 gradoPersonalMilitarDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
                 IND_OPERACION = gradoPersonalMilitarBL.AgregarGradoPersonalMilitar(gradoPersonalMilitarDTO);
@@ -74,14 +72,14 @@ namespace Marina.Siesmar.Presentacion.Controllers
         }
 
         public ActionResult ActualizarGradoPersonalMilitar(int GradoPersonalMilitarId, string DescGrado, string Abreviatura, 
-            string CodigoGradoPersonalMilitar, int GradoPersonalId)
+            string CodigoGradoPersonalMilitar, string CodigoGradoPersonal)
         {
             GradoPersonalMilitarDTO gradoPersonalMilitarDTO = new();
             gradoPersonalMilitarDTO.GradoPersonalMilitarId = GradoPersonalMilitarId;
             gradoPersonalMilitarDTO.DescGrado = DescGrado;
             gradoPersonalMilitarDTO.Abreviatura = Abreviatura;
             gradoPersonalMilitarDTO.CodigoGradoPersonalMilitar = CodigoGradoPersonalMilitar;
-            gradoPersonalMilitarDTO.GradoPersonalId = GradoPersonalId;
+            gradoPersonalMilitarDTO.CodigoGradoPersonal = CodigoGradoPersonal;
             gradoPersonalMilitarDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
             var IND_OPERACION = gradoPersonalMilitarBL.ActualizarGradoPersonalMilitar(gradoPersonalMilitarDTO);

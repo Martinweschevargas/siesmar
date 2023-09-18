@@ -26,7 +26,7 @@ $(document).ready(function () {
                                 data: {
                                     'DescGradoPersonal': $('#txtDescripcion').val(),
                                     'CodigoGradoPersonal': $('#txtCode').val(),
-                                    'EntidadMilitarId': $('#cbEMilitar').val()
+                                    'CodigoEntidadMilitar': $('#cbEMilitar').val()
                                 },
                                 beforeSend: function () {
                                     $('#loader-6').show();
@@ -86,7 +86,7 @@ $(document).ready(function () {
                                     'GradoPersonalId': $('#txtCodigo').val(),
                                     'DescGradoPersonal': $('#txtDescripcione').val(),
                                     'CodigoGradoPersonal': $('#txtCodee').val(),
-                                    'EntidadMilitarId': $('#cbEMilitare').val()
+                                    'CodigoEntidadMilitar': $('#cbEMilitare').val()
                                 },
                                 beforeSend: function () {
                                     $('#loader-6').show();
@@ -168,7 +168,7 @@ function edit(GradoPersonalId) {
         $('#txtCodigo').val(GradoPersonalDTO.gradoPersonalId);
         $('#txtDescripcione').val(GradoPersonalDTO.descGradoPersonal);
         $('#txtCodee').val(GradoPersonalDTO.codigoGradoPersonal);
-        $('#cbEMilitare').val(GradoPersonalDTO.entidadMilitarId);
+        $('#cbEMilitare').val(GradoPersonalDTO.codigoEntidadMilitar);
     });
 }
 
@@ -226,14 +226,12 @@ function nuevaGradoPersonal() {
 function cargaCombo() {
     $.getJSON('/GradoPersonal/cargaCombs', [], function (Json) {
         var entidadMilitar = Json["data"];
+
         $("select#cbEMilitar").html("");
-        $.each(entidadMilitar, function () {
-            var RowContent = '<option value=' + this.entidadMilitarId + '>' + this.descEntidadMilitar + '</option>'
-            $("select#cbEMilitar").append(RowContent);
-        });
         $("select#cbEMilitare").html("");
         $.each(entidadMilitar, function () {
-            var RowContent = '<option value=' + this.entidadMilitarId + '>' + this.descEntidadMilitar + '</option>'
+            var RowContent = '<option value=' + this.codigoEntidadMilitar + '>' + this.descEntidadMilitar + '</option>'
+            $("select#cbEMilitar").append(RowContent);
             $("select#cbEMilitare").append(RowContent);
         });
     });

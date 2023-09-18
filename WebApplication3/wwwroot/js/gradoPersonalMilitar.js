@@ -27,7 +27,7 @@ $(document).ready(function () {
                                     'DescGrado': $('#txtDescripcion').val(),
                                     'Abreviatura': $('#txtAbreviatura').val(),
                                     'CodigoGradoPersonalMilitar': $('#txtCode').val(),
-                                    'GradoPersonalId': $('#cbGPersonal').val()
+                                    'CodigoGradoPersonal': $('#cbGPersonal').val()
                                 },
                                 beforeSend: function () {
                                     $('#loader-6').show();
@@ -91,7 +91,7 @@ $(document).ready(function () {
                                     'DescGrado': $('#txtDescripcione').val(),
                                     'Abreviatura': $('#txtAbreviaturae').val(),
                                     'CodigoGradoPersonalMilitar': $('#txtCodee').val(),
-                                    'GradoPersonalId': $('#cbGPersonale').val()
+                                    'CodigoGradoPersonal': $('#cbGPersonale').val()
                                 },
                                 beforeSend: function () {
                                     $('#loader-6').show();
@@ -175,7 +175,7 @@ function edit(GradoPersonalMilitarId) {
         $('#txtDescripcione').val(GradoPersonalMilitarDTO.descGrado);
         $('#txtAbreviaturae').val(GradoPersonalMilitarDTO.abreviatura);
         $('#txtCodee').val(GradoPersonalMilitarDTO.codigoGradoPersonalMilitar);
-        $('#cbGPersonale').val(GradoPersonalMilitarDTO.gradoPersonalId);
+        $('#cbGPersonale').val(GradoPersonalMilitarDTO.codigoGradoPersonal);
     });
 }
 
@@ -237,7 +237,7 @@ function cargaCombo() {
         $("select#cbGPersonal").html("");
         $("select#cbGPersonale").html("");
         $.each(gradoPersonal, function () {
-            var RowContent = '<option value=' + this.gradoPersonalId + '>' + this.descGradoPersonal + '</option>'
+            var RowContent = '<option value=' + this.codigoGradoPersonal + '>' + this.descGradoPersonal + '</option>'
             $("select#cbGPersonal").append(RowContent);
             $("select#cbGPersonale").append(RowContent);
         });

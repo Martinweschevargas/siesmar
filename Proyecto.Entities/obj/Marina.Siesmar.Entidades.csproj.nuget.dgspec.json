@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj": {}
+    "D:\\NexussGitHub\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj": {}
   },
   "projects": {
-    "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj": {
+    "D:\\NexussGitHub\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj",
+        "projectUniqueName": "D:\\NexussGitHub\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj",
         "projectName": "Marina.Siesmar.Entidades",
-        "projectPath": "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "D:\\WORK\\FREE\\Externo\\Proyectos\\Fuentes\\siesmar\\Proyecto.Entities\\obj\\",
+        "projectPath": "D:\\NexussGitHub\\siesmar\\Proyecto.Entities\\Marina.Siesmar.Entidades.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "D:\\NexussGitHub\\siesmar\\Proyecto.Entities\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -77,7 +82,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
