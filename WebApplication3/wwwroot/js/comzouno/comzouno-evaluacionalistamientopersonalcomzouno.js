@@ -274,7 +274,7 @@ function edit(Id) {
     $('#listar').hide();
     $('#editar').show();
     $.getJSON('/ComzounoEvaluacionAlistamientoPersonalComzouno/Mostrar?Id=' + Id, [], function (EvaluacionAlistamientoPersonalComzounoDTO) {
-        $('#txtCodigo').val(EvaluacionAlistamientoPersonalComzounoDTO.evaluacionAlistamientoPersonalComzounoId);
+        $('#txtCodigo').val(EvaluacionAlistamientoPersonalComzounoDTO.evaluacionAlistamientoPersonalId);
         $('#cbUnidadNavale').val(EvaluacionAlistamientoPersonalComzounoDTO.codigoUnidadNaval);
         $('#txtFechaEvaluacione').val(EvaluacionAlistamientoPersonalComzounoDTO.fechaEvaluacion);
         $('#txtDNIPersonale').val(EvaluacionAlistamientoPersonalComzounoDTO.dniPersonal);
