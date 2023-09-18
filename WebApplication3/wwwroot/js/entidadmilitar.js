@@ -25,6 +25,7 @@ $(document).ready(function () {
                                 url: '/EntidadMilitar/InsertarEntidadMilitar',
                                 data: {
                                     'DescEntidadMilitar': $('#txtDescripcion').val(),
+                                    'AbrevEntidadMilitar': $('#txtAbrevEntidadMilitar').val(),
                                     'CodigoEntidadMilitar': $('#txtCode').val()
                                 },
                                 beforeSend: function () {
@@ -87,6 +88,7 @@ $(document).ready(function () {
                                 data: {
                                     'EntidadMilitarId': $('#txtCodigo').val(),
                                     'DescEntidadMilitar': $('#txtDescripcione').val(),
+                                    'AbrevEntidadMilitar': $('#txtAbrevEntidadMilitare').val(),
                                     'CodigoEntidadMilitar': $('#txtCodee').val()
                                 },
                                 beforeSend: function () {
@@ -121,7 +123,7 @@ $(document).ready(function () {
             }, false)
         })
 
-    $('#tblEntidadMilitars').DataTable({
+    tblEntidadMilitars = $('#tblEntidadMilitars').DataTable({
         ajax: {
             "url": '/EntidadMilitar/CargarDatos',
             "type": "GET",
@@ -130,6 +132,7 @@ $(document).ready(function () {
         "columns": [
             { "data": "entidadMilitarId" },
             { "data": "descEntidadMilitar" },
+            { "data": "abrevEntidadMilitar" },
             { "data": "codigoEntidadMilitar" },
             {
                 "render": function (data, type, row) {
@@ -164,6 +167,7 @@ function edit(EntidadMilitarId) {
     $.getJSON('/EntidadMilitar/MostrarEntidadMilitar?EntidadMilitarId=' + EntidadMilitarId, [], function (EntidadMilitarDTO) {
         $('#txtCodigo').val(EntidadMilitarDTO.entidadMilitarId);
         $('#txtDescripcione').val(EntidadMilitarDTO.descEntidadMilitar);
+        $('#txtAbrevEntidadMilitare').val(EntidadMilitarDTO.abrevEntidadMilitar);
         $('#txtCodee').val(EntidadMilitarDTO.codigoEntidadMilitar);
     });
 }
