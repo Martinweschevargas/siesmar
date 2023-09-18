@@ -1,0 +1,392 @@
+﻿@{
+    ViewData["Title"] = "Millas, horas Navegadas y Consumo de Combustible";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/ComoperguardNavegacionConsumoCombustible/Individual" style="text-decoration:none;">Millas, horas Navegadas y Consumo de Combustible</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="JefaturaDistritoCapitania" class="col-3 col-form-label"><a href="~/JefaturaDistritoCapitania">Jefatura De Distriro De Capitanias</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbJefaturaDistritoCapitania" name="cbJefaturaDistritoCapitania"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Capitania" class="col-3 col-form-label"><a href="~/Capitania">Capitania de Puerto</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbCapitania" name="cbCapitania"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Unidades Naval</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNaval" name="cbUnidadNaval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CascoUnidadNaval" class="col-3 col-form-label">Número De Casco</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCascoUnidadNaval" name="txtCascoUnidadNaval" placeholder="Número De Casco" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoUnidadNavalInterventora" class="col-3 col-form-label"><a href="~/TipoUnidadNavalInterventora">Tipo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoUnidadNavalInterventora" name="cbTipoUnidadNavalInterventora"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoCombustibleComoperguard" class="col-3 col-form-label"><a href="~/TipoCombustibleComoperguard">Tipo De Combustible</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoCombustibleComoperguard" name="cbTipoCombustibleComoperguard"></select>
+                    </div>
+                </div>
+                <div class="divseccion">
+                    <div class="card-header">
+                        <label for="SaldoAnterior" class="col-3 col-form-label">Saldo Anterior</label>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="StockServicentroSaldop" class="col-3 col-form-label">Stock Servicentro</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtStockServicentroSaldop" name="txtStockServicentroSaldop" placeholder="Stock Servicentro" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="StockTanque" class="col-3 col-form-label">Stock Tanque</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtStockTanque" name="txtStockTanque" placeholder="Stock Tanque" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="StockTotal" class="col-3 col-form-label">Stock Total</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtStockTotal" name="txtStockTotal" placeholder="Stock Total" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row col-md-6">
+                    <label for="AsignacionMes" class="col-3 col-form-label">Asignación Mes </label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtAsignacionMes" name="txtAsignacionMes" placeholder="Asignación Mes " required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EntregaOtrasUUGG" class="col-3 col-form-label">Entrega De Otras  UU.GG</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtEntregaOtrasUUGG" name="txtEntregaOtrasUUGG" placeholder="Entrega De Otras  UU.GG" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ConsumoTotal" class="col-3 col-form-label">Consumo Total</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtConsumoTotal" name="txtConsumoTotal" placeholder="Consumo Total" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SaldoTotalMes" class="col-3 col-form-label">Saldo Total Proximo Mes</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtSaldoTotalMes" name="txtSaldoTotalMes" placeholder="Saldo Total Proximo Mes" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="StockServicentro" class="col-3 col-form-label">Stock Servicentro</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtStockServicentro" name="txtStockServicentro" placeholder="Stock Servicentro" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="StockTanques" class="col-3 col-form-label">Stock Tanques</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtStockTanques" name="txtStockTanques" placeholder="Stock Tanques" required>
+                    </div>
+                </div>
+                <<div class="divseccion">
+                    <div class="card-header">
+                        <label for="Navegacion" class="col-3 col-form-label">Navegación</label>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="FechaInicio" class="col-3 col-form-label">Fecha De Inicio</label>
+                        <div class="col-md-9">
+                            <input type="date" class="form-control form-control-sm" id="txtFechaInicio" name="txtFechaInicio" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="FechaTermino" class="col-3 col-form-label">Fecha De Termino</label>
+                        <div class="col-md-9">
+                            <input type="date" class="form-control form-control-sm" id="txtFechaTermino" name="txtFechaTermino" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="Hora" class="col-3 col-form-label">Horas</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-sm" id="txtHora" name="txtHora" placeholder="Horas" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="Milla" class="col-3 col-form-label">Millas</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtMilla" name="txtMilla" placeholder="Millas" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="divseccion">
+                    <div class="card-header">
+                        <label for="Referencia" class="col-3 col-form-label">Referencia</label>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="OficioReferencia" class="col-3 col-form-label">Oficio</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-sm" id="txtOficioReferencia" name="txtOficioReferencia" placeholder="Oficio" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="FechaReferenciaOficio" class="col-3 col-form-label">Fecha</label>
+                        <div class="col-md-9">
+                            <input type="date" class="form-control form-control-sm" id="txtFechaReferenciaOficio" name="txtFechaReferenciaOficio" required>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComoperguardNavegacionConsumoCombustible">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="JefaturaDistritoCapitania" class="col-3 col-form-label"><a href="~/JefaturaDistritoCapitania">Jefatura De Distriro De Capitanias</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbJefaturaDistritoCapitaniae" name="cbJefaturaDistritoCapitaniae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Capitania" class="col-3 col-form-label"><a href="~/Capitania">Capitania de Puerto</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbCapitaniae" name="cbCapitaniae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Unidades Naval</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNavale" name="cbUnidadNavale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CascoUnidadNaval" class="col-3 col-form-label">Número De Casco</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCascoUnidadNavale" name="txtCascoUnidadNavale" placeholder="Número De Casco" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoUnidadNavalInterventora" class="col-3 col-form-label"><a href="~/TipoUnidadNavalInterventora">Tipo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoUnidadNavalInterventorae" name="cbTipoUnidadNavalInterventorae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoCombustibleComoperguard" class="col-3 col-form-label"><a href="~/TipoCombustibleComoperguard">Tipo De Combustible</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoCombustibleComoperguarde" name="cbTipoCombustibleComoperguarde"></select>
+                    </div>
+                </div>
+                <div class="divseccion">
+                    <div class="card-header">
+                        <label for="SaldoAnterior" class="col-3 col-form-label">Saldo Anterior</label>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="StockServicentroSaldop" class="col-3 col-form-label">Stock Servicentro</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtStockServicentroSaldope" name="txtStockServicentroSaldope" placeholder="Stock Servicentro" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="StockTanque" class="col-3 col-form-label">Stock Tanque</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtStockTanquee" name="txtStockTanquee" placeholder="Stock Tanque" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="StockTotal" class="col-3 col-form-label">Stock Total</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtStockTotale" name="txtStockTotale" placeholder="Stock Total" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row col-md-6">
+                    <label for="AsignacionMes" class="col-3 col-form-label">Asignación Mes </label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtAsignacionMese" name="txtAsignacionMese" placeholder="Asignación Mes " required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EntregaOtrasUUGG" class="col-3 col-form-label">Entrega De Otras  UU.GG</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtEntregaOtrasUUGGe" name="txtEntregaOtrasUUGGe" placeholder="Entrega De Otras  UU.GG" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ConsumoTotal" class="col-3 col-form-label">Consumo Total</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtConsumoTotale" name="txtConsumoTotale" placeholder="Consumo Total" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SaldoTotalMes" class="col-3 col-form-label">Saldo Total Proximo Mes</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtSaldoTotalMese" name="txtSaldoTotalMese" placeholder="Saldo Total Proximo Mes" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="StockServicentro" class="col-3 col-form-label">Stock Servicentro</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtStockServicentroe" name="txtStockServicentroe" placeholder="Stock Servicentro" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="StockTanques" class="col-3 col-form-label">Stock Tanques</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtStockTanquese" name="txtStockTanquese" placeholder="Stock Tanques" required>
+                    </div>
+                </div>
+                <<div class="divseccion">
+                    <div class="card-header">
+                        <label for="Navegacion" class="col-3 col-form-label">Navegación</label>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="FechaInicio" class="col-3 col-form-label">Fecha De Inicio</label>
+                        <div class="col-md-9">
+                            <input type="date" class="form-control form-control-sm" id="txtFechaInicioe" name="txtFechaInicioe" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="FechaTermino" class="col-3 col-form-label">Fecha De Termino</label>
+                        <div class="col-md-9">
+                            <input type="date" class="form-control form-control-sm" id="txtFechaTerminoe" name="txtFechaTerminoe" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="Hora" class="col-3 col-form-label">Horas</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-sm" id="txtHorae" name="txtHorae" placeholder="Horas" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="Milla" class="col-3 col-form-label">Millas</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtMillae" name="txtMillae" placeholder="Millas" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="divseccion">
+                    <div class="card-header">
+                        <label for="Referencia" class="col-3 col-form-label">Referencia</label>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="OficioReferencia" class="col-3 col-form-label">Oficio</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-sm" id="txtOficioReferenciae" name="txtOficioReferenciae" placeholder="Oficio" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="FechaReferenciaOficio" class="col-3 col-form-label">Fecha</label>
+                        <div class="col-md-9">
+                            <input type="date" class="form-control form-control-sm" id="txtFechaReferenciaOficioe" name="txtFechaReferenciaOficioe" required>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComoperguardNavegacionConsumoCombustible">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaComoperguardNavegacionConsumoCombustible()" />
+    <div class="dropdown">
+        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Modos de Carga :
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="~/ComoperguardNavegacionConsumoCombustible">Masiva</a>
+            <a class="dropdown-item" href="~/ComoperguardNavegacionConsumoCombustible/Individual">Individual</a>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblComoperguardNavegacionConsumoCombustible" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Jefatura De Distriro De Capitanias</th>
+                <th>Capitania de Puerto</th>
+                <th>Unidades Naval</th>
+                <th>Número De Casco</th>
+                <th>Tipo</th>
+                <th>Tipo De Combustible</th>
+                <th>Stock Servicentro</th>
+                <th>Stock Tanque</th>
+                <th>Stock Total</th>
+                <th>Asignación Mes </th>
+                <th>Entrega De Otras  UU.GG</th>
+                <th>Consumo Total</th>
+                <th>Saldo Total Proximo Mes</th>
+                <th>Stock Servicentro</th>
+                <th>Stock Tanques</th>
+                <th>Fecha De Inicio</th>
+                <th>Fecha De Termino</th>
+                <th>Horas</th>
+                <th>Millas</th>
+                <th>Oficio</th>
+                <th>Fecha</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/comoperguard/comoperguard-navegacionconsumocombustible.js" asp-append-version="true"></script>
+}

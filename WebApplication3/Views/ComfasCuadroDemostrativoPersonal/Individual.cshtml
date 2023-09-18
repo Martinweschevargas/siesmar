@@ -1,0 +1,255 @@
+﻿@{
+    ViewData["Title"] = "Cuadro Demostrativo DEL Personal de la Fuerza de Superficie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/ComfasCuadroDemostrativoPersonal/Individual" style="text-decoration:none;">Cuadro Demostrativo DEL Personal de la Fuerza de Superficie</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Unidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNaval" name="cbUnidadNaval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Fecha" class="col-3 col-form-label">Fecha</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GradoPersonalMilitar" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbGradoPersonalMilitar" name="cbGradoPersonalMilitar"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EspecialidadGenericaPersonal" class="col-3 col-form-label"><a href="~/EspecialidadGenericaPersonal">Especialidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEspecialidadGenericaPersonal" name="cbEspecialidadGenericaPersonal"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CIPPersonal" class="col-3 col-form-label">CIP</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCIPPersonal" name="txtCIPPersonal" placeholder="CIP" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Condicion" class="col-3 col-form-label">Condición</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCondicion" name="txtCondicion" placeholder="Condición" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="UbigeoOrigen" class="col-3 col-form-label">Origen</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtUbigeoOrigen" name="txtUbigeoOrigen" placeholder="Origen" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="UbigeoDestino" class="col-3 col-form-label">Destino</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtUbigeoDestino" name="txtUbigeoDestino" placeholder="Destino" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaInicio" class="col-3 col-form-label">Fecha Inicio</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaInicio" name="txtFechaInicio" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaTermino" class="col-3 col-form-label">Fecha Termino</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaTermino" name="txtFechaTermino" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DuracionDias" class="col-3 col-form-label">Duración Dias</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDuracionDias" name="txtDuracionDias" placeholder="Duración Dias" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DocumentoReferencia" class="col-3 col-form-label">Documento Referencia</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDocumentoReferencia" name="txtDocumentoReferencia" placeholder="Documento Referencia" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Motivo" class="col-3 col-form-label">Motivo</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMotivo" name="txtMotivo" placeholder="Motivo" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComfasCuadroDemostrativoPersonal">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Unidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNavale" name="cbUnidadNavale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Fecha" class="col-3 col-form-label">Fecha</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechae" name="txtFechae" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GradoPersonalMilitar" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbGradoPersonalMilitare" name="cbGradoPersonalMilitare"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EspecialidadGenericaPersonal" class="col-3 col-form-label"><a href="~/EspecialidadGenericaPersonal">Especialidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEspecialidadGenericaPersonale" name="cbEspecialidadGenericaPersonale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CIPPersonal" class="col-3 col-form-label">CIP</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCIPPersonale" name="txtCIPPersonale" placeholder="CIP" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Condicion" class="col-3 col-form-label">Condición</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCondicione" name="txtCondicione" placeholder="Condición" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="UbigeoOrigen" class="col-3 col-form-label">Origen</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtUbigeoOrigene" name="txtUbigeoOrigene" placeholder="Origen" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="UbigeoDestino" class="col-3 col-form-label">Destino</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtUbigeoDestinoe" name="txtUbigeoDestinoe" placeholder="Destino" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaInicio" class="col-3 col-form-label">Fecha Inicio</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaInicioe" name="txtFechaInicioe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaTermino" class="col-3 col-form-label">Fecha Termino</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaTerminoe" name="txtFechaTerminoe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DuracionDias" class="col-3 col-form-label">Duración Dias</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDuracionDiase" name="txtDuracionDiase" placeholder="Duración Dias" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DocumentoReferencia" class="col-3 col-form-label">Documento Referencia</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDocumentoReferenciae" name="txtDocumentoReferenciae" placeholder="Documento Referencia" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Motivo" class="col-3 col-form-label">Motivo</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMotivoe" name="txtMotivoe" placeholder="Motivo" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComfasCuadroDemostrativoPersonal">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaComfasCuadroDemostrativoPersonal()" />
+    <div class="dropdown">
+        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Modos de Carga :
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="~/ComfasCuadroDemostrativoPersonal">Masiva</a>
+            <a class="dropdown-item" href="~/ComfasCuadroDemostrativoPersonal/Individual">Individual</a>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblComfasCuadroDemostrativoPersonal" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Unidad</th>
+                <th>Fecha</th>
+                <th>Grado</th>
+                <th>Especialidad</th>
+                <th>CIP</th>
+                <th>Condición</th>
+                <th>Origen</th>
+                <th>Destino</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Termino</th>
+                <th>Duración Dias</th>
+                <th>Documento Referencia</th>
+                <th>Motivo</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/comfas/comfas-cuadrodemostrativopersonal.js" asp-append-version="true"></script>
+}

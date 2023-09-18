@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "Permiso";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Permisos</h1>
+
+<div id="nuevo" style="display:none;">
+    <h4>Nuevo</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label" for="Nombre"> Permiso</label>
+                <input class="form-control form-control-sm" type="text" id="txtNombre" name="txtNombre" />
+                <span class="text-danger field-validation-valid" data-valmsg-for="Nombre" data-valmsg-replace="true"></span>
+            </div>
+            <div class="form-group">
+                <input type="button" value="Grabar" class="btn btn-primary" onclick="registrar()" />
+            </div>
+        </div>
+        <div class="loader" id="loader-6" style="display:none;">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <p><a class="btn btn-danger" href="~/Permiso">Cancelar</a></p>
+</div>
+<div id="editar" style="display:none;">
+    <h4>Editar</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <input type="hidden" id="txtCodigo" name="txtCodigo" value="" />
+            <div class="form-group">
+                <label class="control-label" for="Nombre"> Permiso</label>
+                <input class="form-control form-control-sm" type="text" id="txtNombree" name="txtNombree" />
+                <span class="text-danger field-validation-valid" data-valmsg-for="Nombre" data-valmsg-replace="true"></span>
+            </div>
+            <div class="form-group">
+                <input type="button" value="Grabar" class="btn btn-primary" onclick="actualizarPermiso()" />
+            </div>
+        </div>
+        <div class="loader" id="loader-6" style="display:none;">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <p><a class="btn btn-danger" href="~/Permiso">Cancelar</a></p>
+</div>
+<div id="listar">
+    <div class="form-group">
+        <input type="button" value="Crear" class="btn btn-primary" onclick="nuevoPermiso()" />
+    </div>
+
+    <table class="display" id="tblPermisos">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Permiso</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+@section Scripts{
+    <script src="/js/seguridad/permiso.js" asp-append-version="true"></script>
+}

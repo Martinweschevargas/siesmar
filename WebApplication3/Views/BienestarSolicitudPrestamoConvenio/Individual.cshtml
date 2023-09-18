@@ -1,0 +1,261 @@
+﻿@{
+    ViewData["Title"] = "Solicitud de Préstamos por Convenio con Entidades Financieras del Personal Naval";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/BienestarSolicitudPrestamoConvenio/Individual" style="text-decoration:none;">Solicitud de Préstamos por Convenio con Entidades Financieras del Personal Naval</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <select class="form-select form-control-sm" id="cargasR" name="cargasR"></select>
+                </div>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                </div>
+            </div>
+            <div class="row mt-2">
+
+                <div class="form-group row col-md-6">
+                    <label for="FechaSolicitudC" class="col-3 col-form-label">Fecha Solicitud Préstamo</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaSolicitudC" name="txtFechaSolicitudC" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DNIBeneficiario" class="col-3 col-form-label">DNI</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDNIBeneficiario" name="txtDNIBeneficiario" placeholder="DNI" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CIPBeneficiario" class="col-3 col-form-label">CIP</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCIPBeneficiario" name="txtCIPBeneficiario" placeholder="CIP" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoPersonalMilitar" class="col-3 col-form-label"><a href="~/TipoPersonalMilitar">Tipo de Personal</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoPersonalMilitar" name="cbTipoPersonalMilitar"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GradoPersonalMilitar" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado Personal Solicitante</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbGradoPersonalMilitar" name="cbGradoPersonalMilitar"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="AnioServicio" class="col-3 col-form-label">Años de Servicio</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtAnioServicio" name="txtAnioServicio" placeholder="Años de Servicio" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ResultadoSolicitud" class="col-3 col-form-label">Resultado de Solicitud</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtResultadoSolicitud" name="txtResultadoSolicitud" data-placeholder="Seleccione ...">
+                            <option value="Aprobada">Aprobada</option>
+                            <option value="Rechazada">Rechazada</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EntidadFinanciera" class="col-3 col-form-label"><a href="~/EntidadFinanciera">Entidad Financiera</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEntidadFinanciera" name="cbEntidadFinanciera"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoPrestamoConvenio" class="col-3 col-form-label"><a href="~/TipoPrestamoConvenio">Tipo Préstamos Convenio</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoPrestamoConvenio" name="cbTipoPrestamoConvenio"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TasaInteresPrestamo" class="col-3 col-form-label">Tasa Interés (%)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtTasaInteresPrestamo" name="txtTasaInteresPrestamo" placeholder="Tasa Interés (%)" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ImporteCreditoSoles" class="col-3 col-form-label">Importe de Crédito (Soles)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtImporteCreditoSoles" name="txtImporteCreditoSoles" placeholder="Importe de Crédito (Soles)" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NumeroCuotas" class="col-3 col-form-label">Número cuotas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtNumeroCuotas" name="txtNumeroCuotas" placeholder="Número cuotas" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/BienestarSolicitudPrestamoConvenio">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="FechaSolicitudC" class="col-3 col-form-label">Fecha Solicitud Préstamo</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaSolicitudCe" name="txtFechaSolicitudCe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DNIBeneficiario" class="col-3 col-form-label">DNI</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDNIBeneficiarioe" name="txtDNIBeneficiarioe" placeholder="DNI" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CIPBeneficiario" class="col-3 col-form-label">CIP</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCIPBeneficiarioe" name="txtCIPBeneficiarioe" placeholder="CIP" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoPersonalMilitar" class="col-3 col-form-label"><a href="~/TipoPersonalMilitar">Tipo de Personal</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoPersonalMilitare" name="cbTipoPersonalMilitare"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GradoPersonalMilitar" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado Personal Solicitante</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbGradoPersonalMilitare" name="cbGradoPersonalMilitare"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="AnioServicio" class="col-3 col-form-label">Años de Servicio</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtAnioServicioe" name="txtAnioServicioe" placeholder="Años de Servicio" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ResultadoSolicitud" class="col-3 col-form-label">Resultado de Solicitud</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtResultadoSolicitude" name="txtResultadoSolicitude" data-placeholder="Seleccione ...">
+                            <option value="Aprobada">Aprobada</option>
+                            <option value="Rechazada">Rechazada</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EntidadFinanciera" class="col-3 col-form-label"><a href="~/EntidadFinanciera">Entidad Financiera</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEntidadFinancierae" name="cbEntidadFinancierae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoPrestamoConvenio" class="col-3 col-form-label"><a href="~/TipoPrestamoConvenio">Tipo Préstamos Convenio</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoPrestamoConvenioe" name="cbTipoPrestamoConvenioe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TasaInteresPrestamo" class="col-3 col-form-label">Tasa Interés (%)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtTasaInteresPrestamoe" name="txtTasaInteresPrestamoe" placeholder="Tasa Interés (%)" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ImporteCreditoSoles" class="col-3 col-form-label">Importe de Crédito (Soles)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtImporteCreditoSolese" name="txtImporteCreditoSolese" placeholder="Importe de Crédito (Soles)" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NumeroCuotas" class="col-3 col-form-label">Número cuotas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtNumeroCuotase" name="txtNumeroCuotase" placeholder="Número cuotas" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/BienestarSolicitudPrestamoConvenio">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/BienestarSolicitudPrestamoConvenio" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaBienestarSolicitudPrestamoConvenio()" />
+    <div class="row align-items-start">
+        <div class="col">
+            <select class="form-select form-control-sm" id="cargas" name="cargas"></select>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" id="btn_search">Buscar</button>
+            <button class="btn btn-primary" id="btn_all">Mostrar Todos</button>
+            <button class="btn btn-danger" onclick="eliminarCarga()">Eliminar Carga</button>
+        </div>
+    </div>
+    <hr />
+    <table class="table table-striped" id="tblBienestarSolicitudPrestamoConvenio" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Fecha Solicitud Préstamo</th>
+                <th>DNI</th>
+                <th>CIP</th>
+                <th>Tipo de Personal</th>
+                <th>Grado Personal Solicitante</th>
+                <th>Años de Servicio</th>
+                <th>Resultado de Solicitud</th>
+                <th>Entidad Financiera</th>
+                <th>Tipo Préstamos Convenio</th>
+                <th>Tasa Interés (%)</th>
+                <th>Importe de Crédito (Soles)</th>
+                <th>Número cuotas</th>
+                <th>CodigoCarga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/bienestar/bienestar-solicitudprestamoconvenio.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,172 @@
+﻿@{
+    ViewData["Title"] = "Capacidad de la Comandancia de Ciberdefensa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/ComciberdefCapacidadComandanciaCiberdefensa/Individual" style="text-decoration:none;">Capacidad de la Comandancia de Ciberdefensa</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="form-group row col-md-6">
+                <label for="carga" class="col-3 col-form-label">Carga</label>
+                <div class="form-group row col-md-6">
+                    <div class="col"><select class="form-select-sm form-control-sm" id="cargasR" name="cargasR"></select></div>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="AnioCapacidadCiberdefensa" class="col-3 col-form-label">Año </label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtAnioCapacidadCiberdefensa" name="txtAnioCapacidadCiberdefensa" placeholder="Año " required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CapacidadComandoControl" class="col-3 col-form-label">Capacidad de Comando y Control </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCapacidadComandoControl" name="txtCapacidadComandoControl" placeholder="Capacidad de Comando y Control " required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CapacidadOperacionesDefensa" class="col-3 col-form-label">Capacidad de Operaciones de Defensa</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCapacidadOperacionesDefensa" name="txtCapacidadOperacionesDefensa" placeholder="Capacidad de Operaciones de Defensa" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CapacidadOperacionesExplotacion" class="col-3 col-form-label">Capacidad de Operaciones de Explotación</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCapacidadOperacionesExplotacion" name="txtCapacidadOperacionesExplotacion" placeholder="Capacidad de Operaciones de Explotación" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CapacidadOperacionRespuesta" class="col-3 col-form-label">Capacidad de Operaciones de Respuesta</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCapacidadOperacionRespuesta" name="txtCapacidadOperacionRespuesta" placeholder="Capacidad de Operaciones de Respuesta" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CapacidadInvestigacionDigital" class="col-3 col-form-label">Capacidad de Investigación Digital</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCapacidadInvestigacionDigital" name="txtCapacidadInvestigacionDigital" placeholder="Capacidad de Investigación Digital" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComciberdefCapacidadComandanciaCiberdefensa">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="AnioCapacidadCiberdefensa" class="col-3 col-form-label">Año </label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtAnioCapacidadCiberdefensae" name="txtAnioCapacidadCiberdefensae" placeholder="Año " required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CapacidadComandoControl" class="col-3 col-form-label">Capacidad de Comando y Control </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCapacidadComandoControle" name="txtCapacidadComandoControle" placeholder="Capacidad de Comando y Control " required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CapacidadOperacionesDefensa" class="col-3 col-form-label">Capacidad de Operaciones de Defensa</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCapacidadOperacionesDefensae" name="txtCapacidadOperacionesDefensae" placeholder="Capacidad de Operaciones de Defensa" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CapacidadOperacionesExplotacion" class="col-3 col-form-label">Capacidad de Operaciones de Explotación</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCapacidadOperacionesExplotacione" name="txtCapacidadOperacionesExplotacione" placeholder="Capacidad de Operaciones de Explotación" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CapacidadOperacionRespuesta" class="col-3 col-form-label">Capacidad de Operaciones de Respuesta</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCapacidadOperacionRespuestae" name="txtCapacidadOperacionRespuestae" placeholder="Capacidad de Operaciones de Respuesta" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CapacidadInvestigacionDigital" class="col-3 col-form-label">Capacidad de Investigación Digital</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCapacidadInvestigacionDigitale" name="txtCapacidadInvestigacionDigitale" placeholder="Capacidad de Investigación Digital" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComciberdefCapacidadComandanciaCiberdefensa">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/ComciberdefCapacidadComandanciaCiberdefensa" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaComciberdefCapacidadComandanciaCiberdefensa()" />
+    <div class="row align-items-start">
+        <div class="col"><select class="form-select form-control-sm" id="cargas" name="cargas"></select></div>
+        <div class="col">
+            <input type='button' id="btn_search" value="Buscar" class="btn btn-primary">
+            <input type='button' id="btn_all" value="Mostrar Todos" class="btn btn-primary">
+        </div>
+
+    </div>
+    <table class="table table-striped" id="tblComciberdefCapacidadComandanciaCiberdefensa" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Año </th>
+                <th>Capacidad de Comando y Control </th>
+                <th>Capacidad de Operaciones de Defensa</th>
+                <th>Capacidad de Operaciones de Explotación</th>
+                <th>Capacidad de Operaciones de Respuesta</th>
+                <th>Capacidad de Investigación Digital</th>
+                <th>Código Cargo</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/comciberdef/comciberdef-capacidadcomandanciaciberdefensa.js" asp-append-version="true"></script>
+}

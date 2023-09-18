@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Formato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1><a href="~/DihidronavServicioConstruccionInstalacion" style="text-decoration:none;">Servicios de Construcción, Instalación, mantenimiento de señales náuticas</a></h1>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header">
+                    <a href="~/DihidronavServicioConstruccionInstalacion/Individual" class="btn btn-primary">Ir Carga Individual</a>
+                    <a href="~/DihidronavServicioConstruccionInstalacion/DownloadFile" class="btn btn-primary">Descargar Formato</a>
+
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <input class="form-control-file" type="file" id="inputExcel" />
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-warning" onclick="mostrarDatos()">Mostrar Datos"</button>
+                        <button class="btn btn-success" onclick="enviarDatos()">Enviar Datos a BD</button>
+                    </div>
+                </div>
+                <hr />
+                <div class="row" style="overflow:scroll">
+                    <div class="col-sm-12">
+                        <table class="table table-striped" id="tbData" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+                            <thead>
+                                <tr class="colorbg">
+                                    <th>N° Orden</th>
+                                    <th>Servicio</th>
+                                    <th>Descripcion del Servicio</th>
+                                    <th>Fecha de Inicio del Servicio</th>
+                                    <th>Fecha de Termino del Servicio</th>
+                                    <th>Zona</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Scripts{
+    <script src="/js/dihidronav/dihidronav-servicioconstruccioninstalacion.js" asp-append-version="true"></script>
+}

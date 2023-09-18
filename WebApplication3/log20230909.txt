@@ -1,0 +1,444 @@
+<<<<<<< HEAD
+2023-09-09 08:27:48.418 -05:00 [WRN] Entro al Login Http
+2023-09-09 08:43:59.893 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Data.SqlClient.SqlException (0x80131904): @FechaInicio is not a parameter for procedure usp_RegistroPersonalSaludEstablecimientoListar.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at Marina.Siesmar.AccesoDatos.Formatos.Disamar.RegistroPersonalSaludEstablecimientoDAO.ObtenerLista(Nullable`1 CargaId, String fechainicio, String fechafin) in C:\Users\carlo\source\repos\siesmar\Proyecto.DAL\Formatos\Disamar\RegistroPersonalSaludEstablecimientoDAO.cs:line 37
+   at Marina.Siesmar.LogicaNegocios.Formatos.Disamar.RegistroPersonalSaludEstablecimiento.ObtenerLista(Nullable`1 CargaId, String fechainicio, String fechafin) in C:\Users\carlo\source\repos\siesmar\Proyecto.BLL\Formatos\Disamar\RegistroPersonalSaludEstablecimiento.cs:line 18
+   at Marina.Siesmar.Presentacion.Controllers.DisamarRegistroPersonalSaludEstablecimientoController.CargaTabla() in C:\Users\carlo\source\repos\siesmar\WebApplication3\Controllers\DisamarRegistroPersonalSaludEstablecimientoController.cs:line 60
+   at lambda_method41(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:eb69d036-2d77-4019-9bf8-424c8dfa9be9
+Error Number:8145,State:1,Class:16
+2023-09-09 08:44:10.672 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Data.SqlClient.SqlException (0x80131904): @FechaInicio is not a parameter for procedure usp_RegistroPersonalSaludEstablecimientoListar.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at Marina.Siesmar.AccesoDatos.Formatos.Disamar.RegistroPersonalSaludEstablecimientoDAO.ObtenerLista(Nullable`1 CargaId, String fechainicio, String fechafin) in C:\Users\carlo\source\repos\siesmar\Proyecto.DAL\Formatos\Disamar\RegistroPersonalSaludEstablecimientoDAO.cs:line 37
+   at Marina.Siesmar.LogicaNegocios.Formatos.Disamar.RegistroPersonalSaludEstablecimiento.ObtenerLista(Nullable`1 CargaId, String fechainicio, String fechafin) in C:\Users\carlo\source\repos\siesmar\Proyecto.BLL\Formatos\Disamar\RegistroPersonalSaludEstablecimiento.cs:line 18
+   at Marina.Siesmar.Presentacion.Controllers.DisamarRegistroPersonalSaludEstablecimientoController.CargaTabla() in C:\Users\carlo\source\repos\siesmar\WebApplication3\Controllers\DisamarRegistroPersonalSaludEstablecimientoController.cs:line 60
+   at lambda_method41(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+ClientConnectionId:e2b56e1d-2de8-4c94-8c7a-1b4076ff283f
+Error Number:8145,State:1,Class:16
+2023-09-09 10:49:58.379 -05:00 [WRN] Entro al Login Http
+2023-09-09 10:50:38.881 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Data.SqlClient.SqlException (0x80131904): @FechaInicio is not a parameter for procedure usp_EvaluacionExpedienteTecnicoObraListar.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at Marina.Siesmar.AccesoDatos.Formatos.Dibinfrater.EvaluacionExpedienteTecnicoObraDAO.ObtenerLista(Nullable`1 CargaId, String fechainicio, String fechafin) in C:\Users\carlo\source\repos\siesmar\Proyecto.DAL\Formatos\Dibinfrater\EvaluacionExpedienteTecnicoObraDAO.cs:line 36
+   at Marina.Siesmar.LogicaNegocios.Formatos.Dibinfrater.EvaluacionExpedienteTecnicoObra.ObtenerLista(Nullable`1 CargaId, String fechainicio, String fechafin) in C:\Users\carlo\source\repos\siesmar\Proyecto.BLL\Formatos\Dibinfrater\EvaluacionExpedienteTecnicoObra.cs:line 15
+   at Marina.Siesmar.Presentacion.Controllers.DibinfraterEvaluacionExpedienteTecnicoObraController.CargaTabla() in C:\Users\carlo\source\repos\siesmar\WebApplication3\Controllers\DibinfraterEvaluacionExpedienteTecnicoObraController.cs:line 67
+=======
+<<<<<<< HEAD
+2023-09-09 10:54:40.562 -05:00 [WRN] Entro al Login Http
+2023-09-09 13:48:01.271 -05:00 [WRN] Entro al Login Http
+2023-09-09 15:43:09.914 -05:00 [WRN] Entro al Login Http
+2023-09-09 16:59:17.792 -05:00 [WRN] Entro al Login Http
+=======
+2023-09-09 08:56:42.954 -05:00 [WRN] Entro al Login Http
+2023-09-09 08:57:43.897 -05:00 [WRN] Entro al Login Http
+2023-09-09 09:00:21.753 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidCastException: Object cannot be cast from DBNull to other types.
+   at System.DBNull.System.IConvertible.ToInt32(IFormatProvider provider)
+   at System.Convert.ToInt32(Object value)
+   at Marina.Siesmar.AccesoDatos.Formatos.Diabaste.ConsumoCombustibleDAO.ObtenerLista(Nullable`1 CargaId, String fechainicio, String fechafin) in D:\Nexuss\Proyecto.DAL\Formatos\Diabaste\ConsumoCombustibleDAO.cs:line 40
+   at Marina.Siesmar.LogicaNegocios.Formatos.Diabaste.ConsumoCombustible.ObtenerLista(Nullable`1 CargaId, String fechainicio, String fechafin) in D:\Nexuss\Proyecto.BLL\Formatos\Diabaste\ConsumoCombustible.cs:line 13
+   at Marina.Siesmar.Presentacion.Controllers.DiabasteConsumoCombustibleController.CargaTabla() in D:\Nexuss\WebApplication3\Controllers\DiabasteConsumoCombustibleController.cs:line 71
+>>>>>>> 48f5faf70e08d351731d619dbc3c5699ad80ebcc
+   at lambda_method58(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+<<<<<<< HEAD
+ClientConnectionId:66e8524c-4224-441d-bd43-fc1b1c331db0
+Error Number:8145,State:1,Class:16
+2023-09-09 12:00:58.524 -05:00 [WRN] Entro al Login Http
+2023-09-09 12:40:53.618 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.IndexOutOfRangeException: CodigoAreaDiperadmon
+   at System.Data.ProviderBase.BasicFieldNameLookup.GetOrdinal(String fieldName)
+   at System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   at Marina.Siesmar.AccesoDatos.Formatos.Dibinfrater.InspeccionSaneamientoDAO.BuscarFormato(Int32 Codigo) in C:\Users\carlo\source\repos\siesmar\Proyecto.DAL\Formatos\Dibinfrater\InspeccionSaneamientoDAO.cs:line 153
+   at Marina.Siesmar.LogicaNegocios.Formatos.Dibinfrater.InspeccionSaneamiento.EditarFormato(Int32 Codigo) in C:\Users\carlo\source\repos\siesmar\Proyecto.BLL\Formatos\Dibinfrater\InspeccionSaneamiento.cs:line 25
+   at Marina.Siesmar.Presentacion.Controllers.DibinfraterInspeccionSaneamientoController.Mostrar(Int32 Id) in C:\Users\carlo\source\repos\siesmar\WebApplication3\Controllers\DibinfraterInspeccionSaneamientoController.cs:line 96
+   at lambda_method45(Closure , Object , Object[] )
+=======
+2023-09-09 09:00:21.764 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Data.SqlClient.SqlException (0x80131904): A connection was successfully established with the server, but then an error occurred during the login process. (provider: TCP Provider, error: 0 - Se ha forzado la interrupción de una conexión existente por el host remoto.)
+ ---> System.ComponentModel.Win32Exception (10054): Se ha forzado la interrupción de una conexión existente por el host remoto.
+   at System.Data.ProviderBase.DbConnectionPool.CheckPoolBlockingPeriod(Exception e)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Marina.Siesmar.AccesoDatos.Mantenimiento.MesDAO.ObtenerMess() in D:\Nexuss\Proyecto.DAL\Mantenimiento\MesDAO.cs:line 23
+   at Marina.Siesmar.LogicaNegocios.Mantenimiento.Mes.ObtenerMess() in D:\Nexuss\Proyecto.BLL\Mantenimiento\Mes.cs:line 12
+   at Marina.Siesmar.Presentacion.Controllers.DiabasteConsumoCombustibleController.cargaCombs() in D:\Nexuss\WebApplication3\Controllers\DiabasteConsumoCombustibleController.cs:line 49
+   at lambda_method50(Closure , Object , Object[] )
+>>>>>>> 48f5faf70e08d351731d619dbc3c5699ad80ebcc
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+<<<<<<< HEAD
+2023-09-09 12:47:42.706 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.IndexOutOfRangeException: CodigoAreaDiperadmon
+   at System.Data.ProviderBase.BasicFieldNameLookup.GetOrdinal(String fieldName)
+   at System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   at Marina.Siesmar.AccesoDatos.Formatos.Dibinfrater.InspeccionSaneamientoDAO.BuscarFormato(Int32 Codigo) in C:\Users\carlo\source\repos\siesmar\Proyecto.DAL\Formatos\Dibinfrater\InspeccionSaneamientoDAO.cs:line 153
+   at Marina.Siesmar.LogicaNegocios.Formatos.Dibinfrater.InspeccionSaneamiento.EditarFormato(Int32 Codigo) in C:\Users\carlo\source\repos\siesmar\Proyecto.BLL\Formatos\Dibinfrater\InspeccionSaneamiento.cs:line 25
+   at Marina.Siesmar.Presentacion.Controllers.DibinfraterInspeccionSaneamientoController.Mostrar(Int32 Id) in C:\Users\carlo\source\repos\siesmar\WebApplication3\Controllers\DibinfraterInspeccionSaneamientoController.cs:line 96
+   at lambda_method43(Closure , Object , Object[] )
+=======
+ClientConnectionId:3c552d69-b656-4df7-84a8-33dc216e20d9
+Error Number:10054,State:0,Class:20
+2023-09-09 09:00:38.991 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidCastException: Object cannot be cast from DBNull to other types.
+   at System.DBNull.System.IConvertible.ToInt32(IFormatProvider provider)
+   at System.Convert.ToInt32(Object value)
+   at Marina.Siesmar.AccesoDatos.Formatos.Diabaste.ConsumoCombustibleDAO.ObtenerLista(Nullable`1 CargaId, String fechainicio, String fechafin) in D:\Nexuss\Proyecto.DAL\Formatos\Diabaste\ConsumoCombustibleDAO.cs:line 40
+   at Marina.Siesmar.LogicaNegocios.Formatos.Diabaste.ConsumoCombustible.ObtenerLista(Nullable`1 CargaId, String fechainicio, String fechafin) in D:\Nexuss\Proyecto.BLL\Formatos\Diabaste\ConsumoCombustible.cs:line 13
+   at Marina.Siesmar.Presentacion.Controllers.DiabasteConsumoCombustibleController.CargaTabla() in D:\Nexuss\WebApplication3\Controllers\DiabasteConsumoCombustibleController.cs:line 71
+   at lambda_method58(Closure , Object , Object[] )
+>>>>>>> 48f5faf70e08d351731d619dbc3c5699ad80ebcc
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+<<<<<<< HEAD
+2023-09-09 12:47:58.278 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.IndexOutOfRangeException: CodigoAreaDiperadmon
+   at System.Data.ProviderBase.BasicFieldNameLookup.GetOrdinal(String fieldName)
+   at System.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   at System.Data.SqlClient.SqlDataReader.get_Item(String name)
+   at Marina.Siesmar.AccesoDatos.Formatos.Dibinfrater.InspeccionSaneamientoDAO.BuscarFormato(Int32 Codigo) in C:\Users\carlo\source\repos\siesmar\Proyecto.DAL\Formatos\Dibinfrater\InspeccionSaneamientoDAO.cs:line 153
+   at Marina.Siesmar.LogicaNegocios.Formatos.Dibinfrater.InspeccionSaneamiento.EditarFormato(Int32 Codigo) in C:\Users\carlo\source\repos\siesmar\Proyecto.BLL\Formatos\Dibinfrater\InspeccionSaneamiento.cs:line 25
+   at Marina.Siesmar.Presentacion.Controllers.DibinfraterInspeccionSaneamientoController.Mostrar(Int32 Id) in C:\Users\carlo\source\repos\siesmar\WebApplication3\Controllers\DibinfraterInspeccionSaneamientoController.cs:line 96
+   at lambda_method43(Closure , Object , Object[] )
+=======
+2023-09-09 09:29:19.596 -05:00 [WRN] Entro al Login Http
+2023-09-09 09:37:14.160 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidCastException: Object cannot be cast from DBNull to other types.
+   at System.DBNull.System.IConvertible.ToInt32(IFormatProvider provider)
+   at System.Convert.ToInt32(Object value)
+   at Marina.Siesmar.AccesoDatos.Formatos.Diabaste.ConsumoCombustibleDAO.ObtenerLista(Nullable`1 CargaId, String fechainicio, String fechafin) in D:\Nexuss\Proyecto.DAL\Formatos\Diabaste\ConsumoCombustibleDAO.cs:line 39
+   at Marina.Siesmar.LogicaNegocios.Formatos.Diabaste.ConsumoCombustible.ObtenerLista(Nullable`1 CargaId, String fechainicio, String fechafin) in D:\Nexuss\Proyecto.BLL\Formatos\Diabaste\ConsumoCombustible.cs:line 13
+   at Marina.Siesmar.Presentacion.Controllers.DiabasteConsumoCombustibleController.CargaTabla() in D:\Nexuss\WebApplication3\Controllers\DiabasteConsumoCombustibleController.cs:line 71
+   at lambda_method58(Closure , Object , Object[] )
+>>>>>>> 48f5faf70e08d351731d619dbc3c5699ad80ebcc
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+<<<<<<< HEAD
+2023-09-09 15:16:37.728 -05:00 [WRN] Entro al Login Http
+2023-09-09 17:05:50.209 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Data.SqlClient.SqlException (0x80131904): @FechaInicio is not a parameter for procedure usp_MantenimientoRealizadoDependenciaListar.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at Marina.Siesmar.AccesoDatos.Formatos.Diali.MantenimientoRealizadoDependenciaDAO.ObtenerLista(Nullable`1 CargaId, String fechainicio, String fechafin) in C:\Users\carlo\source\repos\siesmar\Proyecto.DAL\Formatos\Diali\MantenimientoRealizadoDependenciaDAO.cs:line 38
+   at Marina.Siesmar.LogicaNegocios.Formatos.Diali.MantenimientoRealizadoDependencia.ObtenerLista(Nullable`1 CargaId, String fechainicio, String fechafin) in C:\Users\carlo\source\repos\siesmar\Proyecto.BLL\Formatos\Diali\MantenimientoRealizadoDependencia.cs:line 13
+   at Marina.Siesmar.Presentacion.Controllers.DialiMantRealizadoDependenciaController.CargaTabla() in C:\Users\carlo\source\repos\siesmar\WebApplication3\Controllers\DialiMantRealizadoDependenciaController.cs:line 53
+   at lambda_method41(Closure , Object , Object[] )
+=======
+2023-09-09 09:37:27.975 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidCastException: Object cannot be cast from DBNull to other types.
+   at System.DBNull.System.IConvertible.ToInt32(IFormatProvider provider)
+   at System.Convert.ToInt32(Object value)
+   at Marina.Siesmar.AccesoDatos.Formatos.Diabaste.ConsumoCombustibleDAO.ObtenerLista(Nullable`1 CargaId, String fechainicio, String fechafin) in D:\Nexuss\Proyecto.DAL\Formatos\Diabaste\ConsumoCombustibleDAO.cs:line 39
+   at Marina.Siesmar.LogicaNegocios.Formatos.Diabaste.ConsumoCombustible.ObtenerLista(Nullable`1 CargaId, String fechainicio, String fechafin) in D:\Nexuss\Proyecto.BLL\Formatos\Diabaste\ConsumoCombustible.cs:line 13
+   at Marina.Siesmar.Presentacion.Controllers.DiabasteConsumoCombustibleController.CargaTabla() in D:\Nexuss\WebApplication3\Controllers\DiabasteConsumoCombustibleController.cs:line 71
+   at lambda_method58(Closure , Object , Object[] )
+>>>>>>> 48f5faf70e08d351731d619dbc3c5699ad80ebcc
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+<<<<<<< HEAD
+ClientConnectionId:871460e9-cb68-4452-a6e8-2ba50633a740
+Error Number:8145,State:1,Class:16
+2023-09-09 19:10:49.490 -05:00 [WRN] Entro al Login Http
+2023-09-09 22:35:48.261 -05:00 [WRN] Entro al Login Http
+2023-09-09 22:57:56.369 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Data.SqlClient.SqlException (0x80131904): @FechaInicio is not a parameter for procedure usp_ProcesoInternamientoListar.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at Marina.Siesmar.AccesoDatos.Formatos.Dirnotemat.ProcesoInternamientoDAO.ObtenerLista(Nullable`1 CargaId, String fechainicio, String fechafin) in C:\Users\carlo\source\repos\siesmar\Proyecto.DAL\Formatos\Dirnotemat\ProcesoInternamientoDAO.cs:line 42
+   at Marina.Siesmar.Presentacion.Controllers.DirnotematProcesoInternamientoController.CargaTabla() in C:\Users\carlo\source\repos\siesmar\WebApplication3\Controllers\DirnotematProcesoInternamientoController.cs:line 54
+   at lambda_method41(Closure , Object , Object[] )
+=======
+2023-09-09 09:37:43.863 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidCastException: Object cannot be cast from DBNull to other types.
+   at System.DBNull.System.IConvertible.ToInt32(IFormatProvider provider)
+   at System.Convert.ToInt32(Object value)
+   at Marina.Siesmar.AccesoDatos.Formatos.Diabaste.ConsumoCombustibleDAO.ObtenerLista(Nullable`1 CargaId, String fechainicio, String fechafin) in D:\Nexuss\Proyecto.DAL\Formatos\Diabaste\ConsumoCombustibleDAO.cs:line 39
+   at Marina.Siesmar.LogicaNegocios.Formatos.Diabaste.ConsumoCombustible.ObtenerLista(Nullable`1 CargaId, String fechainicio, String fechafin) in D:\Nexuss\Proyecto.BLL\Formatos\Diabaste\ConsumoCombustible.cs:line 13
+   at Marina.Siesmar.Presentacion.Controllers.DiabasteConsumoCombustibleController.CargaTabla() in D:\Nexuss\WebApplication3\Controllers\DiabasteConsumoCombustibleController.cs:line 71
+   at lambda_method58(Closure , Object , Object[] )
+>>>>>>> 48f5faf70e08d351731d619dbc3c5699ad80ebcc
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+<<<<<<< HEAD
+ClientConnectionId:58b877f1-b950-4f74-8b88-6f70d1145261
+Error Number:8145,State:1,Class:16
+=======
+2023-09-09 09:44:09.023 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidCastException: Object cannot be cast from DBNull to other types.
+   at System.DBNull.System.IConvertible.ToInt32(IFormatProvider provider)
+   at System.Convert.ToInt32(Object value)
+   at Marina.Siesmar.AccesoDatos.Formatos.Diabaste.ConsumoCombustibleDAO.ObtenerLista(Nullable`1 CargaId, String fechainicio, String fechafin) in D:\Nexuss\Proyecto.DAL\Formatos\Diabaste\ConsumoCombustibleDAO.cs:line 39
+   at Marina.Siesmar.LogicaNegocios.Formatos.Diabaste.ConsumoCombustible.ObtenerLista(Nullable`1 CargaId, String fechainicio, String fechafin) in D:\Nexuss\Proyecto.BLL\Formatos\Diabaste\ConsumoCombustible.cs:line 13
+   at Marina.Siesmar.Presentacion.Controllers.DiabasteConsumoCombustibleController.CargaTabla() in D:\Nexuss\WebApplication3\Controllers\DiabasteConsumoCombustibleController.cs:line 71
+   at lambda_method58(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2023-09-09 09:44:09.127 -05:00 [WRN] Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page.
+2023-09-09 09:47:27.361 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidCastException: Object cannot be cast from DBNull to other types.
+   at System.DBNull.System.IConvertible.ToInt32(IFormatProvider provider)
+   at System.Convert.ToInt32(Object value)
+   at Marina.Siesmar.AccesoDatos.Formatos.Diabaste.ConsumoCombustibleDAO.ObtenerLista(Nullable`1 CargaId, String fechainicio, String fechafin) in D:\Nexuss\Proyecto.DAL\Formatos\Diabaste\ConsumoCombustibleDAO.cs:line 39
+   at Marina.Siesmar.LogicaNegocios.Formatos.Diabaste.ConsumoCombustible.ObtenerLista(Nullable`1 CargaId, String fechainicio, String fechafin) in D:\Nexuss\Proyecto.BLL\Formatos\Diabaste\ConsumoCombustible.cs:line 13
+   at Marina.Siesmar.Presentacion.Controllers.DiabasteConsumoCombustibleController.CargaTabla() in D:\Nexuss\WebApplication3\Controllers\DiabasteConsumoCombustibleController.cs:line 71
+   at lambda_method58(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2023-09-09 11:45:16.263 -05:00 [WRN] Entro al Login Http
+2023-09-09 11:45:48.423 -05:00 [WRN] Entro al Login Http
+>>>>>>> ec5ac9b892eaa3a323191e779e179d30643cdcf5
+>>>>>>> 48f5faf70e08d351731d619dbc3c5699ad80ebcc

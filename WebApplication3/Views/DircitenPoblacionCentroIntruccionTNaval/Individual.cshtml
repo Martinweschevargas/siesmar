@@ -1,0 +1,306 @@
+﻿@{
+    ViewData["Title"] = "PoblaciónCentroInstrucciónTécnicaNaval";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/DircitenPoblacionCentroIntruccionTNaval/Individual" style="text-decoration:none;">Población Centro Instrucción Técnica Naval</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="form-group row col-md-6">
+                <label for="carga" class="col-3 col-form-label">Carga</label>
+                <div class="form-group row col-md-6">
+                    <div class="col"><select class="form-select-sm form-control-sm" id="cargasR" name="cargasR"></select></div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="DNI" class="col-3 col-form-label">DNI</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDNI" name="txtDNI" placeholder="DNI" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Genero" class="col-3 col-form-label">Género</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtGenero" name="txtGenero" data-placeholder="Seleccione ...">
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaNacimiento" class="col-3 col-form-label">Fecha Nacimiento </label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaNacimiento" name="txtFechaNacimiento"  required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="LugarDomicilio" class="col-3 col-form-label">Lugar Nacimiento </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtLugarNacimiento" name="txtLugarNacimiento" placeholder="Lugar Domicilio" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="LugarDomicilio" class="col-3 col-form-label">Lugar Domicilio </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtLugarDomicilio" name="txtLugarDomicilio" placeholder="Lugar Domicilio" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaIngresoIntr" class="col-3 col-form-label">Fecha Ingreso</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaIngresoIntr" name="txtFechaIngresoIntr" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="AnoAcademico" class="col-3 col-form-label">Año Académico</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtAnoAcademico" name="txtAnoAcademico" data-placeholder="Seleccione ...">
+                            <option value="1">Primer año</option>
+                            <option value="2">Segundo año</option>
+                            <option value="3">Tercer año</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SemestreA" class="col-3 col-form-label">Semestre Académico </label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtSemestreA" name="txtSemestreA" data-placeholder="Seleccione ...">
+                            <option value="1">Primer semestre</option>
+                            <option value="2">Segundo semestre</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="IndiceRendimientoIRAS" class="col-3 col-form-label">Índice Rendimiento IRAS </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtIndiceRendimientoIRAS" name="txtIndiceRendimientoIRAS" placeholder="Índice Rendimiento IRAS" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NotaCaracter" class="col-3 col-form-label">Nota Caracter Militar </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNotaCaracter" name="txtNotaCaracter" placeholder="Nota Caracter Mili" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NotaFormacionF" class="col-3 col-form-label">Nota Formación FÍsica </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNotaFormacionF" name="txtNotaFormacionF" placeholder="Nota Formación FÍsica " required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NotaConducta" class="col-3 col-form-label">Nota Conducta</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNotaConducta" name="txtNotaConducta" placeholder="Nota Conducta" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ResultadoTerminoT" class="col-3 col-form-label">Resultado Termino Trimestre</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtResultadoTerminoT" name="txtResultadoTerminoT" data-placeholder="Seleccione ...">
+                            <option value="1">Aprobado</option>
+                            <option value="2">Repetidor</option>
+                            <option value="3">Baja</option>
+                            <option value="4">Otros (especifique)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CausalBaja" class="col-3 col-form-label"><a href="~/CausalBaja" style="text-decoration:none;">Causal Baja</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-control-sm" id="cbCausalBaja" name="cbCausalBaja"></select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DircitenPoblacionCentroIntruccionTNaval">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="DNI" class="col-3 col-form-label">DNI</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDNIe" name="txtDNIe" placeholder="DNI" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Genero" class="col-3 col-form-label">Género</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtGeneroe" name="txtGeneroe" data-placeholder="Seleccione ...">
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaNacimiento" class="col-3 col-form-label">Fecha Nacimiento </label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaNacimientoe" name="txtFechaNacimientoe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="LugarNacimiento" class="col-3 col-form-label">Lugar Nacimiento </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtLugarNacimientoe" name="txtLugarNacimientoe" placeholder="Lugar Domicilio" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="LugarDomicilio" class="col-3 col-form-label">Lugar Domicilio </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtLugarDomicilioe" name="txtLugarDomicilioe" placeholder="Lugar Domicilio" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaIngresoIntr" class="col-3 col-form-label">Fecha Ingreso</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaIngresoIntre" name="txtFechaIngresoIntre" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="AnoAcademico" class="col-3 col-form-label">Año Académico</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtAnoAcademicoe" name="txtAnoAcademicoe" data-placeholder="Seleccione ...">
+                            <option value="1">Primer año</option>
+                            <option value="2">Segundo año</option>
+                            <option value="3">Tercer año</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SemestreA" class="col-3 col-form-label">Semestre Académico </label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtSemestreAe" name="txtSemestreAe" data-placeholder="Seleccione ...">
+                            <option value="1">Primer semestre</option>
+                            <option value="2">Segundo semestre</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="IndiceRendimientoIRAS" class="col-3 col-form-label">Índice Rendimiento IRAS </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtIndiceRendimientoIRASe" name="txtIndiceRendimientoIRASe" placeholder="Índice Rendimiento IRAS" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NotaCaracter" class="col-3 col-form-label">Nota Caracter Militar </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNotaCaractere" name="txtNotaCaractere" placeholder="Nota Caracter Mili" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NotaFormacionF" class="col-3 col-form-label">Nota Formación FÍsica </label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNotaFormacionFe" name="txtNotaFormacionFe" placeholder="Nota Formación FÍsica " required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NotaConducta" class="col-3 col-form-label">Nota Conducta</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNotaConductae" name="txtNotaConductae" placeholder="Nota Conducta" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ResultadoTerminoT" class="col-3 col-form-label">Resultado Termino Trimestre</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtResultadoTerminoTe" name="txtResultadoTerminoTe" data-placeholder="Seleccione ...">
+                            <option value="1">Aprobado</option>
+                            <option value="2">Repetidor</option>
+                            <option value="3">Baja</option>
+                            <option value="4">Otros (especifique)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CausalBaja" class="col-3 col-form-label"><a href="~/CausalBaja" style="text-decoration:none;">Causal Baja</a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-control-sm" id="cbCausalBajae" name="cbCausalBajae"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DircitenPoblacionCentroIntruccionTNaval">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDircitenPoblacionCentroIntruccionTNaval()" />
+    <div class="dropdown">
+        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Modos de Carga :
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="~/DircitenPoblacionCentroIntruccionTNaval">Masiva</a>
+            <a class="dropdown-item" href="~/DircitenPoblacionCentroIntruccionTNaval/Individual">Individual</a>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblDircitenPoblacionCentroIntruccionTNaval" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>DNI</th>
+                <th>Género</th>
+                <th>Fecha Nacimiento</th>
+                <th>Lugar Nacimiento</th>
+                <th>Lugar Domicilio</th>
+                <th>Fecha Ingreso</th>
+                <th>Año Académico</th>
+                <th>Semestre Académico</th>
+                <th>Índice Rendimiento IRAS  </th>
+                <th>Nota Caracter Militar </th>
+                <th>Nota Formación FÍsica</th>
+                <th>Nota Conducta</th>
+                <th>Resultado Termino Trimestre</th>
+                <th>Causal Baja </th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+
+@section Scripts{
+
+    <script src="/js/dirciten/dirciten-poblacioncentroinstruc.js" asp-append-version="true"></script>
+
+}

@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Formato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1>
+            <a href="~/JesehinAlistamientoMaterialJesehin" style="text-decoration:none;">
+                Alistamiento de material
+            </a>
+        </h1>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header">
+                    <a href="~/JesehinAlistamientoMaterialJesehin/Individual" class="btn btn-primary">Ir Carga Individual</a>
+                    <a href="~/JesehinAlistamientoMaterialJesehin/DownloadFile" class="btn btn-primary">Descargar Formato</a>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <input class="form-control-file" type="file" id="inputExcel" />
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-warning" onclick="mostrarDatos()">Mostrar Datos"</button>
+                        <button class="btn btn-success" onclick="enviarDatos()">Enviar Datos a BD</button>
+                        <label>Numero de Registros : </label><span id="NumRegistros"></span>
+                    </div>
+                </div>
+                <hr />
+                <div class="row" style="overflow:scroll">
+                    <div class="col-sm-12">
+                        <table id="tbData" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Unidad/Batallón</th>
+                                    <th>Capacidad operativa</th>
+                                    <th>Capacidad intrínseca (I nivel)</th>
+                                    <th>Ponderación de capacidad intrínseca (I nivel)</th>
+                                    <th>Sub-clasificación (II nivel)</th>
+                                    <th>Ponderación de capacidad intrínseca (II nivel)</th>
+                                    <th>Sub-clasificación (III nivel)</th>
+                                    <th>Ponderación de capacidad intrínseca (III nivel)</th>
+                                    <th>Requerido</th>
+                                    <th>Operativo</th>
+                                    <th>(%) de operatividad</th>
+                                    <th>Ponderado funcional</th>
+                                    <th>Nivel de alistamiento parcial</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Scripts{
+    <script src="/js/jesehin/jesehin-alistamientomaterialjesehin.js" asp-append-version="true"></script>
+}

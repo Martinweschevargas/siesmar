@@ -1,0 +1,235 @@
+﻿@{
+    ViewData["Title"] = "Situación de Embarcaciones Menores";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/CombasnaiSituacionEmbarcacionMenor/Individual" style="text-decoration:none;">Situación de Embarcaciones Menores</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Nombre Unidad Embarcaciones</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNaval" name="cbUnidadNaval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CategoriaEmbarcacion" class="col-3 col-form-label">Categoria</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtCategoriaEmbarcacion" name="txtCategoriaEmbarcacion" data-placeholder="Seleccione ...">
+                            <option value="LTP">Lancha de transporte de personal</option>
+                            <option value="LRA">Lancha rápida</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoPlataformaNave" class="col-3 col-form-label"><a href="~/TipoPlataformaNave">Tipo Plataforma</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoPlataformaNave" name="cbTipoPlataformaNave"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label"><a href="~/Dependencia">Dependencia/Destino</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDependencia" name="cbDependencia"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Ubicacion" class="col-3 col-form-label">Ubicación</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtUbicacion" name="txtUbicacion" placeholder="Ubicación" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DepartamentoUbigeo" class="col-3 col-form-label"><a href="~/DepartamentoUbigeo">Departamento</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDepartamentoUbigeo" name="cbDepartamentoUbigeo"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ProvinciaUbigeo" class="col-3 col-form-label"><a href="~/ProvinciaUbigeo">Provincia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbProvinciaUbigeo" name="cbProvinciaUbigeo"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DistritoUbigeo" class="col-3 col-form-label"><a href="~/DistritoUbigeo">Distrito</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDistritoUbigeo" name="cbDistritoUbigeo"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CapacidadOperativaRequerida" class="col-3 col-form-label"><a href="~/CapacidadOperativaRequerida">Capacidad Operativa Requerida</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbCapacidadOperativaRequerida" name="cbCapacidadOperativaRequerida"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Condicion" class="col-3 col-form-label"><a href="~/Condicion">Condición</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbCondicion" name="cbCondicion"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Observacion" class="col-3 col-form-label">Observaciones</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtObservacion" name="txtObservacion" placeholder="Observaciones" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/CombasnaiSituacionEmbarcacionMenor">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Nombre Unidad Embarcaciones</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNavale" name="cbUnidadNavale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CategoriaEmbarcacion" class="col-3 col-form-label">Categoria</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtCategoriaEmbarcacione" name="txtCategoriaEmbarcacione" data-placeholder="Seleccione ...">
+                            <option value="LTP">Lancha de transporte de personal</option>
+                            <option value="LRA">Lancha rápida</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoPlataformaNave" class="col-3 col-form-label"><a href="~/TipoPlataformaNave">Tipo Plataforma</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoPlataformaNavee" name="cbTipoPlataformaNavee"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label"><a href="~/Dependencia">Dependencia/Destino</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDependenciae" name="cbDependenciae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Ubicacion" class="col-3 col-form-label">Ubicación</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtUbicacione" name="txtUbicacione" placeholder="Ubicación" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DepartamentoUbigeo" class="col-3 col-form-label"><a href="~/DepartamentoUbigeo">Departamento</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDepartamentoUbigeoe" name="cbDepartamentoUbigeoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ProvinciaUbigeo" class="col-3 col-form-label"><a href="~/ProvinciaUbigeo">Provincia</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbProvinciaUbigeoe" name="cbProvinciaUbigeoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DistritoUbigeo" class="col-3 col-form-label"><a href="~/DistritoUbigeo">Distrito</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbDistritoUbigeoe" name="cbDistritoUbigeoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CapacidadOperativaRequerida" class="col-3 col-form-label"><a href="~/CapacidadOperativaRequerida">Capacidad Operativa Requerida</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbCapacidadOperativaRequeridae" name="cbCapacidadOperativaRequeridae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Condicion" class="col-3 col-form-label"><a href="~/Condicion">Condición</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbCondicione" name="cbCondicione"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Observacion" class="col-3 col-form-label">Observaciones</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtObservacione" name="txtObservacione" placeholder="Observaciones" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/CombasnaiSituacionEmbarcacionMenor">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaCombasnaiSituacionEmbarcacionMenor()" />
+    <div class="dropdown">
+        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Modos de Carga :
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="~/CombasnaiSituacionEmbarcacionMenor">Masiva</a>
+            <a class="dropdown-item" href="~/CombasnaiSituacionEmbarcacionMenor/Individual">Individual</a>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblCombasnaiSituacionEmbarcacionMenor" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Nombre Unidad Embarcaciones</th>
+                <th>Categoria</th>
+                <th>Tipo Plataforma</th>
+                <th>Dependencia/Destino</th>
+                <th>Ubicación</th>
+                <th>Departamento</th>
+                <th>Provincia</th>
+                <th>Distrito</th>
+                <th>Capacidad Operativa Requerida</th>
+                <th>Condición</th>
+                <th>Observaciones</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/combasnai/combasnai-situacionembarcacionmenor.js" asp-append-version="true"></script>
+}

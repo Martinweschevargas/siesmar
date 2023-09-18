@@ -1,0 +1,149 @@
+﻿@{
+    ViewData["Title"] = "SecuenciasCargas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/SecuenciaCarga" style="text-decoration:none;">Secuencias Cargas</a></h1>
+
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="txtNOM_TABLA" class="col-3 col-form-label">NOM_TABLA</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNOM_TABLA" name="txtNOM_TABLA" placeholder="NOM_TABLA" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtNUM_SECUENCIA" class="col-3 col-form-label">NUM_SECUENCIA</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNUM_SECUENCIA" name="txtNUM_SECUENCIA" placeholder="NUM_SECUENCIA" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtFEC_REGISTRO" class="col-3 col-form-label">FEC_REGISTRO</label>
+                    <div class="col-md-9">
+                        <input type="datetime-local" class="form-control form-control-sm" id="txtFEC_REGISTRO" name="txtFEC_REGISTRO" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtUSR_REGISTRO" class="col-3 col-form-label">USR_REGISTRO</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtUSR_REGISTRO" name="txtUSR_REGISTRO" placeholder="USR_REGISTRO" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtFEC_ACTUALIZO" class="col-3 col-form-label">FEC_ACTUALIZO</label>
+                    <div class="col-md-9">
+                        <input type="datetime-local" class="form-control form-control-sm" id="txtFEC_ACTUALIZO" name="txtFEC_ACTUALIZO" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtUSR_ACTUALIZO" class="col-3 col-form-label">USR_ACTUALIZO</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtUSR_ACTUALIZO" name="txtUSR_ACTUALIZO" placeholder="USR_ACTUALIZO" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/SecuenciaCarga">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <input type="hidden" id="txtNOM_TABLAe" />
+
+                <div class="form-group row col-md-6">
+                    <label for="txtNUM_SECUENCIAe" class="col-3 col-form-label">NUM_SECUENCIA</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNUM_SECUENCIAe" name="txtNUM_SECUENCIAe" placeholder="NUM_SECUENCIA" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtFEC_REGISTROe" class="col-3 col-form-label">FEC_REGISTRO</label>
+                    <div class="col-md-9">
+                        <input type="datetime-local" class="form-control form-control-sm" id="txtFEC_REGISTROe" name="txtFEC_REGISTROe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtUSR_REGISTROe" class="col-3 col-form-label">USR_REGISTRO</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtUSR_REGISTROe" name="txtUSR_REGISTROe" placeholder="USR_REGISTRO" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtFEC_ACTUALIZOe" class="col-3 col-form-label">FEC_ACTUALIZO</label>
+                    <div class="col-md-9">
+                        <input type="datetime-local" class="form-control form-control-sm" id="txtFEC_ACTUALIZOe" name="txtFEC_ACTUALIZOe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtUSR_ACTUALIZOe" class="col-3 col-form-label">USR_ACTUALIZO</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtUSR_ACTUALIZOe" name="txtUSR_ACTUALIZO" placeholder="USR_ACTUALIZO" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/SecuenciaCarga">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+
+<div id="listar">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaSecuenciaCarga()" />
+    <table class="table table-striped" id="tblSecuenciaCargas" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>NOM_TABLA</th>
+                <th>NUM_SECUENCIA</th>
+                <th>FEC_REGISTRO</th>
+                <th>USR_REGISTRO</th>
+                <th>FEC_ACTUALIZO</th>
+                <th>USR_ACTUALIZO</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/secuenciacarga.js" asp-append-version="true"></script>
+}

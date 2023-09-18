@@ -1,0 +1,198 @@
+﻿@{
+    ViewData["Title"] = "Uso de Redes Sociales de la Institución";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/DimarUsoRedSocialInstitucion/Individual" style="text-decoration:none;">Uso de Redes Sociales de la Institución</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="form-group row col-md-6">
+                <label for="carga" class="col-3 col-form-label">Carga</label>
+                <div class="form-group row col-md-6">
+                    <div class="col"><select class="form-select form-control-sm" id="cargasR" name="cargasR"></select></div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="RedSocial" class="col-3 col-form-label"><a href="~/RedSocial">Red social</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbRedSocial" name="cbRedSocial"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaEmision" class="col-3 col-form-label">Fecha de emisión</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaEmision" name="txtFechaEmision" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NumeroSeguidores" class="col-3 col-form-label">N.º de seguidores del ultimo día del mes</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtNumeroSeguidores" name="txtNumeroSeguidores" placeholder="N.º de seguidores del ultimo día del mes" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="IncrementoSeguidores" class="col-3 col-form-label">Incremento de seguidores / mes</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtIncrementoSeguidores" name="txtIncrementoSeguidores" placeholder="Incremento de seguidores / mes" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TemaMasComentado" class="col-3 col-form-label">Tema mas comentado / mes</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtTemaMasComentado" name="txtTemaMasComentado" placeholder="Tema mas comentado / mes" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PublicoObjetivo" class="col-3 col-form-label"><a href="~/PublicoObjetivo">Público objetivo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbPublicoObjetivo" name="cbPublicoObjetivo"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NumeroPublicaciones" class="col-3 col-form-label">Número de publicaciones</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtNumeroPublicaciones" name="txtNumeroPublicaciones" placeholder="Número de publicaciones" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TotalSeguidoresCreacion" class="col-3 col-form-label">Total de seguidores desde su creación</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtTotalSeguidoresCreacion" name="txtTotalSeguidoresCreacion" placeholder="Total de seguidores desde su creación" required>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DimarUsoRedSocialInstitucion">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="RedSocial" class="col-3 col-form-label"><a href="~/RedSocial">Red social</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbRedSociale" name="cbRedSociale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaEmision" class="col-3 col-form-label">Fecha de emisión</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaEmisione" name="txtFechaEmisione" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NumeroSeguidores" class="col-3 col-form-label">N.º de seguidores del ultimo día del mes</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtNumeroSeguidorese" name="txtNumeroSeguidorese" placeholder="N.º de seguidores del ultimo día del mes" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="IncrementoSeguidores" class="col-3 col-form-label">Incremento de seguidores / mes</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtIncrementoSeguidorese" name="txtIncrementoSeguidorese" placeholder="Incremento de seguidores / mes" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TemaMasComentado" class="col-3 col-form-label">Tema mas comentado / mes</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtTemaMasComentadoe" name="txtTemaMasComentadoe" placeholder="Tema mas comentado / mes" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PublicoObjetivo" class="col-3 col-form-label"><a href="~/PublicoObjetivo">Público objetivo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbPublicoObjetivoe" name="cbPublicoObjetivoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NumeroPublicaciones" class="col-3 col-form-label">Número de publicaciones</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtNumeroPublicacionese" name="txtNumeroPublicacionese" placeholder="Número de publicaciones" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TotalSeguidoresCreacion" class="col-3 col-form-label">Total de seguidores desde su creación</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtTotalSeguidoresCreacione" name="txtTotalSeguidoresCreacione" placeholder="Total de seguidores desde su creación" required>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DimarUsoRedSocialInstitucion">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/DimarUsoRedSocialInstitucion" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDimarUsoRedSocialInstitucion()" />
+    <div class="row align-items-start">
+        <div class="col"><select class="form-select form-control-sm" id="cargas" name="cargas"></select></div>
+        <div class="col">
+            <input type='button' id="btn_search" value="Buscar" class="btn btn-primary">
+            <input type='button' id="btn_all" value="Mostrar Todos" class="btn btn-primary">
+        </div>
+    </div>
+    <table class="table table-striped" id="tblDimarUsoRedSocialInstitucion" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Red social</th>
+                <th>Fecha de emisión</th>
+                <th>N.º de seguidores del ultimo día del mes</th>
+                <th>Incremento de seguidores / mes</th>
+                <th>Tema mas comentado / mes</th>
+                <th>Público objetivo</th>
+                <th>Número de publicaciones</th>
+                <th>Total de seguidores desde su creación</th>
+                <th>Codigo Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/dimar/dimar-usoredsocialinstitucion.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Formato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1><a href="~/ComestreEvaluacionAlistamientoEntrenamientoComestre" style="text-decoration:none;">Evaluacion de Alistamiento del Entrenamiento</a></h1>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header">
+                    <a href="~/ComestreEvaluacionAlistamientoEntrenamientoComestre/Individual" class="btn btn-primary">Ir Carga Individual</a>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <input class="form-control-file" type="file" id="inputExcel" />
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-warning" onclick="mostrarDatos()">Mostrar Datos"</button>
+                        <button class="btn btn-success" onclick="enviarDatos()">Enviar Datos a BD</button>
+                        <label>Numero de Registros : </label><span id="NumRegistros"></span>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table id="tbData" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Identificacion Unidad Naval</th>
+                                    <th>Nivel de Entrenamiento</th>
+                                    <th>Capacidad Operativa</th>
+                                    <th>Tipo de Capacidad Operativa</th>
+                                    <th>Codigo de Ejercicio</th>
+                                    <th>Ejercicio</th>
+                                    <th>Sub-Ejercicio</th>
+                                    <th>Peso de cada Sub-Ejercicio</th>
+                                    <th>Calificativo</th>
+                                    <th>Puntuaje Obtenido por Ejercicio</th>
+                                    <th>Fecha del Periodo a Evaluar el Ejercicio</th>
+                                    <th>Fecha de Realizacion del Ejercicio</th>
+                                    <th>Tiempo de Vigencia</th>
+                                    <th>Fecha de Caducidad del Ejercicio</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Scripts{
+    <script src="/js/comestre/comestre-evaluacionalistamientoentrenamientocomestre.js" asp-append-version="true"></script>
+}

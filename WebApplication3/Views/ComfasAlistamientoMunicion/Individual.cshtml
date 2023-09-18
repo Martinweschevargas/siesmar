@@ -1,0 +1,190 @@
+﻿@{
+    ViewData["Title"] = "Alistamiento de Munición (AMU)";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/ComfasAlistamientoMunicion/Individual" style="text-decoration:none;">Alistamiento de Munición (AMU)</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Unidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNaval" name="cbUnidadNaval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SistemaMunicion" class="col-3 col-form-label"><a href="~/SistemaMunicion">Sistema</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbSistemaMunicion" name="cbSistemaMunicion"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SubsistemaMunicion" class="col-3 col-form-label"><a href="~/SubsistemaMunicion">Sub-Sistema</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbSubsistemaMunicion" name="cbSubsistemaMunicion"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Equipo" class="col-3 col-form-label">Equipo</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtEquipo" name="txtEquipo" placeholder="Equipo" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CombustibleLubricante" class="col-3 col-form-label">Alistamiento De Munición</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCombustibleLubricante" name="txtCombustibleLubricante" placeholder="Alistamiento De Munición" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ExistenteGLS" class="col-3 col-form-label">N° de Municiones Existentes</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtExistenteGLS" name="txtExistenteGLS" placeholder="N° de Municiones Existentes" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NecesariasGLS" class="col-3 col-form-label">N° de Municiones Necesarias</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtNecesariasGLS" name="txtNecesariasGLS" placeholder="N° de Municiones Necesarias" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CoeficientePonderacion" class="col-3 col-form-label">Coeficiente De Podendaración Para Munición</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCoeficientePonderacion" name="txtCoeficientePonderacion" placeholder="Coeficiente De Podendaración Para Munición" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComfasAlistamientoMunicion">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Unidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNavale" name="cbUnidadNavale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SistemaMunicion" class="col-3 col-form-label"><a href="~/SistemaMunicion">Sistema</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbSistemaMunicione" name="cbSistemaMunicione"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SubsistemaMunicion" class="col-3 col-form-label"><a href="~/SubsistemaMunicion">Sub-Sistema</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbSubsistemaMunicione" name="cbSubsistemaMunicione"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Equipo" class="col-3 col-form-label">Equipo</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtEquipoe" name="txtEquipoe" placeholder="Equipo" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CombustibleLubricante" class="col-3 col-form-label">Alistamiento De Munición</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCombustibleLubricantee" name="txtCombustibleLubricantee" placeholder="Alistamiento De Munición" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ExistenteGLS" class="col-3 col-form-label">N° de Municiones Existentes</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtExistenteGLSe" name="txtExistenteGLSe" placeholder="N° de Municiones Existentes" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NecesariasGLS" class="col-3 col-form-label">N° de Municiones Necesarias</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtNecesariasGLSe" name="txtNecesariasGLSe" placeholder="N° de Municiones Necesarias" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CoeficientePonderacion" class="col-3 col-form-label">Coeficiente De Podendaración Para Munición</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCoeficientePonderacione" name="txtCoeficientePonderacione" placeholder="Coeficiente De Podendaración Para Munición" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComfasAlistamientoMunicion">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaComfasAlistamientoMunicion()" />
+    <div class="dropdown">
+        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Modos de Carga :
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="~/ComfasAlistamientoMunicion">Masiva</a>
+            <a class="dropdown-item" href="~/ComfasAlistamientoMunicion/Individual">Individual</a>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblComfasAlistamientoMunicion" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Unidad</th>
+                <th>Sistema</th>
+                <th>Sub-Sistema</th>
+                <th>Equipo</th>
+                <th>Alistamiento De Munición</th>
+                <th>N° de Municiones Existentes</th>
+                <th>N° de Municiones Necesarias</th>
+                <th>Coeficiente De Podendaración Para Munición</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/comfas/comfas-alistamientomunicion.js" asp-append-version="true"></script>
+}

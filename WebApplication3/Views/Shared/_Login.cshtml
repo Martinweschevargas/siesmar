@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebApplication1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="linea"></header>
+    <header class="header-distributed">
+        <div class="header-left">
+            <img class="imgheader1" src="~/img/mgplogo.png" /><img />
+        </div>
+        <div class="header-center">
+            <p class="p1">
+                <span>MARINA DE GUERRA DEL PERU</span>
+            <p class="p2">Sistema de Estadística</p>
+            <p class="p3">JEMGEMAR</p>
+            </p>
+        </div>
+        <div class="header-right">
+            <div class="ayuda">
+                <button class="p4" data-bs-target="#ayuda" data-bs-toggle="modal"> <i class="fa fa-question-circle" aria-hidden="true" style="color: #23527c;"></i>Ayuda</button>
+            </div>
+        </div>
+    </header>
+    <header class="cabecera">
+        
+    </header>
+    <div class="container-fluid">
+            @RenderBody()
+        </div>
+    <div class="footer">
+
+        <footer class="footer-distributed">
+            <div class="footer-left">
+                <img class="imgfooter" src="~/img/imgfooter.png" />
+            </div>
+
+            <div class="footer-center">
+                <p class="footer-company-about">
+                    <span>DIRECCIÓN</span>
+                    <i class="fa fa-home" aria-hidden="true"></i>  ESTACIÓN NAVAL DE LA COMANDANCIA GENERAL DE LA MARINA
+                <p class="footer-di-name">Avenida de La Marina Cuadra 36 S/N - La Perla Callao</p>
+                </p>
+            </div>
+            <div class="footer-right">
+                <p class="footer-company-about">
+                    <span>CENTRAL TELEFÓNICA</span>
+                    (01) 207 8900 / (01) 514 2930 Anexos: 2284
+                </p>
+            </div>
+        </footer>
+        <div class="lineaf"></div>
+        <div class="footerfinal">  Todos los derechos reservados / Nombre de la dependencia desarrolladora  </div>
+    </div>
+    <!-- ayuda -->
+    <div class="modal fade" id="ayuda" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal1-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ayuda</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    En que te ayudamos ...
+                </div>
+                <div class="modal1-footer">
+                    <button type="button" class="btn" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

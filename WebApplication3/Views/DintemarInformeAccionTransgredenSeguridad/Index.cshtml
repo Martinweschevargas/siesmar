@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Formato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1><a href="~/DintemarInformeAccionTransgredenSeguridad" style="text-decoration:none;"> Informes emitidos por la Marina de Guerra del Perú sobre acciones que transgreden la seguridad del territorio nacional</a></h1>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header">
+                    <a href="~/DintemarInformeAccionTransgredenSeguridad/Individual" class="btn btn-primary">Ir Carga Individual</a>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <input class="form-control-file" type="file" id="inputExcel" />
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-warning" onclick="mostrarDatos()">Mostrar Datos"</button>
+                        <button class="btn btn-success" onclick="enviarDatos()">Enviar Datos a BD</button>
+                        <label>Numero de Registros : </label><span id="NumRegistros"></span>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table id="tbData" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Tema Estudio Investigación</th>
+                                    <th>Tipo Estudio Investigación</th>
+                                    <th>FechaInicio</th>
+                                    <th>FechaTermino</th>
+                                    <th>Responsable</th>
+                                    <th>Solicitante</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Scripts{
+    <script src="/js/dintemar/dintemar-informeacciontransseg.js" asp-append-version="true"></script>
+}

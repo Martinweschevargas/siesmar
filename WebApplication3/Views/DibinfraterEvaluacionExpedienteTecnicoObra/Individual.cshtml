@@ -1,0 +1,215 @@
+﻿@{
+    ViewData["Title"] = "Evaluación Expedientes Técnicos de Obras, PIP (Proyecto de Inversión Pública) y Planos Pilotos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/DibinfraterEvaluacionExpedienteTecnicoObra/Individual" style="text-decoration:none;">Evaluación Expedientes Técnicos de Obras, PIP (Proyecto de Inversión Pública) y Planos Pilotos</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <select class="form-select form-control-sm" id="cargasR" name="cargasR"></select>
+                </div>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="NombreProyecto" class="col-3 col-form-label">Nombre del Proyecto</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNombreProyecto" name="txtNombreProyecto" placeholder="Nombre del Proyecto" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SituacionExpedienteT" class="col-3 col-form-label"><a href="~/SituacionExpedienteTecnico">Situación Expediente Técnico</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbSituacionExpedienteT" name="cbSituacionExpedienteT"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoProceso" class="col-3 col-form-label"><a href="~/TipoProceso">Tipo de Proceso</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoProceso" name="cbTipoProceso"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoProyecto" class="col-3 col-form-label"><a href="~/TipoProyecto">Tipo de Proyecto</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoProyecto" name="cbTipoProyecto"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ZonaNaval" class="col-3 col-form-label"><a href="~/ZonaNaval">Zona Naval</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbZonaNaval" name="cbZonaNaval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="AreaDiperadmon" class="col-3 col-form-label"><a href="~/AreaDiperadmon">Área Usuaria(UU.DD)</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbAreaDiperadmon" name="cbAreaDiperadmon"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MontoContractual" class="col-3 col-form-label">Monto contractua</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMontoContractual" name="txtMontoContractual" placeholder="Monto contractua" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaIEvaluacionP" class="col-3 col-form-label">Fecha Inicio de Evaluación del Proyecto</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaIEvaluacionP" name="txtFechaIEvaluacionP" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PorcentajeAvanceP" class="col-3 col-form-label">Porcentaje Avance del Proyecto</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtPorcentajeAvanceP" name="txtPorcentajeAvanceP" placeholder="Porcentaje Avance del Proyecto" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DibinfraterEvaluacionExpedienteTecnicoObra">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="NombreProyecto" class="col-3 col-form-label">Solicitud Mantenimiento</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNombreProyectoe" name="txtNombreProyectoe" placeholder="Nombre del Proyecto" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="SituacionExpedienteT" class="col-3 col-form-label"><a href="~/SituacionExpedienteTecnico">Situación Expediente Técnico</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbSituacionExpedienteTe" name="cbSituacionExpedienteTe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoProceso" class="col-3 col-form-label"><a href="~/TipoProceso">Tipo de Proceso</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoProcesoe" name="cbTipoProcesoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoProyecto" class="col-3 col-form-label"><a href="~/TipoProyecto">Tipo de Proyecto</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoProyectoe" name="cbTipoProyectoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ZonaNaval" class="col-3 col-form-label"><a href="~/ZonaNaval">Zona Naval</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbZonaNavale" name="cbZonaNavale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="AreaDiperadmon" class="col-3 col-form-label"><a href="~/AreaDiperadmon">Área Usuaria(UU.DD)</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbAreaDiperadmone" name="cbAreaDiperadmone"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MontoContractual" class="col-3 col-form-label">Monto contractua</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMontoContractuale" name="txtMontoContractuale" placeholder="Monto contractua" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaIEvaluacionP" class="col-3 col-form-label">Fecha Inicio de Evaluación del Proyecto</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaIEvaluacionPe" name="txtFechaIEvaluacionPe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PorcentajeAvanceP" class="col-3 col-form-label">Porcentaje Avance del Proyecto</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtPorcentajeAvancePe" name="txtPorcentajeAvancePe" placeholder="Porcentaje Avance del Proyecto" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DibinfraterEvaluacionExpedienteTecnicoObra">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/DibinfraterEvaluacionExpedienteTecnicoObra" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDibinfraterEvaluacionExpedienteTecnicoObra()" />
+    <div class="row align-items-start mb-4">
+        <div class="col">
+            <select class="form-select form-control-sm" id="cargas" name="cargas"></select>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" id="btn_search">Buscar</button>
+            <button class="btn btn-primary" id="btn_all">Mostrar Todos</button>
+            <button class="btn btn-danger" onclick="eliminarCarga()">Eliminar Carga</button>
+        </div>
+    </div>
+    <hr/>
+    <table class="table table-striped" id="tblDibinfraterEvaluacionExpedienteTecnicoObra" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Nombre del Proyecto</th>
+                <th>Situación Expediente Técnico</th>
+                <th>Tipo de Proceso</th>
+                <th>Tipo de Proyecto</th>
+                <th>Zona Naval</th>
+                <th>Área Usuaria(UU.DD)</th>
+                <th>Monto contractual</th>
+                <th>Fecha Inicio de Evaluación del Proyecto</th>
+                <th>Porcentaje Avance del Proyecto</th>
+                <th>Código Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/dibinfrater/dibinfrater-evaluacionexpedientetecnicoobra.js" asp-append-version="true"></script>
+}

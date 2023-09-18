@@ -1,0 +1,142 @@
+﻿@{
+    ViewData["Title"] = "CoeficientesPonderadosAMUFFMMs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/CoeficientePonderadoAMUFFMM" style="text-decoration:none;">Coeficientes Ponderados AMUFFMM</a></h1>
+
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="txtMunicion" class="col-3 col-form-label">Munición</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMunicion" name="txtMunicion" placeholder="Munición" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtCoeficiente" class="col-3 col-form-label">Coeficiente Ponderación</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCoeficiente" name="txtCoeficiente" placeholder="Coeficiente" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtExistencia" class="col-3 col-form-label">Existencia Munición</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtExistencia" name="txtExistencia" placeholder="Existencia Munición" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtRequerida" class="col-3 col-form-label">Munición Requerida</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtRequerida" name="txtRequerida" placeholder="Munición Requerida" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtPorcentaje" class="col-3 col-form-label">Total Porcentaje</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPorcentaje" name="txtPorcentaje" placeholder="Porcentaje" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/CoeficientePonderadoAMUFFMM">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="txtMunicione" class="col-3 col-form-label">Munición</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMunicione" name="txtMunicione" placeholder="Munición" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtCoeficientee" class="col-3 col-form-label">Coeficiente Ponderación</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCoeficientee" name="txtCoeficientee" placeholder="Coeficiente" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtExistenciae" class="col-3 col-form-label">Existencia Munición</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtExistenciae" name="txtExistenciae" placeholder="Existencia Munición" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtRequeridae" class="col-3 col-form-label">Munición Requerida</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtRequeridae" name="txtRequeridae" placeholder="Munición Requerida" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtPorcentajee" class="col-3 col-form-label">Total Porcentaje</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtPorcentajee" name="txtPorcentajee" placeholder="Porcentaje" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/CoeficientePonderadoAMUFFMM">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+
+<div id="listar">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaCoeficientePonderadoAMUFFMM()" />
+    <table class="table table-striped" id="tblCoeficientePonderadoAMUFFMMs" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Munición</th>
+                <th>Coeficiente Ponderación</th>
+                <th>Existencia Munición</th>
+                <th>Munición Requerida</th>
+                <th>Total Porcentaje</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/coeficienteponderadoAMUFFMM.js" asp-append-version="true"></script>
+}

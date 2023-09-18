@@ -1,0 +1,533 @@
+﻿@{
+    ViewData["Title"] = "Arribo de Naves";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/ComoperguardArriboNave/Individual" style="text-decoration:none;">Arribo de Naves</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="JefaturaDistritoCapitania" class="col-3 col-form-label"><a href="~/JefaturaDistritoCapitania">Jefatura De Distrito De Capitanias</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbJefaturaDistritoCapitania" name="cbJefaturaDistritoCapitania"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Capitania" class="col-3 col-form-label"><a href="~/Capitania">Capitania De Puerto</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbCapitania" name="cbCapitania"></select>
+                    </div>
+                </div>
+                <div class="divseccion">
+                    <div class="card-header">
+                        <label for="FechaDeArribo" class="col-3 col-form-label"> Fecha De Arribo</label>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="HoraArribo" class="col-3 col-form-label">Hora</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-sm" id="txtHoraArribo" name="txtHoraArribo" placeholder="Hora" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="DiaArribo" class="col-3 col-form-label">Dia</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtDiaArribo" name="txtDiaArribo" placeholder="Dia" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="Mes" class="col-3 col-form-label"><a href="~/Mes">Mes Nave/Persona</a></label>
+                        <div class="col-md-9">
+                            <select class="form-control form-select-sm" id="cbMes" name="cbMes"></select>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="AnioArribo" class="col-3 col-form-label">Año</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtAnioArribo" name="txtAnioArribo" placeholder="Año" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PuertoPeru" class="col-3 col-form-label"><a href="~/PuertoPeru">Puerto Arribo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbPuertoPeru" name="cbPuertoPeru"></select>
+                    </div>
+                </div>
+                <div class="divseccion">
+                    <div class="card-header">
+                        <label for="DatosDeLaNave" class="col-3 col-form-label">Datos De La Nave</label>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="IndicativoNave" class="col-3 col-form-label">Indicativo Llamada</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-sm" id="txtIndicativoNave" name="txtIndicativoNave" placeholder="Indicativo Llamada" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="NombreNave" class="col-3 col-form-label">Nombre</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-sm" id="txtNombreNave" name="txtNombreNave" placeholder="Nombre" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="PaisUbigeo" class="col-3 col-form-label"><a href="~/PaisUbigeo">Bandera</a></label>
+                        <div class="col-md-9">
+                            <select class="form-control form-select-sm" id="cbPaisUbigeo" name="cbPaisUbigeo"></select>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="TipoNave" class="col-3 col-form-label"><a href="~/TipoNave">Tipo</a></label>
+                        <div class="col-md-9">
+                            <select class="form-control form-select-sm" id="cbTipoNave" name="cbTipoNave"></select>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="NumeroOMI" class="col-3 col-form-label">N° OMI</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-sm" id="txtNumeroOMI" name="txtNumeroOMI" placeholder="N° OMI" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="AB" class="col-3 col-form-label">AB</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-sm" id="txtAB" name="txtAB" placeholder="AB" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="AgenciaMaritima" class="col-3 col-form-label">Agencia Marítima</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-sm" id="txtAgenciaMaritima" name="txtAgenciaMaritima" placeholder="Agencia Marítima" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="divseccion">
+                    <div class="card-header">
+                        <label for="PuertoDeProcedencia" class="col-3 col-form-label"> Puerto De Procedencia</label>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="PaisProcedencia" class="col-3 col-form-label"><a href="~/PaisUbigeo">Pais</a></label>
+                        <div class="col-md-9">
+                            <select class="form-control form-select-sm" id="cbPaisProcedencia" name="cbPaisProcedencia"></select>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="PuertoProcedencia" class="col-3 col-form-label">Puerto</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-sm" id="txtPuertoProcedencia" name="txtPuertoProcedencia" placeholder="Puerto" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="divseccion">
+                    <div class="card-header">
+                        <label for="Tripulantes" class="col-3 col-form-label">Tripulantes</label>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="TripulantesChilenos" class="col-3 col-form-label">Chilenos</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtTripulantesChilenos" name="txtTripulantesChilenos" placeholder="Chilenos" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="TripulantesEcuatorianos" class="col-3 col-form-label">Ecuatorianos</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtTripulantesEcuatorianos" name="txtTripulantesEcuatorianos" placeholder="Ecuatorianos" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="TripulantesTotal" class="col-3 col-form-label">Total</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtTripulantesTotal" name="txtTripulantesTotal" placeholder="Total" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="divseccion">
+                    <div class="card-header">
+                        <label for="Pasajeros" class="col-3 col-form-label">Pasajeros</label>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="PasajerosChilenos" class="col-3 col-form-label">Chilenos</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtPasajerosChilenos" name="txtPasajerosChilenos" placeholder="Chilenos" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="PasajerosEcuatorianos" class="col-3 col-form-label">Ecuatorianos</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtPasajerosEcuatorianos" name="txtPasajerosEcuatorianos" placeholder="Ecuatorianos" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="PasajerosTotal" class="col-3 col-form-label">Total</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtPasajerosTotal" name="txtPasajerosTotal" placeholder="Total" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="divseccion">
+                    <div class="card-header">
+                        <label for="CargaDesembarcadaPuerto" class="col-3 col-form-label">Carga Desembarcada En El Puerto</label>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="CantidadCargaDesembarcada" class="col-3 col-form-label">Cantidad</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtCantidadCargaDesembarcada" name="txtCantidadCargaDesembarcada" placeholder="Cantidad" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="UnidadMedida" class="col-3 col-form-label"><a href="~/UnidadMedida">Unidad De Medida</a></label>
+                        <div class="col-md-9">
+                            <select class="form-control form-select-sm" id="cbUnidadMedida" name="cbUnidadMedida"></select>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="TipoCarga" class="col-3 col-form-label"><a href="~/TipoCarga">Tipo de Carga</a></label>
+                        <div class="col-md-9">
+                            <select class="form-control form-select-sm" id="cbTipoCarga" name="cbTipoCarga"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="divseccion">
+                    <div class="card-header">
+                        <label for="CargaPeligrosaDesembarcadaPuerto" class="col-3 col-form-label"> Carga Peligrosa Desembarcada En El Puerto</label>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="CantidadCargaPeligrosa" class="col-3 col-form-label">Cantidad</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtCantidadCargaPeligrosa" name="txtCantidadCargaPeligrosa" placeholder="Cantidad" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="UnidadMedidaPeligrosa" class="col-3 col-form-label"><a href="~/UnidadMedida">Unidad de Medida</a></label>
+                        <div class="col-md-9">
+                            <select class="form-control form-select-sm" id="cbUnidadMedidaPeligrosa" name="cbUnidadMedidaPeligrosa"></select>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="TipoCargaPeligrosa" class="col-3 col-form-label">Tipo de Carga</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtTipoCargaPeligrosa" name="txtTipoCargaPeligrosa" placeholder="Tipo de Carga" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Observaciones" class="col-3 col-form-label">Observaciones</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtObservaciones" name="txtObservaciones" placeholder="Observaciones" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComoperguardArriboNave">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="JefaturaDistritoCapitania" class="col-3 col-form-label"><a href="~/JefaturaDistritoCapitania">Jefatura De Distrito De Capitanias</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbJefaturaDistritoCapitaniae" name="cbJefaturaDistritoCapitaniae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Capitania" class="col-3 col-form-label"><a href="~/Capitania">Capitania De Puerto</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbCapitaniae" name="cbCapitaniae"></select>
+                    </div>
+                </div>
+                <div class="divseccion">
+                    <div class="card-header">
+                        <label for="FechaDeArribo" class="col-3 col-form-label"> Fecha De Arribo</label>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="HoraArribo" class="col-3 col-form-label">Hora</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-sm" id="txtHoraArriboe" name="txtHoraArriboe" placeholder="Hora" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="DiaArribo" class="col-3 col-form-label">Dia</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtDiaArriboe" name="txtDiaArriboe" placeholder="Dia" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="Mes" class="col-3 col-form-label"><a href="~/Mes">Mes Nave/Persona</a></label>
+                        <div class="col-md-9">
+                            <select class="form-control form-select-sm" id="cbMese" name="cbMese"></select>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="AnioArribo" class="col-3 col-form-label">Año</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtAnioArriboe" name="txtAnioArriboe" placeholder="Año" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="PuertoPeru" class="col-3 col-form-label"><a href="~/PuertoPeru">Puerto Arribo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbPuertoPerue" name="cbPuertoPerue"></select>
+                    </div>
+                </div>
+                <div class="divseccion">
+                    <div class="card-header">
+                        <label for="DatosDeLaNave" class="col-3 col-form-label">Datos De La Nave</label>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="IndicativoNave" class="col-3 col-form-label">Indicativo Llamada</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-sm" id="txtIndicativoNavee" name="txtIndicativoNavee" placeholder="Indicativo Llamada" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="NombreNave" class="col-3 col-form-label">Nombre</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-sm" id="txtNombreNavee" name="txtNombreNavee" placeholder="Nombre" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="PaisUbigeo" class="col-3 col-form-label"><a href="~/PaisUbigeo">Bandera</a></label>
+                        <div class="col-md-9">
+                            <select class="form-control form-select-sm" id="cbPaisUbigeoe" name="cbPaisUbigeoe"></select>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="TipoNave" class="col-3 col-form-label"><a href="~/TipoNave">Tipo</a></label>
+                        <div class="col-md-9">
+                            <select class="form-control form-select-sm" id="cbTipoNavee" name="cbTipoNavee"></select>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="NumeroOMI" class="col-3 col-form-label">N° OMI</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-sm" id="txtNumeroOMIe" name="txtNumeroOMIe" placeholder="N° OMI" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="AB" class="col-3 col-form-label">AB</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-sm" id="txtAB" name="txtABe" placeholder="ABe" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="AgenciaMaritima" class="col-3 col-form-label">Agencia Marítima</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-sm" id="txtAgenciaMaritimae" name="txtAgenciaMaritimae" placeholder="Agencia Marítima" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="divseccion">
+                    <div class="card-header">
+                        <label for="PuertoDeProcedencia" class="col-3 col-form-label"> Puerto De Procedencia</label>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="PaisProcedencia" class="col-3 col-form-label"><a href="~/PaisUbigeo">Pais</a></label>
+                        <div class="col-md-9">
+                            <select class="form-control form-select-sm" id="cbPaisProcedenciae" name="cbPaisProcedenciae"></select>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="PuertoProcedencia" class="col-3 col-form-label">Puerto</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-sm" id="txtPuertoProcedenciae" name="txtPuertoProcedenciae" placeholder="Puerto" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="divseccion">
+                    <div class="card-header">
+                        <label for="Tripulantes" class="col-3 col-form-label">Tripulantes</label>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="TripulantesChilenos" class="col-3 col-form-label">Chilenos</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtTripulantesChilenose" name="txtTripulantesChilenose" placeholder="Chilenos" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="TripulantesEcuatorianos" class="col-3 col-form-label">Ecuatorianos</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtTripulantesEcuatorianose" name="txtTripulantesEcuatorianose" placeholder="Ecuatorianos" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="TripulantesTotal" class="col-3 col-form-label">Total</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtTripulantesTotale" name="txtTripulantesTotale" placeholder="Total" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="divseccion">
+                    <div class="card-header">
+                        <label for="Pasajeros" class="col-3 col-form-label">Pasajeros</label>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="PasajerosChilenos" class="col-3 col-form-label">Chilenos</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtPasajerosChilenose" name="txtPasajerosChilenose" placeholder="Chilenos" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="PasajerosEcuatorianos" class="col-3 col-form-label">Ecuatorianos</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtPasajerosEcuatorianose" name="txtPasajerosEcuatorianose" placeholder="Ecuatorianos" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="PasajerosTotal" class="col-3 col-form-label">Total</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtPasajerosTotale" name="txtPasajerosTotale" placeholder="Total" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="divseccion">
+                    <div class="card-header">
+                        <label for="CargaDesembarcadaPuerto" class="col-3 col-form-label">Carga Desembarcada En El Puerto</label>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="CantidadCargaDesembarcada" class="col-3 col-form-label">Cantidad</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtCantidadCargaDesembarcadae" name="txtCantidadCargaDesembarcadae" placeholder="Cantidad" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="UnidadMedida" class="col-3 col-form-label"><a href="~/UnidadMedida">Unidad De Medida</a></label>
+                        <div class="col-md-9">
+                            <select class="form-control form-select-sm" id="cbUnidadMedidae" name="cbUnidadMedidae"></select>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="TipoCarga" class="col-3 col-form-label"><a href="~/TipoCarga">Tipo de Carga</a></label>
+                        <div class="col-md-9">
+                            <select class="form-control form-select-sm" id="cbTipoCargae" name="cbTipoCargae"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="divseccion">
+                    <div class="card-header">
+                        <label for="CargaPeligrosaDesembarcadaPuerto" class="col-3 col-form-label"> Carga Peligrosa Desembarcada En El Puerto</label>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="CantidadCargaPeligrosa" class="col-3 col-form-label">Cantidad</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtCantidadCargaPeligrosae" name="txtCantidadCargaPeligrosae" placeholder="Cantidad" required>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="UnidadMedidaPeligrosa" class="col-3 col-form-label"><a href="~/UnidadMedida">Unidad de Medida</a></label>
+                        <div class="col-md-9">
+                            <select class="form-control form-select-sm" id="cbUnidadMedidaPeligrosae" name="cbUnidadMedidaPeligrosae"></select>
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-6">
+                        <label for="TipoCargaPeligrosa" class="col-3 col-form-label">Tipo de Carga</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control form-control-sm" id="txtTipoCargaPeligrosae" name="txtTipoCargaPeligrosae" placeholder="Tipo de Carga" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Observaciones" class="col-3 col-form-label">Observaciones</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtObservacionese" name="txtObservacionese" placeholder="Observaciones" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComoperguardArriboNave">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaComoperguardArriboNave()" />
+    <div class="dropdown">
+        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Modos de Carga :
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="~/ComoperguardArriboNave">Masiva</a>
+            <a class="dropdown-item" href="~/ComoperguardArriboNave/Individual">Individual</a>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblComoperguardArriboNave" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Jefatura De Distrito De Capitanias</th>
+                <th>Capitania De Puerto</th>
+                <th>Hora</th>
+                <th>Dia</th>
+                <th>Mes Nave/Persona</th>
+                <th>Año</th>
+                <th>Puerto Arribo</th>
+                <th>Indicativo Llamada</th>
+                <th>Nombre</th>
+                <th>Bandera</th>
+                <th>Tipo</th>
+                <th>N° OMI</th>
+                <th>AB</th>
+                <th>Agencia Marítima</th>
+                <th>Pais</th>
+                <th>Puerto</th>
+                <th>Chilenos</th>
+                <th>Ecuatorianos</th>
+                <th>Total</th>
+                <th>Chilenos</th>
+                <th>Ecuatorianos</th>
+                <th>Total</th>
+                <th>Cantidad</th>
+                <th>Unidad De Medida</th>
+                <th>Tipo de Carga</th>
+                <th>Cantidad</th>
+                <th>Unidad de Medida</th>
+                <th>Tipo de Carga</th>
+                <th>Observaciones</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/comoperguard/comoperguard-arribonave.js" asp-append-version="true"></script>
+}

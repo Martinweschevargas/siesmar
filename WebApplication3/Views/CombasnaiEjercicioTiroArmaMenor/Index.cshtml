@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Formato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1><a href="~/CombasnaiEjercicioTiroArmaMenor" style="text-decoration:none;">Ejercicios de Tiro con Armas Menores</a></h1>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header">
+                    <a href="~/CombasnaiEjercicioTiroArmaMenor/Individual" class="btn btn-primary">Ir Carga Individual</a>
+                </div>
+            </div>
+            <div class="card-body" >
+                <div class="row">
+                    <div class="col-sm-4">
+                        <input class="form-control-file" type="file" id="inputExcel" />
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-warning" onclick="mostrarDatos()">Mostrar Datos"</button>
+                        <button class="btn btn-success" onclick="enviarDatos()">Enviar Datos a BD</button>
+                        <label>Numero de Registros : </label><span id="NumRegistros"></span>
+                    </div>
+                </div>
+                <hr />
+                <div class="row" style="overflow:scroll">
+                    <div class="col-sm-12">
+                        <table id="tbData" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Tipo de Personal</th>
+                                    <th>Grado</th>
+                                    <th>Fecha</th>
+                                    <th>Tipo de Armamento Mentor</th>
+                                    <th>Posición</th>
+                                    <th>Distancia mts</th>
+                                    <th>Cantidad de Tiro</th>
+                                    <th>Porcentaje de Evaluación</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Scripts{
+    <script src="/js/combasnai/combasnai-ejerciciotiroarmamenor.js" asp-append-version="true"></script>
+}

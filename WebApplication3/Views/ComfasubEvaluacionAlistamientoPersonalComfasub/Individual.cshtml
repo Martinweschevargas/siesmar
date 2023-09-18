@@ -1,0 +1,371 @@
+﻿@{
+    ViewData["Title"] = "Evaluación del alistamiento de personal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>
+    <a href="~/ComfasubEvaluacionAlistamientoPersonalComfasub/Individual" style="text-decoration:none;">
+        Evaluación del alistamiento de personal
+    </a>
+</h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <select class="form-select form-control-sm" id="cargasR" name="cargasR"></select>
+                </div>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                </div>
+            </div>
+            <div class="row mt-2">
+
+                <div class="form-group row col-md-6">
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Unidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNaval" name="cbUnidadNaval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaEvaluacion" class="col-3 col-form-label">Fecha</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaEvaluacion" name="txtFechaEvaluacion" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NombrePersonal" class="col-3 col-form-label">Nombres y Apellidos</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNombrePersonal" name="txtNombrePersonal" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DNIPersonal" class="col-3 col-form-label">DNI</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDNIPersonal" name="txtDNIPersonal" placeholder="DNI" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CIPPersonal" class="col-3 col-form-label">CIP</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCIPPersonal" name="txtCIPPersonal" placeholder="CIP" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Cargo" class="col-3 col-form-label"><a href="~/Cargo">Cargo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbCargo" name="cbCargo"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GradoPersonalMilitar" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado Esperado</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbGradoPersonalMilitar" name="cbGradoPersonalMilitar"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EspecialidadGenericaPersonal" class="col-3 col-form-label"><a href="~/EspecialidadGenericaPersonal">Especialidad Esperado</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEspecialidadGenericaPersonal" name="cbEspecialidadGenericaPersonal"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GradoPersonalMilitarActual" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado Actual</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbGradoPersonalMilitarActual" name="cbGradoPersonalMilitarActual"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EspecialidadGenericaPersonalActual" class="col-3 col-form-label"><a href="~/EspecialidadGenericaPersonalActual">Especialidad Actual</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEspecialidadGenericaPersonalActual" name="cbEspecialidadGenericaPersonalActual"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GradoJerarquico" class="col-3 col-form-label">Grado Jerárquico</label>
+                    <div class="col-md-9">
+                        <select type="text" class="form-control form-control-sm" id="txtGradoJerarquico" name="txtGradoJerarquico">
+                            <option value="1">Posee grado adecuado</option>
+                            <option value="0.75">No posee grado adecuado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ServicioExperiencia" class="col-3 col-form-label">Servicio o experiencia</label>
+                    <div class="col-md-9">
+                        <select type="text" class="form-control form-control-sm" id="txtServicioExperiencia" name="txtServicioExperiencia">
+                            <option value="1">Experiencia adecuada</option>
+                            <option value="0.75">Sin experiencia adecuada</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EspecializacionProfesional" class="col-3 col-form-label">Especialización profesional o técnica complementaria</label>
+                    <div class="col-md-9">
+                        <select type="text" class="form-control form-control-sm" id="txtEspecializacionProfesional" name="txtEspecializacionProfesional">
+                            <option value="1">Cuenta con especializaciones profesionales/especializaciones técnicas</option>
+                            <option value="0.75">Sin especializaciones profesionales/especializaciones técnicas</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CursoProfesionalRequerido" class="col-3 col-form-label">Cursos profesionales requeridos</label>
+                    <div class="col-md-9">
+                        <select type="text" class="form-control form-control-sm" id="txtCursoProfesionalRequerido" name="txtCursoProfesionalRequerido">
+                            <option value="0.50">Cuenta con los cursos profesionales (requeridos)</option>
+                            <option value="0.25">No cuenta con cursos profesionales (requeridos)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label">Destaque Dependencia</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDependencia" name="txtDependencia" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaInicioDestaque" class="col-3 col-form-label">Fecha inicio del destaque</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaInicioDestaque" name="txtFechaInicioDestaque" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaFinDestaque" class="col-3 col-form-label">Fecha fin del destaque</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaFinDestaque" name="txtFechaFinDestaque" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TiempoEmbarque" class="col-3 col-form-label">Tiempo de embarque</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtTiempoEmbarque" name="txtTiempoEmbarque" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Despliegue" class="col-3 col-form-label">Despliegues y comisiones al extranjero</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDespliegue" name="txtDespliegue" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComfasubEvaluacionAlistamientoPersonalComfasub">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+
+                <div class="form-group row col-md-6">
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Nombre unidad</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNavale" name="cbUnidadNavale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaEvaluacion" class="col-3 col-form-label">FECHA</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaEvaluacione" name="txtFechaEvaluacione" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NombrePersonal" class="col-3 col-form-label">Nombres y Apellidos</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNombrePersonale" name="txtNombrePersonale" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="DNIPersonal" class="col-3 col-form-label">DNI</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtDNIPersonale" name="txtDNIPersonale" placeholder="DNI" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CIPPersonal" class="col-3 col-form-label">CIP</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCIPPersonale" name="txtCIPPersonale" placeholder="CIP" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Cargo" class="col-3 col-form-label"><a href="~/Cargo">Cargo</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbCargoe" name="cbCargoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GradoPersonalMilitar" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado Esperado</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbGradoPersonalMilitare" name="cbGradoPersonalMilitare"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EspecialidadGenericaPersonal" class="col-3 col-form-label"><a href="~/EspecialidadGenericaPersonal">Especialidad Esperado</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEspecialidadGenericaPersonale" name="cbEspecialidadGenericaPersonale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GradoPersonalMilitarActual" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado Actual</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbGradoPersonalMilitarActuale" name="cbGradoPersonalMilitarActuale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EspecialidadGenericaPersonalActual" class="col-3 col-form-label"><a href="~/EspecialidadGenericaPersonalActual">Especialidad Actual</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEspecialidadGenericaPersonalActuale" name="cbEspecialidadGenericaPersonalActuale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="GradoJerarquico" class="col-3 col-form-label">Grado Jerárquico</label>
+                    <div class="col-md-9">
+                        <select type="text" class="form-control form-control-sm" id="txtGradoJerarquicoe" name="txtGradoJerarquicoe">
+                            <option value="1">SI Posee grado adecuado</option>
+                            <option value="0.75">No posee grado adecuado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ServicioExperiencia" class="col-3 col-form-label">Servicio o experiencia</label>
+                    <div class="col-md-9">
+                        <select type="text" class="form-control form-control-sm" id="txtServicioExperienciae" name="txtServicioExperienciae">
+                            <option value="1">Experiencia adecuada</option>
+                            <option value="0.75">Sin experiencia adecuada</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EspecializacionProfesional" class="col-3 col-form-label">Especialización profesional o técnica complementaria</label>
+                    <div class="col-md-9">
+                        <select type="text" class="form-control form-control-sm" id="txtEspecializacionProfesionale" name="txtEspecializacionProfesionale">
+                            <option value="1">Cuenta con especializaciones profesionales/especializaciones técnicas</option>
+                            <option value="0.75">Sin especializaciones profesionales/especializaciones técnicas</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CursoProfesionalRequerido" class="col-3 col-form-label">Cursos profesionales requeridos</label>
+                    <div class="col-md-9">
+                        <select type="text" class="form-control form-control-sm" id="txtCursoProfesionalRequeridoe" name="txtCursoProfesionalRequeridoe">
+                            <option value="0.50">Cuenta con los cursos profesionales (requeridos)</option>
+                            <option value="0.25">No cuenta con cursos profesionales (requeridos)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label">Destaque Dependencia</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDependenciae" name="txtDependenciae" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaInicioDestaque" class="col-3 col-form-label">Fecha inicio del destaque</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaInicioDestaquee" name="txtFechaInicioDestaquee" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaFinDestaque" class="col-3 col-form-label">Fecha fin del destaque</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaFinDestaquee" name="txtFechaFinDestaquee" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TiempoEmbarque" class="col-3 col-form-label">Tiempo de embarque</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtTiempoEmbarquee" name="txtTiempoEmbarquee" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Despliegue" class="col-3 col-form-label">Despliegues y comisiones al extranjero</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDesplieguee" name="txtDesplieguee" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComfasubEvaluacionAlistamientoPersonalComfasub/Individual">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/ComfasubEvaluacionAlistamientoPersonalComfasub" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaComfasubEvaluacionAlistamientoPersonalComfasub()" />
+    <div class="row align-items-start">
+        <div class="col">
+            <select class="form-select form-control-sm" id="cargas" name="cargas"></select>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" id="btn_search">Buscar</button>
+            <button class="btn btn-primary" id="btn_all">Mostrar Todos</button>
+            <button class="btn btn-danger" onclick="eliminarCarga()">Eliminar Carga</button>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblComfasubEvaluacionAlistamientoPersonalComfasub" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Unidad</th>
+                <th>Fecha</th>
+                <th>Nombre y Apellidos</th>
+                <th>DNI</th>
+                <th>CIP</th>
+                <th>Cargo</th>
+                <th>Grado Esperado</th>
+                <th>Especialidad Esperado</th>
+                <th>Grado Actual</th>
+                <th>Especialidad Actual</th>
+                <th>Grado Jerárquico</th>
+                <th>Servicio o experiencia</th>
+                <th>Especialización profesional o técnica complementaria</th>
+                <th>Cursos profesionales requeridos</th>
+                <th>Destaque Dependencia</th>
+                <th>Fecha inicio del destaque</th>
+                <th>Fecha fin del destaque</th>
+                <th>Tiempo de embarque</th>
+                <th>Despliegues y comisiones al extranjero</th>
+                <th>Código Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/comfasub/comfasub-evaluacionalistamientopersonalcomfasub.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,306 @@
+﻿@{
+    ViewData["Title"] = "Proyectos de Inversion e Inversiones no Ligadas a Proyectos (PI e IOARR)";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/DirpronavInversionPIeIOARR/Individual" style="text-decoration:none;">Proyectos de Inversion e Inversiones no Ligadas a Proyectos (PI e IOARR)</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <select class="form-select form-control-sm" id="cargasR" name="cargasR"></select>
+                </div>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="CodigoUnificado" class="col-3 col-form-label">Código Unificado</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCodigoUnificado" name="txtCodigoUnificado" placeholder="Código Unificado" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NombreInversion" class="col-3 col-form-label">Nombre de Inversión</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNombreInversion" name="txtNombreInversion" placeholder="Nombre de Inversión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ClaseInversion" class="col-3 col-form-label"><a href="~/ClaseInversion">Clase de Inversión</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbClaseInversion" name="cbClaseInversion"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MontoInversionInicial" class="col-3 col-form-label">Monto de Inversión Inicial</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMontoInversionInicial" name="txtMontoInversionInicial" placeholder="Monto de Inversión Inicial" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MontoInversionModificado" class="col-3 col-form-label">Monto de Inversión Modificado</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMontoInversionModificado" name="txtMontoInversionModificado" placeholder="Monto de Inversión Modificado" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaViabilidadProyecto" class="col-3 col-form-label">Fecha de Viabilidad del Proyecto</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaViabilidadProyecto" name="txtFechaViabilidadProyecto" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FaseInversion" class="col-3 col-form-label"><a href="~/FaseInversion">Fases de Inversión</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbFaseInversion" name="cbFaseInversion"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="UnidadFormuladora" class="col-3 col-form-label">Unidad Formuladora</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtUnidadFormuladora" name="txtUnidadFormuladora" placeholder="Unidad Formuladora" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="UnidadEjecutora" class="col-3 col-form-label">Unidad Ejecutora</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtUnidadEjecutora" name="txtUnidadEjecutora" placeholder="Unidad Ejecutora" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label"><a href="~/UnidaNaval">Unidad Naval </a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidNaval" name="cbUnidNaval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EstadoFase1FormEval" class="col-3 col-form-label"><a href="~/EstadoFase1FormEval">Estado de la Fase 1: Formulación y Evaluación</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEstadoFase1FormEval" name="cbEstadoFase1FormEval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EstadoFase2Ejecucion" class="col-3 col-form-label"><a href="~/EstadoFase2Ejecucion">Estado de la Fase 2: Ejecución</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEstadoFase2Ejecucion" name="cbEstadoFase2Ejecucion"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EstadoFase3Funcionamiento" class="col-3 col-form-label"><a href="~/EstadoFase3Funcionamiento">Estado de la Fase 3: Funcionamiento</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEstadoFase3Funcionamiento" name="cbEstadoFase3Funcionamiento"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FuenteFinanciamiento" class="col-3 col-form-label"><a href="~/FuenteFinanciamiento">Fuente de Financiamiento</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbFuenteFinanciamiento" name="cbFuenteFinanciamiento"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaTerminoEjecucionInversion" class="col-3 col-form-label">Fecha de término ejecución de inversión</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaTerminoEjecucionInversion" name="txtFechaTerminoEjecucionInversion" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaUltimaActualizacionProyecto" class="col-3 col-form-label">Fecha última actualización del Proyecto</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaUltimaActualizacionProyecto" name="txtFechaUltimaActualizacionProyecto" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DirpronavInversionPIeIOARR">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="CodigoUnificado" class="col-3 col-form-label">Código Unificado</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCodigoUnificadoe" name="txtCodigoUnificadoe" placeholder="Código Unificado" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NombreInversion" class="col-3 col-form-label">Nombre de Inversión</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNombreInversione" name="txtNombreInversione" placeholder="Nombre de Inversión" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ClaseInversion" class="col-3 col-form-label"><a href="~/">Clase de Inversión</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbClaseInversione" name="cbClaseInversione"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MontoInversionInicial" class="col-3 col-form-label">Monto de Inversión Inicial</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMontoInversionIniciale" name="txtMontoInversionIniciale" placeholder="Monto de Inversión Inicial" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="MontoInversionModificado" class="col-3 col-form-label">Monto de Inversión Modificado</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtMontoInversionModificadoe" name="txtMontoInversionModificadoe" placeholder="Monto de Inversión Modificado" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaViabilidadProyecto" class="col-3 col-form-label">Fecha de Viabilidad del Proyecto</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaViabilidadProyectoe" name="txtFechaViabilidadProyectoe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FaseInversion" class="col-3 col-form-label"><a href="~/">Fases de Inversión</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbFaseInversione" name="cbFaseInversione"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="UnidadFormuladora" class="col-3 col-form-label">Unidad Formuladora</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtUnidadFormuladorae" name="txtUnidadFormuladorae" placeholder="Unidad Formuladora" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="UnidadEjecutora" class="col-3 col-form-label">Unidad Ejecutora</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtUnidadEjecutorae" name="txtUnidadEjecutorae" placeholder="Unidad Ejecutora" required>
+                    </div>
+                </div>
+              <div class="form-group row col-md-6">
+                    <label for="Dependencia" class="col-3 col-form-label"><a href="~/UnidaNaval">Unidad Naval </a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidNaval" name="cbUnidNaval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EstadoFase1FormEval" class="col-3 col-form-label"><a href="~/">Estado de la Fase 1: Formulación y Evaluación</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEstadoFase1FormEvale" name="cbEstadoFase1FormEvale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EstadoFase2Ejecucion" class="col-3 col-form-label"><a href="~/">Estado de la Fase 2: Ejecución</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEstadoFase2Ejecucione" name="cbEstadoFase2Ejecucione"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EstadoFase3Funcionamiento" class="col-3 col-form-label"><a href="~/">Estado de la Fase 3: Funcionamiento</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEstadoFase3Funcionamientoe" name="cbEstadoFase3Funcionamientoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FuenteFinanciamiento" class="col-3 col-form-label"><a href="~/">Fuente de Financiamiento</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbFuenteFinanciamientoe" name="cbFuenteFinanciamientoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaTerminoEjecucionInversion" class="col-3 col-form-label">Fecha de término ejecución de inversión</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaTerminoEjecucionInversione" name="txtFechaTerminoEjecucionInversione" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaUltimaActualizacionProyecto" class="col-3 col-form-label">Fecha última actualización del Proyecto</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaUltimaActualizacionProyectoe" name="txtFechaUltimaActualizacionProyectoe" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DirpronavInversionPIeIOARR">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/DirpronavInversionPIeIOARR" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDirpronavInversionPIeIOARR()" />
+    <div class="row align-items-start">
+        <div class="col">
+            <select class="form-select form-control-sm" id="cargas" name="cargas"></select>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" id="btn_search">Buscar</button>
+            <button class="btn btn-primary" id="btn_all">Mostrar Todos</button>
+            <button class="btn btn-danger" onclick="eliminarCarga()">Eliminar Carga</button>
+        </div>
+    </div>
+    <hr />
+    <table class="table table-striped" id="tblDirpronavInversionPIeIOARR" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Código Unificado</th>
+                <th>Nombre de Inversión</th>
+                <th>Clase de Inversión</th>
+                <th>Monto de Inversión Inicial</th>
+                <th>Monto de Inversión Modificado</th>
+                <th>Fecha de Viabilidad del Proyecto</th>
+                <th>Fases de Inversión</th>
+                <th>Unidad Formuladora</th>
+                <th>Unidad Ejecutora</th>
+                <th>Unidad Naval </th>
+                <th>Estado de la Fase 1: Formulación y Evaluación</th>
+                <th>Estado de la Fase 2: Ejecución</th>
+                <th>Estado de la Fase 3: Funcionamiento</th>
+                <th>Fuente de Financiamiento</th>
+                <th>Fecha de término ejecución de inversión</th>
+                <th>Fecha última actualización del Proyecto</th>
+                <th>Código Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/dirpronav/dirpronav-inversionpieioarr.js" asp-append-version="true"></script>
+}

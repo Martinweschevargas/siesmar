@@ -1,0 +1,13 @@
+.vs
+WebApplication3/bin
+WebApplication3/obj
+Proyecto.BLL/obj
+Proyecto.BLL/bin
+Proyecto.DAL/obj
+Proyecto.DAL/bin
+Proyecto.Entities/obj
+Proyecto.Entities/bin
+WcfService1/bin
+WcfService1/obj
+Marina.Siesmar.Utilitarios/bin
+Marina.Siesmar.Utilitarios/obj

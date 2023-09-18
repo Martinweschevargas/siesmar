@@ -1,0 +1,221 @@
+﻿@{
+    ViewData["Title"] = "Proceso de Internamiento ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/DirnotematProcesoInternamiento/Individual" style="text-decoration:none;">Proceso de Internamiento </a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <select class="form-select form-control-sm" id="cargasR" name="cargasR"></select>
+                </div>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="NombreProceso" class="col-3 col-form-label">Nombre Proceso</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNombreProceso" name="txtNombreProceso" placeholder="Nombre Proceso" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NroContrato" class="col-3 col-form-label">Nro Contrato</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNroContrato" name="txtNroContrato" placeholder="Nro Contrato" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoProceso" class="col-3 col-form-label"><a href="~/TipoProcesoDirnotemat" style="text-decoration:none;">Tipo Proceso </a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbTipoProceso" name="cbTipoProceso"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NroProcesoI" class="col-3 col-form-label">Nro Proceso Internamiento</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNroProcesoI" name="txtNroProcesoI" placeholder="Nro Proceso Internamiento" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NroGuiaProceso" class="col-3 col-form-label">Nro Guia Proceso</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNroGuiaProceso" name="txtNroGuiaProceso" placeholder="Nro Guia Proceso" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaIngreso" class="col-3 col-form-label">Fecha Ingreso</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaIngreso" name="txtFechaIngreso"  required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TiempoEvaluacion" class="col-3 col-form-label">Tiempo Evaluación</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtTiempoEvaluacion" name="txtTiempoEvaluacion" placeholder="Tiempo Evaluación" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ResultadoEvaluacion" class="col-3 col-form-label">Resultado Evaluación</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtResultadoEvaluacion" name="txtResultadoEvaluacion" data-placeholder="Seleccione ...">
+                            <option value="Aprobado">Aprobado</option>
+                            <option value="Rechazado">Rechazado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Laboratorio" class="col-3 col-form-label">Laboratorio</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtLaboratorio" name="txtLaboratorio" placeholder="Laboratorio" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DirnotematProcesoInternamiento">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="NombreProceso" class="col-3 col-form-label">Nombre Proceso</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNombreProcesoe" name="txtNombreProcesoe" placeholder="Nombre Proceso" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NroContrato" class="col-3 col-form-label">Nro Contrato</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNroContratoe" name="txtNroContratoe" placeholder="Nro Contrato" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TipoProceso" class="col-3 col-form-label"><a href="~/TipoProcesoDirnotemat" style="text-decoration:none;">Tipo Proceso </a></label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbTipoProcesoe" name="cbTipoProcesoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NroProcesoI" class="col-3 col-form-label">Nro Proceso Internamiento</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNroProcesoIe" name="txtNroProcesoIe" placeholder="Nro Proceso Internamiento" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NroGuiaProceso" class="col-3 col-form-label">Nro Guia Proceso</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtNroGuiaProcesoe" name="txtNroGuiaProcesoe" placeholder="Nro Guia Proceso" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaIngreso" class="col-3 col-form-label">Fecha Ingreso</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaIngresoe" name="txtFechaIngresoe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TiempoEvaluacion" class="col-3 col-form-label">Tiempo Evaluación</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtTiempoEvaluacione" name="txtTiempoEvaluacione" placeholder="Tiempo Evaluación" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="ResultadoEvaluacion" class="col-3 col-form-label">Resultado Evaluación</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="txtResultadoEvaluacione" name="txtResultadoEvaluacione" data-placeholder="Seleccione ...">
+                            <option value="Aprobado">Aprobado</option>
+                            <option value="Rechazado">Rechazado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Laboratorio" class="col-3 col-form-label">Laboratorio</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtLaboratorioe" name="txtLaboratorioe" placeholder="Laboratorio" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DirnotematProcesoInternamiento">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/DirnotematProcesoInternamiento" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDirnotematProcesoInternamiento()" />
+    <div class="row align-items-start">
+        <div class="col">
+            <select class="form-select form-control-sm" id="cargas" name="cargas"></select>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" id="btn_search">Buscar</button>
+            <button class="btn btn-primary" id="btn_all">Mostrar Todos</button>
+            <button class="btn btn-danger" onclick="eliminarCarga()">Eliminar Carga</button>
+        </div>
+    </div>
+    <hr />
+    <table class="table table-striped" id="tblDirnotematProcesoInternamiento" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Nombre Proceso</th>
+                <th>Nro Contrato</th>
+                <th>Tipo Proceso </th>
+                <th>Nro Proceso Internamiento</th>
+                <th>Nro Guia Proceso</th>
+                <th>Fecha Ingreso </th>
+                <th>Tiempo Evaluación</th>
+                <th>Resultado Evaluación</th>
+                <th>Laboratorio CT </th>
+                <th>Código Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+
+@section Scripts{
+    <script src="/js/dirnotemat/dirnotemat-procesointernaniento.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,142 @@
+﻿@{
+    ViewData["Title"] = "SituacionOperatividadNaves";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/SituacionOperatividadNave" style="text-decoration:none;">Situacion Operatividad Naves</a></h1>
+
+
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="txtNave" class="col-3 col-form-label">Nave</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="txtNave" name="txtNave" placeholder="Nave" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtCasco" class="col-3 col-form-label">N° Casco</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="txtCasco" name="txtCasco" placeholder="N° Casco" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtPlataforma" class="col-3 col-form-label">Plataforma</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="txtPlataforma" name="txtPlataforma" placeholder="Plataforma" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtDependencia" class="col-3 col-form-label">Codigo Dependencia</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="txtDependencia" name="txtDependencia" placeholder="Codigo Dependencia" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/SituacionOperatividadNave">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+</div>
+
+
+
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                 <div class="form-group row col-md-6">
+                    <label for="txtNave" class="col-3 col-form-label">Nave</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="txtNavee" name="txtNavee" placeholder="Nave" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtCasco" class="col-3 col-form-label">N° Casco</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="txtCascoe" name="txtCascoe" placeholder="N° Casco" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtPlataforma" class="col-3 col-form-label">Plataforma</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="txtPlataformae" name="txtPlataformae" placeholder="Plataforma" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtDependencia" class="col-3 col-form-label">Codigo Dependencia</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="txtDependenciae" name="txtDependenciae" placeholder="Codigo Dependencia" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/SituacionOperatividadNave">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+</div>
+
+
+<div id="listar">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaSituacionOperatividadNave()" />
+    <table class="table table-striped" id="tblSituacionOperatividadNaves" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Nave</th>
+                <th>N° Casco</th>
+                <th>Tipo Plataforma</th>
+                <th>Código Dependencia</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/situacionoperatividadnave.js" asp-append-version="true"></script>
+}
+
+             
+
+
+

@@ -1,0 +1,118 @@
+﻿@{
+    ViewData["Title"] = "Formato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1><a href="~/DipermarRecursosApelacionReconsideracion" style="text-decoration:none;">Recursos de Apelación y Reconsideración Presentados</a></h1>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header">
+                    <a href="~/DipermarRecursosApelacionReconsideracion/Individual" class="btn btn-primary">Ir Carga Individual</a>
+                    <a href="~/DipermarRecursosApelacionReconsideracion/DownloadFile" class="btn btn-primary">Descargar Formato</a>
+                    <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ventanaModal">Reportes</a>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <input class="form-control form-control-sm" type="file" id="inputExcel" />
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-sm-6 text-center">
+                            <button class="btn btn-warning" onclick="mostrarDatos()">Previsualizar Datos</button>
+                        </div>
+                        <div class="col-sm-6 text-center">
+                            <button class="btn btn-success" onclick="enviarDatos()">Grabar Formato</button>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row" style="overflow:scroll">
+                    <div class="col-sm-12">
+                        <table class="table table-striped" id="tbData" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+                            <thead>
+                                <tr class="colorbg">
+                                    <th>Documento</th>
+                                    <th>Fecha Documento</th>
+                                    <th>Dependencia / domicilio</th>
+                                    <th>Fecha de Ingreso del Documento</th>
+                                    <th>Grado/Grupoocupacional</th>
+                                    <th>Tipo de recurso</th>
+                                    <th>Asunto</th>
+                                    <th>Descripción</th>
+                                    <th>Resultado</th>
+                                    <th>Documento resolutivo</th>
+                                    <th>Fecha Documento Resolutivo</th>
+                                    <th>Fecha de Notificación</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="ventanaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+                    <div class="card" style="width: 100%;">
+                        <div class="card-header nuevo">
+                            <h4>Reportes - DISPERMAR</h4>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onclick="optReporte(1)">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                RECURSOS DE APELACIÓN Y RECONSIDERACIÓN PRESENTADOS
+                            </label>
+                        </div>
+                        <div class="row">
+                            <div class="form-group row col-md-6">
+                                <label for="fechainicio" class="col-6 col-form-label">Fecha Inicio</label>
+                                <div class="col-md-6">
+                                    <input type="date" class="form-control form-control-sm" id="fechainicio" name="fechainicio" required>
+                                </div>
+                            </div>
+                            <div class="form-group row col-md-6">
+                                <label for="fechafin" class="col-6 col-form-label">Fecha Fin</label>
+                                <div class="col-md-6">
+                                    <input type="date" class="form-control form-control-sm" id="fechafin" name="fechafin" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:10px;margin-bottom:10px">
+                            <div class="col-md-6 text-center">
+                                <button type='button' id="btnReportView" class="btn btn-primary align-self-end">Ver</button>
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <button type="button" class="btn btn-danger align-self-end" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal1-footer">
+            <button type="button" class="btn" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="/js/dipermar/dipermar-recursosapelacionreconsideracion.js" asp-append-version="true"></script>
+}

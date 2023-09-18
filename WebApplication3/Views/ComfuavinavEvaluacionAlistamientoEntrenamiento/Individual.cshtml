@@ -1,0 +1,216 @@
+﻿@{
+    ViewData["Title"] = "Reporte de Ejercicios para el Alistamiento de Entrenamiento de las Unidades Aeronavales";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>
+    <a href="~/ComfuavinavEvaluacionAlistamientoEntrenamiento/Individual" style="text-decoration:none;">
+        Reporte de Ejercicios para el Alistamiento de Entrenamiento de las Unidades Aeronavales
+    </a>
+</h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+
+                <div class="form-group row col-md-6">
+                    <label for="cbUnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Identificación unidad naval y/o dependencia de entrenamiento</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNaval" name="cbUnidadNaval"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NivelEntrenamiento" class="col-3 col-form-label">Nivel de entrenamiento</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtNivelEntrenamiento" name="txtNivelEntrenamiento">
+                            <option value="B">Básico</option>
+                            <option value="I">Intermedio</option>
+                            <option value="A">Avanzado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CapacidadOperativa" class="col-3 col-form-label"><a href="~/CapacidadOperativa">Capacidad Operativa</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbCapacidadOperativa" name="cbCapacidadOperativa"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="cbTipoCompetenciaTecnica" class="col-3 col-form-label"><a href="~/TipoCompetenciaTecnica">Tipo de competencia técnica</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoCompetenciaTecnica" name="cbTipoCompetenciaTecnica"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EjercicioEntrenamiento" class="col-3 col-form-label"><a href="~/EjercicioEntrenamiento">Ejercicio</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEjercicioEntrenamiento" name="cbEjercicioEntrenamiento"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtCodigoEjercicioEntrenamiento " class="col-3 col-form-label">Código de ejercicio</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCodigoEjercicioEntrenamiento" name="txtCodigoEjercicioEntrenamiento" disabled>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaPeriodoEvaluar" class="col-3 col-form-label">Fecha del periodo a evaluar el ejercicio</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaPeriodoEvaluar" name="txtFechaPeriodoEvaluar" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaRealizacionEjercicio" class="col-3 col-form-label">Fecha de realización del ejercicio</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaRealizacionEjercicio" name="txtFechaRealizacionEjercicio" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TiempoVigencia" class="col-3 col-form-label">Tiempo de vigencia (Días)</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtTiempoVigencia" name="txtTiempoVigencia" placeholder="Tiempo de vigencia (Días)" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComfuavinavEvaluacionAlistamientoEntrenamiento">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+
+                <div class="form-group row col-md-6">
+                    <label for="cbUnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Identificación unidad naval y/o dependencia de entrenamiento</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbUnidadNavale" name="cbUnidadNavale"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="NivelEntrenamiento" class="col-3 col-form-label">Nivel de entrenamiento</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="txtNivelEntrenamientoe" name="txtNivelEntrenamientoe">
+                            <option value="B">Básico</option>
+                            <option value="I">Intermedio</option>
+                            <option value="A">Avanzado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="CapacidadOperativa" class="col-3 col-form-label"><a href="~/CapacidadOperativa">Capacidad Operativa</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbCapacidadOperativae" name="cbCapacidadOperativae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="cbTipoCompetenciaTecnica" class="col-3 col-form-label"><a href="~/TipoCompetenciaTecnica">Tipo de competencia técnica</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbTipoCompetenciaTecnicae" name="cbTipoCompetenciaTecnicae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="EjercicioEntrenamiento" class="col-3 col-form-label"><a href="~/EjercicioEntrenamiento">Ejercicio</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbEjercicioEntrenamientoe" name="cbEjercicioEntrenamientoe"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtCodigoEjercicioEntrenamiento " class="col-3 col-form-label">Código de ejercicio</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCodigoEjercicioEntrenamientoe" name="txtCodigoEjercicioEntrenamientoe" disabled>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaPeriodoEvaluar" class="col-3 col-form-label">Fecha del periodo a evaluar el ejercicio</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaPeriodoEvaluare" name="txtFechaPeriodoEvaluare" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="FechaRealizacionEjercicio" class="col-3 col-form-label">Fecha de realización del ejercicio</label>
+                    <div class="col-md-9">
+                        <input type="date" class="form-control form-control-sm" id="txtFechaRealizacionEjercicioe" name="txtFechaRealizacionEjercicioe" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="TiempoVigencia" class="col-3 col-form-label">Tiempo de vigencia (Días)</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtTiempoVigenciae" name="txtTiempoVigenciae" placeholder="Tiempo de vigencia (Días)" required>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/ComfuavinavEvaluacionAlistamientoEntrenamiento/Individual">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaComfuavinavEvaluacionAlistamientoEntrenamiento()" />
+    <div class="dropdown">
+        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Modos de Carga :
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="~/ComfuavinavEvaluacionAlistamientoEntrenamiento">Masiva</a>
+            <a class="dropdown-item" href="~/ComfuavinavEvaluacionAlistamientoEntrenamiento/Individual">Individual</a>
+        </div>
+    </div>
+    <table class="table table-striped" id="tblComfuavinavEvaluacionAlistamientoEntrenamiento" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Identificación unidad naval y/o dependencia de entrenamiento</th>
+                <th>Nivel de entrenamiento</th>
+                <th>Capacidad Operativa</th>
+                <th>Tipo de competencia técnica</th>
+                <th>Código de ejercicio</th>
+                <th>Ejercicio</th>
+                <th>Fecha del periodo a evaluar el ejercicio</th>
+                <th>Fecha de realización del ejercicio</th>
+                <th>Tiempo de vigencia (Días)</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/comfuavinav/comfuavinav-evaluacionalistamientoentrenamiento.js" asp-append-version="true"></script>
+}

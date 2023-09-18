@@ -1,0 +1,122 @@
+﻿@{
+    ViewData["Title"] = "UnidadesTiposAeronaves";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1><a href="~/UnidadTipoAeronave" style="text-decoration:none;">Unidades Tipos Aeronaves</a></h1>
+
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="txtDescripcion" class="col-3 col-form-label">Unidad Tipo Aeronave</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDescripcion" name="txtDescripcion" placeholder="Descripción" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtCode" class="col-3 col-form-label">Código Unidad Tipo Aeronave</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCode" name="txtCode" placeholder="Código" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtFK" class="col-3 col-form-label">Tipo Aeronave</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbFK" name="cbFK"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/UnidadTipoAeronave">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+</div>
+
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="txtDescripcion" class="col-3 col-form-label">Unidad Tipo Aeronave</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtDescripcione" name="txtDescripcione" placeholder="Descripción" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtCode" class="col-3 col-form-label">Código Unidad Tipo Aeronave</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control form-control-sm" id="txtCodee" name="txtCodee" placeholder="Código" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="txtFK" class="col-3 col-form-label">Tipo Aeronave</label>
+                    <div class="col-md-9">
+                        <select class="form-select form-select-sm" id="cbFKe" name="cbFKe"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/UnidadTipoAeronave">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+</div>
+
+
+<div id="listar">
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaUnidadTipoAeronave()" />
+    <table class="table table-striped" id="tblUnidadTipoAeronaves" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Unidad Tipo Aeronave</th>
+                <th>Codigo Unidad Tipo Aeronave</th>
+                <th>Tipo Aeronave</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/unidadtipoaeronave.js" asp-append-version="true"></script>
+}

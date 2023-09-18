@@ -1,0 +1,225 @@
+﻿@{
+    ViewData["Title"] = "Consumo Racion Unidad Dependencia";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1><a href="~/DiabasteConsumoRacionUnidadDependencia/Individual" style="text-decoration:none;">Consumo de Raciones de las Unidades y Dependencias</a></h1>
+<div id="nuevo" style="display:none;">
+    <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Nuevo</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <select class="form-select form-control-sm" id="cargasR" name="cargasR"></select>
+                </div>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="Anio" class="col-3 col-form-label">Año</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtAnio" name="txtAnio" placeholder="Año" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Mes" class="col-3 col-form-label"><a href="~/Mes">Mes</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbMes" name="cbMes"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Area" class="col-3 col-form-label"><a href="~/AreaDiperadmon">Area Usuaria</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbArea" name="cbArea"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Racion" class="col-3 col-form-label"><a href="~/TipoRacion">Tipo de Racion</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbRacion" name="cbRacion"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Requerida" class="col-3 col-form-label">Número de raciones Requeridas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtRequerida" name="txtRequerida" placeholder="Número de raciones Requeridas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Consumida" class="col-3 col-form-label">Número de Raciones Consumidas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtConsumida" name="txtConsumida" placeholder="Número de Raciones Consumidas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Superior" class="col-3 col-form-label">Número personal Superior</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtSuperior" name="txtSuperior" placeholder="Número personal Superior" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Subalterno" class="col-3 col-form-label">Número de Personal Subalterno</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtSubalterno" name="txtSubalterno" placeholder="Número de Personal Subalterno" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Marineria" class="col-3 col-form-label">Número de Personal de Marinería</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtMarineria" name="txtMarineria" placeholder="Número de Personal de Marinería" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Cadete" class="col-3 col-form-label">Número de personal cadetes</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCadete" name="txtCadete" placeholder="Número de personal cadetes" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6 text-center">
+                    <button type="submit" class="btn btn-primary">Grabar</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <a class="btn btn-danger" href="~/DiabasteConsumoRacionUnidadDependencia">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="editar" style="display:none;">
+    <form class="form-actualizacion" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
+        <input type="hidden" id="txtCodigo" />
+        <div class="card" style="width: 100%;">
+            <div class="card-header nuevo">
+                <h4>Editar</h4>
+            </div>
+            <div class="row mt-2">
+                <div class="form-group row col-md-6">
+                    <label for="Anio" class="col-3 col-form-label">Año</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtAnioe" name="txtAnioe" placeholder="Año" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Mes" class="col-3 col-form-label"><a href="~/Mes">Mes</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbMese" name="cbMese"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Area" class="col-3 col-form-label"><a href="~/AreaDiperadmon">Area Usuaria</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbAreae" name="cbAreae"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Racion" class="col-3 col-form-label"><a href="~/TipoRacion">Tipo de Racion</a></label>
+                    <div class="col-md-9">
+                        <select class="form-control form-select-sm" id="cbRacione" name="cbRacione"></select>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Requerida" class="col-3 col-form-label">Número de raciones Requeridas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtRequeridae" name="txtRequeridae" placeholder="Número de raciones Requeridas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Consumida" class="col-3 col-form-label">Número de Raciones Consumidas</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtConsumidae" name="txtConsumidae" placeholder="Número de Raciones Consumidas" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Superior" class="col-3 col-form-label">Número personal Superior</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtSuperiore" name="txtSuperiore" placeholder="Número personal Superior" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Subalterno" class="col-3 col-form-label">Número de Personal Subalterno</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtSubalternoe" name="txtSubalternoe" placeholder="Número de Personal Subalterno" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Marineria" class="col-3 col-form-label">Número de Personal de Marinería</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtMarineriae" name="txtMarineriae" placeholder="Número de Personal de Marinería" required>
+                    </div>
+                </div>
+                <div class="form-group row col-md-6">
+                    <label for="Cadete" class="col-3 col-form-label">Número de personal cadetes</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control form-control-sm" id="txtCadetee" name="txtCadetee" placeholder="Número de personal cadetes" required>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6 text-center">
+                        <button type="submit" class="btn btn-primary">Grabar</button>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <a class="btn btn-danger" href="~/DiabasteConsumoRacionUnidadDependencia">Cancelar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="loader" id="loader-6" style="display:none;">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<div id="listar" style="overflow:scroll">
+    <p><a href="~/DiabasteConsumoRacionUnidadDependencia" class="btn btn-primary">Ir Carga Masiva</a></p>
+    <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaDiabasteConsumoRacionUnidadDependencia()" />
+    <div class="row align-items-start">
+        <div class="col">
+            <select class="form-select form-control-sm" id="cargas" name="cargas"></select>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" id="btn_search">Buscar</button>
+            <button class="btn btn-primary" id="btn_all">Mostrar Todos</button>
+            <button class="btn btn-danger" onclick="eliminarCarga()">Eliminar Carga</button>
+        </div>
+    </div>
+    <hr />
+    <table class="table table-striped" id="tblDiabasteConsumoRacionUnidadDependencia" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
+        <thead>
+            <tr class="colorbg">
+                <th>Código</th>
+                <th>Año</th>
+                <th>Mes</th>
+                <th>Area Usuaria</th>
+                <th>Tipo de Racion</th>
+                <th>Número de raciones Requeridas</th>
+                <th>Número de Raciones Consumidas</th>
+                <th>Número personal Superior</th>
+                <th>Número de Personal Subalterno</th>
+                <th>Número de Personal de Marinería</th>
+                <th>Número de personal cadetes</th>
+                <th>Código Carga</th>
+                <th colspan="2" class="text-center">Acciones</th>
+                <th class="ocultar"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="/js/diabaste/diabaste-consumoracionunidaddependencia.js" asp-append-version="true"></script>
+}
