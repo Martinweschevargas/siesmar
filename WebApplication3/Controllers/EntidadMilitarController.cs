@@ -34,13 +34,14 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Json(new { data = listaEntidadMilitars });
         }
 
-        public ActionResult InsertarEntidadMilitar(string DescEntidadMilitar, string CodigoEntidadMilitar)
+        public ActionResult InsertarEntidadMilitar(string DescEntidadMilitar, string AbrevEntidadMilitar, string CodigoEntidadMilitar)
         {
             var IND_OPERACION = "";
             try
             {
                 EntidadMilitarDTO entidadMilitarDTO = new();
                 entidadMilitarDTO.DescEntidadMilitar = DescEntidadMilitar;
+                entidadMilitarDTO.AbrevEntidadMilitar = AbrevEntidadMilitar;
                 entidadMilitarDTO.CodigoEntidadMilitar = CodigoEntidadMilitar;
                 entidadMilitarDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
@@ -61,11 +62,12 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Json(entidadMilitarBL.BuscarEntidadMilitarID(EntidadMilitarId));
         }
 
-        public ActionResult ActualizarEntidadMilitar(int EntidadMilitarId, string DescEntidadMilitar, string CodigoEntidadMilitar)
+        public ActionResult ActualizarEntidadMilitar(int EntidadMilitarId, string DescEntidadMilitar, string AbrevEntidadMilitar, string CodigoEntidadMilitar)
         {
             EntidadMilitarDTO entidadMilitarDTO = new();
             entidadMilitarDTO.EntidadMilitarId = EntidadMilitarId;
             entidadMilitarDTO.DescEntidadMilitar = DescEntidadMilitar;
+            entidadMilitarDTO.AbrevEntidadMilitar = AbrevEntidadMilitar;
             entidadMilitarDTO.CodigoEntidadMilitar = CodigoEntidadMilitar;
             entidadMilitarDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
