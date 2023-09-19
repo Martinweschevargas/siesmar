@@ -3,7 +3,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 <h1><a href="~/ComfuavinavAlistamientoMaterial/Individual" style="text-decoration:none;">Alistamiento de Material</a></h1>
 <div id="nuevo" style="display:none;">
     <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
@@ -33,27 +32,28 @@
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
-                    <label for="AlistamientoMaterialRequerido3N" class="col-3 col-form-label"><a href="~/AlistamientoMaterialRequerido3N">Ponderación Capacidad Intrínseca III Nivel</a></label>
+                    <label for="Alistamiento" class="col-3 col-form-label"><a href="~/AlistamientoMaterialRequerido3N">Alistamiento Material Requerido 3N</a></label>
                     <div class="col-md-9">
-                        <select class="form-control form-select-sm" id="cbAlistamientoMaterialRequerido3N" name="cbAlistamientoMaterialRequerido3N"></select>
+                        <select class="form-control form-select-sm" id="cbAlistamiento" name="cbAlistamiento"></select>
                     </div>
                 </div>
+
                 <div class="form-group row col-md-6">
                     <label for="Requerido" class="col-3 col-form-label">Requerido</label>
                     <div class="col-md-9">
-                        <input type="number" class="form-control form-control-sm" id="txtRequerido" name="txtRequerido" placeholder="Requerido" required>
+                        <input type="number" class="form-control form-control-sm" id="txtRequerido" name="txtRequerido" step=".01" placeholder="Requerido" required>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
                     <label for="Operativo" class="col-3 col-form-label">Operativo</label>
                     <div class="col-md-9">
-                        <input type="number" class="form-control form-control-sm" id="txtOperativo" name="txtOperativo" placeholder="Operativo" required>
+                        <input type="number" class="form-control form-control-sm" id="txtOperativo" name="txtOperativo" step=".01" placeholder="Operativo" required>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
                     <label for="PorcentajeOperativo" class="col-3 col-form-label">Porcentaje Operatividad</label>
                     <div class="col-md-9">
-                        <input type="number" class="form-control form-control-sm" id="txtPorcentajeOperatividad" name="txtPorcentajeOperatividad" placeholder="Porcentaje Operatividad" required>
+                        <input type="text" class="form-control form-control-sm" id="txtPorcentajeOperatividad" name="txtPorcentajeOperatividad" step=".01" placeholder="Porcentaje Operatividad" required>
                     </div>
                 </div>
 
@@ -96,27 +96,27 @@
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
-                    <label for="AlistamientoMaterialRequerido3N" class="col-3 col-form-label"><a href="~/AlistamientoMaterialRequerido3N">Alistamiento Material Requerido III</a></label>
+                    <label for="Alistamiento" class="col-3 col-form-label"><a href="~/AlistamientoMaterialRequerido3N">Alistamiento Material Requerido 3N</a></label>
                     <div class="col-md-9">
-                        <select class="form-control form-select-sm" id="cbAlistamientoMaterialRequerido3Ne" name="cbAlistamientoMaterialRequerido3Ne"></select>
+                        <select class="form-control form-select-sm" id="cbAlistamientoe" name="cbAlistamientoe"></select>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
                     <label for="Requerido" class="col-3 col-form-label">Requerido</label>
                     <div class="col-md-9">
-                        <input type="number" class="form-control form-control-sm" id="txtRequeridoe" name="txtRequeridoe" placeholder="Requerido" required>
+                        <input type="number" class="form-control form-control-sm" id="txtRequeridoe" name="txtRequeridoe" step=".01" placeholder="Requerido" required>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
                     <label for="Operativo" class="col-3 col-form-label">Operativo</label>
                     <div class="col-md-9">
-                        <input type="number" class="form-control form-control-sm" id="txtOperativoe" name="txtOperativoe" placeholder="Operativo" required>
+                        <input type="number" class="form-control form-control-sm" id="txtOperativoe" name="txtOperativoe" step=".01" placeholder="Operativo" required>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
                     <label for="PorcentajeOperatividad" class="col-3 col-form-label">Porcentaje Operatividad</label>
                     <div class="col-md-9">
-                        <input type="number" class="form-control form-control-sm" id="txtPorcentajeOperatividade" name="txtPorcentajeOperatividade" placeholder="Porcentaje Operatividad" required>
+                        <input type="text" class="form-control form-control-sm" id="txtPorcentajeOperatividade" name="txtPorcentajeOperatividade" step=".01" placeholder="Porcentaje Operatividad" required>
                     </div>
                 </div>
             </div>
@@ -154,12 +154,17 @@
         <thead>
             <tr class="colorbg">
                 <th>Código</th>
-                <th>Unidad</th>
+                <th>Unidad/Batallón</th>
                 <th>Capacidad Operativa</th>
-                <th>Alistamiento Material Requerido3N</th>
+                <th>Capacidad Intrínseca (I Nivel)</th>
+                <th>Ponderado (I Nivel)</th>
+                <th>Sub Clasificación (II Nivel)</th>
+                <th>Ponderado (II Nivel)</th>
+                <th>Sub Clasificación (III Nivel)</th>
+                <th>Ponderado (III Nivel)</th>
                 <th>Requerido</th>
                 <th>Operativo</th>
-                <th>Porcentaje Operatividad</th>
+                <th>(%) de operatividad</th>
                 <th>Código Carga</th>
                 <th colspan="2" class="text-center">Acciones</th>
                 <th class="ocultar"></th>

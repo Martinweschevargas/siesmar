@@ -41,7 +41,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
         [Breadcrumb(FromAction = "Index", Title = "Alistamiento de Material", FromController = typeof(HomeController))]
         public IActionResult Index()
         {
-            return View(); 
+            return View();
         }
 
         public IActionResult cargaCombs()
@@ -49,7 +49,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
             List<UnidadNavalDTO> unidadNavalDTO = unidadNavalBL.ObtenerUnidadNavals();
             List<CapacidadOperativaDTO> capacidadOperativaDTO = capacidadOperativaBL.ObtenerCapacidadOperativas();
             List<AlistamientoMaterialRequerido3NDTO> alistamientoMaterialRequerido3NDTO = alistamientoMaterialRequerido3NBL.ObtenerAlistamientoMaterialRequerido3Ns();
-            List<CargaDTO> listaCargas = cargaBL.ObtenerListaCargas("ComfuavinavAlistamientoMaterial");
+            List<CargaDTO> listaCargas = cargaBL.ObtenerListaCargas("AlistamientoMaterialComfuavinav");
             return Json(new { data1 = unidadNavalDTO, data2 = capacidadOperativaDTO, data3 = alistamientoMaterialRequerido3NDTO, data4 = listaCargas });
         }
 
@@ -204,7 +204,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
                     new DataColumn("CodigoAlistamientoMaterialRequerido3N", typeof(string)),
                     new DataColumn("Requerido", typeof(int)),
                     new DataColumn("Operativo", typeof(int)),
-                    new DataColumn("PorcentajeOperativo", typeof(int)),
+                    new DataColumn("PorcentajeOperativo", typeof(decimal)),
                     new DataColumn("UsuarioIngresoRegistro", typeof(string))
             });
 
@@ -232,7 +232,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
             int extension = 1;
             var path = $"{this._webHostEnviroment.WebRootPath}\\Reports\\Report1.rdlc";
             Dictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("rpt1", "Welcome to FoxLearn");  
+            parameters.Add("rpt1", "Welcome to FoxLearn");
             LocalReport localReport = new LocalReport(path);
             var result = localReport.Execute(RenderType.Pdf, extension, parameters, mimtype);
             return File(result.MainStream, "application/pdf");

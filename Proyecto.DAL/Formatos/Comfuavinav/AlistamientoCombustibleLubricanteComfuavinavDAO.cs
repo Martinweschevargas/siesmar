@@ -41,9 +41,15 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                     {
                         lista.Add(new AlistamientoCombustibleLubricanteComfuavinavDTO()
                         {
-                            AlistamientoCombustibleLubricanteComfuavinavId = Convert.ToInt32(dr["AlistamientoCombustibleLubricanteId"]),
+                            AlistamientoCombustibleLubricanteComfuavinavId = Convert.ToInt32(dr["AlistamientoCombustibleLubricanteComfuavinavId"]),
                             DescUnidadNaval = dr["DescUnidadNaval"].ToString(),
-                            DescAlistamientoCombustibleLubricante = dr["DescAlistamientoCombustibleLubricante"].ToString(),
+                            DescSistemaCombustibleLubricante = dr["DescSistemaCombustibleLubricante"].ToString(),
+                            DescSubsistemaCombustibleLubricante = dr["DescSubsistemaCombustibleLubricante"].ToString(),
+                            Equipo = dr["Equipo"].ToString(),
+                            CombustibleLubricante = dr["CombustibleLubricante"].ToString(),
+                            Existente = dr["Existente"].ToString(),
+                            NecesariasGLS = dr["NecesariasGLS"].ToString(),
+                            CoeficientePonderacion = dr["CoeficientePonderacion"].ToString(),
                             CargaId = Convert.ToInt32(dr["CargaId"])
                         });
                     }
@@ -115,15 +121,15 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                     cmd = new SqlCommand("Formato.usp_AlistamientoCombustibleLubricanteComfuavinavEncontrar", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add("@AlistamientoCombustibleLubricanteId", SqlDbType.Int);
-                    cmd.Parameters["@AlistamientoCombustibleLubricanteId"].Value = Codigo;
+                    cmd.Parameters.Add("@AlistamientoCombustibleLubricanteComfuavinavId", SqlDbType.Int);
+                    cmd.Parameters["@AlistamientoCombustibleLubricanteComfuavinavId"].Value = Codigo;
 
                     SqlDataReader dr = cmd.ExecuteReader();
                     dr.Read();
 
                     if (dr.HasRows)
                     {
-                        alistamientoCombustibleLubricanteComfuavinavDTO.AlistamientoCombustibleLubricanteComfuavinavId = Convert.ToInt32(dr["AlistamientoCombustibleLubricanteId"]);
+                        alistamientoCombustibleLubricanteComfuavinavDTO.AlistamientoCombustibleLubricanteComfuavinavId = Convert.ToInt32(dr["AlistamientoCombustibleLubricanteComfuavinavId"]);
                         alistamientoCombustibleLubricanteComfuavinavDTO.CodigoUnidadNaval = dr["CodigoUnidadNaval"].ToString();
                         alistamientoCombustibleLubricanteComfuavinavDTO.CodigoAlistamientoCombustibleLubricante = dr["CodigoAlistamientoCombustibleLubricante"].ToString();
 
@@ -153,8 +159,8 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                     cmd.CommandType = CommandType.StoredProcedure;
 
 
-                    cmd.Parameters.Add("@AlistamientoCombustibleLubricanteId", SqlDbType.Int);
-                    cmd.Parameters["@AlistamientoCombustibleLubricanteId"].Value = alistamientoCombustibleLubricanteComfuavinavDTO.AlistamientoCombustibleLubricanteComfuavinavId;
+                    cmd.Parameters.Add("@AlistamientoCombustibleLubricanteComfuavinavId", SqlDbType.Int);
+                    cmd.Parameters["@AlistamientoCombustibleLubricanteComfuavinavId"].Value = alistamientoCombustibleLubricanteComfuavinavDTO.AlistamientoCombustibleLubricanteComfuavinavId;
 
                     cmd.Parameters.Add("@CodigoUnidadNaval", SqlDbType.VarChar, 20);
                     cmd.Parameters["@CodigoUnidadNaval"].Value = alistamientoCombustibleLubricanteComfuavinavDTO.CodigoUnidadNaval;

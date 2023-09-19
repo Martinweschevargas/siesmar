@@ -46,7 +46,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
 
             List<UnidadNavalDTO> unidadNavalDTO = unidadNavalBL.ObtenerUnidadNavals();
             List<AlistamientoCombustibleLubricanteDTO> alistamientoCombustibleLubricanteDTO = alistamientoCombustibleLubricanteBL.ObtenerAlistamientoCombustibleLubricantes();
-            List<CargaDTO> listaCargas = cargaBL.ObtenerListaCargas("AlistamientoCombustibleLubricante");
+            List<CargaDTO> listaCargas = cargaBL.ObtenerListaCargas("AlistamientoCombustibleLubricanteComfuavinav");
 
             return Json(new
             {
@@ -67,6 +67,8 @@ namespace Marina.Siesmar.Presentacion.Controllers
         {
             return View();
         }
+
+        //[AuthorizePermission(Formato: 149, Permiso: 1)]//Registrar
         public ActionResult Insertar(string CodigoUnidadNaval, string CodigoAlistamientoCombustibleLubricante, int CargaId, string Fecha)
         {
             AlistamientoCombustibleLubricanteComfuavinavDTO alistamientoCombustibleLubricanteComfuavinavDTO = new();
@@ -84,6 +86,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Json(alistamientoCombustibleLubricanteComfuavinavBL.EditarFormado(Id));
         }
 
+        //[AuthorizePermission(Formato: 149, Permiso: 2)]//Actualizar
         public ActionResult Actualizar(int Id, string CodigoUnidadNaval, string CodigoAlistamientoCombustibleLubricante)
         {
             AlistamientoCombustibleLubricanteComfuavinavDTO alistamientoCombustibleLubricanteComfuavinavDTO = new();
@@ -97,6 +100,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Content(IND_OPERACION);
         }
 
+        //[AuthorizePermission(Formato: 149, Permiso: 3)]//Eliminar
         public ActionResult Eliminar(int Id)
         {
             string mensaje = "";
@@ -112,6 +116,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Content(mensaje);
         }
 
+        //[AuthorizePermission(Formato: 149, Permiso: 5)]//Registrar
         public ActionResult EliminarCarga(int Id)
         {
             string mensaje = "";
@@ -165,6 +170,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
         }
 
         [HttpPost]
+        //[AuthorizePermission(Formato: 149, Permiso: 4)]//Registrar
         public ActionResult EnviarDatos([FromForm] IFormFile ArchivoExcel, string Fecha)
         {
             Stream stream = ArchivoExcel.OpenReadStream();

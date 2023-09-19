@@ -1,5 +1,6 @@
 ﻿using Marina.Siesmar.AccesoDatos.Configuracion;
 using Marina.Siesmar.Entidades.Formatos.Comfuavinav;
+using Marina.Siesmar.Entidades.Formatos.Diali;
 using Marina.Siesmar.Utilitarios;
 using System;
 using System.Data;
@@ -12,7 +13,7 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
 
         SqlCommand cmd = new SqlCommand();
 
-        public List<AlistamientoRepuestoCriticoComfuavinavDTO> ObtenerLista()
+        public List<AlistamientoRepuestoCriticoComfuavinavDTO> ObtenerLista(int? CargaId = null, string? fechainicio = null, string? fechafin = null)
         {
             List<AlistamientoRepuestoCriticoComfuavinavDTO> lista = new List<AlistamientoRepuestoCriticoComfuavinavDTO>();
 
@@ -23,6 +24,15 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                 conexion.Open();
                 cmd = new SqlCommand("Formato.usp_AlistamientoRepuestoCriticoComfuavinavListar", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@CargaId", SqlDbType.Int);
+                cmd.Parameters["@CargaId"].Value = CargaId;
+
+                cmd.Parameters.Add("@FechaInicio", SqlDbType.Date);
+                cmd.Parameters["@FechaInicio"].Value = fechainicio;
+
+                cmd.Parameters.Add("@FechaFin", SqlDbType.Date);
+                cmd.Parameters["@FechaFin"].Value = fechafin;
 
                 using (SqlDataReader dr = cmd.ExecuteReader())
                 {
@@ -47,7 +57,7 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
             return lista;
         }
 
-        public string AgregarRegistro(AlistamientoRepuestoCriticoComfuavinavDTO alistamientoRepuestoCriticoComfuavinavDTO)
+        public string AgregarRegistro(AlistamientoRepuestoCriticoComfuavinavDTO alistamientoRepuestoCriticoComfuavinavDTO, string fecha)
         {
             string IND_OPERACION = "0";
             var cn = new ConfiguracionConexion();
@@ -59,11 +69,11 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                     cmd = new SqlCommand("Formato.usp_AlistamientoRepuestoCriticoComfuavinavRegistrar", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add("@UnidadNavalId", SqlDbType.Int);
-                    cmd.Parameters["@UnidadNavalId"].Value = alistamientoRepuestoCriticoComfuavinavDTO.UnidadNavalId;
+                    cmd.Parameters.Add("@CodigoUnidadNaval", SqlDbType.Int);
+                    cmd.Parameters["@CodigoUnidadNaval"].Value = alistamientoRepuestoCriticoComfuavinavDTO.CodigoUnidadNaval;
 
-                    cmd.Parameters.Add("@AlistamientoRepuestoCriticoId", SqlDbType.Int);
-                    cmd.Parameters["@AlistamientoRepuestoCriticoId"].Value = alistamientoRepuestoCriticoComfuavinavDTO.AlistamientoRepuestoCriticoId;
+                    cmd.Parameters.Add("@CodigoAlistamientoRepuestoCritico", SqlDbType.Int);
+                    cmd.Parameters["@CodigoAlistamientoRepuestoCritico"].Value = alistamientoRepuestoCriticoComfuavinavDTO.CodigoAlistamientoRepuestoCritico;
 
                     cmd.Parameters.Add("@CodigoCargo", SqlDbType.Int);
                     cmd.Parameters["@CodigoCargo"].Value = "1";
@@ -77,12 +87,17 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                     cmd.Parameters.Add("@Mac", SqlDbType.VarChar, 50);
                     cmd.Parameters["@Mac"].Value = UtilitariosGlobales.obtenerDireccionMac();
 
+                    cmd.Parameters.Add("@FechaCarga", SqlDbType.Date);
+                    cmd.Parameters["@FechaCarga"].Value = fecha;
+
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
                         dr.Read();
                         if (dr.HasRows)
                         {
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                             IND_OPERACION = dr["IND_OPERACION"].ToString();
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                         }
                     }
                 }
@@ -91,7 +106,9 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                     IND_OPERACION = ex.Message;
                 }
             }
+#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return IND_OPERACION;
+#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
 
         public AlistamientoRepuestoCriticoComfuavinavDTO BuscarFormato(int Codigo)
@@ -116,8 +133,8 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                     if (dr.HasRows)
                     {
                         alistamientoRepuestoCriticoComfuavinavDTO.AlistamientoRepuestoCriticoComfuavinavId = Convert.ToInt32(dr["AlistamientoRepuestoCriticoId"]);
-                        alistamientoRepuestoCriticoComfuavinavDTO.UnidadNavalId = Convert.ToInt32(dr["UnidadNavalId"]);
-                        alistamientoRepuestoCriticoComfuavinavDTO.AlistamientoRepuestoCriticoId = Convert.ToInt32(dr["AlistamientoRepuestoCriticoId"]);
+                        alistamientoRepuestoCriticoComfuavinavDTO.CodigoUnidadNaval = dr["CodigoUnidadNaval"].ToString();
+                        alistamientoRepuestoCriticoComfuavinavDTO.CodigoAlistamientoRepuestoCritico = dr["CodigoAlistamientoRepuestoCritico"].ToString();
                         alistamientoRepuestoCriticoComfuavinavDTO.DescSistemaRespuestoCritico = dr["DescSistemaRespuestoCritico"].ToString();
                         alistamientoRepuestoCriticoComfuavinavDTO.DescSubsistemaRepuestoCritico = dr["DescSubsistemaRepuestoCritico"].ToString();
                         alistamientoRepuestoCriticoComfuavinavDTO.Equipo = dr["Equipo"].ToString();
@@ -154,11 +171,11 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                     cmd.Parameters.Add("@AlistamientoRepuestoCriticoId", SqlDbType.Int);
                     cmd.Parameters["@AlistamientoRepuestoCriticoId"].Value = alistamientoRepuestoCriticoComfuavinavDTO.AlistamientoRepuestoCriticoComfuavinavId;
 
-                    cmd.Parameters.Add("@UnidadNavalId", SqlDbType.Int);
-                    cmd.Parameters["@UnidadNavalId"].Value = alistamientoRepuestoCriticoComfuavinavDTO.UnidadNavalId;
+                    cmd.Parameters.Add("@CodigoUnidadNaval", SqlDbType.Int);
+                    cmd.Parameters["@CodigoUnidadNaval"].Value = alistamientoRepuestoCriticoComfuavinavDTO.CodigoUnidadNaval;
 
-                    cmd.Parameters.Add("@AlistamientoRepuestoCriticoId", SqlDbType.Int);
-                    cmd.Parameters["@AlistamientoRepuestoCriticoId"].Value = alistamientoRepuestoCriticoComfuavinavDTO.AlistamientoRepuestoCriticoId;
+                    cmd.Parameters.Add("@CodigoAlistamientoRepuestoCritico", SqlDbType.Int);
+                    cmd.Parameters["@CodigoAlistamientoRepuestoCritico"].Value = alistamientoRepuestoCriticoComfuavinavDTO.CodigoAlistamientoRepuestoCritico;
 
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
                     cmd.Parameters["@Usuario"].Value = alistamientoRepuestoCriticoComfuavinavDTO.UsuarioIngresoRegistro;
@@ -224,75 +241,88 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
             return eliminado;
         }
 
-        public bool InsercionMasiva(IEnumerable<AlistamientoRepuestoCriticoComfuavinavDTO> alistamientoRepuestoCriticoComfuavinavDTO)
+        public bool EliminarCarga(AlistamientoRepuestoCriticoComfuavinavDTO alistamientoRepuestoCriticoComfuavinavDTO)
         {
-            bool respuesta = false;
+            bool eliminado = false;
             var cn = new ConfiguracionConexion();
 
-            using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+            try
             {
-                conexion.Open();
-                using (SqlTransaction transaction = conexion.BeginTransaction())
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
                 {
-                    using (var cmd = new SqlCommand())
+                    conexion.Open();
+                    cmd = new SqlCommand("Seguridad.usp_CargaEliminar", conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add("@Formato", SqlDbType.NVarChar, 200);
+                    cmd.Parameters["@Formato"].Value = "AlistamientoRepuestoCriticoComfuavinav";
+
+                    cmd.Parameters.Add("@CargaId", SqlDbType.Int);
+                    cmd.Parameters["@CargaId"].Value = alistamientoRepuestoCriticoComfuavinavDTO.CargaId;
+
+                    cmd.Parameters.Add("@Usuario", SqlDbType.VarChar, 100);
+                    cmd.Parameters["@Usuario"].Value = alistamientoRepuestoCriticoComfuavinavDTO.UsuarioIngresoRegistro;
+
+                    cmd.Parameters.Add("@Ip", SqlDbType.VarChar, 50);
+                    cmd.Parameters["@Ip"].Value = UtilitariosGlobales.obtenerDireccionIp();
+
+                    cmd.Parameters.Add("@Mac", SqlDbType.VarChar, 50);
+                    cmd.Parameters["@Mac"].Value = UtilitariosGlobales.obtenerDireccionMac();
+
+                    cmd.ExecuteNonQuery();
+
+                    eliminado = true;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return eliminado;
+        }
+
+        public string InsertarDatos(DataTable datos, string fecha)
+        {
+            string IND_OPERACION = "0";
+            var cn = new ConfiguracionConexion();
+
+            try
+            {
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    var cmd = new SqlCommand("Formato.usp_AlistamientoRepuestoCriticoComfuavinavRegistrarMasivo", conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add("@AlistamientoRepuestoCriticoComfuavinav", SqlDbType.Structured);
+                    cmd.Parameters["@AlistamientoRepuestoCriticoComfuavinav"].TypeName = "Formato.AlistamientoRepuestoCriticoComfuavinav";
+                    cmd.Parameters["@AlistamientoRepuestoCriticoComfuavinav"].Value = datos;
+
+                    cmd.Parameters.Add("@Ip", SqlDbType.VarChar, 50);
+                    cmd.Parameters["@Ip"].Value = UtilitariosGlobales.obtenerDireccionIp();
+
+                    cmd.Parameters.Add("@Mac", SqlDbType.VarChar, 50);
+                    cmd.Parameters["@Mac"].Value = UtilitariosGlobales.obtenerDireccionMac();
+
+                    cmd.Parameters.Add("@FechaCarga", SqlDbType.Date);
+                    cmd.Parameters["@FechaCarga"].Value = fecha;
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
                     {
-
-                        cmd.Connection = conexion;
-                        cmd.Transaction = transaction;
-                        cmd.CommandType = CommandType.Text;
-                        cmd.CommandText = "insert into Formato.EstudiosInvestigacionHistoricaNaval " +
-                            " (NombreInvestigacion, TipoEstudioInvestigacionId, FechaInicioInvestigacion, " +
-                            "FechaTerminoInvestigacion, ResponsableInvestigacion, SolicitanteInvestigacion, " +
-                            "UsuarioIngresoRegistro, FechaIngresoRegistro, NroIpRegistro, NroMacRegistro, " +
-                            "UsuarioBaseDatos, CodigoIngreso, Año, Mes, Dia) values (@NombreInvestigacion, " +
-                            "@TipoEstudioInvestigacionId, @FechaInicioInvestigacion, @FechaTerminoInvestigacion, " +
-                            "@ResponsableInvestigacion, @SolicitanteInvestigacion, @Usuario, GETDATE(), @IP, @MAC, " +
-                            "@UsuarioDB, 0, @YEAR, @MES, @DIA)";
-                        cmd.Parameters.Add("@NombreInvestigacion", SqlDbType.VarChar, 250);
-                        cmd.Parameters.Add("@TipoEstudioInvestigacionId", SqlDbType.Int);
-                        cmd.Parameters.Add("@FechaInicioInvestigacion", SqlDbType.Date);
-                        cmd.Parameters.Add("@FechaTerminoInvestigacion", SqlDbType.Date);
-                        cmd.Parameters.Add("@ResponsableInvestigacion", SqlDbType.VarChar, 250);
-                        cmd.Parameters.Add("@SolicitanteInvestigacion", SqlDbType.VarChar, 250);
-                        cmd.Parameters.Add("@Usuario", SqlDbType.VarChar, 50);
-                        cmd.Parameters.Add("@IP", SqlDbType.VarChar, 50);
-                        cmd.Parameters.Add("@MAC", SqlDbType.VarChar, 50);
-                        cmd.Parameters.Add("@UsuarioDB", SqlDbType.VarChar, 50);
-                        cmd.Parameters.Add("@YEAR", SqlDbType.Int);
-                        cmd.Parameters.Add("@MES", SqlDbType.Int);
-                        cmd.Parameters.Add("@DIA", SqlDbType.Int);
-                        try
+                        dr.Read();
+                        if (dr.HasRows)
                         {
-                            foreach (var item in alistamientoRepuestoCriticoComfuavinavDTO)
-                            {
-                                //cmd.Parameters["@NombreInvestigacion"].Value = item.NombreTemaEstudioInvestigacion;
-                                //cmd.Parameters["@TipoEstudioInvestigacionId"].Value = item.TipoEstudioInvestigacionIds;
-                                //cmd.Parameters["@FechaInicioInvestigacion"].Value = Convert.ToDateTime(item.FechaInicio);
-                                //cmd.Parameters["@FechaTerminoInvestigacion"].Value = Convert.ToDateTime(item.FechaTermino);
-                                //cmd.Parameters["@ResponsableInvestigacion"].Value = item.Responsable;
-                                //cmd.Parameters["@SolicitanteInvestigacion"].Value = item.Solicitante;
-                                cmd.Parameters["@Usuario"].Value = item.UsuarioIngresoRegistro;
-                                cmd.Parameters["@IP"].Value = UtilitariosGlobales.obtenerDireccionIp();
-                                cmd.Parameters["@MAC"].Value = UtilitariosGlobales.obtenerDireccionMac();
-
-                                cmd.ExecuteNonQuery();
-                            }
-                            transaction.Commit();
-                            respuesta = true;
-                        }
-                        catch (SqlException)
-                        {
-                            transaction.Rollback();
-                            throw;
-                        }
-                        finally
-                        {
-                            conexion.Close();
+                            IND_OPERACION = dr["IND_OPERACION"].ToString();
                         }
                     }
                 }
             }
-            return respuesta;
+            catch (Exception ex)
+            {
+                IND_OPERACION = ex.Message;
+            }
+            return IND_OPERACION;
         }
     }
 }

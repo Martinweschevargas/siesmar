@@ -26,7 +26,7 @@ $(document).ready(function () {
                                 url: '/ComfuavinavAlistamientoRepuestoCritico/Insertar',
                                 data: {
                                     'UnidadNavalId': $('#cbUnidadNaval').val(),
-                                    'AlistamientoRepuestoCriticoId': $('#cbAlistamientoRepuestoCritico').val(),
+                                    'CodigoAlistamientoRepuestoCritico': $('#cbAlistamientoRepuestoCritico').val(),
                                 },
                                 beforeSend: function () {
                                     $('#loader-6').show();
@@ -87,7 +87,7 @@ $(document).ready(function () {
                                 data: {
                                     'Id': $('#txtCodigo').val(),
                                     'UnidadNavalId': $('#cbUnidadNavale').val(),
-                                    'AlistamientoRepuestoCriticoId': $('#cbAlistamientoRepuestoCriticoe').val(),
+                                    'CodigoAlistamientoRepuestoCritico': $('#cbAlistamientoRepuestoCriticoe').val(),
                                 },
                                 beforeSend: function () {
                                     $('#loader-6').show();
@@ -214,7 +214,25 @@ $(document).ready(function () {
         ]
     });
     cargaDatos();
+    cargaBusqueda();
 });
+
+$('#btn_search').click(function () {
+    cargaBusqueda();
+});
+
+$('#btn_all').click(function () {
+    mostrarTodos();
+});
+
+function cargaBusqueda() {
+    var CodigoCarga = $('#cargas').val();
+    tblComfuavinavAlistamientoRepuestoCritico.columns(9).search(CodigoCarga).draw();
+}
+
+function mostrarTodos() {
+    tblComfuavinavAlistamientoRepuestoCritico.columns(9).search('').draw();
+}
 
 function edit(Id) {
     $('#listar').hide();
@@ -222,7 +240,7 @@ function edit(Id) {
     $.getJSON('/ComfuavinavAlistamientoRepuestoCritico/Mostrar?Id=' + Id, [], function (AlistamientoRepuestoCriticoComfuavinavDTO) {
         $('#txtCodigo').val(AlistamientoRepuestoCriticoComfuavinavDTO.alistamientoRepuestoCriticoComfuavinavId);
         $('#cbUnidadNavale').val(AlistamientoRepuestoCriticoComfuavinavDTO.unidadNavalId);
-        $('#cbAlistamientoRepuestoCriticoe').val(AlistamientoRepuestoCriticoComfuavinavDTO.alistamientoRepuestoCriticoId);
+        $('#cbAlistamientoRepuestoCriticoe').val(AlistamientoRepuestoCriticoComfuavinavDTO.codigoAlistamientoRepuestoCritico);
         $('#txtSistemaRepuestoe').val(AlistamientoRepuestoCriticoComfuavinavDTO.sistemaRepuestoCritico);
         $('#txtSubsistemaRepuestoe').val(AlistamientoRepuestoCriticoComfuavinavDTO.descSubsistemaRepuestoCritico);
         $('#txtEquipoe').val(AlistamientoRepuestoCriticoComfuavinavDTO.equipo);
@@ -290,7 +308,7 @@ function nuevaComfuavinavAlistamientoRepuestoCritico() {
 function cargaDatos() {
     $.getJSON('/ComfuavinavAlistamientoRepuestoCritico/cargaCombs', [], function (Json) {
         var unidadNaval = Json["data1"];
-        alistamientoRepuestoCritico = Json["data2"];
+        var alistamientoRepuestoCritico = Json["data2"];
 
 
         $("select#cbUnidadNaval").html("");
@@ -306,13 +324,13 @@ function cargaDatos() {
 
         $("select#cbAlistamientoRepuestoCritico").html("");
         $.each(alistamientoRepuestoCritico, function () {
-            var RowContent = '<option value=' + this.alistamientoRepuestoCriticoId + '>' + this.alistamientoRepuestoCriticoId + '</option>'
+            var RowContent = '<option value=' + this.descAlistamientoRepuestoCritico + '>' + this.descAlistamientoRepuestoCritico + '</option>'
             $("select#cbAlistamientoRepuestoCritico").append(RowContent);
         });
 
         $("select#cbAlistamientoRepuestoCriticoe").html("");
         $.each(alistamientoRepuestoCritico, function () {
-            var RowContent = '<option value=' + this.alistamientoRepuestoCriticoId + '>' + this.alistamientoRepuestoCriticoId + '</option>'
+            var RowContent = '<option value=' + this.descAlistamientoRepuestoCritico + '>' + this.descAlistamientoRepuestoCritico + '</option>'
             $("select#cbAlistamientoRepuestoCriticoe").append(RowContent);
         });
     });

@@ -44,7 +44,12 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                             AlistamientoMaterialId = Convert.ToInt32(dr["AlistamientoMaterialId"]),
                             DescUnidadNaval = dr["DescUnidadNaval"].ToString(),
                             DescCapacidadOperativa = dr["DescCapacidadOperativa"].ToString(),
-                            Subclasificacionn = dr["Subclasificacionn"].ToString(),
+                            CapacidadIntrinseca1N = dr["CapacidadIntrinseca"].ToString(),
+                            Ponderado1N = dr["Ponderado1N"].ToString(),
+                            Subclasificacion2N = dr["Subclasificacion"].ToString(),
+                            Ponderado2Nivel = dr["Ponderado2Nivel"].ToString(),
+                            Subclasificacion3N = dr["Subclasificacion"].ToString(),
+                            Ponderado3Nivel = dr["Ponderado3Nivel"].ToString(),
                             Requerido = Convert.ToInt32(dr["Requerido"]),
                             Operativo = Convert.ToInt32(dr["Operativo"]),
                             PorcentajeOperativo = Convert.ToDecimal(dr["PorcentajeOperativo"]),
@@ -107,7 +112,9 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                         dr.Read();
                         if (dr.HasRows)
                         {
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                             IND_OPERACION = dr["IND_OPERACION"].ToString();
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                         }
                     }
                 }
@@ -116,7 +123,9 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                     IND_OPERACION = ex.Message;
                 }
             }
+#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return IND_OPERACION;
+#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
 
         public AlistamientoMaterialComfuavinavDTO BuscarFormato(int Codigo)
@@ -196,7 +205,6 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                     cmd.Parameters.Add("@PorcentajeOperativo", SqlDbType.Decimal);
                     cmd.Parameters["@PorcentajeOperativo"].Value = alistamientoMaterialComfuavinavDTO.PorcentajeOperativo;
 
-
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
                     cmd.Parameters["@Usuario"].Value = alistamientoMaterialComfuavinavDTO.UsuarioIngresoRegistro;
 
@@ -211,7 +219,9 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                         dr.Read();
                         if (dr.HasRows)
                         {
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                             IND_OPERACION = dr["IND_OPERACION"].ToString();
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                         }
                     }
                 }
@@ -220,7 +230,9 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
             {
                 IND_OPERACION = ex.Message;
             }
+#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return IND_OPERACION;
+#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
 
         public bool EliminarFormato(AlistamientoMaterialComfuavinavDTO alistamientoMaterialComfuavinavDTO)
@@ -333,7 +345,9 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                         dr.Read();
                         if (dr.HasRows)
                         {
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                             IND_OPERACION = dr["IND_OPERACION"].ToString();
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                         }
                     }
                 }
@@ -342,7 +356,9 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
             {
                 IND_OPERACION = ex.Message;
             }
+#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return IND_OPERACION;
+#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
     }
 }
