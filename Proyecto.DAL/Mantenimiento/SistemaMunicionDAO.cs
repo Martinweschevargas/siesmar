@@ -31,6 +31,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                         lista.Add(new SistemaMunicionDTO()
                         {
                             SistemaMunicionId = Convert.ToInt32(dr["SistemaMunicionId"]),
+                            CodigoSistemaMunicion = dr["CodigoSistemaMunicion"].ToString(),
                             DescSistemaMunicion = dr["DescSistemaMunicion"].ToString(),
                         });
                     }
@@ -39,7 +40,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
             return lista;
         }
 
-        public string AgregarSistemaMunicion(SistemaMunicionDTO capitaniaDTO)
+        public string AgregarSistemaMunicion(SistemaMunicionDTO sistemaMunicionDTO)
         {
             string IND_OPERACION = "0";
             var cn = new ConfiguracionConexion();
@@ -51,11 +52,14 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd = new SqlCommand("Mantenimiento.usp_SistemaMunicionRegistrar", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
+                    cmd.Parameters.Add("@CodigoSistemaMunicion", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoSistemaMunicion"].Value = sistemaMunicionDTO.CodigoSistemaMunicion;
+
                     cmd.Parameters.Add("@DescSistemaMunicion", SqlDbType.VarChar, 100);
-                    cmd.Parameters["@DescSistemaMunicion"].Value = capitaniaDTO.DescSistemaMunicion;            
+                    cmd.Parameters["@DescSistemaMunicion"].Value = sistemaMunicionDTO.DescSistemaMunicion;            
 
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
-                    cmd.Parameters["@Usuario"].Value = capitaniaDTO.UsuarioIngresoRegistro;
+                    cmd.Parameters["@Usuario"].Value = sistemaMunicionDTO.UsuarioIngresoRegistro;
 
                     cmd.Parameters.Add("@Ip", SqlDbType.VarChar, 50);
                     cmd.Parameters["@Ip"].Value = UtilitariosGlobales.obtenerDireccionIp();
@@ -81,7 +85,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
 
         public SistemaMunicionDTO BuscarSistemaMunicionID(int Codigo)
         {
-            SistemaMunicionDTO capitaniaDTO = new SistemaMunicionDTO();
+            SistemaMunicionDTO sistemaMunicionDTO = new SistemaMunicionDTO();
             var cn = new ConfiguracionConexion();
 
             try
@@ -100,8 +104,9 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
 
                     if (dr.HasRows)
                     {
-                        capitaniaDTO.SistemaMunicionId = Convert.ToInt32(dr["SistemaMunicionId"]);
-                        capitaniaDTO.DescSistemaMunicion = dr["DescSistemaMunicion"].ToString();
+                        sistemaMunicionDTO.SistemaMunicionId = Convert.ToInt32(dr["SistemaMunicionId"]);
+                        sistemaMunicionDTO.CodigoSistemaMunicion = dr["CodigoSistemaMunicion"].ToString();
+                        sistemaMunicionDTO.DescSistemaMunicion = dr["DescSistemaMunicion"].ToString();
                     }
 
                 }
@@ -110,10 +115,10 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
             {
                 throw;
             }
-            return capitaniaDTO;
+            return sistemaMunicionDTO;
         }
 
-        public string ActualizarSistemaMunicion(SistemaMunicionDTO capitaniaDTO)
+        public string ActualizarSistemaMunicion(SistemaMunicionDTO sistemaMunicionDTO)
         {
             string IND_OPERACION = "0";
             var cn = new ConfiguracionConexion();
@@ -126,13 +131,17 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.Add("@SistemaMunicionId", SqlDbType.Int);
-                    cmd.Parameters["@SistemaMunicionId"].Value = capitaniaDTO.SistemaMunicionId;
+                    cmd.Parameters["@SistemaMunicionId"].Value = sistemaMunicionDTO.SistemaMunicionId;
+
+                    cmd.Parameters.Add("@CodigoSistemaMunicion", SqlDbType.VarChar, 100);
+                    cmd.Parameters["@CodigoSistemaMunicion"].Value = sistemaMunicionDTO.CodigoSistemaMunicion;
+
 
                     cmd.Parameters.Add("@DescSistemaMunicion", SqlDbType.VarChar, 100);
-                    cmd.Parameters["@DescSistemaMunicion"].Value = capitaniaDTO.DescSistemaMunicion;
+                    cmd.Parameters["@DescSistemaMunicion"].Value = sistemaMunicionDTO.DescSistemaMunicion;
 
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
-                    cmd.Parameters["@Usuario"].Value = capitaniaDTO.UsuarioIngresoRegistro;
+                    cmd.Parameters["@Usuario"].Value = sistemaMunicionDTO.UsuarioIngresoRegistro;
 
                     cmd.Parameters.Add("@Ip", SqlDbType.VarChar, 50);
                     cmd.Parameters["@Ip"].Value = UtilitariosGlobales.obtenerDireccionIp();
@@ -157,7 +166,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
             return IND_OPERACION;
         }
 
-        public string EliminarSistemaMunicion(SistemaMunicionDTO capitaniaDTO)
+        public string EliminarSistemaMunicion(SistemaMunicionDTO sistemaMunicionDTO)
         {
             string IND_OPERACION = "0";
             var cn = new ConfiguracionConexion();
@@ -170,10 +179,10 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.Add("@SistemaMunicionId", SqlDbType.Int);
-                    cmd.Parameters["@SistemaMunicionId"].Value = capitaniaDTO.SistemaMunicionId;
+                    cmd.Parameters["@SistemaMunicionId"].Value = sistemaMunicionDTO.SistemaMunicionId;
 
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
-                    cmd.Parameters["@Usuario"].Value = capitaniaDTO.UsuarioIngresoRegistro;
+                    cmd.Parameters["@Usuario"].Value = sistemaMunicionDTO.UsuarioIngresoRegistro;
 
                     cmd.Parameters.Add("@Ip", SqlDbType.VarChar, 50);
                     cmd.Parameters["@Ip"].Value = UtilitariosGlobales.obtenerDireccionIp();
