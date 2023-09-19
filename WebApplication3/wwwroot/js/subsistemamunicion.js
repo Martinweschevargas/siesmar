@@ -24,8 +24,9 @@ $(document).ready(function () {
                                 type: "POST",
                                 url: '/SubsistemaMunicion/InsertarSubsistemaMunicion',
                                 data: {
+                                    'CodigoSubsistemaMunicion': $('#txtCodigoSub').val(),
                                     'Descripcion': $('#txtDescripcion').val(),
-                                    'SistemaMunicionId': $('#cbFK').val()
+                                    'CodigoSistemaMunicion': $('#cbFK').val()
                                 },
                                 beforeSend: function () {
                                     $('#loader-6').show();
@@ -83,8 +84,9 @@ $(document).ready(function () {
                                 url: '/SubsistemaMunicion/ActualizarSubsistemaMunicion',
                                 data: {
                                     'SubsistemaMunicionId': $('#txtCodigo').val(),
+                                    'CodigoSubsistemaMunicion': $('#txtCodigoSube').val(),
                                     'Descripcion': $('#txtDescripcione').val(),
-                                    'SistemaMunicionId': $('#cbFKe').val()
+                                    'CodigoSistemaMunicion': $('#cbFKe').val()
                                 },
                                 beforeSend: function () {
                                     $('#loader-6').show();
@@ -118,7 +120,7 @@ $(document).ready(function () {
             }, false)
         })
 
-    $('#tblSubsistemaMunicions').DataTable({
+   tblSubsistemaMunicions = $('#tblSubsistemaMunicions').DataTable({
         ajax: {
             "url": '/SubsistemaMunicion/CargarDatos',
             "type": "GET",
@@ -126,6 +128,7 @@ $(document).ready(function () {
         },
         "columns": [
             { "data": "subsistemaMunicionId" },
+            { "data": "codigoSubsistemaMunicion" },
             { "data": "descSubsistemaMunicion" },
             { "data": "descSistemaMunicion" },
             {
@@ -163,8 +166,9 @@ function edit(SubsistemaMunicionId) {
     $('#editar').show();
     $.getJSON('/SubsistemaMunicion/MostrarSubsistemaMunicion?SubsistemaMunicionId=' + SubsistemaMunicionId, [], function (SubsistemaMunicionDTO) {
         $('#txtCodigo').val(SubsistemaMunicionDTO.subsistemaMunicionId);
+        $('#txtCodigoSube').val(SubsistemaMunicionDTO.codigoSubsistemaMunicion);
         $('#txtDescripcione').val(SubsistemaMunicionDTO.descSubsistemaMunicion);
-        $('#cbFKe').val(SubsistemaMunicionDTO.sistemaMunicionId);
+        $('#cbFKe').val(SubsistemaMunicionDTO.codigoSistemaMunicion);
     });
 }
 
@@ -222,14 +226,15 @@ function nuevaSubsistemaMunicion() {
 function cargaCombo() {
     $.getJSON('/SubsistemaMunicion/cargaCombs', [], function (Json) {
         var sistemaMunicion = Json["data"];
+
         $("select#cbFK").html("");
         $.each(sistemaMunicion, function () {
-            var RowContent = '<option value=' + this.sistemaMunicionId + '>' + this.descSistemaMunicion + '</option>'
+            var RowContent = '<option value=' + this.codigoSistemaMunicion + '>' + this.descSistemaMunicion + '</option>'
             $("select#cbFK").append(RowContent);
         });
         $("select#cbFKe").html("");
         $.each(sistemaMunicion, function () {
-            var RowContent = '<option value=' + this.sistemaMunicionId + '>' + this.descSistemaMunicion + '</option>'
+            var RowContent = '<option value=' + this.codigoSistemaMunicion + '>' + this.descSistemaMunicion + '</option>'
             $("select#cbFKe").append(RowContent);
         });
     });

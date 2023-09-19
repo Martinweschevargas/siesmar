@@ -11,8 +11,9 @@ namespace Marina.Siesmar.Entidades.Mantenimiento
     public class SubsistemaMunicionDTO
     {
         public int SubsistemaMunicionId { get; set; }
+        public string? CodigoSubsistemaMunicion { get; set; }
         public string? DescSubsistemaMunicion { get; set; }
-        public int SistemaMunicionId { get; set; }
+        public string? CodigoSistemaMunicion { get; set; }
         public string? DescSistemaMunicion { get; set; }
 
         [NotMapped]

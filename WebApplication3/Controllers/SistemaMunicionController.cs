@@ -37,12 +37,13 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Json(new { data = listaSistemaMunicions });
         }
 
-        public ActionResult InsertarSistemaMunicion(string Descripcion)
+        public ActionResult InsertarSistemaMunicion(string CodigoSistemaMunicion, string Descripcion)
         {
             var IND_OPERACION = "";
             try
             {
                 SistemaMunicionDTO sistemaMunicionDTO = new();
+                sistemaMunicionDTO.CodigoSistemaMunicion = CodigoSistemaMunicion;
                 sistemaMunicionDTO.DescSistemaMunicion = Descripcion;
                 sistemaMunicionDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
@@ -63,10 +64,11 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Json(sistemaMunicionBL.BuscarSistemaMunicionID(SistemaMunicionId));
         }
 
-        public ActionResult ActualizarSistemaMunicion(int SistemaMunicionId, string Descripcion)
+        public ActionResult ActualizarSistemaMunicion(int SistemaMunicionId, string CodigoSistemaMunicion, string Descripcion)
         {
             SistemaMunicionDTO sistemaMunicionDTO = new();
             sistemaMunicionDTO.SistemaMunicionId = SistemaMunicionId;
+            sistemaMunicionDTO.CodigoSistemaMunicion = CodigoSistemaMunicion;
             sistemaMunicionDTO.DescSistemaMunicion = Descripcion;
             sistemaMunicionDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 

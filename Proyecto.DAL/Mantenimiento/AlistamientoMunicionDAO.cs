@@ -132,7 +132,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                         AlistamientoMunicionDTO.AlistamientoMunicionId = Convert.ToInt32(dr["AlistamientoMunicionId"]);
                         AlistamientoMunicionDTO.CodigoAlistamientoMunicion = dr["CodigoAlistamientoMunicion"].ToString();
                         AlistamientoMunicionDTO.CodigoSistemaMunicion = dr["CodigoSistemaMunicion"].ToString();
-                        AlistamientoMunicionDTO.CodigoSubsistemaMunicion = dr["SubCodigoSistemaMunicion"].ToString();
+                        AlistamientoMunicionDTO.CodigoSubsistemaMunicion = dr["CodigoSubSistemaMunicion"].ToString();
                         AlistamientoMunicionDTO.Equipo = dr["Equipo"].ToString();
                         AlistamientoMunicionDTO.Municion = dr["Municion"].ToString();
                         AlistamientoMunicionDTO.Existente = dr["Existente"].ToString();

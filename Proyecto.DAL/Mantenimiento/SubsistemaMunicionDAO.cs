@@ -31,6 +31,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                         lista.Add(new SubsistemaMunicionDTO()
                         {
                             SubsistemaMunicionId = Convert.ToInt32(dr["SubsistemaMunicionId"]),
+                            CodigoSubsistemaMunicion = dr["CodigoSubsistemaMunicion"].ToString(),
                             DescSubsistemaMunicion = dr["DescSubsistemaMunicion"].ToString(),
                             DescSistemaMunicion = dr["DescSistemaMunicion"].ToString()
                         });
@@ -52,11 +53,14 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd = new SqlCommand("Mantenimiento.usp_SubsistemaMunicionRegistrar", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
+                    cmd.Parameters.Add("@CodigoSubsistemaMunicion", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoSubsistemaMunicion"].Value = SubsistemaMunicionDTO.CodigoSubsistemaMunicion;
+
                     cmd.Parameters.Add("@DescSubsistemaMunicion", SqlDbType.VarChar, 100);
                     cmd.Parameters["@DescSubsistemaMunicion"].Value = SubsistemaMunicionDTO.DescSubsistemaMunicion;
 
-                    cmd.Parameters.Add("@SistemaMunicionId", SqlDbType.Int);
-                    cmd.Parameters["@SistemaMunicionId"].Value = SubsistemaMunicionDTO.SistemaMunicionId;
+                    cmd.Parameters.Add("@CodigoSistemaMunicion", SqlDbType.VarChar,20);
+                    cmd.Parameters["@CodigoSistemaMunicion"].Value = SubsistemaMunicionDTO.CodigoSistemaMunicion;
 
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
                     cmd.Parameters["@Usuario"].Value = SubsistemaMunicionDTO.UsuarioIngresoRegistro;
@@ -106,8 +110,9 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     if (dr.HasRows)
                     {
                         SubsistemaMunicionDTO.SubsistemaMunicionId = Convert.ToInt32(dr["SubsistemaMunicionId"]);
+                        SubsistemaMunicionDTO.CodigoSubsistemaMunicion = dr["CodigoSubsistemaMunicion"].ToString();
                         SubsistemaMunicionDTO.DescSubsistemaMunicion = dr["DescSubsistemaMunicion"].ToString();
-                        SubsistemaMunicionDTO.SistemaMunicionId = Convert.ToInt32(dr["SistemaMunicionId"]);
+                        SubsistemaMunicionDTO.CodigoSistemaMunicion = dr["CodigoSistemaMunicion"].ToString();
                     }
 
                 }
@@ -136,11 +141,14 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd.Parameters.Add("@SubsistemaMunicionId", SqlDbType.Int);
                     cmd.Parameters["@SubsistemaMunicionId"].Value = SubsistemaMunicionDTO.SubsistemaMunicionId;
 
+                    cmd.Parameters.Add("@CodigoSubsistemaMunicion", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoSubsistemaMunicion"].Value = SubsistemaMunicionDTO.CodigoSubsistemaMunicion;
+
                     cmd.Parameters.Add("@DescSubsistemaMunicion", SqlDbType.VarChar, 100);
                     cmd.Parameters["@DescSubsistemaMunicion"].Value = SubsistemaMunicionDTO.DescSubsistemaMunicion;
 
-                    cmd.Parameters.Add("@SistemaMunicionId", SqlDbType.Int);
-                    cmd.Parameters["@SistemaMunicionId"].Value = SubsistemaMunicionDTO.SistemaMunicionId;
+                    cmd.Parameters.Add("@CodigoSistemaMunicion", SqlDbType.Int);
+                    cmd.Parameters["@CodigoSistemaMunicion"].Value = SubsistemaMunicionDTO.CodigoSistemaMunicion;
 
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
                     cmd.Parameters["@Usuario"].Value = SubsistemaMunicionDTO.UsuarioIngresoRegistro;

@@ -130,7 +130,7 @@ $(document).ready(function () {
             }, false)
         })
 
-    $('#tblAlistamientoMunicions').DataTable({
+   tblAlistamientoMunicions = $('#tblAlistamientoMunicions').DataTable({
         ajax: {
             "url": '/AlistamientoMunicion/CargarDatos',
             "type": "GET",
@@ -177,12 +177,12 @@ $(document).ready(function () {
 
 });
 
-function edit(AlistamientoMunicionId) {
+function edit(alistamientoMunicionId) {
     $('#listar').hide();
     $('#editar').show();
-    $.getJSON('/AlistamientoMunicion/MostrarAlistamientoMunicion?AlistamientoMunicionId=' + AlistamientoMunicionId, [], function (AlistamientoMunicionDTO) {
+    $.getJSON('/AlistamientoMunicion/MostrarAlistamientoMunicion?alistamientoMunicionId=' + alistamientoMunicionId, [], function (AlistamientoMunicionDTO) {
         $('#txtCodigo').val(AlistamientoMunicionDTO.alistamientoMunicionId);
-        $('#cbMunie').val(AlistamientoMunicionDTO.codigoSistemaMunicion);
+        $('#cbMunie').val(AlistamientoMunicionDTO.codigoAlistamientoMunicion);
         $('#cbSistemae').val(AlistamientoMunicionDTO.codigoSistemaMunicion);
         $('#cbSubsistemae').val(AlistamientoMunicionDTO.codigoSubsistemaMunicion);
         $('#txtEquipoe').val(AlistamientoMunicionDTO.equipo);
