@@ -12,9 +12,9 @@ namespace Marina.Siesmar.LogicaNegocios.Mantenimiento
             return sistemaCombustibleLubricanteDAO.ObtenerSistemaCombustibleLubricantes();
         }
 
-        public string AgregarSistemaCombustibleLubricante(SistemaCombustibleLubricanteDTO sistemaCombustibleLubricanteDto)
+        public string AgregarSistemaCombustibleLubricante(SistemaCombustibleLubricanteDTO sistemaCombustibleLubricanteDTO)
         {
-            return sistemaCombustibleLubricanteDAO.AgregarSistemaCombustibleLubricante(sistemaCombustibleLubricanteDto);
+            return sistemaCombustibleLubricanteDAO.AgregarSistemaCombustibleLubricante(sistemaCombustibleLubricanteDTO);
         }
 
         public SistemaCombustibleLubricanteDTO BuscarSistemaCombustibleLubricanteID(int Codigo)
@@ -22,14 +22,14 @@ namespace Marina.Siesmar.LogicaNegocios.Mantenimiento
             return sistemaCombustibleLubricanteDAO.BuscarSistemaCombustibleLubricanteID(Codigo);
         }
 
-        public string ActualizarSistemaCombustibleLubricante(SistemaCombustibleLubricanteDTO sistemaCombustibleLubricanteDto)
+        public string ActualizarSistemaCombustibleLubricante(SistemaCombustibleLubricanteDTO sistemaCombustibleLubricanteDTO)
         {
-            return sistemaCombustibleLubricanteDAO.ActualizarSistemaCombustibleLubricante(sistemaCombustibleLubricanteDto);
+            return sistemaCombustibleLubricanteDAO.ActualizarSistemaCombustibleLubricante(sistemaCombustibleLubricanteDTO);
         }
 
-        public string EliminarSistemaCombustibleLubricante(SistemaCombustibleLubricanteDTO sistemaCombustibleLubricanteDto)
+        public string EliminarSistemaCombustibleLubricante(SistemaCombustibleLubricanteDTO sistemaCombustibleLubricanteDTO)
         {
-            return sistemaCombustibleLubricanteDAO.EliminarSistemaCombustibleLubricante(sistemaCombustibleLubricanteDto);
+            return sistemaCombustibleLubricanteDAO.EliminarSistemaCombustibleLubricante(sistemaCombustibleLubricanteDTO);
         }
 
     }

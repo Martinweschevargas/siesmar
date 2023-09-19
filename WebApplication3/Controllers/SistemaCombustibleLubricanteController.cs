@@ -36,12 +36,13 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Json(new { data = listaSistemaCombustibleLubricantes });
         }
 
-        public ActionResult InsertarSistemaCombustibleLubricante(string Descripcion)
+        public ActionResult InsertarSistemaCombustibleLubricante(string Codigo, string Descripcion)
         {
             var IND_OPERACION = "";
             try
             {
                 SistemaCombustibleLubricanteDTO sistemaCombustibleLubricanteDTO = new();
+                sistemaCombustibleLubricanteDTO.CodigoSistemaCombustibleLubricante = Codigo;
                 sistemaCombustibleLubricanteDTO.DescSistemaCombustibleLubricante = Descripcion;
                 sistemaCombustibleLubricanteDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
@@ -62,10 +63,11 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Json(sistemaCombustibleLubricanteBL.BuscarSistemaCombustibleLubricanteID(SistemaCombustibleLubricanteId));
         }
 
-        public ActionResult ActualizarSistemaCombustibleLubricante(int SistemaCombustibleLubricanteId, string Descripcion)
+        public ActionResult ActualizarSistemaCombustibleLubricante(int SistemaCombustibleLubricanteId, string Codigo, string Descripcion)
         {
             SistemaCombustibleLubricanteDTO sistemaCombustibleLubricanteDTO = new();
             sistemaCombustibleLubricanteDTO.SistemaCombustibleLubricanteId = SistemaCombustibleLubricanteId;
+            sistemaCombustibleLubricanteDTO.CodigoSistemaCombustibleLubricante = Codigo;
             sistemaCombustibleLubricanteDTO.DescSistemaCombustibleLubricante = Descripcion;
             sistemaCombustibleLubricanteDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 

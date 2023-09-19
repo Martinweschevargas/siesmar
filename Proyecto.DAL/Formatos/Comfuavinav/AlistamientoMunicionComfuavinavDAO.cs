@@ -64,7 +64,7 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                     cmd = new SqlCommand("Formato.usp_AlistamientoMunicionComfuavinavRegistrar", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add("@CodigoUnidadNaval", SqlDbType. VarChar, 20);
+                    cmd.Parameters.Add("@CodigoUnidadNaval", SqlDbType.VarChar, 20);
                     cmd.Parameters["@CodigoUnidadNaval"].Value = alistamientoMunicionComfuavinavDTO.CodigoUnidadNaval;
 
                     cmd.Parameters.Add("@CodigoAlistamientoMunicion", SqlDbType.VarChar, 20);
@@ -90,7 +90,9 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                         dr.Read();
                         if (dr.HasRows)
                         {
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                             IND_OPERACION = dr["IND_OPERACION"].ToString();
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                         }
                     }
                 }
@@ -99,7 +101,9 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                     IND_OPERACION = ex.Message;
                 }
             }
+#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return IND_OPERACION;
+#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
 
         public AlistamientoMunicionComfuavinavDTO BuscarFormato(int Codigo)
@@ -175,7 +179,9 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                         dr.Read();
                         if (dr.HasRows)
                         {
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                             IND_OPERACION = dr["IND_OPERACION"].ToString();
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                         }
                     }
                 }
@@ -184,7 +190,9 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
             {
                 IND_OPERACION = ex.Message;
             }
+#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return IND_OPERACION;
+#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
 
         public bool EliminarFormato(AlistamientoMunicionComfuavinavDTO alistamientoMunicionComfuavinavDTO)
@@ -297,7 +305,9 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                         dr.Read();
                         if (dr.HasRows)
                         {
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                             IND_OPERACION = dr["IND_OPERACION"].ToString();
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                         }
                     }
                 }
@@ -306,7 +316,9 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
             {
                 IND_OPERACION = ex.Message;
             }
+#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return IND_OPERACION;
+#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
     }
 }

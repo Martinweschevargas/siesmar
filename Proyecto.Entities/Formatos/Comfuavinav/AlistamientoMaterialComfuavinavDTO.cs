@@ -14,10 +14,14 @@ namespace Marina.Siesmar.Entidades.Formatos.Comfuavinav
         public decimal? PorcentajeOperativo { get; set; }
         public int? CargaId { get; set; }
 
-
         public string? DescUnidadNaval { get; set; }
         public string? DescCapacidadOperativa { get; set; }
-        public string? Subclasificacionn { get; set; }
+        public string? CapacidadIntrinseca1N { get; set; }
+        public string? Ponderado1N { get; set; }
+        public string? Subclasificacion2N { get; set; }
+        public string? Ponderado2Nivel { get; set; }
+        public string? Subclasificacion3N { get; set; }
+        public string? Ponderado3Nivel { get; set; }
 
         [NotMapped]
         public string? UsuarioIngresoRegistro { get; set; }

@@ -1,5 +1,8 @@
 ﻿using Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav;
+using Marina.Siesmar.AccesoDatos.Formatos.Diali;
 using Marina.Siesmar.Entidades.Formatos.Comfuavinav;
+using Marina.Siesmar.Entidades.Formatos.Diali;
+using System.Data;
 
 namespace Marina.Siesmar.LogicaNegocios.Formatos.Comfuavinav
 {
@@ -7,14 +10,14 @@ namespace Marina.Siesmar.LogicaNegocios.Formatos.Comfuavinav
     {
         AlistamientoRepuestoCriticoComfuavinavDAO alistamientoRepuestoCriticoComfuavinavDAO = new();
 
-        public List<AlistamientoRepuestoCriticoComfuavinavDTO> ObtenerLista()
+        public List<AlistamientoRepuestoCriticoComfuavinavDTO> ObtenerLista(int? CargaId = null, string? fechainicio = null, string? fechafin = null)
         {
-            return alistamientoRepuestoCriticoComfuavinavDAO.ObtenerLista();
+            return alistamientoRepuestoCriticoComfuavinavDAO.ObtenerLista(CargaId, fechainicio, fechafin);
         }
 
-        public string AgregarRegistro(AlistamientoRepuestoCriticoComfuavinavDTO alistamientoRepuestoCriticoComfuavinavDTO)
+        public string AgregarRegistro(AlistamientoRepuestoCriticoComfuavinavDTO alistamientoRepuestoCriticoComfuavinavDTO, string? fecha)
         {
-            return alistamientoRepuestoCriticoComfuavinavDAO.AgregarRegistro(alistamientoRepuestoCriticoComfuavinavDTO);
+            return alistamientoRepuestoCriticoComfuavinavDAO.AgregarRegistro(alistamientoRepuestoCriticoComfuavinavDTO, fecha);
         }
 
         public AlistamientoRepuestoCriticoComfuavinavDTO BuscarFormato(int Codigo)
@@ -32,9 +35,14 @@ namespace Marina.Siesmar.LogicaNegocios.Formatos.Comfuavinav
             return alistamientoRepuestoCriticoComfuavinavDAO.EliminarFormato(alistamientoRepuestoCriticoComfuavinavDTO);
         }
 
-        public bool InsercionMasiva(IEnumerable<AlistamientoRepuestoCriticoComfuavinavDTO> alistamientoRepuestoCriticoComfuavinavDTO)
+        public bool EliminarCarga(AlistamientoRepuestoCriticoComfuavinavDTO alistamientoRepuestoCriticoComfuavinavDTO)
         {
-            return alistamientoRepuestoCriticoComfuavinavDAO.InsercionMasiva(alistamientoRepuestoCriticoComfuavinavDTO);
+            return alistamientoRepuestoCriticoComfuavinavDAO.EliminarCarga(alistamientoRepuestoCriticoComfuavinavDTO);
+        }
+
+        public string InsertarDatos(DataTable datos, string fecha)
+        {
+            return alistamientoRepuestoCriticoComfuavinavDAO.InsertarDatos(datos, fecha);
         }
 
     }
