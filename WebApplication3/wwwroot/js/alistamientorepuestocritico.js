@@ -91,7 +91,7 @@ $(document).ready(function () {
                                 type: "POST",
                                 url: '/AlistamientoRepuestoCritico/ActualizarAlistamientoRepuestoCritico',
                                 data: {
-                                    'AlistamientoRepuestoCriticoId': $('#txtCodigo').val(),
+                                    'Id': $('#txtCodigo').val(),
                                     'CodigoAlistamientoRepuestoCritico': $('#txtCodRe').val(),
                                     'CodigoSistemaRepuestoCritico': $('#cbSistemae').val(),
                                     'CodigoSubsistemaRepuestoCritico': $('#cbSubsistemae').val(),

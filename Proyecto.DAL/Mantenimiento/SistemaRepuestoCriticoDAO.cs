@@ -31,6 +31,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                         lista.Add(new SistemaRepuestoCriticoDTO()
                         {
                             SistemaRepuestoCriticoId = Convert.ToInt32(dr["SistemaRepuestoCriticoId"]),
+                            CodigoSistemaRepuestoCritico = dr["CodigoSistemaRepuestoCritico"].ToString(),
                             DescSistemaRepuestoCritico = dr["DescSistemaRepuestoCritico"].ToString(),
                         });
                     }
@@ -39,7 +40,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
             return lista;
         }
 
-        public string AgregarSistemaRepuestoCritico(SistemaRepuestoCriticoDTO capitaniaDTO)
+        public string AgregarSistemaRepuestoCritico(SistemaRepuestoCriticoDTO sistemaRepuestoCriticoDTO)
         {
             string IND_OPERACION = "0";
             var cn = new ConfiguracionConexion();
@@ -51,11 +52,14 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd = new SqlCommand("Mantenimiento.usp_SistemaRepuestoCriticoRegistrar", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
+                    cmd.Parameters.Add("@CodigoSistemaRepuestoCritico", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoSistemaRepuestoCritico"].Value = sistemaRepuestoCriticoDTO.CodigoSistemaRepuestoCritico;
+
                     cmd.Parameters.Add("@DescSistemaRepuestoCritico", SqlDbType.VarChar, 100);
-                    cmd.Parameters["@DescSistemaRepuestoCritico"].Value = capitaniaDTO.DescSistemaRepuestoCritico;
+                    cmd.Parameters["@DescSistemaRepuestoCritico"].Value = sistemaRepuestoCriticoDTO.DescSistemaRepuestoCritico;
 
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
-                    cmd.Parameters["@Usuario"].Value = capitaniaDTO.UsuarioIngresoRegistro;
+                    cmd.Parameters["@Usuario"].Value = sistemaRepuestoCriticoDTO.UsuarioIngresoRegistro;
 
                     cmd.Parameters.Add("@Ip", SqlDbType.VarChar, 50);
                     cmd.Parameters["@Ip"].Value = UtilitariosGlobales.obtenerDireccionIp();
@@ -81,7 +85,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
 
         public SistemaRepuestoCriticoDTO BuscarSistemaRepuestoCriticoID(int Codigo)
         {
-            SistemaRepuestoCriticoDTO capitaniaDTO = new SistemaRepuestoCriticoDTO();
+            SistemaRepuestoCriticoDTO sistemaRepuestoCriticoDTO = new SistemaRepuestoCriticoDTO();
             var cn = new ConfiguracionConexion();
 
             try
@@ -100,8 +104,9 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
 
                     if (dr.HasRows)
                     {
-                        capitaniaDTO.SistemaRepuestoCriticoId = Convert.ToInt32(dr["SistemaRepuestoCriticoId"]);
-                        capitaniaDTO.DescSistemaRepuestoCritico = dr["DescSistemaRepuestoCritico"].ToString();
+                        sistemaRepuestoCriticoDTO.SistemaRepuestoCriticoId = Convert.ToInt32(dr["SistemaRepuestoCriticoId"]);
+                        sistemaRepuestoCriticoDTO.DescSistemaRepuestoCritico = dr["DescSistemaRepuestoCritico"].ToString();
+                        sistemaRepuestoCriticoDTO.DescSistemaRepuestoCritico = dr["DescSistemaRepuestoCritico"].ToString();
                     }
 
                 }
@@ -110,10 +115,10 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
             {
                 throw;
             }
-            return capitaniaDTO;
+            return sistemaRepuestoCriticoDTO;
         }
 
-        public string ActualizarSistemaRepuestoCritico(SistemaRepuestoCriticoDTO capitaniaDTO)
+        public string ActualizarSistemaRepuestoCritico(SistemaRepuestoCriticoDTO sistemaRepuestoCriticoDTO)
         {
             string IND_OPERACION = "0";
             var cn = new ConfiguracionConexion();
@@ -126,13 +131,16 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.Add("@SistemaRepuestoCriticoId", SqlDbType.Int);
-                    cmd.Parameters["@SistemaRepuestoCriticoId"].Value = capitaniaDTO.SistemaRepuestoCriticoId;
+                    cmd.Parameters["@SistemaRepuestoCriticoId"].Value = sistemaRepuestoCriticoDTO.SistemaRepuestoCriticoId;
+
+                    cmd.Parameters.Add("@CodigoSistemaRepuestoCritico", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoSistemaRepuestoCritico"].Value = sistemaRepuestoCriticoDTO.CodigoSistemaRepuestoCritico;
 
                     cmd.Parameters.Add("@DescSistemaRepuestoCritico", SqlDbType.VarChar, 100);
-                    cmd.Parameters["@DescSistemaRepuestoCritico"].Value = capitaniaDTO.DescSistemaRepuestoCritico;
+                    cmd.Parameters["@DescSistemaRepuestoCritico"].Value = sistemaRepuestoCriticoDTO.DescSistemaRepuestoCritico;
         
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
-                    cmd.Parameters["@Usuario"].Value = capitaniaDTO.UsuarioIngresoRegistro;
+                    cmd.Parameters["@Usuario"].Value = sistemaRepuestoCriticoDTO.UsuarioIngresoRegistro;
 
                     cmd.Parameters.Add("@Ip", SqlDbType.VarChar, 50);
                     cmd.Parameters["@Ip"].Value = UtilitariosGlobales.obtenerDireccionIp();
@@ -157,7 +165,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
             return IND_OPERACION;
         }
 
-        public string EliminarSistemaRepuestoCritico(SistemaRepuestoCriticoDTO capitaniaDTO)
+        public string EliminarSistemaRepuestoCritico(SistemaRepuestoCriticoDTO sistemaRepuestoCriticoDTO)
         {
             string IND_OPERACION = "0";
             var cn = new ConfiguracionConexion();
@@ -170,10 +178,10 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.Add("@SistemaRepuestoCriticoId", SqlDbType.Int);
-                    cmd.Parameters["@SistemaRepuestoCriticoId"].Value = capitaniaDTO.SistemaRepuestoCriticoId;
+                    cmd.Parameters["@SistemaRepuestoCriticoId"].Value = sistemaRepuestoCriticoDTO.SistemaRepuestoCriticoId;
 
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
-                    cmd.Parameters["@Usuario"].Value = capitaniaDTO.UsuarioIngresoRegistro;
+                    cmd.Parameters["@Usuario"].Value = sistemaRepuestoCriticoDTO.UsuarioIngresoRegistro;
 
                     cmd.Parameters.Add("@Ip", SqlDbType.VarChar, 50);
                     cmd.Parameters["@Ip"].Value = UtilitariosGlobales.obtenerDireccionIp();
