@@ -69,7 +69,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
            
             return View();
         }
-        public ActionResult Insertar(string CodigoUnidadNaval, string FechaAlistamiento, string CodigoCapacidadOperativa, string CodigoAlistamientoMaterialRequerido3N, int Requerido, int Operativo, decimal PorcentajeOperativo, int CargaId, string Fecha)
+        public ActionResult Insertar(string CodigoUnidadNaval, string FechaAlistamiento, string CodigoCapacidadOperativa, string CodigoAlistamientoMaterialRequerido3N, int Requerido, int Operativo, decimal PorcentajeOperatividad, int CargaId, string Fecha)
         {
             AlistamientoMaterialComfasubDTO alistamientoMaterialComfasubDTO = new();
             alistamientoMaterialComfasubDTO.CodigoUnidadNaval = CodigoUnidadNaval;
@@ -78,7 +78,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
             alistamientoMaterialComfasubDTO.CodigoAlistamientoMaterialRequerido3N = CodigoAlistamientoMaterialRequerido3N;
             alistamientoMaterialComfasubDTO.Requerido = Requerido;
             alistamientoMaterialComfasubDTO.Operativo = Operativo;
-            alistamientoMaterialComfasubDTO.PorcentajeOperatividad = PorcentajeOperativo;
+            alistamientoMaterialComfasubDTO.PorcentajeOperatividad = PorcentajeOperatividad;
             alistamientoMaterialComfasubDTO.CargaId = CargaId;
             alistamientoMaterialComfasubDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
             var IND_OPERACION = alistamientoMaterialComfasubBL.AgregarRegistro(alistamientoMaterialComfasubDTO, Fecha);
@@ -90,7 +90,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Json(alistamientoMaterialComfasubBL.EditarFormado(Id));
         }
 
-        public ActionResult Actualizar(int Id, string CodigoUnidadNaval, string FechaAlistamiento,  string CodigoCapacidadOperativa, string CodigoAlistamientoMaterialRequerido3N, int Requerido, int Operativo, decimal PorcentajeOperativo)
+        public ActionResult Actualizar(int Id, string CodigoUnidadNaval, string FechaAlistamiento,  string CodigoCapacidadOperativa, string CodigoAlistamientoMaterialRequerido3N, int Requerido, int Operativo, decimal PorcentajeOperatividad)
         {
             AlistamientoMaterialComfasubDTO alistamientoMaterialComfasubDTO = new();
             alistamientoMaterialComfasubDTO.AlistamientoMaterialId = Id;
@@ -100,7 +100,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
             alistamientoMaterialComfasubDTO.CodigoAlistamientoMaterialRequerido3N = CodigoAlistamientoMaterialRequerido3N;
             alistamientoMaterialComfasubDTO.Requerido = Requerido;
             alistamientoMaterialComfasubDTO.Operativo = Operativo;
-            alistamientoMaterialComfasubDTO.PorcentajeOperatividad = PorcentajeOperativo;
+            alistamientoMaterialComfasubDTO.PorcentajeOperatividad = PorcentajeOperatividad;
 
             alistamientoMaterialComfasubDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
