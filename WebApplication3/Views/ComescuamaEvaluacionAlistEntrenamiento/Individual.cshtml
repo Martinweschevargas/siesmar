@@ -3,7 +3,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 <h1><a href="~/ComescuamaEvaluacionAlistEntrenamiento/Individual" style="text-decoration:none;">Evaluación del Alistamiento del Entrenamiento</a></h1>
 <div id="nuevo" style="display:none;">
     <form class="needs-validation" novalidate style="font-family: 'Century Gothic'; font-size:14px;">
@@ -11,15 +10,17 @@
             <div class="card-header nuevo">
                 <h4>Nuevo</h4>
             </div>
-            <div class="form-group row col-md-6">
-                <label for="carga" class="col-3 col-form-label">Carga</label>
-                <div class="form-group row col-md-6">
-                    <div class="col"><select class="form-select-sm form-control-sm" id="cargasR" name="cargasR"></select></div>
+            <div class="row">
+                <div class="col-md-4">
+                    <select class="form-select form-control-sm" id="cargasR" name="cargasR"></select>
+                </div>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
                 </div>
             </div>
             <div class="row mt-2">
                 <div class="form-group row col-md-6">
-                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Identificación Unidad Naval De Entrenamiento</a></label>
+                    <label for="UnidadComescuama" class="col-3 col-form-label"><a href="~/UnidadComescuama">Identificación Unidad Comescuama De Entrenamiento</a></label>
                     <div class="col-md-9">
                         <select class="form-control form-select-sm" id="cbUnidadNaval" name="cbUnidadNaval"></select>
                     </div>
@@ -50,33 +51,9 @@
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
-                    <label for="EjercicioEntrenamiento" class="col-3 col-form-label"><a href="~/EjercicioEntrenamiento">Código De Ejercicio </a></label>
-                    <div class="col-md-9">
-                        <select class="form-control form-select-sm" id="cbEjercicioEntrenamiento" name="cbEjercicioEntrenamiento"></select>
-                    </div>
-                </div>
-                <div class="form-group row col-md-6">
-                    <label for="DescEjercicioEntrenamiento" class="col-3 col-form-label">Ejercicios(Descripción)</label>
-                    <div class="col-md-9">
-                        <input type="text" class="form-control form-control-sm" id="txtDescEjercicioEntrenamiento" name="txtDescEjercicioEntrenamiento" placeholder="Ejercicios(Descripción)" readonly>
-                    </div>
-                </div>
-                <div class="form-group row col-md-6">
                     <label for="EjercicioEntrenamientoAspecto" class="col-3 col-form-label"><a href="~/EjercicioEntrenamientoAspecto">Código De Ejercicio Entrenamiento Aspectos</a></label>
                     <div class="col-md-9">
                         <select class="form-control form-select-sm" id="cbEjercicioEntrenamientoAspecto" name="cbEjercicioEntrenamientoAspecto"></select>
-                    </div>
-                </div>
-                <div class="form-group row col-md-6">
-                    <label for="AspectoEvaluacion" class="col-3 col-form-label">Sub-Ejercicio(Aspectos Especificos A Evaluar</label>
-                    <div class="col-md-9">
-                        <input type="text" class="form-control form-control-sm" id="txtAspectoEvaluacion" name="txtAspectoEvaluacion" placeholder="Sub-Ejercicio(Aspectos Especificos A Evaluar" readonly>
-                    </div>
-                </div>
-                <div class="form-group row col-md-6">
-                    <label for="Peso" class="col-3 col-form-label">Peso De Cada Sub-Ejercicio</label>
-                    <div class="col-md-9">
-                        <input type="text" class="form-control form-control-sm" id="txtPeso" name="txtPeso" placeholder="Peso De Cada Sub-Ejercicio" readonly>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
@@ -115,7 +92,6 @@
                         <input type="date" class="form-control form-control-sm" id="txtFechaCaducidadEjercicio" name="txtFechaCaducidadEjercicio" required>
                     </div>
                 </div>
-
             </div>
             <div class="row mt-2">
                 <div class="col-md-6 text-center">
@@ -143,7 +119,7 @@
             </div>
             <div class="row mt-2">
                 <div class="form-group row col-md-6">
-                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Identificación Unidad Naval De Entrenamiento</a></label>
+                    <label for="UnidadComescuama" class="col-3 col-form-label"><a href="~/UnidadComescuama">Identificación Unidad Comescuama De Entrenamiento</a></label>
                     <div class="col-md-9">
                         <select class="form-control form-select-sm" id="cbUnidadNavale" name="cbUnidadNavale"></select>
                     </div>
@@ -174,35 +150,12 @@
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
-                    <label for="EjercicioEntrenamiento" class="col-3 col-form-label"><a href="~/EjercicioEntrenamiento">Código De Ejercicio </a></label>
-                    <div class="col-md-9">
-                        <select class="form-control form-select-sm" id="cbEjercicioEntrenamientoe" name="cbEjercicioEntrenamientoe"></select>
-                    </div>
-                </div>
-                <div class="form-group row col-md-6">
-                    <label for="DescEjercicioEntrenamiento" class="col-3 col-form-label">Ejercicios(Descripción)</label>
-                    <div class="col-md-9">
-                        <input type="text" class="form-control form-control-sm" id="txtDescEjercicioEntrenamientoe" name="txtDescEjercicioEntrenamientoe" placeholder="Ejercicios(Descripción)" disabled>
-                    </div>
-                </div>
-                <div class="form-group row col-md-6">
                     <label for="EjercicioEntrenamientoAspecto" class="col-3 col-form-label"><a href="~/EjercicioEntrenamientoAspecto">Código De Ejercicio Entrenamiento Aspectos</a></label>
                     <div class="col-md-9">
                         <select class="form-control form-select-sm" id="cbEjercicioEntrenamientoAspectoe" name="cbEjercicioEntrenamientoAspectoe"></select>
                     </div>
                 </div>
-                <div class="form-group row col-md-6">
-                    <label for="AspectoEvaluacion" class="col-3 col-form-label">Sub-Ejercicio(Aspectos Especificos A Evaluar</label>
-                    <div class="col-md-9">
-                        <input type="text" class="form-control form-control-sm" id="txtAspectoEvaluacione" name="txtAspectoEvaluacione" placeholder="Sub-Ejercicio(Aspectos Especificos A Evaluar" disabled>
-                    </div>
-                </div>
-                <div class="form-group row col-md-6">
-                    <label for="Peso" class="col-3 col-form-label">Peso De Cada Sub-Ejercicio</label>
-                    <div class="col-md-9">
-                        <input type="text" class="form-control form-control-sm" id="txtPesoe" name="txtPesoe" placeholder="Peso De Cada Sub-Ejercicio" disabled>
-                    </div>
-                </div>
+                
                 <div class="form-group row col-md-6">
                     <label for="CalificativoAsignadoEjercicio" class="col-3 col-form-label"><a href="~/CalificativoAsignadoEjercicio">Calificativo</a></label>
                     <div class="col-md-9">
@@ -239,7 +192,6 @@
                         <input type="date" class="form-control form-control-sm" id="txtFechaCaducidadEjercicioe" name="txtFechaCaducidadEjercicioe" required>
                     </div>
                 </div>
-
             </div>
             <div class="row mt-2">
                 <div class="col-md-6 text-center">
@@ -262,22 +214,28 @@
     <p><a href="~/ComescuamaEvaluacionAlistEntrenamiento" class="btn btn-primary">Ir Carga Masiva</a></p>
     <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaComescuamaEvaluacionAlistEntrenamiento()" />
     <div class="row align-items-start">
-        <div class="col"><select class="form-select form-control-sm" id="cargas" name="cargas"></select></div>
         <div class="col">
-            <input type='button' id="btn_search" value="Buscar" class="btn btn-primary">
-            <input type='button' id="btn_all" value="Mostrar Todos" class="btn btn-primary">
+            <select class="form-select form-control-sm" id="cargas" name="cargas"></select>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" id="btn_search">Buscar</button>
+            <button class="btn btn-primary" id="btn_all">Mostrar Todos</button>
+            <button class="btn btn-danger" onclick="eliminarCarga()">Eliminar Carga</button>
         </div>
     </div>
-    <table class="table table-striped" id="tblComescuamaEvaluacionAlistEntrenamiento" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
+    <hr />
+    <table class="table table-striped" id="tblComescuamaEvaluacionAlistEntrenamiento" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
         <thead>
             <tr class="colorbg">
                 <th>Código</th>
-                <th>Identificación Unidad Naval De Entrenamiento</th>
+                <th>Identificación Unidad Comescuama De Entrenamiento</th>
                 <th>Nivel De Entrenamiento</th>
                 <th>Capacidad Operativa</th>
                 <th>Tipo De Capacidad Operativa</th>
                 <th>Código De Ejercicio </th>
-                <th>Código De Ejercicio Aspectos</th>
+                <th>Descripción de Ejercicio de Entrenamiento</th>
+                <th>Aspecto Evaluacion</th>
+                <th>Peso</th>
                 <th>Calificativo</th>
                 <th>Puntaje Obtenido Por Ejercicio</th>
                 <th>Fecha Del Periodo A Evaluar El Ejercicio</th>

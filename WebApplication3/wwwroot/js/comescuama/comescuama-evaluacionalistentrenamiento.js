@@ -1,6 +1,4 @@
 ﻿var tblComescuamaEvaluacionAlistEntrenamiento;
-var EjercicioEntrenamiento;
-var EjercicioEntrenamientoAspecto;
 var reporteSeleccionado;
 var optReporteSelect;
 
@@ -28,19 +26,19 @@ $(document).ready(function () {
                                 type: "POST",
                                 url: '/ComescuamaEvaluacionAlistEntrenamiento/Insertar',
                                 data: {
-                                    'CodigoUnidadNaval ': $('#cbUnidadNaval').val(),
+                                    'CodigoUnidadComescuama': $('#cbUnidadNaval').val(),
                                     'NivelEntrenamiento': $('#txtNivelEntrenamiento').val(),
-                                    'CodigoCapacidadOperativa ': $('#cbCapacidadOperativa').val(),
+                                    'CodigoCapacidadOperativa': $('#cbCapacidadOperativa').val(),
                                     'TipoCapacidadOperativo': $('#txtTipoCapacidadOperativo').val(),
-                                    'CodigoEjercicioEntrenamiento ': $('#cbEjercicioEntrenamiento').val(),
-                                    'CodigoEjercicioEntrenamientoAspecto ': $('#cbEjercicioEntrenamientoAspecto').val(),
-                                    'CodigoCalificativoAsignadoEjercicio  ': $('#cbCalificativoAsignadoEjercicio').val(),
+                                    'CodigoEjercicioEntrenamientoAspecto': $('#cbEjercicioEntrenamientoAspecto').val(),
+                                    'CodigoCalificativoAsignadoEjercicio': $('#cbCalificativoAsignadoEjercicio').val(),
                                     'PuntajeObtenido': $('#txtPuntajeObtenido').val(),
                                     'FechaPeriodoEvaluar': $('#txtFechaPeriodoEvaluar').val(),
                                     'FechaRealizacionEjercicio': $('#txtFechaRealizacionEjercicio').val(),
                                     'TiempoVigencia': $('#txtTiempoVigencia').val(),
                                     'FechaCaducidadEjercicio': $('#txtFechaCaducidadEjercicio').val(), 
-                                    'CargaId': $('#cargasR').val()
+                                    'CargaId': $('#cargasR').val(),
+                                    'Fecha': $('#txtFecha').val()
                                 },
                                 beforeSend: function () {
                                     $('#loader-6').show();
@@ -103,13 +101,12 @@ $(document).ready(function () {
                                 url: '/ComescuamaEvaluacionAlistEntrenamiento/Actualizar',
                                 data: {
                                     'Id': $('#txtCodigo').val(),
-                                    'CodigoUnidadNaval ': $('#cbUnidadNavale').val(),
+                                    'CodigoUnidadComescuama': $('#cbUnidadNavale').val(),
                                     'NivelEntrenamiento': $('#txtNivelEntrenamientoe').val(),
-                                    'CodigoCapacidadOperativa ': $('#cbCapacidadOperativae').val(),
+                                    'CodigoCapacidadOperativa': $('#cbCapacidadOperativae').val(),
                                     'TipoCapacidadOperativo': $('#txtTipoCapacidadOperativoe').val(),
-                                    'CodigoEjercicioEntrenamiento ': $('#cbEjercicioEntrenamientoe').val(),
-                                    'CodigoEjercicioEntrenamientoAspecto  ': $('#cbEjercicioEntrenamientoAspectoe').val(),
-                                    'CodigoCalificativoAsignadoEjercicio ': $('#cbCalificativoAsignadoEjercicioe').val(),
+                                    'CodigoEjercicioEntrenamientoAspecto': $('#cbEjercicioEntrenamientoAspectoe').val(),
+                                    'CodigoCalificativoAsignadoEjercicio': $('#cbCalificativoAsignadoEjercicioe').val(),
                                     'PuntajeObtenido': $('#txtPuntajeObtenidoe').val(),
                                     'FechaPeriodoEvaluar': $('#txtFechaPeriodoEvaluare').val(),
                                     'FechaRealizacionEjercicio': $('#txtFechaRealizacionEjercicioe').val(),
@@ -152,7 +149,7 @@ $(document).ready(function () {
         })
 
 
-        tblComescuamaEvaluacionAlistEntrenamiento=  $('#tblComescuamaEvaluacionAlistEntrenamiento').DataTable({
+    tblComescuamaEvaluacionAlistEntrenamiento=  $('#tblComescuamaEvaluacionAlistEntrenamiento').DataTable({
         ajax: {
             "url": '/ComescuamaEvaluacionAlistEntrenamiento/CargaTabla',
             "type": "GET",
@@ -160,13 +157,15 @@ $(document).ready(function () {
         },
         "columns": [
             { "data": "evaluacionAlistamientoEntrenamientoId" },
-            { "data": "descUnidadNaval" },
+            { "data": "descUnidadComescuama" },
             { "data": "nivelEntrenamiento" },
             { "data": "descCapacidadOperativa" },
             { "data": "tipoCapacidadOperativo" },
-            { "data": "codigoEjercicioEntrenamiento " },
-            { "data": "codigoEjercicioEntrenamientoAspecto" },
-            { "data": "descCalificativoAsignadoEjercicio" },
+            { "data": "codigoEjercicioEntrenamiento" },
+            { "data": "descEjercicioEntrenamiento" },
+            { "data": "aspectoEvaluacion" },
+            { "data": "peso" },
+            { "data": "codigoCalificativoAsignadoEjercicio" },
             { "data": "puntajeObtenido" },
             { "data": "fechaPeriodoEvaluar" },
             { "data": "fechaRealizacionEjercicio" },
@@ -259,7 +258,6 @@ $('#btn_all').click(function () {
     mostrarTodos();
 });
 
-
 function cargaBusqueda() {
     var CodigoCarga = $('#cargas').val();
     tblComescuamaEvaluacionAlistEntrenamiento.columns(15).search(CodigoCarga).draw();
@@ -275,15 +273,11 @@ function edit(Id) {
     $('#editar').show();
     $.getJSON('/ComescuamaEvaluacionAlistEntrenamiento/Mostrar?Id=' + Id, [], function (EvaluacionAlistEntrenamientoComescuamaDTO) {
         $('#txtCodigo').val(EvaluacionAlistEntrenamientoComescuamaDTO.evaluacionAlistamientoEntrenamientoId);
-        $('#cbUnidadNavale').val(EvaluacionAlistEntrenamientoComescuamaDTO.CodigoUnidadNaval);
+        $('#cbUnidadNavale').val(EvaluacionAlistEntrenamientoComescuamaDTO.codigoUnidadComescuama);
         $('#txtNivelEntrenamientoe').val(EvaluacionAlistEntrenamientoComescuamaDTO.nivelEntrenamiento);
         $('#cbCapacidadOperativae').val(EvaluacionAlistEntrenamientoComescuamaDTO.codigoCapacidadOperativa);
         $('#txtTipoCapacidadOperativoe').val(EvaluacionAlistEntrenamientoComescuamaDTO.tipoCapacidadOperativo);
-        $('#cbEjercicioEntrenamientoe').val(EvaluacionAlistEntrenamientoComescuamaDTO.codigoEjercicioEntrenamiento);
-        $('#txtDescEjercicioEntrenamientoe').val(EvaluacionAlistEntrenamientoComescuamaDTO.descEjercicioEntrenamiento);
         $('#cbEjercicioEntrenamientoAspectoe').val(EvaluacionAlistEntrenamientoComescuamaDTO.codigoEjercicioEntrenamientoAspecto);
-        $('#txtAspectoEvaluacione').val(EvaluacionAlistEntrenamientoComescuamaDTO.aspectoEvaluacion);
-        $('#txtPesoe').val(EvaluacionAlistEntrenamientoComescuamaDTO.peso);
         $('#cbCalificativoAsignadoEjercicioe').val(EvaluacionAlistEntrenamientoComescuamaDTO.codigoCalificativoAsignadoEjercicio);
         $('#txtPuntajeObtenidoe').val(EvaluacionAlistEntrenamientoComescuamaDTO.puntajeObtenido);
         $('#txtFechaPeriodoEvaluare').val(EvaluacionAlistEntrenamientoComescuamaDTO.fechaPeriodoEvaluar);
@@ -341,6 +335,52 @@ function eliminar(id) {
     })
 }
 
+function eliminarCarga() {
+    var id = $('select#cargas').val();
+    Swal.fire({
+        title: 'Estas seguro?',
+        text: "No podras revertir!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si,borralo!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                type: "POST",
+                url: '/ComescuamaEvaluacionAlistEntrenamiento/EliminarCarga',
+                data: {
+                    'Id': id
+                },
+                beforeSend: function () {
+                    $('#loader-6').show();
+                },
+                success: function (mensaje) {
+                    if (mensaje == "1") {
+                        Swal.fire(
+                            'Borrado!',
+                            'Se elimino con éxito.',
+                            'success'
+                        )
+                    } else {
+                        Swal.fire(
+                            'Atención!',
+                            'Ocurrio un problema.',
+                            'error'
+                        )
+                    }
+                    cargaDatos();
+                    $('#tblComescuamaEvaluacionAlistEntrenamiento').DataTable().ajax.reload();
+                },
+                complete: function () {
+                    $('#loader-6').hide();
+                }
+            });
+        }
+    })
+}
+
 function nuevaComescuamaEvaluacionAlistEntrenamiento() {
     $('#listar').hide();
     $('#nuevo').show();
@@ -365,11 +405,10 @@ function mostrarDatos() {
                 dataJson["data1"].forEach((item) => {
                     $("#tbData tbody").append(
                         $("<tr>").append(
-                            $("<td>").text(item.codigoUnidadNaval),
+                            $("<td>").text(item.codigoUnidadComescuama),
                             $("<td>").text(item.nivelEntrenamiento),
                             $("<td>").text(item.codigoCapacidadOperativa),
                             $("<td>").text(item.tipoCapacidadOperativo),
-                            $("<td>").text(item.codigoEjercicioEntrenamiento),
                             $("<td>").text(item.codigoEjercicioEntrenamientoAspecto),
                             $("<td>").text(item.codigoCalificativoAsignadoEjercicio),
                             $("<td>").text(item.puntajeObtenido),
@@ -404,6 +443,7 @@ function enviarDatos() {
     const formData = new FormData()
 
     formData.append("ArchivoExcel", input.files[0])
+    formData.append("Fecha", $('#txtFecha').val())
     fetch("ComescuamaEvaluacionAlistEntrenamiento/EnviarDatos", {
         method: "POST",
         body: formData
@@ -419,145 +459,64 @@ function enviarDatos() {
             } else {
                 Swal.fire(
                     'Atención!',
-                    'Ocurrio un problema.',
+                    'Ocurrio un problema. ' + mensaje,
                     'error'
                 )
             }
         })
 }
 
-
 function cargaDatos() {
     $.getJSON('/ComescuamaEvaluacionAlistEntrenamiento/cargaCombs', [], function (Json) {
-        var UnidadNaval = Json["data1"];
+        var UnidadComescuama = Json["data1"];
         var CapacidadOperativa = Json["data2"];
-        EjercicioEntrenamiento = Json["data3"];
-        EjercicioEntrenamientoAspecto = Json["data4"];
-        var CalificativoAsignadoEjercicio = Json["data5"];
-        var listaCargas = Json["data6"];
+        var EjercicioEntrenamientoAspecto = Json["data3"];
+        var CalificativoAsignadoEjercicio = Json["data4"];
+        var listaCargas = Json["data5"];
 
         $("select#cbUnidadNaval").html("");
-        $.each(UnidadNaval, function () {
-            var RowContent = '<option value=' + this.codigoUnidadNaval + '>' + this.descUnidadNaval + '</option>'
-            $("select#cbUnidadNaval").append(RowContent);
-        });
         $("select#cbUnidadNavale").html("");
-        $.each(UnidadNaval, function () {
-            var RowContent = '<option value=' + this.codigoUnidadNaval + '>' + this.descUnidadNaval + '</option>'
+        $.each(UnidadComescuama, function () {
+            var RowContent = '<option value=' + this.codigoUnidadComescuama + '>' + this.descUnidadComescuama + '</option>'
+            $("select#cbUnidadNaval").append(RowContent);
             $("select#cbUnidadNavale").append(RowContent);
         });
 
-
         $("select#cbCapacidadOperativa").html("");
-        $.each(CapacidadOperativa, function () {
-            var RowContent = '<option value=' + this.codigoCapacidadOperativa + '>' + this.descCapacidadOperativa + '</option>'
-            $("select#cbCapacidadOperativa").append(RowContent);
-        });
         $("select#cbCapacidadOperativae").html("");
         $.each(CapacidadOperativa, function () {
             var RowContent = '<option value=' + this.codigoCapacidadOperativa + '>' + this.descCapacidadOperativa + '</option>'
+            $("select#cbCapacidadOperativa").append(RowContent);
             $("select#cbCapacidadOperativae").append(RowContent);
         });
 
-
-        $("select#cbEjercicioEntrenamiento").html("");
-        $.each(EjercicioEntrenamiento, function () {
-            var RowContent = '<option value=' + this.codigoEjercicioEntrenamiento + '>' + this.codigoEjercicioEntrenamiento + '</option>'
-            $("select#cbEjercicioEntrenamiento").append(RowContent);
-
-            $("input#txtDescEjercicioEntrenamiento").val(EjercicioEntrenamiento[0].descEjercicioEntrenamiento);
-        });
-        $("select#cbEjercicioEntrenamientoe").html("");
-        $.each(EjercicioEntrenamiento, function () {
-            var RowContent = '<option value=' + this.codigoEjercicioEntrenamiento + '>' + this.codigoEjercicioEntrenamiento + '</option>'
-            $("select#cbEjercicioEntrenamientoe").append(RowContent);
-        });
-
-
         $("select#cbEjercicioEntrenamientoAspecto").html("");
-        $.each(EjercicioEntrenamientoAspecto, function () {
-            var RowContent = '<option value=' + this.codigoEjercicioEntrenamientoAspecto + '>' + this.codigoEjercicioEntrenamientoAspecto + '</option>'
-            $("select#cbEjercicioEntrenamientoAspecto").append(RowContent);
-
-            $("input#txtAspectoEvaluacion").val(EjercicioEntrenamientoAspecto[0].aspectoEvaluacion);
-            $("input#txtPeso").val(EjercicioEntrenamientoAspecto[0].peso);
-        });
         $("select#cbEjercicioEntrenamientoAspectoe").html("");
         $.each(EjercicioEntrenamientoAspecto, function () {
             var RowContent = '<option value=' + this.codigoEjercicioEntrenamientoAspecto + '>' + this.codigoEjercicioEntrenamientoAspecto + '</option>'
+            $("select#cbEjercicioEntrenamientoAspecto").append(RowContent);
             $("select#cbEjercicioEntrenamientoAspectoe").append(RowContent);
         });
 
 
         $("select#cbCalificativoAsignadoEjercicio").html("");
-        $.each(CalificativoAsignadoEjercicio, function () {
-            var RowContent = '<option value=' + this.codigoCalificativoAsignadoEjercicio + '>' + this.descCalificativoAsignadoEjercicio + '</option>'
-            $("select#cbCalificativoAsignadoEjercicio").append(RowContent);
-        });
         $("select#cbCalificativoAsignadoEjercicioe").html("");
         $.each(CalificativoAsignadoEjercicio, function () {
-            var RowContent = '<option value=' + this.codigoCalificativoAsignadoEjercicio + '>' + this.descCalificativoAsignadoEjercicio + '</option>'
+            var RowContent = '<option value=' + this.codigoCalificativoAsignadoEjercicio + '>' + this.descripcion + '</option>'
+            $("select#cbCalificativoAsignadoEjercicio").append(RowContent);
             $("select#cbCalificativoAsignadoEjercicioe").append(RowContent);
-        }); 
+        });
 
         $("select#cargasR").html("");
         $("select#cargas").html("");
+        $("select#cargas").append('<option value=0>Seleccione Carga...</option>');
         $.each(listaCargas, function () {
             var RowContent = '<option value=' + this.codigoCarga + '>Fecha Carga : ' + this.fechaCarga + '</option>'
             $("select#cargasR").append(RowContent);
             $("select#cargas").append(RowContent);
         });
-
-
     });
 }
-
-$('select#cbEjercicioEntrenamiento').on('change', function () {
-
-    var codigo = $(this).val();
-
-    $.each(codigoEjercicioEntrenamiento, function () {
-        if (this.codigoEjercicioEntrenamiento == codigo) {
-            $("input#txtDescEjercicioEntrenamiento").val(this.descEjercicioEntrenamiento);
-        }
-    });
-});
-
-$('select#cbEjercicioEntrenamientoe').on('change', function () {
-
-    var codigo = $(this).val();
-
-    $.each(codigoEjercicioEntrenamiento, function () {
-        if (this.codigoEjercicioEntrenamiento == codigo) {
-            $("input#txtDescEjercicioEntrenamientoe").val(this.descEjercicioEntrenamiento);
-        }
-    });
-});
-
-
-$('select#cbEjercicioEntrenamientoAspecto').on('change', function () {
-
-    var codigo = $(this).val();
-
-    $.each(codigoEjercicioEntrenamientoAspecto, function () {
-        if (this.codigoEjercicioEntrenamientoAspecto == codigo) {
-            $("input#txtAspectoEvaluacion").val(this.aspectoEvaluacion);
-            $("input#txtPeso").val(this.peso);
-        }
-    });
-});
-
-$('select#cbEjercicioEntrenamientoAspectoe').on('change', function () {
-
-    var codigo = $(this).val();
-
-    $.each(codigoEjercicioEntrenamientoAspecto, function () {
-        if (this.codigoEjercicioEntrenamientoAspecto == codigo) {
-            $("input#txtAspectoEvaluacione").val(this.aspectoEvaluacion);
-            $("input#txtPesoe").val(this.peso);
-        }
-    });
-});
 
 function optReporte(id) {
     optReporteSelect = id;

@@ -40,8 +40,14 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comescuama
                         lista.Add(new AlistCombustibleLubricanteComescuamaDTO()
                         {
                             AlistamientoCombustibleLubricanteId = Convert.ToInt32(dr["AlistamientoCombustibleLubricanteId"]),
-                            DescUnidadNaval = dr["DescUnidadNaval"].ToString(),
-                            CodigoAlistamientoCombustibleLubricante2 = dr["CodigoAlistamientoCombustibleLubricante2"].ToString(),
+                            DescUnidadComescuama = dr["DescUnidadComescuama"].ToString(),
+                            Articulo = dr["Articulo"].ToString(),
+                            Equipo = dr["Equipo"].ToString(),
+                            DescUnidadMedida = dr["DescUnidadMedida"].ToString(),
+                            Cargo = dr["Cargo"].ToString(),
+                            Aumento = dr["Aumento"].ToString(),
+                            Consumo = dr["Consumo"].ToString(),
+                            Existencia = dr["Existencia"].ToString(),
                             PromedioPonderado = Convert.ToDecimal(dr["PromedioPonderado"]),
                             SubPromedioParcial = Convert.ToDecimal(dr["SubPromedioParcial"]),
                             CargaId = Convert.ToInt32(dr["CargaId"])
@@ -64,8 +70,8 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comescuama
                     cmd = new SqlCommand("Formato.usp_AlistamientoCombustibleLubricanteComescuamaRegistrar", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add("@CodigoUnidadNaval", SqlDbType.VarChar, 20);
-                    cmd.Parameters["@CodigoUnidadNaval"].Value = alistCombustibleLubricanteComescuamaDTO.CodigoUnidadNaval;
+                    cmd.Parameters.Add("@CodigoUnidadComescuama", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoUnidadComescuama"].Value = alistCombustibleLubricanteComescuamaDTO.CodigoUnidadComescuama;
 
                     cmd.Parameters.Add("@CodigoAlistamientoCombustibleLubricante2", SqlDbType.VarChar, 20);
                     cmd.Parameters["@CodigoAlistamientoCombustibleLubricante2"].Value = alistCombustibleLubricanteComescuamaDTO.CodigoAlistamientoCombustibleLubricante2;
@@ -131,7 +137,7 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comescuama
                     {
 
                         alistCombustibleLubricanteComescuamaDTO.AlistamientoCombustibleLubricanteId = Convert.ToInt32(dr["AlistamientoCombustibleLubricanteId"]);
-                        alistCombustibleLubricanteComescuamaDTO.CodigoUnidadNaval = dr["CodigoUnidadNaval"].ToString();
+                        alistCombustibleLubricanteComescuamaDTO.CodigoUnidadComescuama = dr["CodigoUnidadComescuama"].ToString();
                         alistCombustibleLubricanteComescuamaDTO.CodigoAlistamientoCombustibleLubricante2 = dr["CodigoAlistamientoCombustibleLubricante2"].ToString();
                         alistCombustibleLubricanteComescuamaDTO.PromedioPonderado = Convert.ToDecimal(dr["PromedioPonderado"]);
                         alistCombustibleLubricanteComescuamaDTO.SubPromedioParcial = Convert.ToDecimal(dr["SubPromedioParcial"]);
@@ -165,8 +171,8 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comescuama
                     cmd.Parameters.Add("@AlistamientoCombustibleLubricanteId", SqlDbType.Int);
                     cmd.Parameters["@AlistamientoCombustibleLubricanteId"].Value = alistCombustibleLubricanteComescuamaDTO.AlistamientoCombustibleLubricanteId;
 
-                    cmd.Parameters.Add("@CodigoUnidadNaval", SqlDbType.VarChar, 20);
-                    cmd.Parameters["@CodigoUnidadNaval"].Value = alistCombustibleLubricanteComescuamaDTO.CodigoUnidadNaval;
+                    cmd.Parameters.Add("@CodigoUnidadComescuama", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoUnidadComescuama"].Value = alistCombustibleLubricanteComescuamaDTO.CodigoUnidadComescuama;
 
                     cmd.Parameters.Add("@CodigoAlistamientoCombustibleLubricante2", SqlDbType.VarChar, 20);
                     cmd.Parameters["@CodigoAlistamientoCombustibleLubricante2"].Value = alistCombustibleLubricanteComescuamaDTO.CodigoAlistamientoCombustibleLubricante2;

@@ -184,7 +184,7 @@ function edit(AlistamientoCombustibleLubricante2Id) {
         $('#txtCodigoCoe').val(AlistamientoCombustibleLubricante2DTO.codigoAlistamientoCombustibleLubricante2);
         $('#txtArticuloe').val(AlistamientoCombustibleLubricante2DTO.articulo);
         $('#txtEquipoe').val(AlistamientoCombustibleLubricante2DTO.equipo);
-        $('#cbUnidadMedidae').val(AlistamientoCombustibleLubricante2DTO.unidadMedidaId);
+        $('#cbUnidadMedidae').val(AlistamientoCombustibleLubricante2DTO.codigoUnidadMedida);
         $('#txtCargoe').val(AlistamientoCombustibleLubricante2DTO.cargo);
         $('#txtAumentoe').val(AlistamientoCombustibleLubricante2DTO.aumento);
         $('#txtConsumoe').val(AlistamientoCombustibleLubricante2DTO.consumo);
@@ -245,7 +245,7 @@ function nuevaAlistamientoCombustibleLubricante2() {
 
 function cargaCombo() {
     $.getJSON('/AlistamientoCombustibleLubricante2/cargaCombs', [], function (Json) {
-        var unidadMedida = Json["data"];
+        var unidadMedida = Json["data1"];
 
         $("select#cbUnidadMedida").html("");
         $("select#cbUnidadMedidae").html("");

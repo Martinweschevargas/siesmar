@@ -1,4 +1,4 @@
-﻿var tblAlistamientoMaterialRequeridoComescuamas;
+﻿var tblUnidadComescuama;
 
 $(document).ready(function () {
     var forms = document.querySelectorAll('.needs-validation')
@@ -22,13 +22,10 @@ $(document).ready(function () {
                         if (result.isConfirmed) {
                             $.ajax({
                                 type: "POST",
-                                url: '/AlistamientoMaterialRequeridoComescuama/InsertarAlistamientoMaterialRequeridoComescuama',
+                                url: '/UnidadComescuama/InsertarUnidadComescuama',
                                 data: {
-                                    'CodigoAlistamientoMaterialRequeridoComescuama': $('#txtCodigoAlistMaterialRequeridoC').val(),
-                                    'CodigoAlistamientoMaterialRequerido3N': $('#cbFK').val(),
-                                    'Requerido': $('#txtRequerido').val(),
-                                    'Operativo': $('#txtOperativo').val(),
-                                    'PorcentajeOperatividad': $('#txtPorcentajeOperatividad').val()
+                                    'CodigoUnidadComescuama': $('#txtCode').val(),
+                                    'DescUnidadComescuama': $('#txtDescripcion').val(),
                                 },
                                 beforeSend: function () {
                                     $('#loader-6').show();
@@ -49,7 +46,10 @@ $(document).ready(function () {
                                     }
                                     $('#listar').show();
                                     $('#nuevo').hide();
-                                    $('#tblAlistamientoMaterialRequeridoComescuamas').DataTable().ajax.reload();
+                                    $('#tblUnidadComescuama').DataTable().ajax.reload();
+                                    $('.needs-validation :input').val('');
+                                    $(".needs-validation").find("select").prop("selectedIndex", 0);
+                                    form.classList.remove('was-validated')
                                 },
                                 complete: function () {
                                     $('#loader-6').hide();
@@ -83,14 +83,12 @@ $(document).ready(function () {
                         if (result.isConfirmed) {
                             $.ajax({
                                 type: "POST",
-                                url: '/AlistamientoMaterialRequeridoComescuama/ActualizarAlistamientoMaterialRequeridoComescuama',
+                                url: '/UnidadComescuama/ActualizarUnidadComescuama',
                                 data: {
-                                    'AlistamientoMaterialRequeridoComescuamaId': $('#txtCodigo').val(),
-                                    'CodigoAlistamientoMaterialRequeridoComescuama': $('#txtCodigoAlistMaterialRequeridoCe').val(),
-                                    'CodigoAlistamientoMaterialRequerido3N': $('#cbFKe').val(),
-                                    'Requerido': $('#txtRequeridoe').val(),
-                                    'Operativo': $('#txtOperativoe').val(),
-                                    'PorcentajeOperatividad': $('#txtPorcentajeOperatividade').val()
+
+                                    'UnidadComescuamaId': $('#txtCodigo').val(),
+                                    'CodigoUnidadComescuama': $('#txtCodee').val(),
+                                    'DescUnidadComescuama': $('#txtDescripcione').val(),
                                 },
                                 beforeSend: function () {
                                     $('#loader-6').show();
@@ -111,7 +109,7 @@ $(document).ready(function () {
                                     }
                                     $('#listar').show();
                                     $('#editar').hide();
-                                    $('#tblAlistamientoMaterialRequeridoComescuamas').DataTable().ajax.reload();
+                                    $('#tblUnidadComescuama').DataTable().ajax.reload();
                                 },
                                 complete: function () {
                                     $('#loader-6').hide();
@@ -124,27 +122,24 @@ $(document).ready(function () {
             }, false)
         })
 
-    $('#tblAlistamientoMaterialRequeridoComescuamas').DataTable({
+    $('#tblUnidadComescuama').DataTable({
         ajax: {
-            "url": '/AlistamientoMaterialRequeridoComescuama/CargarDatos',
+            "url": '/UnidadComescuama/CargarDatos',
             "type": "GET",
             "datatype": "json"
         },
         "columns": [
-            { "data": "alistamientoMaterialRequeridoComescuamaId" },
-            { "data": "subclasificacion" },
-            { "data": "codigoAlistamientoMaterialRequeridoComescuama" },
-            { "data": "requerido" },
-            { "data": "operativo" },
-            { "data": "porcentajeOperatividad" },
+            { "data": "unidadComescuamaId" },
+            { "data": "codigoUnidadComescuama" },
+            { "data": "descUnidadComescuama" },
             {
                 "render": function (data, type, row) {
-                    return '<a class="txt" onclick=edit(' + row.alistamientoMaterialRequeridoComescuamaId + ') title="Actualizar"><i class="fa fa-check-square-o" aria-hidden="true" style="color:black; padding-right:5px"></i>Editar</a>';
+                    return '<a class="txt" onclick=edit(' + row.unidadComescuamaId + ') title="Actualizar"><i class="fa fa-check-square-o" aria-hidden="true" style="color:black; padding-right:5px"></i>Editar</a>';
                 }
             },
             {
                 "render": function (data, type, row) {
-                    return '<a class="txt btnconfirmation" onclick=eliminar(' + row.alistamientoMaterialRequeridoComescuamaId + ') title="Eliminar"><i class="fa fa-minus-square-o red" aria-hidden="true" style="color:red; padding-right:5px"></i>Eliminar</a>';
+                    return '<a class="txt btnconfirmation" onclick=eliminar(' + row.unidadComescuamaId + ') title="Eliminar"><i class="fa fa-minus-square-o red" aria-hidden="true" style="color:red; padding-right:5px"></i>Eliminar</a>';
                 }
             }
         ],
@@ -162,20 +157,15 @@ $(document).ready(function () {
             }
         ]
     });
-    cargaCombo();
-
 });
 
-function edit(AlistamientoMaterialRequeridoComescuamaId) {
+function edit(UnidadComescuamaId) {
     $('#listar').hide();
     $('#editar').show();
-    $.getJSON('/AlistamientoMaterialRequeridoComescuama/MostrarAlistamientoMaterialRequeridoComescuama?AlistamientoMaterialRequeridoComescuamaId=' + AlistamientoMaterialRequeridoComescuamaId, [], function (AlistamientoMaterialRequeridoComescuamaDTO) {
-        $('#txtCodigo').val(AlistamientoMaterialRequeridoComescuamaDTO.alistamientoMaterialRequeridoComescuamaId);
-        $('#txtCodigoAlistMaterialRequeridoCe').val(AlistamientoMaterialRequeridoComescuamaDTO.codigoAlistamientoMaterialRequeridoComescuama);
-        $('#cbFKe').val(AlistamientoMaterialRequeridoComescuamaDTO.codigoAlistamientoMaterialRequerido3N);
-        $('#txtRequeridoe').val(AlistamientoMaterialRequeridoComescuamaDTO.requerido);
-        $('#txtOperativoe').val(AlistamientoMaterialRequeridoComescuamaDTO.operativo);
-        $('#txtPorcentajeOperatividade').val(AlistamientoMaterialRequeridoComescuamaDTO.porcentajeOperatividad);
+    $.getJSON('/UnidadComescuama/MostrarUnidadComescuama?UnidadComescuamaId=' + UnidadComescuamaId, [], function (UnidadComescuamaDTO) {
+        $('#txtCodigo').val(UnidadComescuamaDTO.unidadComescuamaId);
+        $('#txtCodee').val(UnidadComescuamaDTO.codigoUnidadComescuama);
+        $('#txtDescripcione').val(UnidadComescuamaDTO.descUnidadComescuama);
     });
 }
 
@@ -192,9 +182,9 @@ function eliminar(id) {
         if (result.isConfirmed) {
             $.ajax({
                 type: "POST",
-                url: '/AlistamientoMaterialRequeridoComescuama/EliminarAlistamientoMaterialRequeridoComescuama',
+                url: '/UnidadComescuama/EliminarUnidadComescuama',
                 data: {
-                    'AlistamientoMaterialRequeridoComescuamaId': id
+                    'UnidadComescuamaId': id
                 },
                 beforeSend: function () {
                     $('#loader-6').show();
@@ -215,7 +205,7 @@ function eliminar(id) {
                     }
                     $('#listar').show();
                     $('#nuevo').hide();
-                    $('#tblAlistamientoMaterialRequeridoComescuamas').DataTable().ajax.reload();
+                    $('#tblUnidadComescuama').DataTable().ajax.reload();
                 },
                 complete: function () {
                     $('#loader-6').hide();
@@ -225,21 +215,8 @@ function eliminar(id) {
     })
 }
 
-function nuevaAlistamientoMaterialRequeridoComescuama() {
+function nuevaUnidadComescuama() {
     $('#listar').hide();
     $('#nuevo').show();
 }
 
-function cargaCombo() {
-    $.getJSON('/AlistamientoMaterialRequeridoComescuama/cargaCombs', [], function (Json) {
-        var alistamientoMaterialRequerido3N = Json["data"];
-
-        $("select#cbFK").html("");
-        $("select#cbFKe").html("");
-        $.each(alistamientoMaterialRequerido3N, function () {
-            var RowContent = '<option value=' + this.codigoAlistamientoMaterialRequerido3N + '>' + this.subclasificacion3N + '</option>'
-            $("select#cbFK").append(RowContent);
-            $("select#cbFKe").append(RowContent);
-        });
-    });
-}

@@ -39,7 +39,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
 
             List<UnidadMedidaDTO> UnidadMedidaDTO = UnidadMedidaBL.ObtenerUnidadMedidas();
 
-            return Json(new { data = UnidadMedidaDTO });
+            return Json(new { data1 = UnidadMedidaDTO });
         }
 
         public JsonResult CargarDatos()

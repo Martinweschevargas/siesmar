@@ -32,7 +32,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                         {
                             AlistamientoMaterialRequeridoComescuamaId = Convert.ToInt32(dr["AlistamientoMaterialRequeridoComescuamaId"]),
                             CodigoAlistamientoMaterialRequeridoComescuama = dr["CodigoAlistamientoMaterialRequeridoComescuama"].ToString(),
-                            AlistamientoMaterialRequerido3NId = Convert.ToInt32(dr["AlistamientoMaterialRequerido3NId"]),
+                            CodigoAlistamientoMaterialRequerido3N = dr["CodigoAlistamientoMaterialRequerido3N"].ToString(),
                             Subclasificacion = dr["SubClasificacion"].ToString(),
                             Requerido = dr["Requerido"].ToString(),
                             Operativo = dr["Operativo"].ToString(),
@@ -59,8 +59,8 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd.Parameters.Add("@CodigoAlistamientoMaterialRequeridoComescuama", SqlDbType.VarChar, 20);
                     cmd.Parameters["@CodigoAlistamientoMaterialRequeridoComescuama"].Value = alistamientoMaterialRequeridoComescuamaDTO.CodigoAlistamientoMaterialRequeridoComescuama;
 
-                    cmd.Parameters.Add("@AlistamientoMaterialRequerido3NId", SqlDbType.Int);
-                    cmd.Parameters["@AlistamientoMaterialRequerido3NId"].Value = alistamientoMaterialRequeridoComescuamaDTO.AlistamientoMaterialRequerido3NId;
+                    cmd.Parameters.Add("@CodigoAlistamientoMaterialRequerido3N", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoAlistamientoMaterialRequerido3N"].Value = alistamientoMaterialRequeridoComescuamaDTO.CodigoAlistamientoMaterialRequerido3N;
 
                     cmd.Parameters.Add("@Requerido", SqlDbType.VarChar, 20);
                     cmd.Parameters["@Requerido"].Value = alistamientoMaterialRequeridoComescuamaDTO.Requerido;
@@ -119,7 +119,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     {
                         alistamientoMaterialRequeridoComescuamaDTO.AlistamientoMaterialRequeridoComescuamaId = Convert.ToInt32(dr["AlistamientoMaterialRequeridoComescuamaId"]);
                         alistamientoMaterialRequeridoComescuamaDTO.CodigoAlistamientoMaterialRequeridoComescuama = dr["CodigoAlistamientoMaterialRequeridoComescuama"].ToString();
-                        alistamientoMaterialRequeridoComescuamaDTO.AlistamientoMaterialRequerido3NId = Convert.ToInt32(dr["AlistamientoMaterialRequerido3NId"]);
+                        alistamientoMaterialRequeridoComescuamaDTO.CodigoAlistamientoMaterialRequerido3N = dr["CodigoAlistamientoMaterialRequerido3N"].ToString();
                         alistamientoMaterialRequeridoComescuamaDTO.Requerido = dr["Requerido"].ToString();
                         alistamientoMaterialRequeridoComescuamaDTO.Operativo = dr["Operativo"].ToString();
                         alistamientoMaterialRequeridoComescuamaDTO.PorcentajeOperatividad = dr["PorcentajeOperatividad"].ToString();
@@ -152,8 +152,8 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd.Parameters.Add("@CodigoAlistamientoMaterialRequeridoComescuama", SqlDbType.VarChar, 20);
                     cmd.Parameters["@CodigoAlistamientoMaterialRequeridoComescuama"].Value = alistamientoMaterialRequeridoComescuamaDTO.CodigoAlistamientoMaterialRequeridoComescuama;
 
-                    cmd.Parameters.Add("@AlistamientoMaterialRequerido3NId", SqlDbType.Int);
-                    cmd.Parameters["@AlistamientoMaterialRequerido3NId"].Value = alistamientoMaterialRequeridoComescuamaDTO.AlistamientoMaterialRequerido3NId;
+                    cmd.Parameters.Add("@CodigoAlistamientoMaterialRequerido3N", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoAlistamientoMaterialRequerido3N"].Value = alistamientoMaterialRequeridoComescuamaDTO.CodigoAlistamientoMaterialRequerido3N;
 
                     cmd.Parameters.Add("@Requerido", SqlDbType.VarChar, 20);
                     cmd.Parameters["@Requerido"].Value = alistamientoMaterialRequeridoComescuamaDTO.Requerido;

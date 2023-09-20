@@ -22,7 +22,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
     {
         private readonly IWebHostEnvironment _webHostEnviroment;
         AlistamientoMaterialComescuama alistamientoMaterialComescuamaBL = new();
-        UnidadNaval unidadNavalBL = new();
+        UnidadComescuamaDAO unidadComescuamaBL = new();
         CapacidadOperativa capacidadOperativaBL = new();
         AlistamientoMaterialRequerido3NDAO alistamientoMaterialRequerido3NBL = new();
         AlistamientoMaterialRequeridoComescuama alistMaterialRequeridoComescuamaBL = new();
@@ -42,13 +42,13 @@ namespace Marina.Siesmar.Presentacion.Controllers
 
         public IActionResult cargaCombs()
         {
-            List<UnidadNavalDTO> unidadNavalDTO = unidadNavalBL.ObtenerUnidadNavals();
+            List<UnidadComescuamaDTO> unidadComescuamaDTO = unidadComescuamaBL.ObtenerUnidadComescuamas();
             List<CapacidadOperativaDTO> capacidadOperativaDTO = capacidadOperativaBL.ObtenerCapacidadOperativas();
             List<AlistamientoMaterialRequerido3NDTO> alistamientoMaterialRequerido3NDTO = alistamientoMaterialRequerido3NBL.ObtenerAlistamientoMaterialRequerido3Ns();
             List<AlistamientoMaterialRequeridoComescuamaDTO> alistMaterialRequeridoComescuamaDTO = alistMaterialRequeridoComescuamaBL.ObtenerAlistamientoMaterialRequeridoComescuamas();
             List<CargaDTO> listaCargas = cargaBL.ObtenerListaCargas("AlistamientoMaterialComescuama");
             return Json(new { 
-                data1 = unidadNavalDTO, 
+                data1 = unidadComescuamaDTO, 
                 data2 = capacidadOperativaDTO, 
                 data3 = alistamientoMaterialRequerido3NDTO,
                 data4 = alistMaterialRequeridoComescuamaDTO,
@@ -58,8 +58,8 @@ namespace Marina.Siesmar.Presentacion.Controllers
 
         public IActionResult CargaTabla()
         {
-            List<AlistamientoMaterialComescuamaDTO> select = alistamientoMaterialComescuamaBL.ObtenerLista();
-            return Json(new { data = select });
+            List<AlistamientoMaterialComescuamaDTO> lista = alistamientoMaterialComescuamaBL.ObtenerLista();
+            return Json(new { data = lista });
         }
 
         [Breadcrumb(Title = "Carga Individual")]
@@ -67,12 +67,12 @@ namespace Marina.Siesmar.Presentacion.Controllers
         {
             return View();
         }
-        public ActionResult Insertar(string CodigoUnidadNaval, string CodigoCapacidadOperativa, 
+        public ActionResult Insertar(string CodigoUnidadComescuama, string CodigoCapacidadOperativa, 
             string CodigoAlistamientoMaterialRequerido3N, string CodigoAlistamientoMaterialRequeridoComescuama, 
             decimal PonderadoFuncional, decimal NivelAlistamientoParcial, int CargaId, string Fecha)
         {
             AlistamientoMaterialComescuamaDTO alistamientoMaterialComescuamaDTO = new();
-            alistamientoMaterialComescuamaDTO.CodigoUnidadNaval = CodigoUnidadNaval;
+            alistamientoMaterialComescuamaDTO.CodigoUnidadComescuama = CodigoUnidadComescuama;
             alistamientoMaterialComescuamaDTO.CodigoCapacidadOperativa = CodigoCapacidadOperativa;
             alistamientoMaterialComescuamaDTO.CodigoAlistamientoMaterialRequerido3N = CodigoAlistamientoMaterialRequerido3N;
             alistamientoMaterialComescuamaDTO.CodigoAlistamientoMaterialRequeridoComescuama = CodigoAlistamientoMaterialRequeridoComescuama;
@@ -90,13 +90,13 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Json(alistamientoMaterialComescuamaBL.EditarFormato(Id));
         }
 
-        public ActionResult Actualizar(int Id, string CodigoUnidadNaval, string CodigoCapacidadOperativa,
+        public ActionResult Actualizar(int Id, string CodigoUnidadComescuama, string CodigoCapacidadOperativa,
             string CodigoAlistamientoMaterialRequerido3N, string CodigoAlistamientoMaterialRequeridoComescuama,
             decimal PonderadoFuncional, decimal NivelAlistamientoParcial)
         {
             AlistamientoMaterialComescuamaDTO alistamientoMaterialComescuamaDTO = new();
             alistamientoMaterialComescuamaDTO.AlistamientoMaterialId = Id;
-            alistamientoMaterialComescuamaDTO.CodigoUnidadNaval = CodigoUnidadNaval;
+            alistamientoMaterialComescuamaDTO.CodigoUnidadComescuama = CodigoUnidadComescuama;
             alistamientoMaterialComescuamaDTO.CodigoCapacidadOperativa = CodigoCapacidadOperativa;
             alistamientoMaterialComescuamaDTO.CodigoAlistamientoMaterialRequerido3N = CodigoAlistamientoMaterialRequerido3N;
             alistamientoMaterialComescuamaDTO.CodigoAlistamientoMaterialRequeridoComescuama = CodigoAlistamientoMaterialRequeridoComescuama;
@@ -164,7 +164,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
 
                     lista.Add(new AlistamientoMaterialComescuamaDTO
                     {
-                        CodigoUnidadNaval = fila.GetCell(1).ToString(),
+                        CodigoUnidadComescuama = fila.GetCell(0).ToString(),
                         CodigoCapacidadOperativa = fila.GetCell(1).ToString(),
                         CodigoAlistamientoMaterialRequerido3N = fila.GetCell(2).ToString(),
                         CodigoAlistamientoMaterialRequeridoComescuama = fila.GetCell(3).ToString(),
@@ -198,7 +198,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
 
             dt.Columns.AddRange(new DataColumn[7]
             {
-                    new DataColumn("CodigoUnidadNaval", typeof(string)),
+                    new DataColumn("CodigoUnidadComescuama", typeof(string)),
                     new DataColumn("CodigoCapacidadOperativa", typeof(string)),
                     new DataColumn("CodigoAlistamientoMaterialRequerido3N", typeof(string)),
                     new DataColumn("CodigoAlistamientoMaterialRequeridoComescuama", typeof(string)),
@@ -244,158 +244,6 @@ namespace Marina.Siesmar.Presentacion.Controllers
 
             return File(fs, "application/octet-stream", "ComescuamaAlistamientoMaterial.xlsx");
         }
-
-        //public IActionResult ReportePMPIACR()
-        //{
-        //    //PROMEDIO MENSUAL DE PARTICIPANTES Y DE INVERSIÓN EN ACTIVIDADES CULTURALES REALIZADAS
-        //    string mimtype = "";
-        //    int extension = 1;
-        //    var path = $"{this._webHostEnviroment.WebRootPath}\\Reports\\ReportePMPIACR.rdlc";
-        //    Dictionary<string, string> parameters = new Dictionary<string, string>();
-        //    parameters.Add("rpt1", "Welcome to FoxLearn");
-        //    //var Capitanias = capitaniaBL.ObtenerCapitanias();
-        //    LocalReport localReport = new LocalReport(path);
-        //    localReport.AddDataSource("Capitania", Capitanias);
-        //    var result = localReport.Execute(RenderType.Pdf, extension, parameters, mimtype);
-        //    return File(result.MainStream, "application/pdf");
-        //}
-
-        //public IActionResult ReportePII()
-        //{
-        //    //PUBLICACIONES DE INTERÉS INSTITUCIONAL
-        //    string mimtype = "";
-        //    int extension = 1;
-        //    var path = $"{this._webHostEnviroment.WebRootPath}\\Reports\\ReportePII.rdlc";
-        //    Dictionary<string, string> parameters = new Dictionary<string, string>();
-        //    parameters.Add("rpt1", "Welcome to FoxLearn");
-        //    //var Capitanias = capitaniaBL.ObtenerCapitanias();
-        //    LocalReport localReport = new LocalReport(path);
-        //    localReport.AddDataSource("Capitania", Capitanias);
-        //    var result = localReport.Execute(RenderType.Pdf, extension, parameters, mimtype);
-        //    return File(result.MainStream, "application/pdf");
-        //}
-
-        //public IActionResult ReportePMCB()
-        //{
-        //    //PROMEDIO MENSUAL DE CONSULTAS BIBLIOGRÁFICAS
-        //    string mimtype = "";
-        //    int extension = 1;
-        //    var path = $"{this._webHostEnviroment.WebRootPath}\\Reports\\ReportePMCB.rdlc";
-        //    Dictionary<string, string> parameters = new Dictionary<string, string>();
-        //    parameters.Add("rpt1", "Welcome to FoxLearn");
-        //    //var Capitanias = capitaniaBL.ObtenerCapitanias();
-        //    LocalReport localReport = new LocalReport(path);
-        //    localReport.AddDataSource("Capitania", Capitanias);
-        //    var result = localReport.Execute(RenderType.Pdf, extension, parameters, mimtype);
-        //    return File(result.MainStream, "application/pdf");
-        //}
-
-        //public IActionResult ReportePMVAHM()
-        //{
-        //    //PROMEDIO MENSUAL DE VISITAS AL ARCHIVO HISTÓRICO DE LA MARINA
-        //    string mimtype = "";
-        //    int extension = 1;
-        //    var path = $"{this._webHostEnviroment.WebRootPath}\\Reports\\ReportePMVAHM.rdlc";
-        //    Dictionary<string, string> parameters = new Dictionary<string, string>();
-        //    parameters.Add("rpt1", "Welcome to FoxLearn");
-        //    //var Capitanias = capitaniaBL.ObtenerCapitanias();
-        //    LocalReport localReport = new LocalReport(path);
-        //    localReport.AddDataSource("Capitania", Capitanias);
-        //    var result = localReport.Execute(RenderType.Pdf, extension, parameters, mimtype);
-        //    return File(result.MainStream, "application/pdf");
-        //}
-
-        //public IActionResult ReportePMVRMN()
-        //{
-        //    //PROMEDIO MENSUAL DE VISITAS REGISTRADAS A LOS MUSEOS NAVALES
-        //    string mimtype = "";
-        //    int extension = 1;
-        //    var path = $"{this._webHostEnviroment.WebRootPath}\\Reports\\ReportePMVRMN.rdlc";
-        //    Dictionary<string, string> parameters = new Dictionary<string, string>();
-        //    parameters.Add("rpt1", "Welcome to FoxLearn");
-        //    //var Capitanias = capitaniaBL.ObtenerCapitanias();
-        //    LocalReport localReport = new LocalReport(path);
-        //    localReport.AddDataSource("Capitania", Capitanias);
-        //    var result = localReport.Execute(RenderType.Pdf, extension, parameters, mimtype);
-        //    return File(result.MainStream, "application/pdf");
-        //}
-
-        //public IActionResult ReporteTRC()
-        //{
-        //    //TRABAJOS DE RESTAURACIÓN Y/O CONSERVACIÓN
-        //    string mimtype = "";
-        //    int extension = 1;
-        //    var path = $"{this._webHostEnviroment.WebRootPath}\\Reports\\ReporteTRC.rdlc";
-        //    Dictionary<string, string> parameters = new Dictionary<string, string>();
-        //    parameters.Add("rpt1", "Welcome to FoxLearn");
-        //    //var Capitanias = capitaniaBL.ObtenerCapitanias();
-        //    LocalReport localReport = new LocalReport(path);
-        //    localReport.AddDataSource("Capitania", Capitanias);
-        //    var result = localReport.Execute(RenderType.Pdf, extension, parameters, mimtype);
-        //    return File(result.MainStream, "application/pdf");
-        //}
-
-        //public IActionResult ReporteRMHPRM()
-        //{
-        //    //REPRESENTACIÓN Y/ O MONUMENTOS HISTORICOS EN EL PAIS RELACIONADOS A LA MARINA
-        //    string mimtype = "";
-        //    int extension = 1;
-        //    var path = $"{this._webHostEnviroment.WebRootPath}\\Reports\\ReporteRMHPRM.rdlc";
-        //    Dictionary<string, string> parameters = new Dictionary<string, string>();
-        //    parameters.Add("rpt1", "Welcome to FoxLearn");
-        //    //var Capitanias = capitaniaBL.ObtenerCapitanias();
-        //    LocalReport localReport = new LocalReport(path);
-        //    localReport.AddDataSource("Capitania", Capitanias);
-        //    var result = localReport.Execute(RenderType.Pdf, extension, parameters, mimtype);
-        //    return File(result.MainStream, "application/pdf");
-        //}
-
-        //public IActionResult ReporteAAD()
-        //{
-        //    //APOYO A LAS ACTIVIDADES DE DIFUSIÓN
-        //    string mimtype = "";
-        //    int extension = 1;
-        //    var path = $"{this._webHostEnviroment.WebRootPath}\\Reports\\ReporteAAD.rdlc";
-        //    Dictionary<string, string> parameters = new Dictionary<string, string>();
-        //    parameters.Add("rpt1", "Welcome to FoxLearn");
-        //    //var Capitanias = capitaniaBL.ObtenerCapitanias();
-        //    LocalReport localReport = new LocalReport(path);
-        //    localReport.AddDataSource("Capitania", Capitanias);
-        //    var result = localReport.Execute(RenderType.Pdf, extension, parameters, mimtype);
-        //    return File(result.MainStream, "application/pdf");
-        //}
-
-        //public IActionResult ReportePMPADRIM()
-        //{
-        //    //PROMEDIO MENSUAL DE PARTICIPANTES A ACTIVIDADES DE DIFUSIÓN DE REALIDAD E INTERESES MARITIMOS
-        //    string mimtype = "";
-        //    int extension = 1;
-        //    var path = $"{this._webHostEnviroment.WebRootPath}\\Reports\\ReportePMPADRIM.rdlc";
-        //    Dictionary<string, string> parameters = new Dictionary<string, string>();
-        //    parameters.Add("rpt1", "Welcome to FoxLearn");
-        //    //var Capitanias = capitaniaBL.ObtenerCapitanias();
-        //    LocalReport localReport = new LocalReport(path);
-        //    //localReport.AddDataSource("Capitania", Capitanias);
-        //    var result = localReport.Execute(RenderType.Pdf, extension, parameters, mimtype);
-        //    return File(result.MainStream, "application/pdf");
-        //}
-
-        //public IActionResult ReportePMPOADRIM()
-        //{
-        //    //PROMEDIO MENSUAL DE PARTICIPANTES A OTRAS ACTIVIDADES DE DIFUSIÓN DE REALIDAD E INTERESES MARITIMOS
-        //    string mimtype = "";
-        //    int extension = 1;
-        //    var path = $"{this._webHostEnviroment.WebRootPath}\\Reports\\ReportePMPOADRIM.rdlc";
-        //    Dictionary<string, string> parameters = new Dictionary<string, string>();
-        //    parameters.Add("rpt1", "Welcome to FoxLearn");
-        //    var estudioInvestigacionesHistoricasNavales = documentoIntelFrenteInternoBL.ObtenerLista();
-        //    LocalReport localReport = new LocalReport(path);
-        //    localReport.AddDataSource("EstudioInvestigacionHistoricasNavales", estudioInvestigacionesHistoricasNavales);
-        //    var result = localReport.Execute(RenderType.Pdf, extension, parameters, mimtype);
-        //    return File(result.MainStream, "application/pdf");
-        //}
-        
     }
-
 }
 

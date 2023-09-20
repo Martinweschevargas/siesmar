@@ -1,10 +1,8 @@
 ﻿using Marina.Siesmar.Entidades.Mantenimiento;
 using Marina.Siesmar.LogicaNegocios.Mantenimiento;
-using Marina.Siesmar.LogicaNegocios.Seguridad;
 using Marina.Siesmar.Utilitarios;
 using Microsoft.AspNetCore.Mvc;
 using SmartBreadcrumbs.Attributes;
-using System.Security.Claims;
 using WebApplication3.Controllers;
 
 namespace Marina.Siesmar.Presentacion.Controllers
@@ -42,17 +40,17 @@ namespace Marina.Siesmar.Presentacion.Controllers
 
         public JsonResult CargarDatos()
         {
-            List<AlistamientoMaterialRequerido3NDTO> listaAlistamientoMaterialRequerido3Nes = alistamientoMaterialRequerido3NBL.ObtenerAlistamientoMaterialRequerido3Ns();
-            return Json(new { data = listaAlistamientoMaterialRequerido3Nes });
+            List<AlistamientoMaterialRequerido3NDTO> lista = alistamientoMaterialRequerido3NBL.ObtenerAlistamientoMaterialRequerido3Ns();
+            return Json(new { data = lista });
         }
 
-        public ActionResult InsertarAlistamientoMaterialRequerido3N(string Subclasificacionn, decimal Ponderado, string CodigoAlistamientoMaterialRequerido3N, string CodigoAlistamientoMaterialRequerido2N)
+        public ActionResult InsertarAlistamientoMaterialRequerido3N(string Subclasificacion3N, decimal Ponderado, string CodigoAlistamientoMaterialRequerido3N, string CodigoAlistamientoMaterialRequerido2N)
         {
             var IND_OPERACION = "";
             try
             {
                 AlistamientoMaterialRequerido3NDTO alistamientoMaterialRequerido3NDTO = new();
-                alistamientoMaterialRequerido3NDTO.Subclasificacionn = Subclasificacionn;
+                alistamientoMaterialRequerido3NDTO.Subclasificacion3N = Subclasificacion3N;
                 alistamientoMaterialRequerido3NDTO.Ponderado3Nivel = Ponderado;
                 alistamientoMaterialRequerido3NDTO.CodigoAlistamientoMaterialRequerido3N = CodigoAlistamientoMaterialRequerido3N;
                 alistamientoMaterialRequerido3NDTO.CodigoAlistamientoMaterialRequerido2N = CodigoAlistamientoMaterialRequerido2N;
@@ -75,11 +73,11 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Json(alistamientoMaterialRequerido3NBL.BuscarAlistamientoMaterialRequerido3NID(AlistamientoMaterialRequerido3NId));
         }
 
-        public ActionResult ActualizarAlistamientoMaterialRequerido3N(int AlistamientoMaterialRequerido3NId, string Subclasificacionn, decimal Ponderado, string CodigoAlistamientoMaterialRequerido3N, string CodigoAlistamientoMaterialRequerido2N)
+        public ActionResult ActualizarAlistamientoMaterialRequerido3N(int AlistamientoMaterialRequerido3NId, string Subclasificacion3N, decimal Ponderado, string CodigoAlistamientoMaterialRequerido3N, string CodigoAlistamientoMaterialRequerido2N)
         {
             AlistamientoMaterialRequerido3NDTO alistamientoMaterialRequerido3NDTO = new();
             alistamientoMaterialRequerido3NDTO.AlistamientoMaterialRequerido3NId = AlistamientoMaterialRequerido3NId;
-            alistamientoMaterialRequerido3NDTO.Subclasificacionn = Subclasificacionn;
+            alistamientoMaterialRequerido3NDTO.Subclasificacion3N = Subclasificacion3N;
             alistamientoMaterialRequerido3NDTO.Ponderado3Nivel = Ponderado;
             alistamientoMaterialRequerido3NDTO.CodigoAlistamientoMaterialRequerido3N = CodigoAlistamientoMaterialRequerido3N;
             alistamientoMaterialRequerido3NDTO.CodigoAlistamientoMaterialRequerido2N = CodigoAlistamientoMaterialRequerido2N;

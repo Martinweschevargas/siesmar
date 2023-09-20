@@ -26,7 +26,7 @@ $(document).ready(function () {
                                 type: "POST",
                                 url: '/ComescuamaAlistamientoMaterial/Insertar',
                                 data: {
-                                    'CodigoUnidadNaval': $('#cbUnidadNaval').val(),
+                                    'CodigoUnidadComescuama': $('#cbUnidadNaval').val(),
                                     'CodigoCapacidadOperativa': $('#cbCapacidadOperativa').val(),
                                     'CodigoAlistamientoMaterialRequerido3N': $('#cbAlistamientoMaterialRequerido3N').val(),
                                     'CodigoAlistamientoMaterialRequeridoComescuama': $('#cbAlistMaterialRequeridoComescuama').val(),
@@ -93,7 +93,7 @@ $(document).ready(function () {
                                 url: '/ComescuamaAlistamientoMaterial/Actualizar',
                                 data: {
                                     'Id': $('#txtCodigo').val(),
-                                    'CodigoUnidadNaval': $('#cbUnidadNavale').val(),
+                                    'CodigoUnidadComescuama': $('#cbUnidadNavale').val(),
                                     'CodigoCapacidadOperativa': $('#cbCapacidadOperativae').val(),
                                     'CodigoAlistamientoMaterialRequerido3N': $('#cbAlistamientoMaterialRequerido3Ne').val(),
                                     'CodigoAlistamientoMaterialRequeridoComescuama': $('#cbAlistMaterialRequeridoComescuamae').val(),
@@ -143,10 +143,17 @@ $(document).ready(function () {
         },
         "columns": [
             { "data": "alistamientoMaterialId" },
-            { "data": "descUnidadNaval" },
+            { "data": "descUnidadComescuama" },
             { "data": "descCapacidadOperativa" },
-            { "data": "codigoAlistamientoMaterialRequerido3N" },
-            { "data": "codigoAlistamientoMaterialRequeridoComescuama" },
+            { "data": "capacidadIntrinseca" },
+            { "data": "ponderado1N" },
+            { "data": "subclasificacion2N" },
+            { "data": "ponderado2Nivel" },
+            { "data": "subclasificacion3N" },
+            { "data": "ponderado3Nivel" },
+            { "data": "requerido" },
+            { "data": "operativo" },
+            { "data": "porcentajeOperatividad" },
             { "data": "ponderadoFuncional" },
             { "data": "nivelAlistamientoParcial" },
             { "data": "cargaId" },
@@ -237,11 +244,11 @@ $('#btn_all').click(function () {
 
 function cargaBusqueda() {
     var CodigoCarga = $('#cargas').val();
-    tblComescuamaAlistamientoMaterial.columns(7).search(CodigoCarga).draw();
+    tblComescuamaAlistamientoMaterial.columns(14).search(CodigoCarga).draw();
 }
 
 function mostrarTodos() {
-    tblComescuamaAlistamientoMaterial.columns(7).search('').draw();
+    tblComescuamaAlistamientoMaterial.columns(14).search('').draw();
 }
 
 function edit(Id) {
@@ -249,7 +256,7 @@ function edit(Id) {
     $('#editar').show();
     $.getJSON('/ComescuamaAlistamientoMaterial/Mostrar?Id=' + Id, [], function (AlistamientoMaterialComescuamaDTO) {
         $('#txtCodigo').val(AlistamientoMaterialComescuamaDTO.alistamientoMaterialId);
-        $('#cbUnidadNavale').val(AlistamientoMaterialComescuamaDTO.codigoUnidadNaval);
+        $('#cbUnidadNavale').val(AlistamientoMaterialComescuamaDTO.codigoUnidadComescuama);
         $('#cbCapacidadOperativae').val(AlistamientoMaterialComescuamaDTO.codigoCapacidadOperativa);
         $('#cbAlistamientoMaterialRequerido3Ne').val(AlistamientoMaterialComescuamaDTO.codigoAlistamientoMaterialRequerido3N);
         $('#cbAlistMaterialRequeridoComescuamae').val(AlistamientoMaterialComescuamaDTO.codigoAlistamientoMaterialRequeridoComescuama);
@@ -375,7 +382,7 @@ function mostrarDatos() {
                 dataJson["data1"].forEach((item) => {
                     $("#tbData tbody").append(
                         $("<tr>").append(
-                            $("<td>").text(item.codigoUnidadNaval),
+                            $("<td>").text(item.codigoUnidadComescuama),
                             $("<td>").text(item.codigoCapacidadOperativa),
                             $("<td>").text(item.codigoAlistamientoMaterialRequerido3N),
                             $("<td>").text(item.codigoAlistamientoMaterialRequeridoComescuama),
@@ -433,18 +440,16 @@ function enviarDatos() {
 
 function cargaDatos() {
     $.getJSON('/ComescuamaAlistamientoMaterial/cargaCombs', [], function (Json) {
-        var UnidadNaval = Json["data1"];
+        var UnidadComescuama = Json["data1"];
         var CapacidadOperativa = Json["data2"];
         var AlistMaterialRequerido3N = Json["data3"];
         var AlistMaterialRequeridoComescuama = Json["data4"];
         var listaCargas = Json["data5"];
 
-        console.log(AlistMaterialRequerido3N);
-
         $("select#cbUnidadNaval").html("");
         $("select#cbUnidadNavale").html("");
-        $.each(UnidadNaval, function () {
-            var RowContent = '<option value=' + this.codigoUnidadNaval + '>' + this.descUnidadNaval + '</option>'
+        $.each(UnidadComescuama, function () {
+            var RowContent = '<option value=' + this.codigoUnidadComescuama + '>' + this.descUnidadComescuama + '</option>'
             $("select#cbUnidadNaval").append(RowContent);
             $("select#cbUnidadNavale").append(RowContent);
         });
