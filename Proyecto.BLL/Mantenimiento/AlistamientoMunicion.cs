@@ -12,9 +12,9 @@ namespace Marina.Siesmar.LogicaNegocios.Mantenimiento
             return alistamientoMunicionDAO.ObtenerAlistamientoMunicions();
         }
 
-        public string AgregarAlistamientoMunicion(AlistamientoMunicionDTO alistamientoMunicionDto)
+        public string AgregarAlistamientoMunicion(AlistamientoMunicionDTO alistamientoMunicionDTO)
         {
-            return alistamientoMunicionDAO.AgregarAlistamientoMunicion(alistamientoMunicionDto);
+            return alistamientoMunicionDAO.AgregarAlistamientoMunicion(alistamientoMunicionDTO);
         }
 
         public AlistamientoMunicionDTO BuscarAlistamientoMunicionID(int Codigo)
@@ -22,14 +22,14 @@ namespace Marina.Siesmar.LogicaNegocios.Mantenimiento
             return alistamientoMunicionDAO.BuscarAlistamientoMunicionID(Codigo);
         }
 
-        public string ActualizarAlistamientoMunicion(AlistamientoMunicionDTO alistamientoMunicionDto)
+        public string ActualizarAlistamientoMunicion(AlistamientoMunicionDTO alistamientoMunicionDTO)
         {
-            return alistamientoMunicionDAO.ActualizarAlistamientoMunicion(alistamientoMunicionDto);
+            return alistamientoMunicionDAO.ActualizarAlistamientoMunicion(alistamientoMunicionDTO);
         }
 
-        public string EliminarAlistamientoMunicion(AlistamientoMunicionDTO alistamientoMunicionDto)
+        public string EliminarAlistamientoMunicion(AlistamientoMunicionDTO alistamientoMunicionDTO)
         {
-            return alistamientoMunicionDAO.EliminarAlistamientoMunicion(alistamientoMunicionDto);
+            return alistamientoMunicionDAO.EliminarAlistamientoMunicion(alistamientoMunicionDTO);
         }
 
     }

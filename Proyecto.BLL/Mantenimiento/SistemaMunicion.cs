@@ -12,9 +12,9 @@ namespace Marina.Siesmar.LogicaNegocios.Mantenimiento
             return sistemaMunicionDAO.ObtenerSistemaMunicions();
         }
 
-        public string AgregarSistemaMunicion(SistemaMunicionDTO sistemaMunicionDto)
+        public string AgregarSistemaMunicion(SistemaMunicionDTO sistemaMunicionDTO)
         {
-            return sistemaMunicionDAO.AgregarSistemaMunicion(sistemaMunicionDto);
+            return sistemaMunicionDAO.AgregarSistemaMunicion(sistemaMunicionDTO);
         }
 
         public SistemaMunicionDTO BuscarSistemaMunicionID(int Codigo)
@@ -22,14 +22,14 @@ namespace Marina.Siesmar.LogicaNegocios.Mantenimiento
             return sistemaMunicionDAO.BuscarSistemaMunicionID(Codigo);
         }
 
-        public string ActualizarSistemaMunicion(SistemaMunicionDTO sistemaMunicionDto)
+        public string ActualizarSistemaMunicion(SistemaMunicionDTO sistemaMunicionDTO)
         {
-            return sistemaMunicionDAO.ActualizarSistemaMunicion(sistemaMunicionDto);
+            return sistemaMunicionDAO.ActualizarSistemaMunicion(sistemaMunicionDTO);
         }
 
-        public string EliminarSistemaMunicion(SistemaMunicionDTO sistemaMunicionDto)
+        public string EliminarSistemaMunicion(SistemaMunicionDTO sistemaMunicionDTO)
         {
-            return sistemaMunicionDAO.EliminarSistemaMunicion(sistemaMunicionDto);
+            return sistemaMunicionDAO.EliminarSistemaMunicion(sistemaMunicionDTO);
         }
 
     }

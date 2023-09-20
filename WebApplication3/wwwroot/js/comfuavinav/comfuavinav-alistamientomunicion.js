@@ -27,6 +27,8 @@ $(document).ready(function () {
                                 data: {
                                     'CodigoUnidadNaval': $('#cbUnidadNaval').val(),
                                     'CodigoAlistamientoMunicion': $('#cbAlistamientoMunicion').val(),
+                                    'CargaId': $('#cargasR').val(),
+                                    'Fecha': $('#txtFecha').val(),
                                 },
                                 beforeSend: function () {
                                     $('#loader-6').show();
@@ -48,6 +50,9 @@ $(document).ready(function () {
                                     $('#listar').show();
                                     $('#nuevo').hide();
                                     $('#tblComfuavinavAlistamientoMunicion').DataTable().ajax.reload();
+                                    $('.needs-validation :input').val('');
+                                    $(".needs-validation").find("select").prop("selectedIndex", 0);
+                                    form.classList.remove('was-validated')
                                 },
                                 complete: function () {
                                     $('#loader-6').hide();
@@ -124,7 +129,7 @@ $(document).ready(function () {
             }, false)
         })
 
-    $('#tblComfuavinavAlistamientoMunicion').DataTable({
+    tblComfuavinavAlistamientoMunicion = $('#tblComfuavinavAlistamientoMunicion').DataTable({
         ajax: {
             "url": '/ComfuavinavAlistamientoMunicion/CargaTabla',
             "type": "GET",
@@ -133,7 +138,13 @@ $(document).ready(function () {
         "columns": [
             { "data": "alistamientoMunicionComfuavinavId" },
             { "data": "descUnidadNaval" },
+            { "data": "descSistemaMunicion" },
+            { "data": "descSubsistemaMunicion" },
             { "data": "equipo" },
+            { "data": "municion" },
+            { "data": "existente" },
+            { "data": "necesaria" },
+            { "data": "coeficientePonderacion" },
             { "data": "cargaId" },  
             {
                 "render": function (data, type, row) {
@@ -222,11 +233,11 @@ $('#btn_all').click(function () {
 
 function cargaBusqueda() {
     var CodigoCarga = $('#cargas').val();
-    tblComfuavinavAlistamientoMunicion.columns(3).search(CodigoCarga).draw();
+    tblComfuavinavAlistamientoMunicion.columns(9).search(CodigoCarga).draw();
 }
 
 function mostrarTodos() {
-    tblComfuavinavAlistamientoMunicion.columns(3).search('').draw();
+    tblComfuavinavAlistamientoMunicion.columns(9).search('').draw();
 }
 
 function edit(Id) {
@@ -333,7 +344,7 @@ function eliminarCarga() {
     })
 }
 
-function nuevaComfuavinavAlistamientoMunicion() {
+function nuevaComfuavinavAlistamientoMunicion(){
     $('#listar').hide();
     $('#nuevo').show();
 }
@@ -414,6 +425,7 @@ function cargaDatos() {
     $.getJSON('/ComfuavinavAlistamientoMunicion/cargaCombs', [], function (Json) {
         var unidadNaval = Json["data1"];
         var alistamientoMunicion = Json["data2"];
+        var listaCargas = Json["data3"];
 
 
         $("select#cbUnidadNaval").html("");
@@ -430,13 +442,13 @@ function cargaDatos() {
 
         $("select#cbAlistamientoMunicion").html("");
         $.each(alistamientoMunicion, function () {
-            var RowContent = '<option value=' + this.codigoAlistamientoMunicion + '>' + this.equipo + '</option>'
+            var RowContent = '<option value=' + this.codigoAlistamientoMunicion + '>' + this.codigoAlistamientoMunicion + '</option>'
             $("select#cbAlistamientoMunicion").append(RowContent);
         });
 
         $("select#cbAlistamientoMunicione").html("");
         $.each(alistamientoMunicion, function () {
-            var RowContent = '<option value=' + this.codigoAlistamientoMunicion + '>' + this.equipo + '</option>'
+            var RowContent = '<option value=' + this.codigoAlistamientoMunicion + '>' + this.codigoAlistamientoMunicion + '</option>'
             $("select#cbAlistamientoMunicione").append(RowContent);
         });
 

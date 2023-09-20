@@ -31,6 +31,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                         lista.Add(new SistemaCombustibleLubricanteDTO()
                         {
                             SistemaCombustibleLubricanteId = Convert.ToInt32(dr["SistemaCombustibleLubricanteId"]),
+                            CodigoSistemaCombustibleLubricante = dr["CodigoSistemaCombustibleLubricante"].ToString(),
                             DescSistemaCombustibleLubricante = dr["DescSistemaCombustibleLubricante"].ToString(),
                         });
                     }
@@ -39,7 +40,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
             return lista;
         }
 
-        public string AgregarSistemaCombustibleLubricante(SistemaCombustibleLubricanteDTO capitaniaDTO)
+        public string AgregarSistemaCombustibleLubricante(SistemaCombustibleLubricanteDTO sistemaCombustibleLubricanteDTO)
         {
             string IND_OPERACION = "0";
             var cn = new ConfiguracionConexion();
@@ -51,11 +52,14 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd = new SqlCommand("Mantenimiento.usp_SistemaCombustibleLubricanteRegistrar", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
+                    cmd.Parameters.Add("@CodigoSistemaCombustibleLubricante", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoSistemaCombustibleLubricante"].Value = sistemaCombustibleLubricanteDTO.CodigoSistemaCombustibleLubricante;
+
                     cmd.Parameters.Add("@DescSistemaCombustibleLubricante", SqlDbType.VarChar, 100);
-                    cmd.Parameters["@DescSistemaCombustibleLubricante"].Value = capitaniaDTO.DescSistemaCombustibleLubricante;            
+                    cmd.Parameters["@DescSistemaCombustibleLubricante"].Value = sistemaCombustibleLubricanteDTO.DescSistemaCombustibleLubricante;
 
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
-                    cmd.Parameters["@Usuario"].Value = capitaniaDTO.UsuarioIngresoRegistro;
+                    cmd.Parameters["@Usuario"].Value = sistemaCombustibleLubricanteDTO.UsuarioIngresoRegistro;
 
                     cmd.Parameters.Add("@Ip", SqlDbType.VarChar, 50);
                     cmd.Parameters["@Ip"].Value = UtilitariosGlobales.obtenerDireccionIp();
@@ -81,7 +85,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
 
         public SistemaCombustibleLubricanteDTO BuscarSistemaCombustibleLubricanteID(int Codigo)
         {
-            SistemaCombustibleLubricanteDTO capitaniaDTO = new SistemaCombustibleLubricanteDTO();
+            SistemaCombustibleLubricanteDTO sistemaCombustibleLubricanteDTO = new SistemaCombustibleLubricanteDTO();
             var cn = new ConfiguracionConexion();
 
             try
@@ -100,8 +104,9 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
 
                     if (dr.HasRows)
                     {
-                        capitaniaDTO.SistemaCombustibleLubricanteId = Convert.ToInt32(dr["SistemaCombustibleLubricanteId"]);
-                        capitaniaDTO.DescSistemaCombustibleLubricante = dr["DescSistemaCombustibleLubricante"].ToString();
+                        sistemaCombustibleLubricanteDTO.SistemaCombustibleLubricanteId = Convert.ToInt32(dr["SistemaCombustibleLubricanteId"]);
+                        sistemaCombustibleLubricanteDTO.CodigoSistemaCombustibleLubricante = dr["CodigoSistemaCombustibleLubricante"].ToString();
+                        sistemaCombustibleLubricanteDTO.DescSistemaCombustibleLubricante = dr["DescSistemaCombustibleLubricante"].ToString();
                     }
 
                 }
@@ -110,10 +115,10 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
             {
                 throw;
             }
-            return capitaniaDTO;
+            return sistemaCombustibleLubricanteDTO;
         }
 
-        public string ActualizarSistemaCombustibleLubricante(SistemaCombustibleLubricanteDTO capitaniaDTO)
+        public string ActualizarSistemaCombustibleLubricante(SistemaCombustibleLubricanteDTO sistemaCombustibleLubricanteDTO)
         {
             string IND_OPERACION = "0";
             var cn = new ConfiguracionConexion();
@@ -126,13 +131,16 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.Add("@SistemaCombustibleLubricanteId", SqlDbType.Int);
-                    cmd.Parameters["@SistemaCombustibleLubricanteId"].Value = capitaniaDTO.SistemaCombustibleLubricanteId;
+                    cmd.Parameters["@SistemaCombustibleLubricanteId"].Value = sistemaCombustibleLubricanteDTO.SistemaCombustibleLubricanteId;
+
+                    cmd.Parameters.Add("@CodigoSistemaCombustibleLubricante", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoSistemaCombustibleLubricante"].Value = sistemaCombustibleLubricanteDTO.CodigoSistemaCombustibleLubricante;
 
                     cmd.Parameters.Add("@DescSistemaCombustibleLubricante", SqlDbType.VarChar, 100);
-                    cmd.Parameters["@DescSistemaCombustibleLubricante"].Value = capitaniaDTO.DescSistemaCombustibleLubricante;
+                    cmd.Parameters["@DescSistemaCombustibleLubricante"].Value = sistemaCombustibleLubricanteDTO.DescSistemaCombustibleLubricante;
 
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
-                    cmd.Parameters["@Usuario"].Value = capitaniaDTO.UsuarioIngresoRegistro;
+                    cmd.Parameters["@Usuario"].Value = sistemaCombustibleLubricanteDTO.UsuarioIngresoRegistro;
 
                     cmd.Parameters.Add("@Ip", SqlDbType.VarChar, 50);
                     cmd.Parameters["@Ip"].Value = UtilitariosGlobales.obtenerDireccionIp();
@@ -157,7 +165,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
             return IND_OPERACION;
         }
 
-        public string EliminarSistemaCombustibleLubricante(SistemaCombustibleLubricanteDTO capitaniaDTO)
+        public string EliminarSistemaCombustibleLubricante(SistemaCombustibleLubricanteDTO sistemaCombustibleLubricanteDTO)
         {
             string IND_OPERACION = "0";
             var cn = new ConfiguracionConexion();
@@ -170,10 +178,10 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.Add("@SistemaCombustibleLubricanteId", SqlDbType.Int);
-                    cmd.Parameters["@SistemaCombustibleLubricanteId"].Value = capitaniaDTO.SistemaCombustibleLubricanteId;
+                    cmd.Parameters["@SistemaCombustibleLubricanteId"].Value = sistemaCombustibleLubricanteDTO.SistemaCombustibleLubricanteId;
 
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
-                    cmd.Parameters["@Usuario"].Value = capitaniaDTO.UsuarioIngresoRegistro;
+                    cmd.Parameters["@Usuario"].Value = sistemaCombustibleLubricanteDTO.UsuarioIngresoRegistro;
 
                     cmd.Parameters.Add("@Ip", SqlDbType.VarChar, 50);
                     cmd.Parameters["@Ip"].Value = UtilitariosGlobales.obtenerDireccionIp();

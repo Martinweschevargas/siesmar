@@ -1,6 +1,5 @@
 ﻿using AspNetCore.Reporting;
 using Marina.Siesmar.Entidades.Formatos.Comfuavinav;
-using Marina.Siesmar.Entidades.Formatos.Diali;
 using Marina.Siesmar.Entidades.Mantenimiento;
 using Marina.Siesmar.Entidades.Seguridad;
 using Marina.Siesmar.LogicaNegocios.Formatos.Comfuavinav;
@@ -47,7 +46,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
 
             List<UnidadNavalDTO> unidadNavalDTO = unidadNavalBL.ObtenerUnidadNavals();
             List<AlistamientoMunicionDTO> alistamientoMunicionDTO = alistamientoMunicionBL.ObtenerAlistamientoMunicions();
-            List<CargaDTO> listaCargas = cargaBL.ObtenerListaCargas("ComfuavinavAlistamientoMunicion");
+            List<CargaDTO> listaCargas = cargaBL.ObtenerListaCargas("AlistamientoMunicionComfuavinav");
 
             return Json(new
             {
@@ -82,9 +81,9 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Content(IND_OPERACION);
         }
 
-        public ActionResult Mostrar(int Id)
+        public ActionResult Mostrar(int Codigo)
         {
-            return Json(alistamientoMunicionComfuavinavBL.EditarFormado(Id));
+            return Json(alistamientoMunicionComfuavinavBL.EditarFormado(Codigo));
         }
 
         //[AuthorizePermission(Formato: 150, Permiso: 2)]//Actualizar

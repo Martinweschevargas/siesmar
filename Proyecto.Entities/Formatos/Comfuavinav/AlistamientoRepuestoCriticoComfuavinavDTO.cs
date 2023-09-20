@@ -6,8 +6,9 @@ namespace Marina.Siesmar.Entidades.Formatos.Comfuavinav
     {
 
         public int? AlistamientoRepuestoCriticoComfuavinavId { get; set; }
-        public int? UnidadNavalId { get; set; }
-        public int? AlistamientoRepuestoCriticoId { get; set; }
+        public string? CodigoUnidadNaval { get; set; }
+        public string? CodigoAlistamientoRepuestoCritico { get; set; }
+        public int? CargaId { get; set; }
 
         public string? DescUnidadNaval { get; set; }
         public string? DescSistemaRespuestoCritico { get; set; }

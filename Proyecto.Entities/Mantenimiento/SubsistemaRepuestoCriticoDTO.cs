@@ -11,8 +11,9 @@ namespace Marina.Siesmar.Entidades.Mantenimiento
     public class SubsistemaRepuestoCriticoDTO
     {
         public int SubsistemaRepuestoCriticoId { get; set; }
+        public string? CodigoSubsistemaRepuestoCritico { get; set; }
         public string? DescSubsistemaRepuestoCritico { get; set; }
-        public int SistemaRepuestoCriticoId { get; set; }
+        public string? CodigoSistemaRepuestoCritico { get; set; }
         public string? DescSistemaRepuestoCritico { get; set; }
 
         [NotMapped]

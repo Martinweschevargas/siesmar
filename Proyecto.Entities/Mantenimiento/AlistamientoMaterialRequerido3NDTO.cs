@@ -11,7 +11,7 @@ namespace Marina.Siesmar.Entidades.Mantenimiento
         public decimal? Ponderado3Nivel { get; set; }
         public string? CodigoAlistamientoMaterialRequerido2N { get; set; }
         public string? Subclasificacion2N { get; set; }
-        
+
         [NotMapped]
         public string? UsuarioIngresoRegistro { get; set; }
     }

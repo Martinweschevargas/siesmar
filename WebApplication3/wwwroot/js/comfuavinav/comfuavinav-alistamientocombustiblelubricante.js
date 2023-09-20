@@ -1,5 +1,6 @@
 ﻿var tblComfuavinavAlistamientoCombustibleLubricante;
-var alistamientoCombustibleLubricante;
+var reporteSeleccionado;
+var optReporteSelect;
 
 $(document).ready(function () {
     var forms = document.querySelectorAll('.needs-validation')
@@ -126,7 +127,7 @@ $(document).ready(function () {
             }, false)
         })
 
-    $('#tblComfuavinavAlistamientoCombustibleLubricante').DataTable({
+    tblComfuavinavAlistamientoCombustibleLubricante = $('#tblComfuavinavAlistamientoCombustibleLubricante').DataTable({
         ajax: {
             "url": '/ComfuavinavAlistamientoCombustibleLubricante/CargaTabla',
             "type": "GET",
@@ -135,7 +136,14 @@ $(document).ready(function () {
         "columns": [
             { "data": "alistamientoCombustibleLubricanteComfuavinavId" },
             { "data": "descUnidadNaval" },
-            { "data": "descAlistamientoCombustibleLubricante" },
+            { "data": "descSistemaCombustibleLubricante" },
+            { "data": "descSubsistemaCombustibleLubricante" },
+            { "data": "equipo" },
+            { "data": "combustibleLubricante" },
+            { "data": "existente" },
+            { "data": "necesariasGLS" },
+            { "data": "coeficientePonderacion" },
+            { "data": "cargaId" },
             {
                 "render": function (data, type, row) {
                     return '<a class="txt" onclick=edit(' + row.alistamientoCombustibleLubricanteComfuavinavId + ') title="Actualizar"><i class="fa fa-check-square-o" aria-hidden="true" style="color:black; padding-right:5px"></i>Editar</a>';
@@ -223,18 +231,18 @@ $('#btn_all').click(function () {
 
 function cargaBusqueda() {
     var CodigoCarga = $('#cargas').val();
-    tblComfuavinavAlistamientoCombustibleLubricante.columns(2).search(CodigoCarga).draw();
+    tblComfuavinavAlistamientoCombustibleLubricante.columns(9).search(CodigoCarga).draw();
 }
 
 function mostrarTodos() {
-    tblComfuavinavAlistamientoCombustibleLubricante.columns(2).search('').draw();
+    tblComfuavinavAlistamientoCombustibleLubricante.columns(9).search('').draw();
 }
 
 function edit(Id) {
     $('#listar').hide();
     $('#editar').show();
     $.getJSON('/ComfuavinavAlistamientoCombustibleLubricante/Mostrar?Id=' + Id, [], function (AlistamientoCombustibleLubricanteComfuavinavDTO) {
-        $('#txtCodigo').val(AlistamientoCombustibleLubricanteComfuavinavDTO.alistamientoCombustibleLubricanteId);
+        $('#txtCodigo').val(AlistamientoCombustibleLubricanteComfuavinavDTO.alistamientoCombustibleLubricanteComfuavinavId);
         $('#cbUnidadNavale').val(AlistamientoCombustibleLubricanteComfuavinavDTO.codigoUnidadNaval);
         $('#cbAlistamientoCombustibleLubricantee').val(AlistamientoCombustibleLubricanteComfuavinavDTO.codigoAlistamientoCombustibleLubricante);
     });
@@ -382,6 +390,34 @@ function mostrarDatos() {
     });
 }
 
+function enviarDatos() {
+    const input = document.getElementById("inputExcel")
+    const formData = new FormData()
+
+    formData.append("ArchivoExcel", input.files[0])
+    formData.append("Fecha", $('#txtFecha').val())
+    fetch("ComfuavinavAlistamientoCombustibleLubricante/EnviarDatos", {
+        method: "POST",
+        body: formData
+    })
+        .then((response) => { return response.json() })
+        .then((mensaje) => {
+            if (mensaje == "1") {
+                Swal.fire(
+                    'Cargado!',
+                    'Se Cargo el archivo con éxito.',
+                    'success'
+                )
+            } else {
+                Swal.fire(
+                    'Atención!',
+                    'Ocurrio un problema. ' + mensaje,
+                    'error'
+                )
+            }
+        })
+}
+
 function cargaDatos() {
     $.getJSON('/ComfuavinavAlistamientoCombustibleLubricante/cargaCombs', [], function (Json) {
         var unidadNaval = Json["data1"];
@@ -402,14 +438,14 @@ function cargaDatos() {
 
         $("select#cbAlistamientoCombustibleLubricante").html("");
         $.each(alistamientoCombustibleLubricante, function () {
-            var RowContent = '<option value=' + this.codigoAlistamientoCombustibleLubricante + '>' + this.descAlistamientoCombustibleLubricante + '</option>'
+            var RowContent = '<option value=' + this.codigoAlistamientoCombustibleLubricante + '>' + this.codigoAlistamientoCombustibleLubricante + '</option>'
             $("select#cbAlistamientoCombustibleLubricante").append(RowContent);
 
         });
 
         $("select#cbAlistamientoCombustibleLubricantee").html("");
         $.each(alistamientoCombustibleLubricante, function () {
-            var RowContent = '<option value=' + this.codigoAlistamientoCombustibleLubricante + '>' + this.descAlistamientoCombustibleLubricante + '</option>'
+            var RowContent = '<option value=' + this.codigoAlistamientoCombustibleLubricante + '>' + this.codigoAlistamientoCombustibleLubricante + '</option>'
             $("select#cbAlistamientoCombustibleLubricantee").append(RowContent);
         });
 

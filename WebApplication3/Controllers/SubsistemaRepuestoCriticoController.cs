@@ -47,14 +47,15 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Json(new { data = listaSubsistemaRepuestoCriticoes });
         }
 
-        public ActionResult InsertarSubsistemaRepuestoCritico(string Descripcion, int SistemaRepuestoCriticoId)
+        public ActionResult InsertarSubsistemaRepuestoCritico(string CodigoSubsistemaRepuestoCritico, string Descripcion, string CodigoSistemaRepuestoCritico)
         {
             var IND_OPERACION = "";
             try
             {
                 SubsistemaRepuestoCriticoDTO SubsistemaRepuestoCriticoDTO = new();
+                SubsistemaRepuestoCriticoDTO.CodigoSubsistemaRepuestoCritico = CodigoSubsistemaRepuestoCritico;
                 SubsistemaRepuestoCriticoDTO.DescSubsistemaRepuestoCritico = Descripcion;
-                SubsistemaRepuestoCriticoDTO.SistemaRepuestoCriticoId = SistemaRepuestoCriticoId;
+                SubsistemaRepuestoCriticoDTO.CodigoSistemaRepuestoCritico = CodigoSistemaRepuestoCritico;
                 SubsistemaRepuestoCriticoDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
                 IND_OPERACION = SubsistemaRepuestoCriticoBL.AgregarSubsistemaRepuestoCritico(SubsistemaRepuestoCriticoDTO);
@@ -74,12 +75,13 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Json(SubsistemaRepuestoCriticoBL.BuscarSubsistemaRepuestoCriticoID(SubsistemaRepuestoCriticoId));
         }
 
-        public ActionResult ActualizarSubsistemaRepuestoCritico(int SubsistemaRepuestoCriticoId, string Descripcion, int SistemaRepuestoCriticoId)
+        public ActionResult ActualizarSubsistemaRepuestoCritico(int SubsistemaRepuestoCriticoId, string CodigoSubsistemaRepuestoCritico, string Descripcion, string CodigoSistemaRepuestoCritico)
         {
             SubsistemaRepuestoCriticoDTO SubsistemaRepuestoCriticoDTO = new();
             SubsistemaRepuestoCriticoDTO.SubsistemaRepuestoCriticoId = SubsistemaRepuestoCriticoId;
+            SubsistemaRepuestoCriticoDTO.CodigoSubsistemaRepuestoCritico = CodigoSubsistemaRepuestoCritico;
             SubsistemaRepuestoCriticoDTO.DescSubsistemaRepuestoCritico = Descripcion;
-            SubsistemaRepuestoCriticoDTO.SistemaRepuestoCriticoId = SistemaRepuestoCriticoId;
+            SubsistemaRepuestoCriticoDTO.CodigoSistemaRepuestoCritico = CodigoSistemaRepuestoCritico;
             SubsistemaRepuestoCriticoDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
             var IND_OPERACION = SubsistemaRepuestoCriticoBL.ActualizarSubsistemaRepuestoCritico(SubsistemaRepuestoCriticoDTO);

@@ -36,12 +36,13 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Json(new { data = listaSistemaRepuestoCriticos });
         }
 
-        public ActionResult InsertarSistemaRepuestoCritico(string Descripcion)
+        public ActionResult InsertarSistemaRepuestoCritico(string CodigoSistemaRepuestoCritico, string Descripcion)
         {
             var IND_OPERACION = "";
             try
             {
                 SistemaRepuestoCriticoDTO sistemaRepuestoCriticoDTO = new();
+                sistemaRepuestoCriticoDTO.DescSistemaRepuestoCritico = CodigoSistemaRepuestoCritico;
                 sistemaRepuestoCriticoDTO.DescSistemaRepuestoCritico = Descripcion;
                 sistemaRepuestoCriticoDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
@@ -62,10 +63,11 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Json(sistemaRepuestoCriticoBL.BuscarSistemaRepuestoCriticoID(SistemaRepuestoCriticoId));
         }
 
-        public ActionResult ActualizarSistemaRepuestoCritico(int SistemaRepuestoCriticoId, string Descripcion)
+        public ActionResult ActualizarSistemaRepuestoCritico(int SistemaRepuestoCriticoId, string CodigoSistemaRepuestoCritico, string Descripcion)
         {
             SistemaRepuestoCriticoDTO sistemaRepuestoCriticoDTO = new();
             sistemaRepuestoCriticoDTO.SistemaRepuestoCriticoId = SistemaRepuestoCriticoId;
+            sistemaRepuestoCriticoDTO.DescSistemaRepuestoCritico = CodigoSistemaRepuestoCritico;
             sistemaRepuestoCriticoDTO.DescSistemaRepuestoCritico = Descripcion;
             sistemaRepuestoCriticoDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
