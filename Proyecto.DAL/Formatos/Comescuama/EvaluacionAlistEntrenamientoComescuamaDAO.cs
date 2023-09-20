@@ -1,7 +1,6 @@
 ﻿using Marina.Siesmar.AccesoDatos.Configuracion;
 using Marina.Siesmar.Entidades.Formatos.Comescuama;
 using Marina.Siesmar.Utilitarios;
-using System;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -12,7 +11,7 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comescuama
 
         SqlCommand cmd = new SqlCommand();
 
-        public List<EvaluacionAlistEntrenamientoComescuamaDTO> ObtenerLista(int? CargaId = null)
+        public List<EvaluacionAlistEntrenamientoComescuamaDTO> ObtenerLista(int? CargaId = null, string? fechainicio = null, string? fechafin = null)
         {
             List<EvaluacionAlistEntrenamientoComescuamaDTO> lista = new List<EvaluacionAlistEntrenamientoComescuamaDTO>();
 
@@ -27,6 +26,12 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comescuama
                 cmd.Parameters.Add("@CargaId", SqlDbType.Int);
                 cmd.Parameters["@CargaId"].Value = CargaId;
 
+                cmd.Parameters.Add("@FechaInicio", SqlDbType.Date);
+                cmd.Parameters["@FechaInicio"].Value = fechainicio;
+
+                cmd.Parameters.Add("@FechaFin", SqlDbType.Date);
+                cmd.Parameters["@FechaFin"].Value = fechafin;
+
                 using (SqlDataReader dr = cmd.ExecuteReader())
                 {
 
@@ -35,7 +40,7 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comescuama
                         lista.Add(new EvaluacionAlistEntrenamientoComescuamaDTO()
                         {
                             EvaluacionAlistamientoEntrenamientoId = Convert.ToInt32(dr["EvaluacionAlistamientoEntrenamientoId"]),
-                            DescUnidadNaval = dr["DescUnidadNaval"].ToString(),
+                            DescUnidadComescuama = dr["DescUnidadComescuama"].ToString(),
                             NivelEntrenamiento = dr["NivelEntrenamiento"].ToString(),
                             DescCapacidadOperativa = dr["DescCapacidadOperativa"].ToString(),
                             TipoCapacidadOperativo = dr["TipoCapacidadOperativo"].ToString(),
@@ -43,7 +48,7 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comescuama
                             DescEjercicioEntrenamiento = dr["DescEjercicioEntrenamiento"].ToString(),
                             AspectoEvaluacion = dr["AspectoEvaluacion"].ToString(),
                             Peso = dr["Peso"].ToString(),
-                            DescCalificativoAsignadoEjercicio = dr["DescCalificativoAsignadoEjercicio"].ToString(),
+                            CodigoCalificativoAsignadoEjercicio = dr["CodigoCalificativoAsignadoEjercicio"].ToString(),
                             PuntajeObtenido = Convert.ToInt32(dr["PuntajeObtenido"]),
                             FechaPeriodoEvaluar = (dr["FechaPeriodoEvaluar"].ToString()).Split(" ", StringSplitOptions.None)[0],
                             FechaRealizacionEjercicio = (dr["FechaRealizacionEjercicio"].ToString()).Split(" ", StringSplitOptions.None)[0],
@@ -58,7 +63,7 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comescuama
             return lista;
         }
 
-        public string AgregarRegistro(EvaluacionAlistEntrenamientoComescuamaDTO evaluacionAlistEntrenamientoComescuamaDTO)
+        public string AgregarRegistro(EvaluacionAlistEntrenamientoComescuamaDTO evaluacionAlistEntrenamientoComescuamaDTO, string fecha)
         {
             string IND_OPERACION = "0";
             var cn = new ConfiguracionConexion();
@@ -70,24 +75,23 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comescuama
                     cmd = new SqlCommand("Formato.usp_EvaluacionAlistamientoEntrenamientoComescuamaRegistrar", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-
-                    cmd.Parameters.Add("@CodigoUnidadNaval ", SqlDbType.VarChar, 20);
-                    cmd.Parameters["@CodigoUnidadNaval "].Value = evaluacionAlistEntrenamientoComescuamaDTO.CodigoUnidadNaval;
+                    cmd.Parameters.Add("@CodigoUnidadComescuama", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoUnidadComescuama"].Value = evaluacionAlistEntrenamientoComescuamaDTO.CodigoUnidadComescuama;
 
                     cmd.Parameters.Add("@NivelEntrenamiento", SqlDbType.VarChar,1);
                     cmd.Parameters["@NivelEntrenamiento"].Value = evaluacionAlistEntrenamientoComescuamaDTO.NivelEntrenamiento;
 
-                    cmd.Parameters.Add("@CodigoCapacidadOperativa ", SqlDbType.VarChar, 20);
-                    cmd.Parameters["@CodigoCapacidadOperativa "].Value = evaluacionAlistEntrenamientoComescuamaDTO.CodigoCapacidadOperativa;
+                    cmd.Parameters.Add("@CodigoCapacidadOperativa", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoCapacidadOperativa"].Value = evaluacionAlistEntrenamientoComescuamaDTO.CodigoCapacidadOperativa;
 
                     cmd.Parameters.Add("@TipoCapacidadOperativo", SqlDbType.VarChar,15);
                     cmd.Parameters["@TipoCapacidadOperativo"].Value = evaluacionAlistEntrenamientoComescuamaDTO.TipoCapacidadOperativo;
 
-                    cmd.Parameters.Add("@CodigoEjercicioEntrenamiento ", SqlDbType.VarChar, 20);
-                    cmd.Parameters["@CodigoEjercicioEntrenamiento "].Value = evaluacionAlistEntrenamientoComescuamaDTO.CodigoEjercicioEntrenamiento;
+                    cmd.Parameters.Add("@CodigoEjercicioEntrenamientoAspecto", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoEjercicioEntrenamientoAspecto"].Value = evaluacionAlistEntrenamientoComescuamaDTO.CodigoEjercicioEntrenamientoAspecto;
 
-                    cmd.Parameters.Add("@CodigoEjercicioEntrenamientoAspecto  ", SqlDbType.VarChar, 20);
-                    cmd.Parameters["@CodigoEjercicioEntrenamientoAspecto  "].Value = evaluacionAlistEntrenamientoComescuamaDTO.CodigoEjercicioEntrenamientoAspecto;
+                    cmd.Parameters.Add("@CodigoCalificativoAsignadoEjercicio", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoCalificativoAsignadoEjercicio"].Value = evaluacionAlistEntrenamientoComescuamaDTO.CodigoCalificativoAsignadoEjercicio;
 
                     cmd.Parameters.Add("@PuntajeObtenido", SqlDbType.Int);
                     cmd.Parameters["@PuntajeObtenido"].Value = evaluacionAlistEntrenamientoComescuamaDTO.PuntajeObtenido;
@@ -116,7 +120,8 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comescuama
                     cmd.Parameters.Add("@Mac", SqlDbType.VarChar, 50);
                     cmd.Parameters["@Mac"].Value = UtilitariosGlobales.obtenerDireccionMac();
 
-
+                    cmd.Parameters.Add("@FechaCarga", SqlDbType.Date);
+                    cmd.Parameters["@FechaCarga"].Value = fecha;
 
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
@@ -158,15 +163,12 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comescuama
                     {
 
                         evaluacionAlistEntrenamientoComescuamaDTO.EvaluacionAlistamientoEntrenamientoId = Convert.ToInt32(dr["EvaluacionAlistamientoEntrenamientoId"]);
-                        evaluacionAlistEntrenamientoComescuamaDTO.CodigoUnidadNaval = dr["CodigoUnidadNaval "].ToString();
+                        evaluacionAlistEntrenamientoComescuamaDTO.CodigoUnidadComescuama = dr["CodigoUnidadComescuama"].ToString();
                         evaluacionAlistEntrenamientoComescuamaDTO.NivelEntrenamiento = dr["NivelEntrenamiento"].ToString();
-                        evaluacionAlistEntrenamientoComescuamaDTO.CodigoCapacidadOperativa = dr["CodigoCapacidadOperativa "].ToString();
+                        evaluacionAlistEntrenamientoComescuamaDTO.CodigoCapacidadOperativa = dr["CodigoCapacidadOperativa"].ToString();
                         evaluacionAlistEntrenamientoComescuamaDTO.TipoCapacidadOperativo = dr["TipoCapacidadOperativo"].ToString();
-                        evaluacionAlistEntrenamientoComescuamaDTO.CodigoEjercicioEntrenamiento = dr["CodigoEjercicioEntrenamiento "].ToString();
-                        evaluacionAlistEntrenamientoComescuamaDTO.DescEjercicioEntrenamiento = dr["DescEjercicioEntrenamiento"].ToString();
-                        evaluacionAlistEntrenamientoComescuamaDTO.AspectoEvaluacion = dr["AspectoEvaluacion"].ToString();
-                        evaluacionAlistEntrenamientoComescuamaDTO.Peso = dr["Peso"].ToString();
-                        evaluacionAlistEntrenamientoComescuamaDTO.CodigoCalificativoAsignadoEjercicio = dr["CodigoCalificativoAsignadoEjercicio "].ToString();
+                        evaluacionAlistEntrenamientoComescuamaDTO.CodigoEjercicioEntrenamientoAspecto = dr["CodigoEjercicioEntrenamientoAspecto"].ToString();
+                        evaluacionAlistEntrenamientoComescuamaDTO.CodigoCalificativoAsignadoEjercicio = dr["CodigoCalificativoAsignadoEjercicio"].ToString();
                         evaluacionAlistEntrenamientoComescuamaDTO.PuntajeObtenido = Convert.ToInt32(dr["PuntajeObtenido"]);
                         evaluacionAlistEntrenamientoComescuamaDTO.FechaPeriodoEvaluar = Convert.ToDateTime(dr["FechaPeriodoEvaluar"]).ToString("yyy-MM-dd");
                         evaluacionAlistEntrenamientoComescuamaDTO.FechaRealizacionEjercicio = Convert.ToDateTime(dr["FechaRealizacionEjercicio"]).ToString("yyy-MM-dd");
@@ -199,27 +201,26 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comescuama
                     cmd = new SqlCommand("Formato.usp_EvaluacionAlistamientoEntrenamientoComescuamaActualizar", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-
                     cmd.Parameters.Add("@EvaluacionAlistamientoEntrenamientoId", SqlDbType.Int);
                     cmd.Parameters["@EvaluacionAlistamientoEntrenamientoId"].Value = evaluacionAlistEntrenamientoComescuamaDTO.EvaluacionAlistamientoEntrenamientoId;
 
-                    cmd.Parameters.Add("@CodigoUnidadNaval ", SqlDbType.VarChar, 20);
-                    cmd.Parameters["@CodigoUnidadNaval "].Value = evaluacionAlistEntrenamientoComescuamaDTO.CodigoUnidadNaval;
+                    cmd.Parameters.Add("@CodigoUnidadComescuama", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoUnidadComescuama"].Value = evaluacionAlistEntrenamientoComescuamaDTO.CodigoUnidadComescuama;
 
                     cmd.Parameters.Add("@NivelEntrenamiento", SqlDbType.VarChar, 1);
                     cmd.Parameters["@NivelEntrenamiento"].Value = evaluacionAlistEntrenamientoComescuamaDTO.NivelEntrenamiento;
 
-                    cmd.Parameters.Add("@CodigoCapacidadOperativa ", SqlDbType.VarChar, 20);
-                    cmd.Parameters["@CodigoCapacidadOperativa "].Value = evaluacionAlistEntrenamientoComescuamaDTO.CodigoCapacidadOperativa;
+                    cmd.Parameters.Add("@CodigoCapacidadOperativa", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoCapacidadOperativa"].Value = evaluacionAlistEntrenamientoComescuamaDTO.CodigoCapacidadOperativa;
 
                     cmd.Parameters.Add("@TipoCapacidadOperativo", SqlDbType.VarChar, 15);
                     cmd.Parameters["@TipoCapacidadOperativo"].Value = evaluacionAlistEntrenamientoComescuamaDTO.TipoCapacidadOperativo;
 
-                    cmd.Parameters.Add("@CodigoEjercicioEntrenamiento ", SqlDbType.VarChar, 20);
-                    cmd.Parameters["@CodigoEjercicioEntrenamiento "].Value = evaluacionAlistEntrenamientoComescuamaDTO.CodigoEjercicioEntrenamiento;
+                    cmd.Parameters.Add("@CodigoEjercicioEntrenamientoAspecto", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoEjercicioEntrenamientoAspecto"].Value = evaluacionAlistEntrenamientoComescuamaDTO.CodigoEjercicioEntrenamientoAspecto;
 
-                    cmd.Parameters.Add("@CodigoEjercicioEntrenamientoAspecto  ", SqlDbType.VarChar, 20);
-                    cmd.Parameters["@CodigoEjercicioEntrenamientoAspecto  "].Value = evaluacionAlistEntrenamientoComescuamaDTO.CodigoEjercicioEntrenamientoAspecto;
+                    cmd.Parameters.Add("@CodigoCalificativoAsignadoEjercicio", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoCalificativoAsignadoEjercicio"].Value = evaluacionAlistEntrenamientoComescuamaDTO.CodigoCalificativoAsignadoEjercicio;
 
                     cmd.Parameters.Add("@PuntajeObtenido", SqlDbType.Int);
                     cmd.Parameters["@PuntajeObtenido"].Value = evaluacionAlistEntrenamientoComescuamaDTO.PuntajeObtenido;
@@ -299,7 +300,49 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comescuama
 
             return eliminado;
         }
-        public string InsertarDatos(DataTable datos)
+
+        public bool EliminarCarga(EvaluacionAlistEntrenamientoComescuamaDTO evaluacionAlistEntrenamientoComescuamaDTO)
+        {
+            bool eliminado = false;
+            var cn = new ConfiguracionConexion();
+
+            try
+            {
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    cmd = new SqlCommand("Seguridad.usp_CargaEliminar", conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add("@Formato", SqlDbType.NVarChar, 200);
+                    cmd.Parameters["@Formato"].Value = "EvaluacionAlistamientoEntrenamientoComescuama";
+
+                    cmd.Parameters.Add("@CargaId", SqlDbType.Int);
+                    cmd.Parameters["@CargaId"].Value = evaluacionAlistEntrenamientoComescuamaDTO.CargaId;
+
+                    cmd.Parameters.Add("@Usuario", SqlDbType.VarChar, 100);
+                    cmd.Parameters["@Usuario"].Value = evaluacionAlistEntrenamientoComescuamaDTO.UsuarioIngresoRegistro;
+
+                    cmd.Parameters.Add("@Ip", SqlDbType.VarChar, 50);
+                    cmd.Parameters["@Ip"].Value = UtilitariosGlobales.obtenerDireccionIp();
+
+                    cmd.Parameters.Add("@Mac", SqlDbType.VarChar, 50);
+                    cmd.Parameters["@Mac"].Value = UtilitariosGlobales.obtenerDireccionMac();
+
+                    cmd.ExecuteNonQuery();
+
+                    eliminado = true;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return eliminado;
+        }
+
+        public string InsertarDatos(DataTable datos, string fecha)
         {
             string IND_OPERACION = "0";
             var cn = new ConfiguracionConexion();
@@ -321,6 +364,9 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comescuama
 
                     cmd.Parameters.Add("@Mac", SqlDbType.VarChar, 50);
                     cmd.Parameters["@Mac"].Value = UtilitariosGlobales.obtenerDireccionMac();
+
+                    cmd.Parameters.Add("@FechaCarga", SqlDbType.Date);
+                    cmd.Parameters["@FechaCarga"].Value = fecha;
 
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {

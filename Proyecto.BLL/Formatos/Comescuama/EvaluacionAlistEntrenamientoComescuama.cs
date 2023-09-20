@@ -8,14 +8,14 @@ namespace Marina.Siesmar.LogicaNegocios.Formatos.Comescuama
     {
         EvaluacionAlistEntrenamientoComescuamaDAO evaluacionAlistEntrenamientoComescuamaDAO = new();
 
-        public List<EvaluacionAlistEntrenamientoComescuamaDTO> ObtenerLista(int? CargaId = null)
+        public List<EvaluacionAlistEntrenamientoComescuamaDTO> ObtenerLista(int? CargaId = null, string? fechainicio = null, string? fechafin = null)
         {
-            return evaluacionAlistEntrenamientoComescuamaDAO.ObtenerLista(CargaId);
+            return evaluacionAlistEntrenamientoComescuamaDAO.ObtenerLista(CargaId, fechainicio, fechafin);
         }
 
-        public string AgregarRegistro(EvaluacionAlistEntrenamientoComescuamaDTO evaluacionAlistEntrenamientoComescuamaDTO)
+        public string AgregarRegistro(EvaluacionAlistEntrenamientoComescuamaDTO evaluacionAlistEntrenamientoComescuamaDTO, string? fecha)
         {
-            return evaluacionAlistEntrenamientoComescuamaDAO.AgregarRegistro(evaluacionAlistEntrenamientoComescuamaDTO);
+            return evaluacionAlistEntrenamientoComescuamaDAO.AgregarRegistro(evaluacionAlistEntrenamientoComescuamaDTO, fecha);
         }
 
         public EvaluacionAlistEntrenamientoComescuamaDTO BuscarFormato(int Codigo)
@@ -33,9 +33,14 @@ namespace Marina.Siesmar.LogicaNegocios.Formatos.Comescuama
             return evaluacionAlistEntrenamientoComescuamaDAO.EliminarFormato(evaluacionAlistEntrenamientoComescuamaDTO);
         }
 
-        public string InsertarDatos(DataTable datos)
+        public bool EliminarCarga(EvaluacionAlistEntrenamientoComescuamaDTO evaluacionAlistEntrenamientoComescuamaDTO)
         {
-            return evaluacionAlistEntrenamientoComescuamaDAO.InsertarDatos(datos);
+            return evaluacionAlistEntrenamientoComescuamaDAO.EliminarCarga(evaluacionAlistEntrenamientoComescuamaDTO);
+        }
+
+        public string InsertarDatos(DataTable datos, string fecha)
+        {
+            return evaluacionAlistEntrenamientoComescuamaDAO.InsertarDatos(datos, fecha);
         }
 
     }

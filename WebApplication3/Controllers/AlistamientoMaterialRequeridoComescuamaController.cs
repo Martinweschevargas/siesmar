@@ -41,7 +41,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Json(new { data = listaAlistamientoMaterialRequeridoComescuamaes });
         }
 
-        public ActionResult InsertarAlistamientoMaterialRequeridoComescuama(string CodigoAlistamientoMaterialRequeridoComescuama, int AlistamientoMaterialRequerido3NId, 
+        public ActionResult InsertarAlistamientoMaterialRequeridoComescuama(string CodigoAlistamientoMaterialRequeridoComescuama, string CodigoAlistamientoMaterialRequerido3N, 
             string Requerido, string Operativo, string PorcentajeOperatividad)
         {
             var IND_OPERACION = "";
@@ -49,7 +49,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
             {
                 AlistamientoMaterialRequeridoComescuamaDTO alistamientoMaterialRequeridoComescuamaDTO = new();
                 alistamientoMaterialRequeridoComescuamaDTO.CodigoAlistamientoMaterialRequeridoComescuama = CodigoAlistamientoMaterialRequeridoComescuama;
-                alistamientoMaterialRequeridoComescuamaDTO.AlistamientoMaterialRequerido3NId = AlistamientoMaterialRequerido3NId;
+                alistamientoMaterialRequeridoComescuamaDTO.CodigoAlistamientoMaterialRequerido3N = CodigoAlistamientoMaterialRequerido3N;
                 alistamientoMaterialRequeridoComescuamaDTO.Requerido = Requerido;
                 alistamientoMaterialRequeridoComescuamaDTO.Operativo = Operativo;
                 alistamientoMaterialRequeridoComescuamaDTO.PorcentajeOperatividad = PorcentajeOperatividad;
@@ -73,12 +73,12 @@ namespace Marina.Siesmar.Presentacion.Controllers
         }
 
         public ActionResult ActualizarAlistamientoMaterialRequeridoComescuama(int AlistamientoMaterialRequeridoComescuamaId, string CodigoAlistamientoMaterialRequeridoComescuama, 
-            int AlistamientoMaterialRequerido3NId, string Requerido, string Operativo, string PorcentajeOperatividad)
+            string CodigoAlistamientoMaterialRequerido3N, string Requerido, string Operativo, string PorcentajeOperatividad)
         {
             AlistamientoMaterialRequeridoComescuamaDTO alistamientoMaterialRequeridoComescuamaDTO = new();
             alistamientoMaterialRequeridoComescuamaDTO.AlistamientoMaterialRequeridoComescuamaId = AlistamientoMaterialRequeridoComescuamaId;
             alistamientoMaterialRequeridoComescuamaDTO.CodigoAlistamientoMaterialRequeridoComescuama = CodigoAlistamientoMaterialRequeridoComescuama;
-            alistamientoMaterialRequeridoComescuamaDTO.AlistamientoMaterialRequerido3NId = AlistamientoMaterialRequerido3NId;
+            alistamientoMaterialRequeridoComescuamaDTO.CodigoAlistamientoMaterialRequerido3N = CodigoAlistamientoMaterialRequerido3N;
             alistamientoMaterialRequeridoComescuamaDTO.Requerido = Requerido;
             alistamientoMaterialRequeridoComescuamaDTO.Operativo = Operativo;
             alistamientoMaterialRequeridoComescuamaDTO.PorcentajeOperatividad = PorcentajeOperatividad;

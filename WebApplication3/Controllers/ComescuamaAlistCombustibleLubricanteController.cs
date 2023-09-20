@@ -1,4 +1,5 @@
 ﻿using AspNetCore.Reporting;
+using Marina.Siesmar.AccesoDatos.Mantenimiento;
 using Marina.Siesmar.Entidades.Formatos.Comescuama;
 using Marina.Siesmar.Entidades.Mantenimiento;
 using Marina.Siesmar.Entidades.Seguridad;
@@ -21,7 +22,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
     {
         private readonly IWebHostEnvironment _webHostEnviroment;
         AlistCombustibleLubricanteComescuama alistCombustibleLubricanteComescuamaBL = new();
-        UnidadNaval unidadNavalBL = new();
+        UnidadComescuamaDAO unidadComescuamaBL = new();
         AlistamientoCombustibleLubricante2 alistamientoCombustibleLubricante2BL = new();
         Carga cargaBL = new();
 
@@ -39,11 +40,11 @@ namespace Marina.Siesmar.Presentacion.Controllers
 
         public IActionResult cargaCombs()
         {
-            List<UnidadNavalDTO> unidadNavalDTO = unidadNavalBL.ObtenerUnidadNavals();
+            List<UnidadComescuamaDTO> unidadComescuamaDTO = unidadComescuamaBL.ObtenerUnidadComescuamas();
             List<AlistamientoCombustibleLubricante2DTO> alistamientoCombustibleLubricante2DTO = alistamientoCombustibleLubricante2BL.ObtenerAlistamientoCombustibleLubricante2s();
             List<CargaDTO> listaCargas = cargaBL.ObtenerListaCargas("AlistamientoCombustibleLubricanteComescuama");
             return Json(new { 
-                data1 = unidadNavalDTO, 
+                data1 = unidadComescuamaDTO, 
                 data2 = alistamientoCombustibleLubricante2DTO,
                 data3 = listaCargas
             });
@@ -51,8 +52,8 @@ namespace Marina.Siesmar.Presentacion.Controllers
 
         public IActionResult CargaTabla()
         {
-            List<AlistCombustibleLubricanteComescuamaDTO> select = alistCombustibleLubricanteComescuamaBL.ObtenerLista();
-            return Json(new { data = select });
+            List<AlistCombustibleLubricanteComescuamaDTO> lista = alistCombustibleLubricanteComescuamaBL.ObtenerLista();
+            return Json(new { data = lista });
         }
 
         [Breadcrumb(Title = "Carga Individual")]
@@ -61,11 +62,11 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return View();
         }
         ////[AuthorizePermission(Formato: 157, Permiso: 1)]//Registrar
-        public ActionResult Insertar(string CodigoUnidadNaval, string CodigoAlistamientoCombustibleLubricante2, 
+        public ActionResult Insertar(string CodigoUnidadComescuama, string CodigoAlistamientoCombustibleLubricante2, 
             decimal PromedioPonderado, decimal SubPromedioParcial, int CargaId, string Fecha)
         {
             AlistCombustibleLubricanteComescuamaDTO alistCombustibleLubricanteComescuamaDTO = new();
-            alistCombustibleLubricanteComescuamaDTO.CodigoUnidadNaval = CodigoUnidadNaval;
+            alistCombustibleLubricanteComescuamaDTO.CodigoUnidadComescuama = CodigoUnidadComescuama;
             alistCombustibleLubricanteComescuamaDTO.CodigoAlistamientoCombustibleLubricante2 = CodigoAlistamientoCombustibleLubricante2;
             alistCombustibleLubricanteComescuamaDTO.PromedioPonderado = PromedioPonderado;
             alistCombustibleLubricanteComescuamaDTO.SubPromedioParcial = SubPromedioParcial;
@@ -81,12 +82,12 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Json(alistCombustibleLubricanteComescuamaBL.EditarFormato(Id));
         }
         ////[AuthorizePermission(Formato: 157, Permiso: 2)]//Actualizar
-        public ActionResult Actualizar(int Id, string CodigoUnidadNaval, string CodigoAlistamientoCombustibleLubricante2,
+        public ActionResult Actualizar(int Id, string CodigoUnidadComescuama, string CodigoAlistamientoCombustibleLubricante2,
             decimal PromedioPonderado, decimal SubPromedioParcial)
         {
             AlistCombustibleLubricanteComescuamaDTO alistCombustibleLubricanteComescuamaDTO = new();
             alistCombustibleLubricanteComescuamaDTO.AlistamientoCombustibleLubricanteId = Id;
-            alistCombustibleLubricanteComescuamaDTO.CodigoUnidadNaval = CodigoUnidadNaval;
+            alistCombustibleLubricanteComescuamaDTO.CodigoUnidadComescuama = CodigoUnidadComescuama;
             alistCombustibleLubricanteComescuamaDTO.CodigoAlistamientoCombustibleLubricante2 = CodigoAlistamientoCombustibleLubricante2;
             alistCombustibleLubricanteComescuamaDTO.PromedioPonderado = PromedioPonderado;
             alistCombustibleLubricanteComescuamaDTO.SubPromedioParcial = SubPromedioParcial;
@@ -152,7 +153,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
 
                     lista.Add(new AlistCombustibleLubricanteComescuamaDTO
                     {
-                        CodigoUnidadNaval = fila.GetCell(0).ToString(),
+                        CodigoUnidadComescuama = fila.GetCell(0).ToString(),
                         CodigoAlistamientoCombustibleLubricante2 = fila.GetCell(1).ToString(),
                         PromedioPonderado = decimal.Parse(fila.GetCell(2).ToString()),
                         SubPromedioParcial = decimal.Parse(fila.GetCell(3).ToString())
@@ -185,7 +186,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
 
             dt.Columns.AddRange(new DataColumn[5]
             {
-                    new DataColumn("CodigoUnidadNaval", typeof(string)),
+                    new DataColumn("CodigoUnidadComescuama", typeof(string)),
                     new DataColumn("CodigoAlistamientoCombustibleLubricante2", typeof(string)),
                     new DataColumn("PromedioPonderado", typeof(decimal)),
                     new DataColumn("SubPromedioParcial", typeof(decimal)),

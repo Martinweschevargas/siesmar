@@ -40,10 +40,17 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comescuama
                         lista.Add(new AlistamientoMaterialComescuamaDTO()
                         {
                             AlistamientoMaterialId = Convert.ToInt32(dr["AlistamientoMaterialId"]),
-                            DescUnidadNaval = dr["DescUnidadNaval"].ToString(),
+                            DescUnidadComescuama = dr["DescUnidadComescuama"].ToString(),
                             DescCapacidadOperativa = dr["DescCapacidadOperativa"].ToString(),
-                            CodigoAlistamientoMaterialRequerido3N = dr["CodigoAlistamientoMaterialRequerido3N"].ToString(),
-                            CodigoAlistamientoMaterialRequeridoComescuama = dr["CodigoAlistamientoMaterialRequeridoComescuama"].ToString(),
+                            CapacidadIntrinseca = dr["CapacidadIntrinseca"].ToString(),
+                            Ponderado1N = dr["Ponderado1N"].ToString(),
+                            Subclasificacion2N = dr["Subclasificacion2N"].ToString(),
+                            Ponderado2Nivel = dr["Ponderado2Nivel"].ToString(),
+                            Subclasificacion3N = dr["Subclasificacion"].ToString(),
+                            Ponderado3Nivel = dr["Ponderado3Nivel"].ToString(),
+                            Requerido = dr["Requerido"].ToString(),
+                            Operativo = dr["Operativo"].ToString(),
+                            PorcentajeOperatividad = dr["PorcentajeOperatividad"].ToString(),
                             PonderadoFuncional = Convert.ToDecimal(dr["PonderadoFuncional"]),
                             NivelAlistamientoParcial = Convert.ToDecimal(dr["NivelAlistamientoParcial"]),
                             CargaId = Convert.ToInt32(dr["CargaId"])
@@ -66,8 +73,8 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comescuama
                     cmd = new SqlCommand("Formato.usp_AlistamientoMaterialComescuamaRegistrar", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add("@CodigoUnidadNaval", SqlDbType.VarChar,20);
-                    cmd.Parameters["@CodigoUnidadNaval"].Value = alistamientoMaterialComescuamaDTO.CodigoUnidadNaval;
+                    cmd.Parameters.Add("@CodigoUnidadComescuama", SqlDbType.VarChar,20);
+                    cmd.Parameters["@CodigoUnidadComescuama"].Value = alistamientoMaterialComescuamaDTO.CodigoUnidadComescuama;
 
                     cmd.Parameters.Add("@CodigoCapacidadOperativa", SqlDbType.VarChar, 20);
                     cmd.Parameters["@CodigoCapacidadOperativa"].Value = alistamientoMaterialComescuamaDTO.CodigoCapacidadOperativa;
@@ -139,7 +146,7 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comescuama
                     {
 
                         alistamientoMaterialComescuamaDTO.AlistamientoMaterialId = Convert.ToInt32(dr["AlistamientoMaterialId"]);
-                        alistamientoMaterialComescuamaDTO.CodigoUnidadNaval = dr["CodigoUnidadNaval"].ToString();
+                        alistamientoMaterialComescuamaDTO.CodigoUnidadComescuama = dr["CodigoUnidadComescuama"].ToString();
                         alistamientoMaterialComescuamaDTO.CodigoCapacidadOperativa = dr["CodigoCapacidadOperativa"].ToString();
                         alistamientoMaterialComescuamaDTO.CodigoAlistamientoMaterialRequerido3N = dr["CodigoAlistamientoMaterialRequerido3N"].ToString();
                         alistamientoMaterialComescuamaDTO.CodigoAlistamientoMaterialRequeridoComescuama = dr["CodigoAlistamientoMaterialRequeridoComescuama"].ToString();
@@ -175,8 +182,8 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comescuama
                     cmd.Parameters.Add("@AlistamientoMaterialId", SqlDbType.Int);
                     cmd.Parameters["@AlistamientoMaterialId"].Value = alistamientoMaterialComescuamaDTO.AlistamientoMaterialId;
 
-                    cmd.Parameters.Add("@CodigoUnidadNaval", SqlDbType.VarChar, 20);
-                    cmd.Parameters["@CodigoUnidadNaval"].Value = alistamientoMaterialComescuamaDTO.CodigoUnidadNaval;
+                    cmd.Parameters.Add("@CodigoUnidadComescuama", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoUnidadComescuama"].Value = alistamientoMaterialComescuamaDTO.CodigoUnidadComescuama;
 
                     cmd.Parameters.Add("@CodigoCapacidadOperativa", SqlDbType.VarChar, 20);
                     cmd.Parameters["@CodigoCapacidadOperativa"].Value = alistamientoMaterialComescuamaDTO.CodigoCapacidadOperativa;

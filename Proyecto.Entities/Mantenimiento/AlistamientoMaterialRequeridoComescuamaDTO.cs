@@ -6,7 +6,7 @@ namespace Marina.Siesmar.Entidades.Mantenimiento
     {
         public int AlistamientoMaterialRequeridoComescuamaId { get; set; }
         public string? CodigoAlistamientoMaterialRequeridoComescuama { get; set; }
-        public int AlistamientoMaterialRequerido3NId { get; set; }
+        public string? CodigoAlistamientoMaterialRequerido3N { get; set; }
         public string? Subclasificacion { get; set; }
         public string? Requerido { get; set; }
         public string? Operativo { get; set; }

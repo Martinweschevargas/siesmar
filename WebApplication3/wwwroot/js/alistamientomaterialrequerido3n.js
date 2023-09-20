@@ -25,7 +25,7 @@ $(document).ready(function () {
                                 url: '/AlistamientoMaterialRequerido3N/InsertarAlistamientoMaterialRequerido3N',
                                 data: {
                                     'CodigoAlistamientoMaterialRequerido3N': $("#txtCodAli").val(),
-                                    'Subclasificacion': $('#txtSubclasificacion').val(),
+                                    'Subclasificacion3N': $('#txtSubclasificacion').val(),
                                     'Ponderado': $('#txtPonderado').val(),
                                     'CodigoAlistamientoMaterialRequerido2N': $('#cbFK').val()
                                 },
@@ -86,7 +86,7 @@ $(document).ready(function () {
                                 data: {
                                     'AlistamientoMaterialRequerido3NId': $('#txtCodigo').val(),
                                     'CodigoAlistamientoMaterialRequerido3N': $("#txtCodAlie").val(),
-                                    'Subclasificacion': $('#txtSubclasificacione').val(),
+                                    'Subclasificacion3N': $('#txtSubclasificacione').val(),
                                     'Ponderado': $('#txtPonderadoe').val(),
                                     'CodigoAlistamientoMaterialRequerido2N': $('#cbFKe').val()
                                 },
@@ -130,10 +130,10 @@ $(document).ready(function () {
         },
         "columns": [
             { "data": "alistamientoMaterialRequerido3NId" },
+            { "data": "subclasificacion3N" },
             { "data": "codigoAlistamientoMaterialRequerido3N" },
-            { "data": "subclasificacion" },
             { "data": "ponderado3Nivel" },
-            { "data": "subclasificacion" },
+            { "data": "subclasificacion2N" },
             { "data": "codigoAlistamientoMaterialRequerido2N" },
             {
                 "render": function (data, type, row) {
@@ -171,7 +171,7 @@ function edit(AlistamientoMaterialRequerido3NId) {
     $.getJSON('/AlistamientoMaterialRequerido3N/MostrarAlistamientoMaterialRequerido3N?AlistamientoMaterialRequerido3NId=' + AlistamientoMaterialRequerido3NId, [], function (AlistamientoMaterialRequerido3NDTO) {
         $('#txtCodigo').val(AlistamientoMaterialRequerido3NDTO.alistamientoMaterialRequerido3NId);
         $('#txtCodAlie').val(AlistamientoMaterialRequerido3NDTO.codigoAlistamientoMaterialRequerido3N);
-        $('#txtSubclasificacione').val(AlistamientoMaterialRequerido3NDTO.subclasificacion);
+        $('#txtSubclasificacione').val(AlistamientoMaterialRequerido3NDTO.subclasificacion3N);
         $('#txtPonderadoe').val(AlistamientoMaterialRequerido3NDTO.ponderado3Nivel);
         $('#cbFKe').val(AlistamientoMaterialRequerido3NDTO.codigoAlistamientoMaterialRequerido2N);
     });

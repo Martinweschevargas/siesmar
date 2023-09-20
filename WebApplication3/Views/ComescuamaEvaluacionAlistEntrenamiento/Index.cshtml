@@ -5,7 +5,7 @@
 
 <div class="row">
     <div class="col-sm-12">
-        <h1><a href="~/ComescuamaEvaluacionAlistEntrenamiento" style="text-decoration:none;">Evaluación del Alistamiento del Entrenamiento</a></h1>
+        <h3><a href="~/ComescuamaEvaluacionAlistEntrenamiento" style="text-decoration:none;">Evaluación del Alistamiento del Entrenamiento</a></h3>
         <div class="card">
             <div class="card-header">
                 <div class="card-header">
@@ -16,15 +16,21 @@
             </div>
             <div class="card-body" >
                 <div class="row">
-                    <div class="col-sm-4">
-                        <input class="form-control" type="file" id="inputExcel" />
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <input class="form-control form-control-sm" type="file" id="inputExcel" />
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                        </div>
                     </div>
-                    <div class="col-sm-4">
-                        <button class="btn btn-warning" onclick="mostrarDatos()">Vista Previa</button>
-                        <button class="btn btn-success" onclick="enviarDatos()">Guardar Formato</button>
-                    </div>
-                    <div class="col-sm-4">
-                        <label>Numero de Registros : </label><span id="NumRegistros"></span>
+                    <div class="row mt-4">
+                        <div class="col-sm-6 text-center">
+                            <button class="btn btn-warning" onclick="mostrarDatos()">Previsualizar Datos</button>
+                        </div>
+                        <div class="col-sm-6 text-center">
+                            <button class="btn btn-success" onclick="enviarDatos()">Grabar Formato</button>
+                        </div>
                     </div>
                 </div>
                 <hr />
@@ -33,13 +39,12 @@
                         <table class="table table-striped" id="tbData" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;">
                             <thead>
                                 <tr class="colorbg">
-                                    <th>Identificación Unidad Naval De Entrenamiento</th>
+                                    <th>Código Unidad Comescuama</th>
                                     <th>Nivel De Entrenamiento</th>
-                                    <th>Capacidad Operativa</th>
+                                    <th>Código Capacidad Operativa</th>
                                     <th>Tipo De Capacidad Operativa</th>
-                                    <th>Código De Ejercicio </th>
                                     <th>Código De Ejercicio Aspectos</th>
-                                    <th>Calificativo</th>
+                                    <th>Código de Calificativo</th>
                                     <th>Puntaje Obtenido Por Ejercicio</th>
                                     <th>Fecha Del Periodo A Evaluar El Ejercicio</th>
                                     <th>Fecha De Realización Del Ejercicio</th>
@@ -52,12 +57,11 @@
                         </table>
                     </div>
                 </div>
-
             </div>
         </div>
-
     </div>
 </div>
+
 <div class="modal fade" id="ventanaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
@@ -69,14 +73,20 @@
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onclick="optReporte(1)">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                EVALUACION DEL ALISTAMIENTO DEL ENTRENAMIENTO
-                            </label>
+                            <label class="form-check-label" for="flexRadioDefault1">EVALUACION DEL ALISTAMIENTO DEL ENTRENAMIENTO</label>
                         </div>
-                        <div class="form-group row col-md-6">
-                            <label for="carga" class="col-3 col-form-label">Carga</label>
+                        <div class="row">
                             <div class="form-group row col-md-6">
-                                <div class="col"><select class="form-select form-control-sm" id="cargas" name="cargas"></select></div>
+                                <label for="fechainicio" class="col-6 col-form-label">Fecha Inicio</label>
+                                <div class="col-md-6">
+                                    <input type="date" class="form-control form-control-sm" id="fechainicio" name="fechainicio" required>
+                                </div>
+                            </div>
+                            <div class="form-group row col-md-6">
+                                <label for="fechafin" class="col-6 col-form-label">Fecha Fin</label>
+                                <div class="col-md-6">
+                                    <input type="date" class="form-control form-control-sm" id="fechafin" name="fechafin" required>
+                                </div>
                             </div>
                         </div>
                         <div class="row" style="margin-top:10px;margin-bottom:10px">
@@ -96,6 +106,7 @@
         </div>
     </div>
 </div>
+
 @section Scripts{
     <script src="/js/comescuama/comescuama-evaluacionalistentrenamiento.js" asp-append-version="true"></script>
 }

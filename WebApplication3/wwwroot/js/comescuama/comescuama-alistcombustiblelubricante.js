@@ -26,7 +26,7 @@ $(document).ready(function () {
                                 type: "POST",
                                 url: '/ComescuamaAlistCombustibleLubricante/Insertar',
                                 data: {
-                                    'CodigoUnidadNaval': $('#cbUnidadNaval').val(),
+                                    'CodigoUnidadComescuama': $('#cbUnidadNaval').val(),
                                     'CodigoAlistamientoCombustibleLubricante2': $('#cbAlistamientoCombustibleLubricante2').val(),  
                                     'PromedioPonderado': $('#txtPromedioPonderado').val(),
                                     'SubPromedioParcial': $('#txtSubPromedioParcial').val(),
@@ -91,7 +91,7 @@ $(document).ready(function () {
                                 url: '/ComescuamaAlistCombustibleLubricante/Actualizar',
                                 data: {
                                     'Id': $('#txtCodigo').val(),
-                                    'CodigoUnidadNaval': $('#cbUnidadNavale').val(),
+                                    'CodigoUnidadComescuama': $('#cbUnidadNavale').val(),
                                     'CodigoAlistamientoCombustibleLubricante2': $('#cbAlistamientoCombustibleLubricante2e').val(),
                                     'PromedioPonderado': $('#txtPromedioPonderadoe').val(),
                                     'SubPromedioParcial': $('#txtSubPromedioParciale').val(),
@@ -139,8 +139,14 @@ $(document).ready(function () {
         },
         "columns": [
             { "data": "alistamientoCombustibleLubricanteId" },
-            { "data": "descUnidadNaval" },
-            { "data": "codigoAlistamientoCombustibleLubricante2" },
+            { "data": "descUnidadComescuama" },
+            { "data": "articulo" },
+            { "data": "equipo" },
+            { "data": "descUnidadMedida" },
+            { "data": "cargo" },
+            { "data": "aumento" },
+            { "data": "consumo" },
+            { "data": "existencia" },
             { "data": "promedioPonderado" },  
             { "data": "subPromedioParcial" },  
             { "data": "cargaId" }, 
@@ -231,11 +237,11 @@ $('#btn_all').click(function () {
 
 function cargaBusqueda() {
     var CodigoCarga = $('#cargas').val();
-    tblComescuamaAlistCombustibleLubricante.columns(5).search(CodigoCarga).draw();
+    tblComescuamaAlistCombustibleLubricante.columns(11).search(CodigoCarga).draw();
 }
 
 function mostrarTodos() {
-    tblComescuamaAlistCombustibleLubricante.columns(5).search('').draw();
+    tblComescuamaAlistCombustibleLubricante.columns(11).search('').draw();
 }
 
 function edit(Id) {
@@ -243,7 +249,7 @@ function edit(Id) {
     $('#editar').show();
     $.getJSON('/ComescuamaAlistCombustibleLubricante/Mostrar?Id=' + Id, [], function (AlistCombustibleLubricanteComescuamaDTO) {
         $('#txtCodigo').val(AlistCombustibleLubricanteComescuamaDTO.alistamientoCombustibleLubricanteId);
-        $('#cbUnidadNavale').val(AlistCombustibleLubricanteComescuamaDTO.codigoUnidadNaval);
+        $('#cbUnidadNavale').val(AlistCombustibleLubricanteComescuamaDTO.codigoUnidadComescuama);
         $('#cbAlistamientoCombustibleLubricante2e').val(AlistCombustibleLubricanteComescuamaDTO.codigoAlistamientoCombustibleLubricante2);
         $('#txtPromedioPonderadoe').val(AlistCombustibleLubricanteComescuamaDTO.promedioPonderado); 
         $('#txtSubPromedioParciale').val(AlistCombustibleLubricanteComescuamaDTO.subPromedioParcial); 
@@ -367,7 +373,7 @@ function mostrarDatos() {
                 dataJson["data1"].forEach((item) => {
                     $("#tbData tbody").append(
                         $("<tr>").append(
-                            $("<td>").text(item.codigoUnidadNaval),
+                            $("<td>").text(item.codigoUnidadComescuama),
                             $("<td>").text(item.codigoAlistamientoCombustibleLubricante2),
                             $("<td>").text(item.promedioPonderado),
                             $("<td>").text(item.subPromedioParcial)
@@ -423,14 +429,14 @@ function enviarDatos() {
 
 function cargaDatos() {
     $.getJSON('/ComescuamaAlistCombustibleLubricante/cargaCombs', [], function (Json) {
-        var UnidadNaval = Json["data1"];
+        var UnidadComescuama = Json["data1"];
         var AlistamientoCombustibleLubricante2 = Json["data2"];
         var listaCargas = Json["data3"];
 
         $("select#cbUnidadNaval").html("");
         $("select#cbUnidadNavale").html("");
-        $.each(UnidadNaval, function () {
-            var RowContent = '<option value=' + this.codigoUnidadNaval + '>' + this.descUnidadNaval + '</option>'
+        $.each(UnidadComescuama, function () {
+            var RowContent = '<option value=' + this.codigoUnidadComescuama + '>' + this.descUnidadComescuama + '</option>'
             $("select#cbUnidadNaval").append(RowContent);
             $("select#cbUnidadNavale").append(RowContent);
         });
