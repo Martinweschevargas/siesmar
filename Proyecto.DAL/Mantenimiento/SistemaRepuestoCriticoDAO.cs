@@ -204,6 +204,5 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
             }
             return IND_OPERACION;
         }
-
     }
 }

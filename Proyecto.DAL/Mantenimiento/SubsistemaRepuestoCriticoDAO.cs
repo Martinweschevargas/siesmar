@@ -114,7 +114,6 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                         SubsistemaRepuestoCriticoDTO.DescSubsistemaRepuestoCritico = dr["DescSubsistemaRepuestoCritico"].ToString();
                         SubsistemaRepuestoCriticoDTO.CodigoSistemaRepuestoCritico = dr["CodigoSistemaRepuestoCritico"].ToString();
                     }
-
                 }
             }
             catch (Exception)
@@ -215,7 +214,5 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
             }
             return IND_OPERACION;
         }
-
-
     }
 }

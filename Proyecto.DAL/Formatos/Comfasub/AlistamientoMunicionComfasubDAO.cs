@@ -159,7 +159,6 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfasub
                     cmd = new SqlCommand("Formato.usp_AlistamientoMunicionComfasubActualizar", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-
                     cmd.Parameters.Add("@AlistamientoMunicionComfasubId", SqlDbType.Int);
                     cmd.Parameters["@AlistamientoMunicionComfasubId"].Value = alistamientoMunicionComfasubDTO.AlistamientoMunicionComfasubId;
 

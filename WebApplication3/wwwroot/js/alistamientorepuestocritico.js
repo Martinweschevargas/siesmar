@@ -264,6 +264,5 @@ function cargaComboSistema() {
             $("select#cbSistema").append(RowContent);
             $("select#cbSistemae").append(RowContent);
         });
-
     });
 }
