@@ -31,6 +31,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                         lista.Add(new SubsistemaRepuestoCriticoDTO()
                         {
                             SubsistemaRepuestoCriticoId = Convert.ToInt32(dr["SubsistemaRepuestoCriticoId"]),
+                            CodigoSubsistemaRepuestoCritico = dr["CodigoSubsistemaRepuestoCritico"].ToString(),
                             DescSubsistemaRepuestoCritico = dr["DescSubsistemaRepuestoCritico"].ToString(),
                             DescSistemaRepuestoCritico = dr["DescSistemaRepuestoCritico"].ToString()
                         });
@@ -52,11 +53,14 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd = new SqlCommand("Mantenimiento.usp_SubsistemaRepuestoCriticoRegistrar", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
+                    cmd.Parameters.Add("@CodigoSubsistemaRepuestoCritico", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoSubsistemaRepuestoCritico"].Value = SubsistemaRepuestoCriticoDTO.CodigoSubsistemaRepuestoCritico;
+
                     cmd.Parameters.Add("@DescSubsistemaRepuestoCritico", SqlDbType.VarChar, 100);
                     cmd.Parameters["@DescSubsistemaRepuestoCritico"].Value = SubsistemaRepuestoCriticoDTO.DescSubsistemaRepuestoCritico;
 
-                    cmd.Parameters.Add("@SistemaRepuestoCriticoId", SqlDbType.Int);
-                    cmd.Parameters["@SistemaRepuestoCriticoId"].Value = SubsistemaRepuestoCriticoDTO.SistemaRepuestoCriticoId;
+                    cmd.Parameters.Add("@CodigoSistemaRepuestoCritico", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoSistemaRepuestoCritico"].Value = SubsistemaRepuestoCriticoDTO.CodigoSistemaRepuestoCritico;
 
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
                     cmd.Parameters["@Usuario"].Value = SubsistemaRepuestoCriticoDTO.UsuarioIngresoRegistro;
@@ -106,10 +110,10 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     if (dr.HasRows)
                     {
                         SubsistemaRepuestoCriticoDTO.SubsistemaRepuestoCriticoId = Convert.ToInt32(dr["SubsistemaRepuestoCriticoId"]);
+                        SubsistemaRepuestoCriticoDTO.CodigoSubsistemaRepuestoCritico = dr["CodigoSubsistemaRepuestoCritico"].ToString();
                         SubsistemaRepuestoCriticoDTO.DescSubsistemaRepuestoCritico = dr["DescSubsistemaRepuestoCritico"].ToString();
-                        SubsistemaRepuestoCriticoDTO.SistemaRepuestoCriticoId = Convert.ToInt32(dr["SistemaRepuestoCriticoId"]);
+                        SubsistemaRepuestoCriticoDTO.CodigoSistemaRepuestoCritico = dr["CodigoSistemaRepuestoCritico"].ToString();
                     }
-
                 }
             }
             catch (Exception)
@@ -136,11 +140,14 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd.Parameters.Add("@SubsistemaRepuestoCriticoId", SqlDbType.Int);
                     cmd.Parameters["@SubsistemaRepuestoCriticoId"].Value = SubsistemaRepuestoCriticoDTO.SubsistemaRepuestoCriticoId;
 
+                    cmd.Parameters.Add("@CodigoSubsistemaRepuestoCritico", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoSubsistemaRepuestoCritico"].Value = SubsistemaRepuestoCriticoDTO.CodigoSubsistemaRepuestoCritico;
+
                     cmd.Parameters.Add("@DescSubsistemaRepuestoCritico", SqlDbType.VarChar, 100);
                     cmd.Parameters["@DescSubsistemaRepuestoCritico"].Value = SubsistemaRepuestoCriticoDTO.DescSubsistemaRepuestoCritico;
-
-                    cmd.Parameters.Add("@SistemaRepuestoCriticoId", SqlDbType.Int);
-                    cmd.Parameters["@SistemaRepuestoCriticoId"].Value = SubsistemaRepuestoCriticoDTO.SistemaRepuestoCriticoId;
+                    
+                    cmd.Parameters.Add("@CodigoSistemaRepuestoCritico", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoSistemaRepuestoCritico"].Value = SubsistemaRepuestoCriticoDTO.CodigoSistemaRepuestoCritico;
 
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
                     cmd.Parameters["@Usuario"].Value = SubsistemaRepuestoCriticoDTO.UsuarioIngresoRegistro;
@@ -207,7 +214,5 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
             }
             return IND_OPERACION;
         }
-
-
     }
 }
