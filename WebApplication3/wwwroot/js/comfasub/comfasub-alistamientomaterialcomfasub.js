@@ -30,7 +30,7 @@ $(document).ready(function () {
                                     'CodigoAlistamientoMaterialRequerido3N': $('#cbAlistamientoMaterialRequerido3N').val(),
                                     'Requerido': $('#txtRequerido').val(),
                                     'Operativo': $('#txtOperativo').val(),
-                                    'PorcentajeOperativo': $('#txtPorcentajeOperativo').val(),
+                                    'PorcentajeOperatividad': $('#txtPorcentajeOperativo').val(),
                                     'CargaId': $('#cargasR').val(),
                                     'Fecha': $('#txtFecha').val()
                                 },
@@ -101,7 +101,7 @@ $(document).ready(function () {
                                     'CodigoAlistamientoMaterialRequerido3N': $('#cbAlistamientoMaterialRequerido3Ne').val(),
                                     'Requerido': $('#txtRequeridoe').val(),
                                     'Operativo': $('#txtOperativoe').val(),
-                                    'PorcentajeOperativo': $('#txtPorcentajeOperativoe').val(),
+                                    'PorcentajeOperatividad': $('#txtPorcentajeOperativoe').val(),
                                 },
                                 beforeSend: function () {
                                     $('#loader-6').show();
@@ -182,7 +182,7 @@ $(document).ready(function () {
                 filename: 'Comfasub - Alistamiento de material',
                 title: '',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
                 },
                 className: 'btn-exportar-csv',
             },
@@ -193,7 +193,7 @@ $(document).ready(function () {
                 filename: 'Comfasub - Alistamiento de material',
                 title: 'Comfasub - Alistamiento de material',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
                 },
                 className: 'btn-exportar-excel',
             },
@@ -204,7 +204,7 @@ $(document).ready(function () {
                 filename: 'Comfasub - Alistamiento de material',
                 title: 'Comfasub - Alistamiento de material',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
                 },
                 className: 'btn-exportar-pdf',
             },
@@ -213,7 +213,7 @@ $(document).ready(function () {
                 extend: 'print',
                 title: 'Comfasub - Alistamiento de material',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
                 },
                 className: 'btn-exportar-print'
 
@@ -246,11 +246,11 @@ $('#btn_all').click(function () {
 
 function cargaBusqueda() {
     var CodigoCarga = $('#cargas').val();
-    tblComfasubAlistamientoMaterialComfasub.columns(8).search(CodigoCarga).draw();
+    tblComfasubAlistamientoMaterialComfasub.columns(13).search(CodigoCarga).draw();
 }
 
 function mostrarTodos() {
-    tblComfasubAlistamientoMaterialComfasub.columns(8).search('').draw();
+    tblComfasubAlistamientoMaterialComfasub.columns(13).search('').draw();
 }
 
 

@@ -5,7 +5,7 @@ namespace Marina.Siesmar.Entidades.Formatos.Comfasub
     public partial class AlistamientoMaterialComfasubDTO
     {
 
-        public int? AlistamientoMaterialId { get; set; }
+        public int AlistamientoMaterialId { get; set; }
         public string? CodigoUnidadNaval { get; set; }
         public string? FechaAlistamiento { get; set; }
         public string? CodigoCapacidadOperativa { get; set; }

@@ -19,11 +19,11 @@ namespace Marina.Siesmar.Presentacion.Controllers
             _logger = logger;
         }
 
-        readonly AlistamientoRepuestoCriticoDAO AlistamientoRepuestoCriticoBL = new();
+        readonly AlistamientoRepuestoCritico AlistamientoRepuestoCriticoBL = new();
         Usuario usuarioBL = new();
 
-        SistemaRepuestoCriticoDAO SistemaRepuestoCriticoBL = new();
-        SubsistemaRepuestoCriticoDAO SubsistemaRepuestoCriticoBL = new();
+        SistemaRepuestoCritico SistemaRepuestoCriticoBL = new();
+        SubsistemaRepuestoCritico SubsistemaRepuestoCriticoBL = new();
 
         //[Authorize(Roles = "Administrador,Supervisor,Empleado")]
         [Breadcrumb(FromAction = "Index", Title = "Alistamientos Repuestos Críticos", FromController = typeof(HomeController))]
@@ -37,18 +37,14 @@ namespace Marina.Siesmar.Presentacion.Controllers
         public IActionResult cargaCombsSistemas()
         {
 
-            List<SistemaRepuestoCriticoDTO> SistemaRepuestoCriticoDTO = SistemaRepuestoCriticoBL.ObtenerSistemaRepuestoCriticos();
+            List<SistemaRepuestoCriticoDTO> sistemaRepuestoCriticoDTO = SistemaRepuestoCriticoBL.ObtenerSistemaRepuestoCriticos();
+            List<SubsistemaRepuestoCriticoDTO> subsistemaRepuestoCriticoDTO = SubsistemaRepuestoCriticoBL.ObtenerSubsistemaRepuestoCriticos();
 
-            return Json(new { data = SistemaRepuestoCriticoDTO });
-        }
-
-        [HttpGet]
-        public IActionResult cargaCombsSubsistemas()
-        {
-
-            List<SubsistemaRepuestoCriticoDTO> SubsistemaRepuestoCriticoDTO = SubsistemaRepuestoCriticoBL.ObtenerSubsistemaRepuestoCriticos();
-
-            return Json(new { data = SubsistemaRepuestoCriticoDTO });
+            return Json(new
+            {
+                data1 = sistemaRepuestoCriticoDTO,
+                data2 = subsistemaRepuestoCriticoDTO
+            });
         }
 
         public JsonResult CargarDatos()
@@ -62,18 +58,18 @@ namespace Marina.Siesmar.Presentacion.Controllers
             var IND_OPERACION = "";
             try
             {
-                AlistamientoRepuestoCriticoDTO AlistamientoRepuestoCriticoDTO = new();
-                AlistamientoRepuestoCriticoDTO.CodigoAlistamientoRepuestoCritico = CodigoAlistamientoRepuestoCritico;
-                AlistamientoRepuestoCriticoDTO.CodigoSistemaRepuestoCritico = CodigoSistemaRepuestoCritico;
-                AlistamientoRepuestoCriticoDTO.CodigoSubsistemaRepuestoCritico = CodigoSubsistemaRepuestoCritico;
-                AlistamientoRepuestoCriticoDTO.Equipo = Equipo;
-                AlistamientoRepuestoCriticoDTO.Repuesto = Repuesto;
-                AlistamientoRepuestoCriticoDTO.Existente = Existente;
-                AlistamientoRepuestoCriticoDTO.Necesario = Necesario;
-                AlistamientoRepuestoCriticoDTO.CoeficientePonderacion = Coeficiente;
-                AlistamientoRepuestoCriticoDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
+                AlistamientoRepuestoCriticoDTO alistamientoRepuestoCriticoDTO = new();
+                alistamientoRepuestoCriticoDTO.CodigoAlistamientoRepuestoCritico = CodigoAlistamientoRepuestoCritico;
+                alistamientoRepuestoCriticoDTO.CodigoSistemaRepuestoCritico = CodigoSistemaRepuestoCritico;
+                alistamientoRepuestoCriticoDTO.CodigoSubsistemaRepuestoCritico = CodigoSubsistemaRepuestoCritico;
+                alistamientoRepuestoCriticoDTO.Equipo = Equipo;
+                alistamientoRepuestoCriticoDTO.Repuesto = Repuesto;
+                alistamientoRepuestoCriticoDTO.Existente = Existente;
+                alistamientoRepuestoCriticoDTO.Necesario = Necesario;
+                alistamientoRepuestoCriticoDTO.CoeficientePonderacion = Coeficiente;
+                alistamientoRepuestoCriticoDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
-                IND_OPERACION = AlistamientoRepuestoCriticoBL.AgregarAlistamientoRepuestoCritico(AlistamientoRepuestoCriticoDTO);
+                IND_OPERACION = AlistamientoRepuestoCriticoBL.AgregarAlistamientoRepuestoCritico(alistamientoRepuestoCriticoDTO);
 
                 //_logger.LogWarning(IND_OPERACION);
             }
@@ -85,37 +81,37 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Content(IND_OPERACION);
         }
 
-        public ActionResult MostrarAlistamientoRepuestoCritico(int AlistamientoRepuestoCriticoId)
+        public ActionResult MostrarAlistamientoRepuestoCritico(int Id)
         {
-            return Json(AlistamientoRepuestoCriticoBL.BuscarAlistamientoRepuestoCriticoID(AlistamientoRepuestoCriticoId));
+            return Json(AlistamientoRepuestoCriticoBL.BuscarAlistamientoRepuestoCriticoID(Id));
         }
 
-        public ActionResult ActualizarAlistamientoRepuestoCritico(int AlistamientoRepuestoCriticoId, string CodigoAlistamientoRepuestoCritico, string CodigoSistemaRepuestoCritico, string CodigoSubsistemaRepuestoCritico, string Equipo, string Repuesto, string Existente, string Necesario, string Coeficiente)
+        public ActionResult ActualizarAlistamientoRepuestoCritico(int Id, string CodigoAlistamientoRepuestoCritico, string CodigoSistemaRepuestoCritico, string CodigoSubsistemaRepuestoCritico, string Equipo, string Repuesto, string Existente, string Necesario, string Coeficiente)
         {
-            AlistamientoRepuestoCriticoDTO AlistamientoRepuestoCriticoDTO = new();
-            AlistamientoRepuestoCriticoDTO.AlistamientoRepuestoCriticoId = AlistamientoRepuestoCriticoId;
-            AlistamientoRepuestoCriticoDTO.CodigoAlistamientoRepuestoCritico = CodigoAlistamientoRepuestoCritico;
-            AlistamientoRepuestoCriticoDTO.CodigoSistemaRepuestoCritico = CodigoSistemaRepuestoCritico;
-            AlistamientoRepuestoCriticoDTO.CodigoSubsistemaRepuestoCritico = CodigoSubsistemaRepuestoCritico;
-            AlistamientoRepuestoCriticoDTO.Equipo = Equipo;
-            AlistamientoRepuestoCriticoDTO.Repuesto = Repuesto;
-            AlistamientoRepuestoCriticoDTO.Existente = Existente;
-            AlistamientoRepuestoCriticoDTO.Necesario = Necesario;
-            AlistamientoRepuestoCriticoDTO.CoeficientePonderacion = Coeficiente;
-            AlistamientoRepuestoCriticoDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
+            AlistamientoRepuestoCriticoDTO alistamientoRepuestoCriticoDTO = new();
+            alistamientoRepuestoCriticoDTO.AlistamientoRepuestoCriticoId = Id;
+            alistamientoRepuestoCriticoDTO.CodigoAlistamientoRepuestoCritico = CodigoAlistamientoRepuestoCritico;
+            alistamientoRepuestoCriticoDTO.CodigoSistemaRepuestoCritico = CodigoSistemaRepuestoCritico;
+            alistamientoRepuestoCriticoDTO.CodigoSubsistemaRepuestoCritico = CodigoSubsistemaRepuestoCritico;
+            alistamientoRepuestoCriticoDTO.Equipo = Equipo;
+            alistamientoRepuestoCriticoDTO.Repuesto = Repuesto;
+            alistamientoRepuestoCriticoDTO.Existente = Existente;
+            alistamientoRepuestoCriticoDTO.Necesario = Necesario;
+            alistamientoRepuestoCriticoDTO.CoeficientePonderacion = Coeficiente;
+            alistamientoRepuestoCriticoDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
-            var IND_OPERACION = AlistamientoRepuestoCriticoBL.ActualizarAlistamientoRepuestoCritico(AlistamientoRepuestoCriticoDTO);
+            var IND_OPERACION = AlistamientoRepuestoCriticoBL.ActualizarAlistamientoRepuestoCritico(alistamientoRepuestoCriticoDTO);
 
             return Content(IND_OPERACION);
         }
 
-        public ActionResult EliminarAlistamientoRepuestoCritico(int AlistamientoRepuestoCriticoId)
+        public ActionResult EliminarAlistamientoRepuestoCritico(int Id)
         {
-            AlistamientoRepuestoCriticoDTO AlistamientoRepuestoCriticoDTO = new();
-            AlistamientoRepuestoCriticoDTO.AlistamientoRepuestoCriticoId = AlistamientoRepuestoCriticoId;
-            AlistamientoRepuestoCriticoDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
+            AlistamientoRepuestoCriticoDTO alistamientoRepuestoCriticoDTO = new();
+            alistamientoRepuestoCriticoDTO.AlistamientoRepuestoCriticoId = Id;
+            alistamientoRepuestoCriticoDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
-            var IND_OPERACION = AlistamientoRepuestoCriticoBL.EliminarAlistamientoRepuestoCritico(AlistamientoRepuestoCriticoDTO);
+            var IND_OPERACION = AlistamientoRepuestoCriticoBL.EliminarAlistamientoRepuestoCritico(alistamientoRepuestoCriticoDTO);
 
             return Content(IND_OPERACION);
         }

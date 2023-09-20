@@ -24,8 +24,9 @@ $(document).ready(function () {
                                 type: "POST",
                                 url: '/SubsistemaRepuestoCritico/InsertarSubsistemaRepuestoCritico',
                                 data: {
+                                    'CodigoSubsistemaRepuestoCritico': $('#txtCodi').val(),
                                     'Descripcion': $('#txtDescripcion').val(),
-                                    'SistemaRepuestoCriticoId': $('#cbFK').val()
+                                    'CodigoSistemaRepuestoCritico': $('#cbFK').val()
                                 },
                                 beforeSend: function () {
                                     $('#loader-6').show();
@@ -83,8 +84,9 @@ $(document).ready(function () {
                                 url: '/SubsistemaRepuestoCritico/ActualizarSubsistemaRepuestoCritico',
                                 data: {
                                     'SubsistemaRepuestoCriticoId': $('#txtCodigo').val(),
+                                    'CodigoSubsistemaRepuestoCritico': $('#txtCodie').val(),
                                     'Descripcion': $('#txtDescripcione').val(),
-                                    'SistemaRepuestoCriticoId': $('#cbFKe').val()
+                                    'CodigoSistemaRepuestoCritico': $('#cbFKe').val()
                                 },
                                 beforeSend: function () {
                                     $('#loader-6').show();
@@ -126,6 +128,7 @@ $(document).ready(function () {
         },
         "columns": [
             { "data": "subsistemaRepuestoCriticoId" },
+            { "data": "codigoSubsistemaRepuestoCritico" },
             { "data": "descSubsistemaRepuestoCritico" },
             { "data": "descSistemaRepuestoCritico" },
             {
@@ -163,8 +166,9 @@ function edit(SubsistemaRepuestoCriticoId) {
     $('#editar').show();
     $.getJSON('/SubsistemaRepuestoCritico/MostrarSubsistemaRepuestoCritico?SubsistemaRepuestoCriticoId=' + SubsistemaRepuestoCriticoId, [], function (SubsistemaRepuestoCriticoDTO) {
         $('#txtCodigo').val(SubsistemaRepuestoCriticoDTO.subsistemaRepuestoCriticoId);
+        $('#txtCodie').val(SubsistemaRepuestoCriticoDTO.codigoSubsistemaRepuestoCritico);
         $('#txtDescripcione').val(SubsistemaRepuestoCriticoDTO.descSubsistemaRepuestoCritico);
-        $('#cbFKe').val(SubsistemaRepuestoCriticoDTO.sistemaRepuestoCriticoId);
+        $('#cbFKe').val(SubsistemaRepuestoCriticoDTO.codigoSistemaRepuestoCritico);
     });
 }
 
@@ -222,15 +226,14 @@ function nuevaSubsistemaRepuestoCritico() {
 function cargaCombo() {
     $.getJSON('/SubsistemaRepuestoCritico/cargaCombs', [], function (Json) {
         var sistemaRepuestoCritico = Json["data"];
+
         $("select#cbFK").html("");
-        $.each(sistemaRepuestoCritico, function () {
-            var RowContent = '<option value=' + this.sistemaRepuestoCriticoId + '>' + this.descSistemaRepuestoCritico + '</option>'
-            $("select#cbFK").append(RowContent);
-        });
         $("select#cbFKe").html("");
         $.each(sistemaRepuestoCritico, function () {
-            var RowContent = '<option value=' + this.sistemaRepuestoCriticoId + '>' + this.descSistemaRepuestoCritico + '</option>'
+            var RowContent = '<option value=' + this.codigoSistemaRepuestoCritico + '>' + this.descSistemaRepuestoCritico + '</option>'
+            $("select#cbFK").append(RowContent);
             $("select#cbFKe").append(RowContent);
         });
+
     });
 }

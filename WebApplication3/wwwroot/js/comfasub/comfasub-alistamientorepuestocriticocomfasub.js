@@ -138,7 +138,13 @@ $(document).ready(function () {
         "columns": [
             { "data": "alistamientoRepuestoCriticoComfasubId" },
             { "data": "descUnidadNaval" },
-            { "data": "codigoAlistamientoRepuestoCritico" },
+            { "data": "descSistemaRepuestoCritico" },
+            { "data": "descSubsistemaRepuestoCritico" },
+            { "data": "equipo" },
+            { "data": "repuesto" },
+            { "data": "existente" },
+            { "data": "necesario" },
+            { "data": "coeficientePonderacion" },
             { "data": "cargaId" },  
             {
                 "render": function (data, type, row) {

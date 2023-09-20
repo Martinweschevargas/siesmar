@@ -24,6 +24,7 @@ $(document).ready(function () {
                                 type: "POST",
                                 url: '/SistemaRepuestoCritico/InsertarSistemaRepuestoCritico',
                                 data: {
+                                    'CodigoSistemaRepuestoCritico': $('#txtCodi').val(),
                                     'Descripcion': $('#txtDescripcion').val(),
                                 },
                                 beforeSend: function () {
@@ -46,6 +47,9 @@ $(document).ready(function () {
                                     $('#listar').show();
                                     $('#nuevo').hide();
                                     $('#tblSistemaRepuestoCriticos').DataTable().ajax.reload();
+                                    $('.needs-validation :input').val('');
+                                    $(".needs-validation").find("select").prop("selectedIndex", 0);
+                                    form.classList.remove('was-validated')
                                 },
                                 complete: function () {
                                     $('#loader-6').hide();
@@ -82,6 +86,7 @@ $(document).ready(function () {
                                 url: '/SistemaRepuestoCritico/ActualizarSistemaRepuestoCritico',
                                 data: {
                                     'SistemaRepuestoCriticoId': $('#txtCodigo').val(),
+                                    'CodigoSistemaRepuestoCritico': $('#txtCodie').val(),
                                     'Descripcion': $('#txtDescripcione').val(),
                                 },
                                 beforeSend: function () {
@@ -116,7 +121,7 @@ $(document).ready(function () {
             }, false)
         })
 
-    $('#tblSistemaRepuestoCriticos').DataTable({
+    tblSistemaRepuestoCriticos = $('#tblSistemaRepuestoCriticos').DataTable({
         ajax: {
             "url": '/SistemaRepuestoCritico/CargarDatos',
             "type": "GET",
@@ -124,6 +129,7 @@ $(document).ready(function () {
         },
         "columns": [
             { "data": "sistemaRepuestoCriticoId" },
+            { "data": "codigoSistemaRepuestoCritico" },
             { "data": "descSistemaRepuestoCritico" },
             {
                 "render": function (data, type, row) {
@@ -157,6 +163,7 @@ function edit(SistemaRepuestoCriticoId) {
     $('#editar').show();
     $.getJSON('/SistemaRepuestoCritico/MostrarSistemaRepuestoCritico?SistemaRepuestoCriticoId=' + SistemaRepuestoCriticoId, [], function (SistemaRepuestoCriticoDTO) {
         $('#txtCodigo').val(SistemaRepuestoCriticoDTO.sistemaRepuestoCriticoId);
+        $('#txtCodie').val(SistemaRepuestoCriticoDTO.codigoSistemaRepuestoCritico);
         $('#txtDescripcione').val(SistemaRepuestoCriticoDTO.descSistemaRepuestoCritico);
     });
 }

@@ -6,6 +6,7 @@ namespace Marina.Siesmar.Entidades.Mantenimiento
     {
         public int SistemaRepuestoCriticoId { get; set; }
         public string? DescSistemaRepuestoCritico { get; set; }
+        public string? CodigoSistemaRepuestoCritico { get; set; }
 
         [NotMapped]
         public string? UsuarioIngresoRegistro { get; set; }

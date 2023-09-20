@@ -137,7 +137,13 @@ $(document).ready(function () {
         "columns": [
             { "data": "alistamientoMunicionComfasubId" },
             { "data": "descUnidadNaval" },
-            { "data": "codigoAlistamientoMunicion" },
+            { "data": "descSistemaMunicion" },
+            { "data": "descSubsistemaMunicion" },
+            { "data": "equipo" },
+            { "data": "municion" },
+            { "data": "existente" },
+            { "data": "necesaria" },
+            { "data": "coeficientePonderacion" },
             { "data": "cargaId" }, 
             {
                 "render": function (data, type, row) {
@@ -162,7 +168,7 @@ $(document).ready(function () {
                 filename: 'Comfasub - Alistamiento de munición (AMU)',
                 title: '',
                 exportOptions: {
-                    columns: [0, 1, 2]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 className: 'btn-exportar-csv',
             },
@@ -173,7 +179,7 @@ $(document).ready(function () {
                 filename: 'Comfasub - Alistamiento de munición (AMU)',
                 title: 'Comfasub - Alistamiento de munición (AMU)',
                 exportOptions: {
-                    columns: [0, 1, 2]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 className: 'btn-exportar-excel',
             },
@@ -184,7 +190,7 @@ $(document).ready(function () {
                 filename: 'Comfasub - Alistamiento de munición (AMU)',
                 title: 'Comfasub - Alistamiento de munición (AMU)',
                 exportOptions: {
-                    columns: [0, 1, 2]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 className: 'btn-exportar-pdf',
             },
@@ -193,7 +199,7 @@ $(document).ready(function () {
                 extend: 'print',
                 title: 'Comfasub - Alistamiento de munición (AMU)',
                 exportOptions: {
-                    columns: [0, 1, 2]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 className: 'btn-exportar-print'
 
@@ -226,11 +232,11 @@ $('#btn_all').click(function () {
 
 function cargaBusqueda() {
     var CodigoCarga = $('#cargas').val();
-    tblComfasubAlistamientoMunicionComfasub.columns(3).search(CodigoCarga).draw();
+    tblComfasubAlistamientoMunicionComfasub.columns(9).search(CodigoCarga).draw();
 }
 
 function mostrarTodos() {
-    tblComfasubAlistamientoMunicionComfasub.columns(3).search('').draw();
+    tblComfasubAlistamientoMunicionComfasub.columns(9).search('').draw();
 }
 
 function edit(Id) {
