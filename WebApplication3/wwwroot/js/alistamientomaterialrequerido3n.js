@@ -25,7 +25,7 @@ $(document).ready(function () {
                                 url: '/AlistamientoMaterialRequerido3N/InsertarAlistamientoMaterialRequerido3N',
                                 data: {
                                     'CodigoAlistamientoMaterialRequerido3N': $("#txtCodAli").val(),
-                                    'Subclasificacionn': $('#txtSubclasificacion').val(),
+                                    'Subclasificacion': $('#txtSubclasificacion').val(),
                                     'Ponderado': $('#txtPonderado').val(),
                                     'CodigoAlistamientoMaterialRequerido2N': $('#cbFK').val()
                                 },
@@ -86,7 +86,7 @@ $(document).ready(function () {
                                 data: {
                                     'AlistamientoMaterialRequerido3NId': $('#txtCodigo').val(),
                                     'CodigoAlistamientoMaterialRequerido3N': $("#txtCodAlie").val(),
-                                    'Subclasificacionn': $('#txtSubclasificacione').val(),
+                                    'Subclasificacion': $('#txtSubclasificacione').val(),
                                     'Ponderado': $('#txtPonderadoe').val(),
                                     'CodigoAlistamientoMaterialRequerido2N': $('#cbFKe').val()
                                 },
@@ -131,9 +131,10 @@ $(document).ready(function () {
         "columns": [
             { "data": "alistamientoMaterialRequerido3NId" },
             { "data": "codigoAlistamientoMaterialRequerido3N" },
-            { "data": "subclasificacionn" },
+            { "data": "subclasificacion" },
             { "data": "ponderado3Nivel" },
             { "data": "subclasificacion" },
+            { "data": "codigoAlistamientoMaterialRequerido2N" },
             {
                 "render": function (data, type, row) {
                     return '<a class="txt" onclick=edit(' + row.alistamientoMaterialRequerido3NId + ') title="Actualizar"><i class="fa fa-check-square-o" aria-hidden="true" style="color:black; padding-right:5px"></i>Editar</a>';
@@ -170,7 +171,7 @@ function edit(AlistamientoMaterialRequerido3NId) {
     $.getJSON('/AlistamientoMaterialRequerido3N/MostrarAlistamientoMaterialRequerido3N?AlistamientoMaterialRequerido3NId=' + AlistamientoMaterialRequerido3NId, [], function (AlistamientoMaterialRequerido3NDTO) {
         $('#txtCodigo').val(AlistamientoMaterialRequerido3NDTO.alistamientoMaterialRequerido3NId);
         $('#txtCodAlie').val(AlistamientoMaterialRequerido3NDTO.codigoAlistamientoMaterialRequerido3N);
-        $('#txtSubclasificacione').val(AlistamientoMaterialRequerido3NDTO.subclasificacionn);
+        $('#txtSubclasificacione').val(AlistamientoMaterialRequerido3NDTO.subclasificacion);
         $('#txtPonderadoe').val(AlistamientoMaterialRequerido3NDTO.ponderado3Nivel);
         $('#cbFKe').val(AlistamientoMaterialRequerido3NDTO.codigoAlistamientoMaterialRequerido2N);
     });

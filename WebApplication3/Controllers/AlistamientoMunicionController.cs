@@ -84,26 +84,26 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Content(IND_OPERACION);
         }
 
-        public ActionResult MostrarAlistamientoMunicion(int AlistamientoMunicionId)
+        public ActionResult MostrarAlistamientoMunicion(int alistamientoMunicionId)
         {
-            return Json(AlistamientoMunicionBL.BuscarAlistamientoMunicionID(AlistamientoMunicionId));
+            return Json(AlistamientoMunicionBL.BuscarAlistamientoMunicionID(alistamientoMunicionId));
         }
 
         public ActionResult ActualizarAlistamientoMunicion(int AlistamientoMunicionId, string CodigoAlistamientoMunicion, string CodigoSistemaMunicion, string CodigoSubsistemaMunicion, string Equipo, string Municion, string Existente, int Necesaria, int Coeficiente)
         {
-            AlistamientoMunicionDTO AlistamientoMunicionDTO = new();
-            AlistamientoMunicionDTO.AlistamientoMunicionId = AlistamientoMunicionId;
-            AlistamientoMunicionDTO.CodigoAlistamientoMunicion = CodigoAlistamientoMunicion;
-            AlistamientoMunicionDTO.CodigoSistemaMunicion = CodigoSistemaMunicion;
-            AlistamientoMunicionDTO.CodigoSubsistemaMunicion = CodigoSubsistemaMunicion;
-            AlistamientoMunicionDTO.Equipo = Equipo;
-            AlistamientoMunicionDTO.Municion = Municion;
-            AlistamientoMunicionDTO.Existente = Existente;
-            AlistamientoMunicionDTO.Necesaria = Necesaria;
-            AlistamientoMunicionDTO.CoeficientePonderacion = Coeficiente;
-            AlistamientoMunicionDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
+            AlistamientoMunicionDTO alistamientoMunicionDTO = new();
+            alistamientoMunicionDTO.AlistamientoMunicionId = AlistamientoMunicionId;
+            alistamientoMunicionDTO.CodigoAlistamientoMunicion = CodigoAlistamientoMunicion;
+            alistamientoMunicionDTO.CodigoSistemaMunicion = CodigoSistemaMunicion;
+            alistamientoMunicionDTO.CodigoSubsistemaMunicion = CodigoSubsistemaMunicion;
+            alistamientoMunicionDTO.Equipo = Equipo;
+            alistamientoMunicionDTO.Municion = Municion;
+            alistamientoMunicionDTO.Existente = Existente;
+            alistamientoMunicionDTO.Necesaria = Necesaria;
+            alistamientoMunicionDTO.CoeficientePonderacion = Coeficiente;
+            alistamientoMunicionDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
-            var IND_OPERACION = AlistamientoMunicionBL.ActualizarAlistamientoMunicion(AlistamientoMunicionDTO);
+            var IND_OPERACION = AlistamientoMunicionBL.ActualizarAlistamientoMunicion(alistamientoMunicionDTO);
 
             return Content(IND_OPERACION);
         }

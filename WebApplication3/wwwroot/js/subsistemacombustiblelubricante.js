@@ -120,7 +120,7 @@ $(document).ready(function () {
             }, false)
         })
 
-    $('#tblSubsistemaCombustibleLubricantes').DataTable({
+    tblSubsistemaCombustibleLubricantes = $('#tblSubsistemaCombustibleLubricantes').DataTable({
         ajax: {
             "url": '/SubsistemaCombustibleLubricante/CargarDatos',
             "type": "GET",
@@ -151,7 +151,7 @@ $(document).ready(function () {
                 "className": "text-center",
             },
             {
-                "targets": "[3,4]",
+                "targets": "[6,7]",
                 "width": "120px",
             }
         ]
@@ -168,7 +168,7 @@ function edit(SubsistemaCombustibleLubricanteId) {
         $('#txtCodigo').val(SubsistemaCombustibleLubricanteDTO.subsistemaCombustibleLubricanteId);
         $('#txtCodSue').val(SubsistemaCombustibleLubricanteDTO.codigoSubsistemaCombustibleLubricante);
         $('#txtDescripcione').val(SubsistemaCombustibleLubricanteDTO.descSubsistemaCombustibleLubricante);
-        $('#cbFKe').val(SubsistemaCombustibleLubricanteDTO.sistemaCombustibleLubricanteId);
+        $('#cbFKe').val(SubsistemaCombustibleLubricanteDTO.codigoSistemaCombustibleLubricante);
     });
 }
 
@@ -230,7 +230,7 @@ function cargaCombo() {
         $("select#cbFK").html("");
         $("select#cbFKe").html("");
         $.each(sistemaCombustibleLubricante, function () {
-            var RowContent = '<option value=' + this.sistemaCombustibleLubricanteId + '>' + this.descSistemaCombustibleLubricante + '</option>'
+            var RowContent = '<option value=' + this.codigoSistemaCombustibleLubricante + '>' + this.descSistemaCombustibleLubricante + '</option>'
             $("select#cbFK").append(RowContent);
             $("select#cbFKe").append(RowContent);
         });

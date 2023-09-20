@@ -47,14 +47,15 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Json(new { data = listaSubsistemaMuniciones });
         }
 
-        public ActionResult InsertarSubsistemaMunicion(string Descripcion, int SistemaMunicionId)
+        public ActionResult InsertarSubsistemaMunicion(string CodigoSubsistemaMunicion, string Descripcion, string CodigoSistemaMunicion)
         {
             var IND_OPERACION = "";
             try
             {
                 SubsistemaMunicionDTO SubsistemaMunicionDTO = new();
+                SubsistemaMunicionDTO.CodigoSubsistemaMunicion = CodigoSubsistemaMunicion;
                 SubsistemaMunicionDTO.DescSubsistemaMunicion = Descripcion;
-                SubsistemaMunicionDTO.SistemaMunicionId = SistemaMunicionId;
+                SubsistemaMunicionDTO.CodigoSistemaMunicion = CodigoSistemaMunicion;
                 SubsistemaMunicionDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
                 IND_OPERACION = SubsistemaMunicionBL.AgregarSubsistemaMunicion(SubsistemaMunicionDTO);
@@ -74,12 +75,13 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Json(SubsistemaMunicionBL.BuscarSubsistemaMunicionID(SubsistemaMunicionId));
         }
 
-        public ActionResult ActualizarSubsistemaMunicion(int SubsistemaMunicionId, string Descripcion, int SistemaMunicionId)
+        public ActionResult ActualizarSubsistemaMunicion(int SubsistemaMunicionId, string CodigoSubsistemaMunicion, string Descripcion, string CodigoSistemaMunicion)
         {
             SubsistemaMunicionDTO SubsistemaMunicionDTO = new();
             SubsistemaMunicionDTO.SubsistemaMunicionId = SubsistemaMunicionId;
+            SubsistemaMunicionDTO.CodigoSubsistemaMunicion = CodigoSubsistemaMunicion;
             SubsistemaMunicionDTO.DescSubsistemaMunicion = Descripcion;
-            SubsistemaMunicionDTO.SistemaMunicionId = SistemaMunicionId;
+            SubsistemaMunicionDTO.CodigoSistemaMunicion = CodigoSistemaMunicion;
             SubsistemaMunicionDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
             var IND_OPERACION = SubsistemaMunicionBL.ActualizarSubsistemaMunicion(SubsistemaMunicionDTO);

@@ -138,7 +138,13 @@ $(document).ready(function () {
         "columns": [
             { "data": "alistamientoCombustibleLubricanteComfasubId" },
             { "data": "descUnidadNaval" },
-            { "data": "codigoAlistamientoCombustibleLubricante" },
+            { "data": "descSistemaCombustibleLubricante" },
+            { "data": "descSubsistemaCombustibleLubricante" },
+            { "data": "equipo" },
+            { "data": "combustibleLubricante" },
+            { "data": "existente" },
+            { "data": "necesariasGLS" },
+            { "data": "coeficientePonderacion" },
             { "data": "cargaId" },  
             {
                 "render": function (data, type, row) {

@@ -24,6 +24,7 @@ $(document).ready(function () {
                                 type: "POST",
                                 url: '/SistemaCombustibleLubricante/InsertarSistemaCombustibleLubricante',
                                 data: {
+                                    'Codigo': $('#txtCodigoSis').val(),
                                     'Descripcion': $('#txtDescripcion').val(),
                                 },
                                 beforeSend: function () {
@@ -82,6 +83,7 @@ $(document).ready(function () {
                                 url: '/SistemaCombustibleLubricante/ActualizarSistemaCombustibleLubricante',
                                 data: {
                                     'SistemaCombustibleLubricanteId': $('#txtCodigo').val(),
+                                    'Codigo': $('#txtCodigoSise').val(),
                                     'Descripcion': $('#txtDescripcione').val(),
                                 },
                                 beforeSend: function () {
@@ -116,7 +118,7 @@ $(document).ready(function () {
             }, false)
         })
 
-    $('#tblSistemaCombustibleLubricantes').DataTable({
+    tblSistemaCombustibleLubricantes = $('#tblSistemaCombustibleLubricantes').DataTable({
         ajax: {
             "url": '/SistemaCombustibleLubricante/CargarDatos',
             "type": "GET",
@@ -124,6 +126,7 @@ $(document).ready(function () {
         },
         "columns": [
             { "data": "sistemaCombustibleLubricanteId" },
+            { "data": "codigoSistemaCombustibleLubricante" },
             { "data": "descSistemaCombustibleLubricante" },
             {
                 "render": function (data, type, row) {
@@ -157,6 +160,7 @@ function edit(SistemaCombustibleLubricanteId) {
     $('#editar').show();
     $.getJSON('/SistemaCombustibleLubricante/MostrarSistemaCombustibleLubricante?SistemaCombustibleLubricanteId=' + SistemaCombustibleLubricanteId, [], function (SistemaCombustibleLubricanteDTO) {
         $('#txtCodigo').val(SistemaCombustibleLubricanteDTO.sistemaCombustibleLubricanteId);
+        $('#txtCodigoSise').val(SistemaCombustibleLubricanteDTO.codigoSistemaCombustibleLubricante);
         $('#txtDescripcione').val(SistemaCombustibleLubricanteDTO.descSistemaCombustibleLubricante);
     });
 }

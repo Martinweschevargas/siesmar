@@ -24,6 +24,7 @@ $(document).ready(function () {
                                 type: "POST",
                                 url: '/SistemaMunicion/InsertarSistemaMunicion',
                                 data: {
+                                    'CodigoSistemaMunicion': $('#txtCodigoMun').val(),
                                     'Descripcion': $('#txtDescripcion').val(),
                                 },
                                 beforeSend: function () {
@@ -82,6 +83,7 @@ $(document).ready(function () {
                                 url: '/SistemaMunicion/ActualizarSistemaMunicion',
                                 data: {
                                     'SistemaMunicionId': $('#txtCodigo').val(),
+                                    'CodigoSistemaMunicion': $('#txtCodigoMune').val(),
                                     'Descripcion': $('#txtDescripcione').val(),
                                 },
                                 beforeSend: function () {
@@ -116,7 +118,7 @@ $(document).ready(function () {
             }, false)
         })
 
-    $('#tblSistemaMunicions').DataTable({
+    tblSistemaMunicions = $('#tblSistemaMunicions').DataTable({
         ajax: {
             "url": '/SistemaMunicion/CargarDatos',
             "type": "GET",
@@ -124,6 +126,7 @@ $(document).ready(function () {
         },
         "columns": [
             { "data": "sistemaMunicionId" },
+            { "data": "codigoSistemaMunicion" },
             { "data": "descSistemaMunicion" },
             {
                 "render": function (data, type, row) {
@@ -157,6 +160,7 @@ function edit(SistemaMunicionId) {
     $('#editar').show();
     $.getJSON('/SistemaMunicion/MostrarSistemaMunicion?SistemaMunicionId=' + SistemaMunicionId, [], function (SistemaMunicionDTO) {
         $('#txtCodigo').val(SistemaMunicionDTO.sistemaMunicionId);
+        $('#txtCodigoMune').val(SistemaMunicionDTO.codigoSistemaMunicion);
         $('#txtDescripcione').val(SistemaMunicionDTO.descSistemaMunicion);
     });
 }

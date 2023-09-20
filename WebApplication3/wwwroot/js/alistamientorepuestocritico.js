@@ -53,6 +53,9 @@ $(document).ready(function () {
                                     $('#listar').show();
                                     $('#nuevo').hide();
                                     $('#tblAlistamientoRepuestoCriticos').DataTable().ajax.reload();
+                                    $('.needs-validation :input').val('');
+                                    $(".needs-validation").find("select").prop("selectedIndex", 0);
+                                    form.classList.remove('was-validated')
                                 },
                                 complete: function () {
                                     $('#loader-6').hide();
@@ -130,7 +133,7 @@ $(document).ready(function () {
             }, false)
         })
 
-    $('#tblAlistamientoRepuestoCriticos').DataTable({
+    tblAlistamientoRepuestoCriticos = $('#tblAlistamientoRepuestoCriticos').DataTable({
         ajax: {
             "url": '/AlistamientoRepuestoCritico/CargarDatos',
             "type": "GET",
@@ -171,18 +174,15 @@ $(document).ready(function () {
             }
         ]
     });
-
     cargaComboSistema();
-    cargaComboSubsistema();
-
 });
 
-function edit(AlistamientoRepuestoCriticoId) {
+function edit(Id) {
     $('#listar').hide();
     $('#editar').show();
-    $.getJSON('/AlistamientoRepuestoCritico/MostrarAlistamientoRepuestoCritico?AlistamientoRepuestoCriticoId=' + AlistamientoRepuestoCriticoId, [], function (AlistamientoRepuestoCriticoDTO) {
+    $.getJSON('/AlistamientoRepuestoCritico/MostrarAlistamientoRepuestoCritico?Id=' + Id, [], function (AlistamientoRepuestoCriticoDTO) {
         $('#txtCodigo').val(AlistamientoRepuestoCriticoDTO.alistamientoRepuestoCriticoId);
-        $('#cbSistemae').val(AlistamientoRepuestoCriticoDTO.codigoAlistamientoRepuestoCritico);
+        $('#txtCodRe').val(AlistamientoRepuestoCriticoDTO.codigoAlistamientoRepuestoCritico);
         $('#cbSistemae').val(AlistamientoRepuestoCriticoDTO.codigoSistemaRepuestoCritico);
         $('#cbSubsistemae').val(AlistamientoRepuestoCriticoDTO.codigoSubsistemaRepuestoCritico);
         $('#txtEquipoe').val(AlistamientoRepuestoCriticoDTO.equipo);
@@ -246,22 +246,8 @@ function nuevaAlistamientoRepuestoCritico() {
 
 function cargaComboSistema() {
     $.getJSON('/AlistamientoRepuestoCritico/cargaCombsSistemas', [], function (Json) {
-        var sistemaRepuestoCritico = Json["data"];
-
-        $("select#cbSistema").html("");
-        $("select#cbSistemae").html("");
-        $.each(sistemaRepuestoCritico, function () {
-            var RowContent = '<option value=' + this.codigoSistemaRepuestoCritico + '>' + this.descSistemaRepuestoCritico + '</option>'
-            $("select#cbSistema").append(RowContent);
-            $("select#cbSistemae").append(RowContent);
-        });
-
-    });
-}
-
-function cargaComboSubsistema() {
-    $.getJSON('/AlistamientoRepuestoCritico/cargaCombsSubsistemas', [], function (Json) {
-        var subsistemaRepuestoCritico = Json["data"];
+        var sistemaRepuestoCritico = Json["data1"];
+        var subsistemaRepuestoCritico = Json["data2"];
 
         $("select#cbSubsistema").html("");
         $("select#cbSubsistemae").html("");
@@ -269,6 +255,14 @@ function cargaComboSubsistema() {
             var RowContent = '<option value=' + this.codigoSubsistemaRepuestoCritico + '>' + this.descSubsistemaRepuestoCritico + '</option>'
             $("select#cbSubsistema").append(RowContent);
             $("select#cbSubsistemae").append(RowContent);
+        });
+
+        $("select#cbSistema").html("");
+        $("select#cbSistemae").html("");
+        $.each(sistemaRepuestoCritico, function () {
+            var RowContent = '<option value=' + this.codigoSistemaRepuestoCritico + '>' + this.descSistemaRepuestoCritico + '</option>'
+            $("select#cbSistema").append(RowContent);
+            $("select#cbSistemae").append(RowContent);
         });
 
     });

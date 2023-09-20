@@ -46,13 +46,13 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Json(new { data = listaAlistamientoMaterialRequerido3Nes });
         }
 
-        public ActionResult InsertarAlistamientoMaterialRequerido3N(string Subclasificacionn, decimal Ponderado, string CodigoAlistamientoMaterialRequerido3N, string CodigoAlistamientoMaterialRequerido2N)
+        public ActionResult InsertarAlistamientoMaterialRequerido3N(string Subclasificacion, decimal Ponderado, string CodigoAlistamientoMaterialRequerido3N, string CodigoAlistamientoMaterialRequerido2N)
         {
             var IND_OPERACION = "";
             try
             {
                 AlistamientoMaterialRequerido3NDTO alistamientoMaterialRequerido3NDTO = new();
-                alistamientoMaterialRequerido3NDTO.Subclasificacionn = Subclasificacionn;
+                alistamientoMaterialRequerido3NDTO.Subclasificacion = Subclasificacion;
                 alistamientoMaterialRequerido3NDTO.Ponderado3Nivel = Ponderado;
                 alistamientoMaterialRequerido3NDTO.CodigoAlistamientoMaterialRequerido3N = CodigoAlistamientoMaterialRequerido3N;
                 alistamientoMaterialRequerido3NDTO.CodigoAlistamientoMaterialRequerido2N = CodigoAlistamientoMaterialRequerido2N;
@@ -75,11 +75,11 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Json(alistamientoMaterialRequerido3NBL.BuscarAlistamientoMaterialRequerido3NID(AlistamientoMaterialRequerido3NId));
         }
 
-        public ActionResult ActualizarAlistamientoMaterialRequerido3N(int AlistamientoMaterialRequerido3NId, string Subclasificacionn, decimal Ponderado, string CodigoAlistamientoMaterialRequerido3N, string CodigoAlistamientoMaterialRequerido2N)
+        public ActionResult ActualizarAlistamientoMaterialRequerido3N(int AlistamientoMaterialRequerido3NId, string Subclasificacion, decimal Ponderado, string CodigoAlistamientoMaterialRequerido3N, string CodigoAlistamientoMaterialRequerido2N)
         {
             AlistamientoMaterialRequerido3NDTO alistamientoMaterialRequerido3NDTO = new();
             alistamientoMaterialRequerido3NDTO.AlistamientoMaterialRequerido3NId = AlistamientoMaterialRequerido3NId;
-            alistamientoMaterialRequerido3NDTO.Subclasificacionn = Subclasificacionn;
+            alistamientoMaterialRequerido3NDTO.Subclasificacion = Subclasificacion;
             alistamientoMaterialRequerido3NDTO.Ponderado3Nivel = Ponderado;
             alistamientoMaterialRequerido3NDTO.CodigoAlistamientoMaterialRequerido3N = CodigoAlistamientoMaterialRequerido3N;
             alistamientoMaterialRequerido3NDTO.CodigoAlistamientoMaterialRequerido2N = CodigoAlistamientoMaterialRequerido2N;

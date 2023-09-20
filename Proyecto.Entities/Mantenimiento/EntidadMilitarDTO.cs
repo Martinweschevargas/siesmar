@@ -6,6 +6,7 @@ namespace Marina.Siesmar.Entidades.Mantenimiento
     {
         public int EntidadMilitarId { get; set; }
         public string? DescEntidadMilitar { get; set; }
+        public string? AbrevEntidadMilitar { get; set; }
         public string? CodigoEntidadMilitar { get; set; }
 
         [NotMapped]

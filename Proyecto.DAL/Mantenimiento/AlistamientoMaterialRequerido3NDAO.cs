@@ -31,9 +31,12 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                         lista.Add(new AlistamientoMaterialRequerido3NDTO()
                         {
                             AlistamientoMaterialRequerido3NId = Convert.ToInt32(dr["AlistamientoMaterialRequerido3NId"]),
+                            CodigoAlistamientoMaterialRequerido3N = dr["CodigoAlistamientoMaterialRequerido3N"].ToString(),
                             Subclasificacion = dr["Subclasificacion"].ToString(),
                             Ponderado3Nivel = Convert.ToDecimal(dr["Ponderado3Nivel"]),
-                            CodigoAlistamientoMaterialRequerido3N = dr["CodigoAlistamientoMaterialRequerido3N"].ToString(),
+                            Subclasificacion2N = dr["Subclasificacion"].ToString(),
+                            CodigoAlistamientoMaterialRequerido2N = dr["CodigoAlistamientoMaterialRequerido2N"].ToString(),
+
                         });
                     }
                 }
@@ -53,8 +56,8 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd = new SqlCommand("Mantenimiento.usp_AlistamientoMaterialRequerido3NRegistrar", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add("@Subclasificacionn", SqlDbType.VarChar, 20);
-                    cmd.Parameters["@Subclasificacionn"].Value = alistamientoMaterialRequerido3NDTO.Subclasificacionn;
+                    cmd.Parameters.Add("@Subclasificacion", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@Subclasificacion"].Value = alistamientoMaterialRequerido3NDTO.Subclasificacion;
 
                     cmd.Parameters.Add("@Ponderado3Nivel", SqlDbType.Decimal);
                     cmd.Parameters["@Ponderado3Nivel"].Value = alistamientoMaterialRequerido3NDTO.Ponderado3Nivel;
@@ -79,7 +82,9 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                         dr.Read();
                         if (dr.HasRows)
                         {
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                             IND_OPERACION = dr["IND_OPERACION"].ToString();
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                         }
                     }
                 }
@@ -88,7 +93,9 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     IND_OPERACION = ex.Message;
                 }
             }
+#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return IND_OPERACION;
+#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
 
         public AlistamientoMaterialRequerido3NDTO BuscarAlistamientoMaterialRequerido3NID(int Codigo)
@@ -113,7 +120,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     if (dr.HasRows)
                     {
                         alistamientoMaterialRequerido3NDTO.AlistamientoMaterialRequerido3NId = Convert.ToInt32(dr["AlistamientoMaterialRequerido3NId"]);
-                        alistamientoMaterialRequerido3NDTO.Subclasificacionn = dr["Subclasificacion"].ToString();
+                        alistamientoMaterialRequerido3NDTO.Subclasificacion = dr["Subclasificacion"].ToString();
                         alistamientoMaterialRequerido3NDTO.Ponderado3Nivel = Convert.ToDecimal(dr["Ponderado3Nivel"]);
                         alistamientoMaterialRequerido3NDTO.CodigoAlistamientoMaterialRequerido3N = dr["CodigoAlistamientoMaterialRequerido3N"].ToString();
                         alistamientoMaterialRequerido3NDTO.CodigoAlistamientoMaterialRequerido2N = dr["CodigoAlistamientoMaterialRequerido2N"].ToString();
@@ -145,8 +152,8 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd.Parameters.Add("@AlistamientoMaterialRequerido3NId", SqlDbType.Int);
                     cmd.Parameters["@AlistamientoMaterialRequerido3NId"].Value = alistamientoMaterialRequerido3NDTO.AlistamientoMaterialRequerido3NId;
 
-                    cmd.Parameters.Add("@Subclasificacionn", SqlDbType.VarChar, 20);
-                    cmd.Parameters["@Subclasificacionn"].Value = alistamientoMaterialRequerido3NDTO.Subclasificacionn;
+                    cmd.Parameters.Add("@Subclasificacion", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@Subclasificacion"].Value = alistamientoMaterialRequerido3NDTO.Subclasificacion;
 
                     cmd.Parameters.Add("@Ponderado3Nivel", SqlDbType.Decimal);
                     cmd.Parameters["@Ponderado3Nivel"].Value = alistamientoMaterialRequerido3NDTO.Ponderado3Nivel;
@@ -171,7 +178,9 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                         dr.Read();
                         if (dr.HasRows)
                         {
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                             IND_OPERACION = dr["IND_OPERACION"].ToString();
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                         }
                     }
                 }
@@ -180,7 +189,9 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
             {
                 IND_OPERACION = ex.Message;
             }
+#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return IND_OPERACION;
+#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
 
         public string EliminarAlistamientoMaterialRequerido3N(AlistamientoMaterialRequerido3NDTO alistamientoMaterialRequerido3NDTO)
@@ -211,7 +222,9 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                         dr.Read();
                         if (dr.HasRows)
                         {
+#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                             IND_OPERACION = dr["IND_OPERACION"].ToString();
+#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                         }
                     }
                 }
@@ -220,7 +233,9 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
             {
                 IND_OPERACION = ex.Message;
             }
+#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return IND_OPERACION;
+#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
 
 
