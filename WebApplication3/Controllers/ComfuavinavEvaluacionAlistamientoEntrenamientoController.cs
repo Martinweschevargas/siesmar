@@ -1,6 +1,7 @@
 ﻿using AspNetCore.Reporting;
 using Marina.Siesmar.Entidades.Formatos.Comfuavinav;
 using Marina.Siesmar.Entidades.Mantenimiento;
+using Marina.Siesmar.Entidades.Seguridad;
 using Marina.Siesmar.LogicaNegocios.Formatos.Comfuavinav;
 using Marina.Siesmar.LogicaNegocios.Mantenimiento;
 using Marina.Siesmar.LogicaNegocios.Seguridad;
@@ -10,6 +11,7 @@ using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 using SmartBreadcrumbs.Attributes;
+using System.Data;
 using System.Security.Claims;
 using WebApplication3.Controllers;
 
@@ -21,9 +23,10 @@ namespace Marina.Siesmar.Presentacion.Controllers
         private readonly IWebHostEnvironment _webHostEnviroment;
         EvaluacionAlistamientoEntrenamientoComfuavinav evaluacionAlistamientoEntrenamientoComfuavinavBL = new();
         UnidadNaval unidadNavalBL = new();
+        NivelEntrenamiento nivelEntrenamientoBL = new();    
         CapacidadOperativa capacidadOperativaBL = new();
-        TipoCompetenciaTecnica tipoCompetenciaTecnicaBL = new();
         EjercicioEntrenamiento ejercicioEntrenamientoBL = new();
+        Carga cargaBL = new();
 
         public ComfuavinavEvaluacionAlistamientoEntrenamientoController(IWebHostEnvironment webHostEnvironment)
         {
@@ -41,16 +44,18 @@ namespace Marina.Siesmar.Presentacion.Controllers
         {
 
             List<UnidadNavalDTO> unidadNavalDTO = unidadNavalBL.ObtenerUnidadNavals();
+            List<NivelEntrenamientoDTO> nivelEntrenamientoDTO = nivelEntrenamientoBL.ObtenerNivelEntrenamientos();
             List<CapacidadOperativaDTO> capacidadOperativaDTO = capacidadOperativaBL.ObtenerCapacidadOperativas();
-            List<TipoCompetenciaTecnicaDTO> tipoCompetenciaTecnicaDTO = tipoCompetenciaTecnicaBL.ObtenerTipoCompetenciaTecnicas();
             List<EjercicioEntrenamientoDTO> ejercicioEntrenamientoDTO = ejercicioEntrenamientoBL.ObtenerEjercicioEntrenamientos();
+            List<CargaDTO> listaCargas = cargaBL.ObtenerListaCargas("EjercicioAlistamientoEntrenamientoComfuavinav");
 
             return Json(new
             {
                 data1 = unidadNavalDTO,
-                data2 = capacidadOperativaDTO,
-                data3 = tipoCompetenciaTecnicaDTO,
+                data2 = nivelEntrenamientoDTO,
+                data3 = capacidadOperativaDTO,
                 data4 = ejercicioEntrenamientoDTO,
+                data5 = listaCargas
             });
         }
 
@@ -65,40 +70,40 @@ namespace Marina.Siesmar.Presentacion.Controllers
         {
             return View();
         }
-        public ActionResult Insertar(int UnidadNavalId, string NivelEntrenamiento, int CapacidadOperativaId, int TipoCompetenciaTecnicaId, int EjercicioEntrenamientoId,
-            string FechaPeriodoEvaluar, string FechaRealizacionEjercicio, int TiempoVigencia)
+        public ActionResult Insertar(string CodigoUnidadNaval, string CodigoNivelEntrenamiento, string CodigoCapacidadOperativa, string TipoCapacidadOperativa, string CodigoEjercicioEntrenamiento,
+            string FechaPeriodoEvaluar, string FechaRealizacionEjercicio, int TiempoVigencia, int CargaId, string Fecha)
         {
             EvaluacionAlistamientoEntrenamientoComfuavinavDTO evaluacionAlistamientoEntrenamientoComfuavinavDTO = new();
-            evaluacionAlistamientoEntrenamientoComfuavinavDTO.UnidadNavalId = UnidadNavalId;
-            evaluacionAlistamientoEntrenamientoComfuavinavDTO.NivelEntrenamiento = NivelEntrenamiento;
-            evaluacionAlistamientoEntrenamientoComfuavinavDTO.CapacidadOperativaId = CapacidadOperativaId;
-            evaluacionAlistamientoEntrenamientoComfuavinavDTO.TipoCompetenciaTecnicaId = TipoCompetenciaTecnicaId;
-            evaluacionAlistamientoEntrenamientoComfuavinavDTO.EjercicioEntrenamientoId = EjercicioEntrenamientoId;
+            evaluacionAlistamientoEntrenamientoComfuavinavDTO.CodigoUnidadNaval = CodigoUnidadNaval;
+            evaluacionAlistamientoEntrenamientoComfuavinavDTO.CodigoNivelEntrenamiento = CodigoNivelEntrenamiento;
+            evaluacionAlistamientoEntrenamientoComfuavinavDTO.CodigoCapacidadOperativa = CodigoCapacidadOperativa;
+            evaluacionAlistamientoEntrenamientoComfuavinavDTO.TipoCapacidadOperativa = TipoCapacidadOperativa;
+            evaluacionAlistamientoEntrenamientoComfuavinavDTO.CodigoEjercicioEntrenamiento = CodigoEjercicioEntrenamiento;
             evaluacionAlistamientoEntrenamientoComfuavinavDTO.FechaPeriodoEvaluar = FechaPeriodoEvaluar;
             evaluacionAlistamientoEntrenamientoComfuavinavDTO.FechaRealizacionEjercicio = FechaRealizacionEjercicio;
             evaluacionAlistamientoEntrenamientoComfuavinavDTO.TiempoVigencia = TiempoVigencia;
-            
+            evaluacionAlistamientoEntrenamientoComfuavinavDTO.CargaId = CargaId;
             evaluacionAlistamientoEntrenamientoComfuavinavDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
-            var IND_OPERACION = evaluacionAlistamientoEntrenamientoComfuavinavBL.AgregarRegistro(evaluacionAlistamientoEntrenamientoComfuavinavDTO);
+            var IND_OPERACION = evaluacionAlistamientoEntrenamientoComfuavinavBL.AgregarRegistro(evaluacionAlistamientoEntrenamientoComfuavinavDTO, Fecha);
             return Content(IND_OPERACION);
         }
 
         public ActionResult Mostrar(int Id)
         {
-            return Json(evaluacionAlistamientoEntrenamientoComfuavinavBL.BuscarFormato(Id));
+            return Json(evaluacionAlistamientoEntrenamientoComfuavinavBL.EditarFormado(Id));
         }
 
-        public ActionResult Actualizar(int Id, int UnidadNavalId, string NivelEntrenamiento, int CapacidadOperativaId, int TipoCompetenciaTecnicaId, int EjercicioEntrenamientoId,
+        public ActionResult Actualizar(int Id, string CodigoUnidadNaval, string CodigoNivelEntrenamiento, string CodigoCapacidadOperativa, string TipoCapacidadOperativa, string CodigoEjercicioEntrenamiento,
             string FechaPeriodoEvaluar, string FechaRealizacionEjercicio, int TiempoVigencia)
         {
             EvaluacionAlistamientoEntrenamientoComfuavinavDTO evaluacionAlistamientoEntrenamientoComfuavinavDTO = new();
             evaluacionAlistamientoEntrenamientoComfuavinavDTO.EvaluacionAlistamientoEntrenamientoId = Id;
-            evaluacionAlistamientoEntrenamientoComfuavinavDTO.UnidadNavalId = UnidadNavalId;
-            evaluacionAlistamientoEntrenamientoComfuavinavDTO.NivelEntrenamiento = NivelEntrenamiento;
-            evaluacionAlistamientoEntrenamientoComfuavinavDTO.CapacidadOperativaId = CapacidadOperativaId;
-            evaluacionAlistamientoEntrenamientoComfuavinavDTO.TipoCompetenciaTecnicaId = TipoCompetenciaTecnicaId;
-            evaluacionAlistamientoEntrenamientoComfuavinavDTO.EjercicioEntrenamientoId = EjercicioEntrenamientoId;
+            evaluacionAlistamientoEntrenamientoComfuavinavDTO.CodigoUnidadNaval = CodigoUnidadNaval;
+            evaluacionAlistamientoEntrenamientoComfuavinavDTO.CodigoNivelEntrenamiento = CodigoNivelEntrenamiento;
+            evaluacionAlistamientoEntrenamientoComfuavinavDTO.CodigoCapacidadOperativa = CodigoCapacidadOperativa;
+            evaluacionAlistamientoEntrenamientoComfuavinavDTO.TipoCapacidadOperativa = TipoCapacidadOperativa;
+            evaluacionAlistamientoEntrenamientoComfuavinavDTO.CodigoEjercicioEntrenamiento = CodigoEjercicioEntrenamiento;
             evaluacionAlistamientoEntrenamientoComfuavinavDTO.FechaPeriodoEvaluar = FechaPeriodoEvaluar;
             evaluacionAlistamientoEntrenamientoComfuavinavDTO.FechaRealizacionEjercicio = FechaRealizacionEjercicio;
             evaluacionAlistamientoEntrenamientoComfuavinavDTO.TiempoVigencia = TiempoVigencia;
@@ -125,95 +130,111 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Content(mensaje);
         }
 
-        [HttpPost]
-        public IActionResult MostrarDatos([FromForm] IFormFile ArchivoExcel)
+        public ActionResult EliminarCarga(int Id)
         {
-            Stream stream = ArchivoExcel.OpenReadStream();
-
-            IWorkbook? MiExcel = null;
-
-            if (Path.GetExtension(ArchivoExcel.FileName) == ".xlsx")
-            {
-                MiExcel = new XSSFWorkbook(stream);
-            }
+            string mensaje = "";
+            EvaluacionAlistamientoEntrenamientoComfuavinavDTO evaluacionAlistamientoEntrenamientoComfuavinavDTO = new();
+            evaluacionAlistamientoEntrenamientoComfuavinavDTO.CargaId = Id;
+            evaluacionAlistamientoEntrenamientoComfuavinavDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
+            if (evaluacionAlistamientoEntrenamientoComfuavinavBL.EliminarCarga(evaluacionAlistamientoEntrenamientoComfuavinavDTO) == true)
+                mensaje = "1";
             else
-            {
-                MiExcel = new HSSFWorkbook(stream);
-            }
-            ISheet HojaExcel = MiExcel.GetSheetAt(0);
-            int cantidadFilas = HojaExcel.LastRowNum;
-
-            List<EvaluacionAlistamientoEntrenamientoComfuavinavDTO> lista = new List<EvaluacionAlistamientoEntrenamientoComfuavinavDTO>();
-
-            for (int i = 1; i <= cantidadFilas; i++)
-            {
-                IRow fila = HojaExcel.GetRow(i);
-
-                lista.Add(new EvaluacionAlistamientoEntrenamientoComfuavinavDTO
-                {
-                    //NombreTemaEstudioInvestigacion = fila.GetCell(0).ToString(),
-                    //TipoEstudioInvestigacionIds = fila.GetCell(1).ToString(),
-                    //FechaInicio = fila.GetCell(2).ToString(),
-                    //FechaTermino = fila.GetCell(3).ToString(),
-                    //Responsable = fila.GetCell(4).ToString(),
-                    //Solicitante = fila.GetCell(5).ToString()
-                });
-            }
-            return StatusCode(StatusCodes.Status200OK, lista);
+                mensaje = "0";
+            return Content(mensaje);
         }
 
 
         [HttpPost]
-        public IActionResult EnviarDatos([FromForm] IFormFile ArchivoExcel)
+        public ActionResult MostrarDatos([FromForm] IFormFile ArchivoExcel)
         {
-            Stream stream = ArchivoExcel.OpenReadStream();
-            var mensaje = "";
-
-            IWorkbook MiExcel = null;
-
-            if (Path.GetExtension(ArchivoExcel.FileName) == ".xlsx")
-            {
-                MiExcel = new XSSFWorkbook(stream);
-            }
-            else
-            {
-                MiExcel = new HSSFWorkbook(stream);
-            }
-            ISheet HojaExcel = MiExcel.GetSheetAt(0);
-            int cantidadFilas = HojaExcel.LastRowNum;
+            string Mensaje = "1";
             List<EvaluacionAlistamientoEntrenamientoComfuavinavDTO> lista = new List<EvaluacionAlistamientoEntrenamientoComfuavinavDTO>();
-            for (int i = 1; i <= cantidadFilas; i++)
-            {
-                IRow fila = HojaExcel.GetRow(i);
-                lista.Add(new EvaluacionAlistamientoEntrenamientoComfuavinavDTO
-                {
-                    //NombreTemaEstudioInvestigacion = fila.GetCell(0).ToString(),
-                    //TipoEstudioInvestigacionIds = fila.GetCell(1).ToString(),
-                    //FechaInicio = fila.GetCell(2).ToString(),
-                    //FechaTermino = fila.GetCell(3).ToString(),
-                    //Responsable = fila.GetCell(4).ToString(),
-                    //Solicitante = fila.GetCell(5).ToString(),
-                    //UsuarioIngresoRegistro = User.obtenerUsuario(),                    
-                });
-            }
             try
             {
-                var estado = evaluacionAlistamientoEntrenamientoComfuavinavBL.InsercionMasiva(lista);
-                if (estado == true)
+                Stream stream = ArchivoExcel.OpenReadStream();
+                IWorkbook? MiExcel = null;
+
+                if (Path.GetExtension(ArchivoExcel.FileName) == ".xlsx")
                 {
-                    mensaje = "ok";
+                    MiExcel = new XSSFWorkbook(stream);
                 }
                 else
                 {
-                    mensaje = "error";
+                    MiExcel = new HSSFWorkbook(stream);
                 }
+                ISheet HojaExcel = MiExcel.GetSheetAt(0);
+                int cantidadFilas = HojaExcel.LastRowNum;
 
+                for (int i = 1; i <= cantidadFilas; i++)
+                {
+                    IRow fila = HojaExcel.GetRow(i);
+                    
+                    lista.Add(new EvaluacionAlistamientoEntrenamientoComfuavinavDTO
+                    {
+                        CodigoUnidadNaval = fila.GetCell(0).ToString(),
+                        CodigoNivelEntrenamiento = fila.GetCell(1).ToString(),
+                        CodigoCapacidadOperativa = fila.GetCell(2).ToString(),
+                        TipoCapacidadOperativa   = fila.GetCell(3).ToString(),
+                        CodigoEjercicioEntrenamiento = fila.GetCell(4).ToString(),
+                        FechaPeriodoEvaluar = UtilitariosGlobales.obtenerFecha(fila.GetCell(5).ToString()),
+                        FechaRealizacionEjercicio = UtilitariosGlobales.obtenerFecha(fila.GetCell(6).ToString()),
+                        TiempoVigencia = int.Parse(fila.GetCell(7).ToString()),
+                    });
+                }
             }
             catch (Exception e)
             {
-                mensaje = e.Message;
+                Mensaje = "0";
             }
-            return StatusCode(StatusCodes.Status200OK, new { mensaje });
+            return Json(new { data = Mensaje, data1 = lista });
+        }
+
+        [HttpPost]
+        public ActionResult EnviarDatos([FromForm] IFormFile ArchivoExcel, string Fecha)
+        {
+            Stream stream = ArchivoExcel.OpenReadStream();
+            IWorkbook MiExcel = null;
+
+            if (Path.GetExtension(ArchivoExcel.FileName) == ".xlsx")
+                MiExcel = new XSSFWorkbook(stream);
+            else
+                MiExcel = new HSSFWorkbook(stream);
+
+            ISheet HojaExcel = MiExcel.GetSheetAt(0);
+            int cantidadFilas = HojaExcel.LastRowNum;
+
+            DataTable dt = new();
+
+            dt.Columns.AddRange(new DataColumn[9]
+            {
+                    new DataColumn("CodigoUnidadNaval", typeof(string)),
+                    new DataColumn("CodigoNivelEntrenamiento", typeof(string)),
+                    new DataColumn("CodigoCapacidadOperativa", typeof(string)),
+                    new DataColumn("TipoCapacidadOperativa", typeof(string)),
+                    new DataColumn("CodigoEjercicioEntrenamiento", typeof(string)),
+                    new DataColumn("FechaPeriodoEvaluar", typeof(string)),
+                    new DataColumn("FechaRealizacionEjercicio", typeof(string)),
+                    new DataColumn("TiempoVigencia", typeof(int)),
+                    new DataColumn("UsuarioIngresoRegistro", typeof(string))
+            });
+
+            for (int i = 1; i <= cantidadFilas; i++)
+            {             
+                IRow fila = HojaExcel.GetRow(i);
+                dt.Rows.Add(
+                    fila.GetCell(0).ToString(),
+                    fila.GetCell(1).ToString(),
+                    fila.GetCell(2).ToString(),
+                    fila.GetCell(3).ToString(),
+                    fila.GetCell(4).ToString(),
+                    UtilitariosGlobales.obtenerFecha(fila.GetCell(5).ToString()),
+                    UtilitariosGlobales.obtenerFecha(fila.GetCell(6).ToString()),
+                    int.Parse(fila.GetCell(7).ToString()),
+                    User.obtenerUsuario()
+                   );
+            }
+            var IND_OPERACION = evaluacionAlistamientoEntrenamientoComfuavinavBL.InsertarDatos(dt, Fecha);
+            return Json(IND_OPERACION);
         }
 
         public IActionResult ReporteEIHN()
@@ -230,156 +251,14 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return File(result.MainStream, "application/pdf");
         }
 
-        //public IActionResult ReportePMPIACR()
-        //{
-        //    //PROMEDIO MENSUAL DE PARTICIPANTES Y DE INVERSIÓN EN ACTIVIDADES CULTURALES REALIZADAS
-        //    string mimtype = "";
-        //    int extension = 1;
-        //    var path = $"{this._webHostEnviroment.WebRootPath}\\Reports\\ReportePMPIACR.rdlc";
-        //    Dictionary<string, string> parameters = new Dictionary<string, string>();
-        //    parameters.Add("rpt1", "Welcome to FoxLearn");
-        //    //var Capitanias = capitaniaBL.ObtenerCapitanias();
-        //    LocalReport localReport = new LocalReport(path);
-        //    localReport.AddDataSource("Capitania", Capitanias);
-        //    var result = localReport.Execute(RenderType.Pdf, extension, parameters, mimtype);
-        //    return File(result.MainStream, "application/pdf");
-        //}
+        [HttpGet]
+        public IActionResult DownloadFile()
+        {
+            var path = $"{this._webHostEnviroment.WebRootPath}\\Formatos\\ComfuavinavEvaluacionAlistamientoEntrenamiento.xlsx";
+            var fs = new FileStream(path, FileMode.Open);
 
-        //public IActionResult ReportePII()
-        //{
-        //    //PUBLICACIONES DE INTERÉS INSTITUCIONAL
-        //    string mimtype = "";
-        //    int extension = 1;
-        //    var path = $"{this._webHostEnviroment.WebRootPath}\\Reports\\ReportePII.rdlc";
-        //    Dictionary<string, string> parameters = new Dictionary<string, string>();
-        //    parameters.Add("rpt1", "Welcome to FoxLearn");
-        //    //var Capitanias = capitaniaBL.ObtenerCapitanias();
-        //    LocalReport localReport = new LocalReport(path);
-        //    localReport.AddDataSource("Capitania", Capitanias);
-        //    var result = localReport.Execute(RenderType.Pdf, extension, parameters, mimtype);
-        //    return File(result.MainStream, "application/pdf");
-        //}
-
-        //public IActionResult ReportePMCB()
-        //{
-        //    //PROMEDIO MENSUAL DE CONSULTAS BIBLIOGRÁFICAS
-        //    string mimtype = "";
-        //    int extension = 1;
-        //    var path = $"{this._webHostEnviroment.WebRootPath}\\Reports\\ReportePMCB.rdlc";
-        //    Dictionary<string, string> parameters = new Dictionary<string, string>();
-        //    parameters.Add("rpt1", "Welcome to FoxLearn");
-        //    //var Capitanias = capitaniaBL.ObtenerCapitanias();
-        //    LocalReport localReport = new LocalReport(path);
-        //    localReport.AddDataSource("Capitania", Capitanias);
-        //    var result = localReport.Execute(RenderType.Pdf, extension, parameters, mimtype);
-        //    return File(result.MainStream, "application/pdf");
-        //}
-
-        //public IActionResult ReportePMVAHM()
-        //{
-        //    //PROMEDIO MENSUAL DE VISITAS AL ARCHIVO HISTÓRICO DE LA MARINA
-        //    string mimtype = "";
-        //    int extension = 1;
-        //    var path = $"{this._webHostEnviroment.WebRootPath}\\Reports\\ReportePMVAHM.rdlc";
-        //    Dictionary<string, string> parameters = new Dictionary<string, string>();
-        //    parameters.Add("rpt1", "Welcome to FoxLearn");
-        //    //var Capitanias = capitaniaBL.ObtenerCapitanias();
-        //    LocalReport localReport = new LocalReport(path);
-        //    localReport.AddDataSource("Capitania", Capitanias);
-        //    var result = localReport.Execute(RenderType.Pdf, extension, parameters, mimtype);
-        //    return File(result.MainStream, "application/pdf");
-        //}
-
-        //public IActionResult ReportePMVRMN()
-        //{
-        //    //PROMEDIO MENSUAL DE VISITAS REGISTRADAS A LOS MUSEOS NAVALES
-        //    string mimtype = "";
-        //    int extension = 1;
-        //    var path = $"{this._webHostEnviroment.WebRootPath}\\Reports\\ReportePMVRMN.rdlc";
-        //    Dictionary<string, string> parameters = new Dictionary<string, string>();
-        //    parameters.Add("rpt1", "Welcome to FoxLearn");
-        //    //var Capitanias = capitaniaBL.ObtenerCapitanias();
-        //    LocalReport localReport = new LocalReport(path);
-        //    localReport.AddDataSource("Capitania", Capitanias);
-        //    var result = localReport.Execute(RenderType.Pdf, extension, parameters, mimtype);
-        //    return File(result.MainStream, "application/pdf");
-        //}
-
-        //public IActionResult ReporteTRC()
-        //{
-        //    //TRABAJOS DE RESTAURACIÓN Y/O CONSERVACIÓN
-        //    string mimtype = "";
-        //    int extension = 1;
-        //    var path = $"{this._webHostEnviroment.WebRootPath}\\Reports\\ReporteTRC.rdlc";
-        //    Dictionary<string, string> parameters = new Dictionary<string, string>();
-        //    parameters.Add("rpt1", "Welcome to FoxLearn");
-        //    //var Capitanias = capitaniaBL.ObtenerCapitanias();
-        //    LocalReport localReport = new LocalReport(path);
-        //    localReport.AddDataSource("Capitania", Capitanias);
-        //    var result = localReport.Execute(RenderType.Pdf, extension, parameters, mimtype);
-        //    return File(result.MainStream, "application/pdf");
-        //}
-
-        //public IActionResult ReporteRMHPRM()
-        //{
-        //    //REPRESENTACIÓN Y/ O MONUMENTOS HISTORICOS EN EL PAIS RELACIONADOS A LA MARINA
-        //    string mimtype = "";
-        //    int extension = 1;
-        //    var path = $"{this._webHostEnviroment.WebRootPath}\\Reports\\ReporteRMHPRM.rdlc";
-        //    Dictionary<string, string> parameters = new Dictionary<string, string>();
-        //    parameters.Add("rpt1", "Welcome to FoxLearn");
-        //    //var Capitanias = capitaniaBL.ObtenerCapitanias();
-        //    LocalReport localReport = new LocalReport(path);
-        //    localReport.AddDataSource("Capitania", Capitanias);
-        //    var result = localReport.Execute(RenderType.Pdf, extension, parameters, mimtype);
-        //    return File(result.MainStream, "application/pdf");
-        //}
-
-        //public IActionResult ReporteAAD()
-        //{
-        //    //APOYO A LAS ACTIVIDADES DE DIFUSIÓN
-        //    string mimtype = "";
-        //    int extension = 1;
-        //    var path = $"{this._webHostEnviroment.WebRootPath}\\Reports\\ReporteAAD.rdlc";
-        //    Dictionary<string, string> parameters = new Dictionary<string, string>();
-        //    parameters.Add("rpt1", "Welcome to FoxLearn");
-        //    //var Capitanias = capitaniaBL.ObtenerCapitanias();
-        //    LocalReport localReport = new LocalReport(path);
-        //    localReport.AddDataSource("Capitania", Capitanias);
-        //    var result = localReport.Execute(RenderType.Pdf, extension, parameters, mimtype);
-        //    return File(result.MainStream, "application/pdf");
-        //}
-
-        //public IActionResult ReportePMPADRIM()
-        //{
-        //    //PROMEDIO MENSUAL DE PARTICIPANTES A ACTIVIDADES DE DIFUSIÓN DE REALIDAD E INTERESES MARITIMOS
-        //    string mimtype = "";
-        //    int extension = 1;
-        //    var path = $"{this._webHostEnviroment.WebRootPath}\\Reports\\ReportePMPADRIM.rdlc";
-        //    Dictionary<string, string> parameters = new Dictionary<string, string>();
-        //    parameters.Add("rpt1", "Welcome to FoxLearn");
-        //    //var Capitanias = capitaniaBL.ObtenerCapitanias();
-        //    LocalReport localReport = new LocalReport(path);
-        //    //localReport.AddDataSource("Capitania", Capitanias);
-        //    var result = localReport.Execute(RenderType.Pdf, extension, parameters, mimtype);
-        //    return File(result.MainStream, "application/pdf");
-        //}
-
-        //public IActionResult ReportePMPOADRIM()
-        //{
-        //    //PROMEDIO MENSUAL DE PARTICIPANTES A OTRAS ACTIVIDADES DE DIFUSIÓN DE REALIDAD E INTERESES MARITIMOS
-        //    string mimtype = "";
-        //    int extension = 1;
-        //    var path = $"{this._webHostEnviroment.WebRootPath}\\Reports\\ReportePMPOADRIM.rdlc";
-        //    Dictionary<string, string> parameters = new Dictionary<string, string>();
-        //    parameters.Add("rpt1", "Welcome to FoxLearn");
-        //    var estudioInvestigacionesHistoricasNavales = documentoIntelFrenteInternoBL.ObtenerLista();
-        //    LocalReport localReport = new LocalReport(path);
-        //    localReport.AddDataSource("EstudioInvestigacionHistoricasNavales", estudioInvestigacionesHistoricasNavales);
-        //    var result = localReport.Execute(RenderType.Pdf, extension, parameters, mimtype);
-        //    return File(result.MainStream, "application/pdf");
-        //}
-
+            return File(fs, "application/octet-stream", "ComfuavinavEvaluacionAlistamientoEntrenamiento.xlsx");
+        }
     }
 
 }

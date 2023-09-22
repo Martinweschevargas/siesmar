@@ -1,5 +1,6 @@
 ﻿var tblComfuavinavAlistamientoMunicion;
-var alistamientoMunicion;
+var reporteSeleccionado;
+var optReporteSelect;
 
 $(document).ready(function () {
     var forms = document.querySelectorAll('.needs-validation')
@@ -28,7 +29,7 @@ $(document).ready(function () {
                                     'CodigoUnidadNaval': $('#cbUnidadNaval').val(),
                                     'CodigoAlistamientoMunicion': $('#cbAlistamientoMunicion').val(),
                                     'CargaId': $('#cargasR').val(),
-                                    'Fecha': $('#txtFecha').val(),
+                                    'Fecha': $('#txtFecha').val()
                                 },
                                 beforeSend: function () {
                                     $('#loader-6').show();
@@ -50,9 +51,6 @@ $(document).ready(function () {
                                     $('#listar').show();
                                     $('#nuevo').hide();
                                     $('#tblComfuavinavAlistamientoMunicion').DataTable().ajax.reload();
-                                    $('.needs-validation :input').val('');
-                                    $(".needs-validation").find("select").prop("selectedIndex", 0);
-                                    form.classList.remove('was-validated')
                                 },
                                 complete: function () {
                                     $('#loader-6').hide();
@@ -101,13 +99,13 @@ $(document).ready(function () {
                                     if (mensaje == "1") {
                                         Swal.fire(
                                             'Actualizado!',
-                                            'Se actualizo con éxito.',
+                                            'Se actualizo con éxito.' + mensaje,
                                             'success'
                                         )
                                     } else {
                                         Swal.fire(
                                             'Atención!',
-                                            'Ocurrio un problema.',
+                                            'Ocurrio un problema.' + mensaje,
                                             'error'
                                         )
                                     }

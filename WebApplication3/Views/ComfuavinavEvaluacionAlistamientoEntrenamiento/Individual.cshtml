@@ -14,22 +14,25 @@
             <div class="card-header nuevo">
                 <h4>Nuevo</h4>
             </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <select class="form-select form-control-sm" id="cargasR" name="cargasR"></select>
+                </div>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                </div>
+            </div>
             <div class="row mt-2">
-
                 <div class="form-group row col-md-6">
-                    <label for="cbUnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Identificación unidad naval y/o dependencia de entrenamiento</a></label>
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Identificación unidad naval y/o dependencia de entrenamiento</a></label>
                     <div class="col-md-9">
                         <select class="form-control form-select-sm" id="cbUnidadNaval" name="cbUnidadNaval"></select>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
-                    <label for="NivelEntrenamiento" class="col-3 col-form-label">Nivel de entrenamiento</label>
+                    <label for="NivelEntrenamiento" class="col-3 col-form-label"><a href="~/NivelEntrenamiento">Nivel Entrenamiento</a></label>
                     <div class="col-md-9">
-                        <select class="form-control form-select-sm" id="txtNivelEntrenamiento" name="txtNivelEntrenamiento">
-                            <option value="B">Básico</option>
-                            <option value="I">Intermedio</option>
-                            <option value="A">Avanzado</option>
-                        </select>
+                        <select class="form-control form-select-sm" id="cbNivelEntrenamiento" name="cbNivelEntrenamiento"></select>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
@@ -39,21 +42,18 @@
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
-                    <label for="cbTipoCompetenciaTecnica" class="col-3 col-form-label"><a href="~/TipoCompetenciaTecnica">Tipo de competencia técnica</a></label>
+                    <label for="TipoCompetenciaTecnica" class="col-3 col-form-label">Tipo de competencia técnica</label>
                     <div class="col-md-9">
-                        <select class="form-control form-select-sm" id="cbTipoCompetenciaTecnica" name="cbTipoCompetenciaTecnica"></select>
+                        <select class="form-control form-select-sm" id="cbTipoCompetenciaTecnica" name="cbTipoCompetenciaTecnica">
+                            <option value="1">Principal</option>
+                            <option value="2">Secundaria</option>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
                     <label for="EjercicioEntrenamiento" class="col-3 col-form-label"><a href="~/EjercicioEntrenamiento">Ejercicio</a></label>
                     <div class="col-md-9">
                         <select class="form-control form-select-sm" id="cbEjercicioEntrenamiento" name="cbEjercicioEntrenamiento"></select>
-                    </div>
-                </div>
-                <div class="form-group row col-md-6">
-                    <label for="txtCodigoEjercicioEntrenamiento " class="col-3 col-form-label">Código de ejercicio</label>
-                    <div class="col-md-9">
-                        <input type="text" class="form-control form-control-sm" id="txtCodigoEjercicioEntrenamiento" name="txtCodigoEjercicioEntrenamiento" disabled>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
@@ -101,21 +101,16 @@
                 <h4>Editar</h4>
             </div>
             <div class="row mt-2">
-
                 <div class="form-group row col-md-6">
-                    <label for="cbUnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Identificación unidad naval y/o dependencia de entrenamiento</a></label>
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Identificación unidad naval y/o dependencia de entrenamiento</a></label>
                     <div class="col-md-9">
                         <select class="form-control form-select-sm" id="cbUnidadNavale" name="cbUnidadNavale"></select>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
-                    <label for="NivelEntrenamiento" class="col-3 col-form-label">Nivel de entrenamiento</label>
+                    <label for="NivelEntrenamiento" class="col-3 col-form-label"><a href="~/NivelEntrenamiento">Nivel Entrenamiento</a></label>
                     <div class="col-md-9">
-                        <select class="form-control form-select-sm" id="txtNivelEntrenamientoe" name="txtNivelEntrenamientoe">
-                            <option value="B">Básico</option>
-                            <option value="I">Intermedio</option>
-                            <option value="A">Avanzado</option>
-                        </select>
+                        <select class="form-control form-select-sm" id="cbNivelEntrenamientoe" name="cbNivelEntrenamientoe"></select>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
@@ -125,21 +120,18 @@
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
-                    <label for="cbTipoCompetenciaTecnica" class="col-3 col-form-label"><a href="~/TipoCompetenciaTecnica">Tipo de competencia técnica</a></label>
+                    <label for="TipoCompetenciaTecnica" class="col-3 col-form-label">Tipo de competencia técnica</label>
                     <div class="col-md-9">
-                        <select class="form-control form-select-sm" id="cbTipoCompetenciaTecnicae" name="cbTipoCompetenciaTecnicae"></select>
+                        <select class="form-control form-select-sm" id="cbTipoCompetenciaTecnicae" name="cbTipoCompetenciaTecnicae">
+                            <option value="1">Principal</option>
+                            <option value="2">Secundaria</option>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
                     <label for="EjercicioEntrenamiento" class="col-3 col-form-label"><a href="~/EjercicioEntrenamiento">Ejercicio</a></label>
                     <div class="col-md-9">
                         <select class="form-control form-select-sm" id="cbEjercicioEntrenamientoe" name="cbEjercicioEntrenamientoe"></select>
-                    </div>
-                </div>
-                <div class="form-group row col-md-6">
-                    <label for="txtCodigoEjercicioEntrenamiento " class="col-3 col-form-label">Código de ejercicio</label>
-                    <div class="col-md-9">
-                        <input type="text" class="form-control form-control-sm" id="txtCodigoEjercicioEntrenamientoe" name="txtCodigoEjercicioEntrenamientoe" disabled>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
@@ -160,7 +152,6 @@
                         <input type="number" class="form-control form-control-sm" id="txtTiempoVigenciae" name="txtTiempoVigenciae" placeholder="Tiempo de vigencia (Días)" required>
                     </div>
                 </div>
-
             </div>
             <div class="row mt-2">
                 <div class="col-md-6 text-center">
@@ -180,16 +171,19 @@
     </div>
 </div>
 <div id="listar" style="overflow:scroll">
+    <p><a href="~/ComfuavinavEvaluacionAlistamientoEntrenamiento" class="btn btn-primary">Ir Carga Masiva</a></p>
     <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaComfuavinavEvaluacionAlistamientoEntrenamiento()" />
-    <div class="dropdown">
-        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Modos de Carga :
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="~/ComfuavinavEvaluacionAlistamientoEntrenamiento">Masiva</a>
-            <a class="dropdown-item" href="~/ComfuavinavEvaluacionAlistamientoEntrenamiento/Individual">Individual</a>
+    <div class="row align-items-start">
+        <div class="col">
+            <select class="form-select form-control-sm" id="cargas" name="cargas"></select>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" id="btn_search">Buscar</button>
+            <button class="btn btn-primary" id="btn_all">Mostrar Todos</button>
+            <button class="btn btn-danger" onclick="eliminarCarga()">Eliminar Carga</button>
         </div>
     </div>
+    <hr />
     <table class="table table-striped" id="tblComfuavinavEvaluacionAlistamientoEntrenamiento" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
         <thead>
             <tr class="colorbg">
@@ -197,12 +191,13 @@
                 <th>Identificación unidad naval y/o dependencia de entrenamiento</th>
                 <th>Nivel de entrenamiento</th>
                 <th>Capacidad Operativa</th>
-                <th>Tipo de competencia técnica</th>
+                <th>Tipo de Capacidad Operativa</th>
                 <th>Código de ejercicio</th>
-                <th>Ejercicio</th>
+                <th>Descripcion Ejercicio</th>
                 <th>Fecha del periodo a evaluar el ejercicio</th>
                 <th>Fecha de realización del ejercicio</th>
                 <th>Tiempo de vigencia (Días)</th>
+                <th>Codigo Carga</th>
                 <th colspan="2" class="text-center">Acciones</th>
                 <th class="ocultar"></th>
             </tr>

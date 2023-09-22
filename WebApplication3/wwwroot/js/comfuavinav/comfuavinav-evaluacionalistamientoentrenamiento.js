@@ -25,14 +25,16 @@ $(document).ready(function () {
                                 type: "POST",
                                 url: '/ComfuavinavEvaluacionAlistamientoEntrenamiento/Insertar',
                                 data: {
-                                    'UnidadNavalId': $('#cbUnidadNaval').val(),
-                                    'NivelEntrenamiento': $('#txtNivelEntrenamiento').val(),
-                                    'CapacidadOperativaId': $('#cbCapacidadOperativa').val(),
-                                    'TipoCompetenciaTecnicaId': $('#cbTipoCompetenciaTecnica').val(),
-                                    'EjercicioEntrenamientoId': $('#cbEjercicioEntrenamiento').val(),
+                                    'CodigoUnidadNaval': $('#cbUnidadNaval').val(),
+                                    'CodigoNivelEntrenamiento': $('#cbNivelEntrenamiento').val(),
+                                    'CodigoCapacidadOperativa': $('#cbCapacidadOperativa').val(),
+                                    'TipoCapacidadOperativa': $('#cbTipoCompetenciaTecnica').val(),
+                                    'CodigoEjercicioEntrenamiento': $('#cbEjercicioEntrenamiento').val(),
                                     'FechaPeriodoEvaluar': $('#txtFechaPeriodoEvaluar').val(),
                                     'FechaRealizacionEjercicio': $('#txtFechaRealizacionEjercicio').val(),
                                     'TiempoVigencia': $('#txtTiempoVigencia').val(),
+                                    'CargaId': $('#cargasR').val(),
+                                    'Fecha': $('#txtFecha').val()
                                 },
                                 beforeSend: function () {
                                     $('#loader-6').show();
@@ -54,6 +56,9 @@ $(document).ready(function () {
                                     $('#listar').show();
                                     $('#nuevo').hide();
                                     $('#tblComfuavinavEvaluacionAlistamientoEntrenamiento').DataTable().ajax.reload();
+                                    $('.needs-validation :input').val('');
+                                    $(".needs-validation").find("select").prop("selectedIndex", 0);
+                                    form.classList.remove('was-validated')
                                 },
                                 complete: function () {
                                     $('#loader-6').hide();
@@ -92,14 +97,14 @@ $(document).ready(function () {
                                 url: '/ComfuavinavEvaluacionAlistamientoEntrenamiento/Actualizar',
                                 data: {
                                     'Id': $('#txtCodigo').val(),
-                                    'UnidadNavalId': $('#cbUnidadNavale').val(),
-                                    'NivelEntrenamiento': $('#txtNivelEntrenamientoe').val(),
-                                    'CapacidadOperativaId': $('#cbCapacidadOperativae').val(),
-                                    'TipoCompetenciaTecnicaId': $('#cbTipoCompetenciaTecnicae').val(),
-                                    'EjercicioEntrenamientoId': $('#cbEjercicioEntrenamientoe').val(),
+                                    'CodigoUnidadNaval': $('#cbUnidadNavale').val(),
+                                    'CodigoNivelEntrenamiento': $('#cbNivelEntrenamientoe').val(),
+                                    'CodigoCapacidadOperativa': $('#cbCapacidadOperativae').val(),
+                                    'TipoCapacidadOperativa': $('#cbTipoCompetenciaTecnicae').val(),
+                                    'CodigoEjercicioEntrenamiento': $('#cbEjercicioEntrenamientoe').val(),
                                     'FechaPeriodoEvaluar': $('#txtFechaPeriodoEvaluare').val(),
                                     'FechaRealizacionEjercicio': $('#txtFechaRealizacionEjercicioe').val(),
-                                    'TiempoVigencia': $('#txtTiempoVigencia').val(),
+                                    'TiempoVigencia': $('#txtTiempoVigenciae').val(),
                                 },
                                 beforeSend: function () {
                                     $('#loader-6').show();
@@ -136,7 +141,7 @@ $(document).ready(function () {
             }, false)
         })
 
-    $('#tblComfuavinavEvaluacionAlistamientoEntrenamiento').DataTable({
+    tblComfuavinavEvaluacionAlistamientoEntrenamiento = $('#tblComfuavinavEvaluacionAlistamientoEntrenamiento').DataTable({
         ajax: {
             "url": '/ComfuavinavEvaluacionAlistamientoEntrenamiento/CargaTabla',
             "type": "GET",
@@ -145,14 +150,15 @@ $(document).ready(function () {
         "columns": [
             { "data": "evaluacionAlistamientoEntrenamientoId" },
             { "data": "descUnidadNaval" },
-            { "data": "nivelEntrenamiento" },
+            { "data": "descNivelEntrenamiento" },
             { "data": "descCapacidadOperativa" },
-            { "data": "descTipoCompetenciaTecnica" },
-            { "data": "codigoEjercicioEntrenamiento " },
+            { "data": "tipoCapacidadOperativa" },
+            { "data": "codigoEjercicioEntrenamiento" },
             { "data": "descEjercicioEntrenamiento" },
             { "data": "fechaPeriodoEvaluar" },
             { "data": "fechaRealizacionEjercicio" },
-            { "data": "tiempoVigencia" }, 
+            { "data": "tiempoVigencia" },
+            { "data": "cargaId" },  
             {
                 "render": function (data, type, row) {
                     return '<a class="txt" onclick=edit(' + row.evaluacionAlistamientoEntrenamientoId + ') title="Actualizar"><i class="fa fa-check-square-o" aria-hidden="true" style="color:black; padding-right:5px"></i>Editar</a>';
@@ -227,20 +233,36 @@ $(document).ready(function () {
         ]
     });
     cargaDatos();
+    cargaBusqueda();
 });
+
+$('#btn_search').click(function () {
+    cargaBusqueda();
+});
+
+$('#btn_all').click(function () {
+    mostrarTodos();
+});
+
+function cargaBusqueda() {
+    var CodigoCarga = $('#cargas').val();
+    tblComfuavinavEvaluacionAlistamientoEntrenamiento.columns(10).search(CodigoCarga).draw();
+}
+
+function mostrarTodos() {
+    tblComfuavinavEvaluacionAlistamientoEntrenamiento.columns(10).search('').draw();
+}
 
 function edit(Id) {
     $('#listar').hide();
     $('#editar').show();
     $.getJSON('/ComfuavinavEvaluacionAlistamientoEntrenamiento/Mostrar?Id=' + Id, [], function (EvaluacionAlistamientoEntrenamientoComfuavinavDTO) {
         $('#txtCodigo').val(EvaluacionAlistamientoEntrenamientoComfuavinavDTO.evaluacionAlistamientoEntrenamientoId);
-        $('#cbUnidadNavale').val(EvaluacionAlistamientoEntrenamientoComfuavinavDTO.unidadNavalId);
-        $('#txtNivelEntrenamientoe').val(EvaluacionAlistamientoEntrenamientoComfuavinavDTO.nivelEntrenamiento);
-        $('#cbCapacidadOperativae').val(EvaluacionAlistamientoEntrenamientoComfuavinavDTO.capacidadOperativaId);
-        $('#cbTipoCompetenciaTecnicae').val(EvaluacionAlistamientoEntrenamientoComfuavinavDTO.tipoCompetenciaTecnicaId);
-        $('#cbEjercicioEntrenamientoe').val(EvaluacionAlistamientoEntrenamientoComfuavinavDTO.ejercicioEntrenamientoId);
-        $('#txtCodigoEjercicioEntrenamientoe').val(EvaluacionAlistamientoEntrenamientoComfuavinavDTO.codigoEjercicioEntrenamiento);
-        $('#txtPuntajeObtenidoEjercicioe').val(EvaluacionAlistamientoEntrenamientoComfuavinavDTO.puntajeObtenidoEjercicio);
+        $('#cbUnidadNavale').val(EvaluacionAlistamientoEntrenamientoComfuavinavDTO.codigoUnidadNaval);
+        $('#cbNivelEntrenamientoe').val(EvaluacionAlistamientoEntrenamientoComfuavinavDTO.codigoNivelEntrenamiento);
+        $('#cbCapacidadOperativae').val(EvaluacionAlistamientoEntrenamientoComfuavinavDTO.codigoCapacidadOperativa);
+        $('#cbTipoCompetenciaTecnicae').val(EvaluacionAlistamientoEntrenamientoComfuavinavDTO.tipoCapacidadOperativa);
+        $('#cbEjercicioEntrenamientoe').val(EvaluacionAlistamientoEntrenamientoComfuavinavDTO.codigoEjercicioEntrenamiento);
         $('#txtFechaPeriodoEvaluare').val(EvaluacionAlistamientoEntrenamientoComfuavinavDTO.fechaPeriodoEvaluar);
         $('#txtFechaRealizacionEjercicioe').val(EvaluacionAlistamientoEntrenamientoComfuavinavDTO.fechaRealizacionEjercicio);
         $('#txtTiempoVigenciae').val(EvaluacionAlistamientoEntrenamientoComfuavinavDTO.tiempoVigencia); 
@@ -295,91 +317,196 @@ function eliminar(id) {
     })
 }
 
+function eliminarCarga() {
+    var id = $('select#cargas').val();
+    Swal.fire({
+        title: 'Estas seguro?',
+        text: "No podras revertir!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si,borralo!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                type: "POST",
+                url: '/ComfuavinavEvaluacionAlistamientoEntrenamiento/EliminarCarga',
+                data: {
+                    'Id': id
+                },
+                beforeSend: function () {
+                    $('#loader-6').show();
+                },
+                success: function (mensaje) {
+                    if (mensaje == "1") {
+                        Swal.fire(
+                            'Borrado!',
+                            'Se elimino con éxito.',
+                            'success'
+                        )
+                    } else {
+                        Swal.fire(
+                            'Atención!',
+                            'Ocurrio un problema.',
+                            'error'
+                        )
+                    }
+                    cargaDatos();
+                    $('#tblComfuavinavEvaluacionAlistamientoEntrenamiento').DataTable().ajax.reload();
+                },
+                complete: function () {
+                    $('#loader-6').hide();
+                }
+            });
+        }
+    })
+}
+
 function nuevaComfuavinavEvaluacionAlistamientoEntrenamiento() {
     $('#listar').hide();
     $('#nuevo').show();
 }
 
+function mostrarDatos() {
+    const input = document.getElementById("inputExcel");
+    const formData = new FormData();
+    formData.append("ArchivoExcel", input.files[0]);
+    $.ajax({
+        type: "POST",
+        url: 'ComfuavinavEvaluacionAlistamientoEntrenamiento/MostrarDatos',
+        data: formData,
+        processData: false,
+        contentType: false,
+        beforeSend: function () {
+            $('#loader-6').show();
+        },
+        success: function (dataJson) {
+            if (dataJson["data"] == "1") {
+                dataJson["data1"].forEach((item) => {
+                    $("#tbData tbody").append(
+                        $("<tr>").append(
+                            $("<td>").text(item.codigoUnidadNaval),
+                            $("<td>").text(item.codigoNivelEntrenamiento),
+                            $("<td>").text(item.codigoCapacidadOperativa),
+                            $("<td>").text(item.tipoCapacidadOperativa),
+                            $("<td>").text(item.codigoEjercicioEntrenamiento),
+                            $("<td>").text(item.fechaPeriodoEvaluar),
+                            $("<td>").text(item.fechaRealizacionEjercicio),
+                            $("<td>").text(item.tiempoVigencia),
+
+
+                        )
+                    )
+                })
+                Swal.fire(
+                    'Cargado!',
+                    'Vista previa con éxito.',
+                    'success'
+                )
+            } else {
+                Swal.fire(
+                    'Atención!',
+                    'Ocurrio un problema.',
+                    'error'
+                )
+            }
+        },
+        complete: function () {
+            $('#loader-6').hide();
+        }
+    });
+}
+
+function enviarDatos() {
+    const input = document.getElementById("inputExcel")
+    const formData = new FormData()
+
+    formData.append("ArchivoExcel", input.files[0])
+    formData.append("Fecha", $('#txtFecha').val())
+    fetch("ComfuavinavEvaluacionAlistamientoEntrenamiento/EnviarDatos", {
+        method: "POST",
+        body: formData
+    })
+        .then((response) => { return response.json() })
+        .then((mensaje) => {
+            if (mensaje == "1") {
+                Swal.fire(
+                    'Cargado!',
+                    'Se Cargo el archivo con éxito.',
+                    'success'
+                )
+            } else {
+                Swal.fire(
+                    'Atención!',
+                    'Ocurrio un problema. ' + mensaje,
+                    'error'
+                )
+            }
+        })
+}
+
 function cargaDatos() {
     $.getJSON('/ComfuavinavEvaluacionAlistamientoEntrenamiento/cargaCombs', [], function (Json) {
         var unidadNaval = Json["data1"];
-        var capacidadOperativa = Json["data2"];
-        var tipoCompetenciaTecnica = Json["data3"];
-        ejercicioEntrenamiento = Json["data4"];
-
+        var nivelEntrenamiento = Json["data2"];
+        var capacidadOperativa = Json["data3"];    
+        var ejercicioEntrenamiento = Json["data4"];
+        var listaCargas = Json["data5"];
 
         $("select#cbUnidadNaval").html("");
         $.each(unidadNaval, function () {
-            var RowContent = '<option value=' + this.unidadNavalId + '>' + this.descUnidadNaval + '</option>'
+            var RowContent = '<option value=' + this.codigoUnidadNaval + '>' + this.descUnidadNaval + '</option>'
             $("select#cbUnidadNaval").append(RowContent);
         });
         $("select#cbUnidadNavale").html("");
         $.each(unidadNaval, function () {
-            var RowContent = '<option value=' + this.unidadNavalId + '>' + this.descUnidadNaval + '</option>'
+            var RowContent = '<option value=' + this.codigoUnidadNaval + '>' + this.descUnidadNaval + '</option>'
             $("select#cbUnidadNavale").append(RowContent);
         });
 
+        $("select#cbNivelEntrenamiento").html("");
+        $.each(nivelEntrenamiento, function () {
+            var RowContent = '<option value=' + this.codigoNivelEntrenamiento + '>' + this.descNivelEntrenamiento + '</option>'
+            $("select#cbNivelEntrenamiento").append(RowContent);
+        });
+        $("select#cbNivelEntrenamientoe").html("");
+        $.each(nivelEntrenamiento, function () {
+            var RowContent = '<option value=' + this.codigoNivelEntrenamiento + '>' + this.descNivelEntrenamiento + '</option>'
+            $("select#cbNivelEntrenamientoe").append(RowContent);
+        });
 
         $("select#cbCapacidadOperativa").html("");
         $.each(capacidadOperativa, function () {
-            var RowContent = '<option value=' + this.capacidadOperativaId + '>' + this.descCapacidadOperativa + '</option>'
+            var RowContent = '<option value=' + this.codigoCapacidadOperativa + '>' + this.descCapacidadOperativa + '</option>'
             $("select#cbCapacidadOperativa").append(RowContent);
         });
+
         $("select#cbCapacidadOperativae").html("");
         $.each(capacidadOperativa, function () {
-            var RowContent = '<option value=' + this.capacidadOperativaId + '>' + this.descCapacidadOperativa + '</option>'
+            var RowContent = '<option value=' + this.codigoCapacidadOperativa + '>' + this.descCapacidadOperativa + '</option>'
             $("select#cbCapacidadOperativae").append(RowContent);
         });
 
-
-        $("select#cbTipoCompetenciaTecnica").html("");
-        $.each(tipoCompetenciaTecnica, function () {
-            var RowContent = '<option value=' + this.tipoCompetenciaTecnicaId + '>' + this.descTipoCompetenciaTecnica + '</option>'
-            $("select#cbTipoCompetenciaTecnica").append(RowContent);
-        });
-        $("select#cbTipoCompetenciaTecnicae").html("");
-        $.each(tipoCompetenciaTecnica, function () {
-            var RowContent = '<option value=' + this.tipoCompetenciaTecnicaId + '>' + this.descTipoCompetenciaTecnica + '</option>'
-            $("select#cbTipoCompetenciaTecnicae").append(RowContent);
-        });
-
-
         $("select#cbEjercicioEntrenamiento").html("");
         $.each(ejercicioEntrenamiento, function () {
-            var RowContent = '<option value=' + this.ejercicioEntrenamientoId + '>' + this.descEjercicioEntrenamiento + '</option>'
+            var RowContent = '<option value=' + this.codigoEjercicioEntrenamiento + '>' + this.codigoEjercicioEntrenamiento + '</option>'
             $("select#cbEjercicioEntrenamiento").append(RowContent);
-
-            $("input#txtCodigoEjercicioEntrenamiento").val(ejercicioEntrenamiento[0].codigoEjercicioEntrenamiento);
-
         });
 
         $("select#cbEjercicioEntrenamientoe").html("");
         $.each(ejercicioEntrenamiento, function () {
-            var RowContent = '<option value=' + this.ejercicioEntrenamientoId + '>' + this.descEjercicioEntrenamiento + '</option>'
+            var RowContent = '<option value=' + this.codigoEjercicioEntrenamiento + '>' + this.codigoEjercicioEntrenamiento + '</option>'
             $("select#cbEjercicioEntrenamientoe").append(RowContent);
+        });
+
+        $("select#cargasR").html("");
+        $("select#cargas").html("");
+        $("select#cargas").append('<option value=0>Seleccione Carga...</option>');
+        $.each(listaCargas, function () {
+            var RowContent = '<option value=' + this.codigoCarga + '>Fecha Carga : ' + this.fechaCarga + '</option>'
+            $("select#cargasR").append(RowContent);
+            $("select#cargas").append(RowContent);
         });
     });
 }
-
-
-$('select#cbEjercicioEntrenamiento').on('change', function () {
-
-    var codigo = $(this).val();
-
-    $.each(ejercicioEntrenamientoId, function () {
-        if (this.ejercicioEntrenamientoId == codigo) {
-            $("input#txtCodigoEjercicioEntrenamiento").val(this.codigoEjercicioEntrenamiento);
-        }
-    });
-});
-
-$('select#cbEjercicioEntrenamientoe').on('change', function () {
-
-    var codigo = $(this).val();
-
-    $.each(ejercicioEntrenamientoId, function () {
-        if (this.ejercicioEntrenamientoId == codigo) {
-            $("input#txtCodigoEjercicioEntrenamientoe").val(this.codigoEjercicioEntrenamiento);
-        }
-    });
-});

@@ -1,5 +1,6 @@
 ﻿using Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav;
 using Marina.Siesmar.Entidades.Formatos.Comfuavinav;
+using System.Data;
 
 namespace Marina.Siesmar.LogicaNegocios.Formatos.Comfuavinav
 {
@@ -7,17 +8,17 @@ namespace Marina.Siesmar.LogicaNegocios.Formatos.Comfuavinav
     {
         EvaluacionAlistamientoPersonalComfuavinavDAO evaluacionAlistamientoPersonalComfuavinavDAO = new();
 
-        public List<EvaluacionAlistamientoPersonalComfuavinavDTO> ObtenerLista()
+        public List<EvaluacionAlistamientoPersonalComfuavinavDTO> ObtenerLista(int? CargaId = null, string? fechainicio = null, string? fechafin = null)
         {
-            return evaluacionAlistamientoPersonalComfuavinavDAO.ObtenerLista();
+            return evaluacionAlistamientoPersonalComfuavinavDAO.ObtenerLista(CargaId, fechainicio, fechafin);
         }
 
-        public string AgregarRegistro(EvaluacionAlistamientoPersonalComfuavinavDTO evaluacionAlistamientoPersonalComfuavinavDTO)
+        public string AgregarRegistro(EvaluacionAlistamientoPersonalComfuavinavDTO evaluacionAlistamientoPersonalComfuavinavDTO, string? fecha)
         {
-            return evaluacionAlistamientoPersonalComfuavinavDAO.AgregarRegistro(evaluacionAlistamientoPersonalComfuavinavDTO);
+            return evaluacionAlistamientoPersonalComfuavinavDAO.AgregarRegistro(evaluacionAlistamientoPersonalComfuavinavDTO, fecha);
         }
 
-        public EvaluacionAlistamientoPersonalComfuavinavDTO BuscarFormato(int Codigo)
+        public EvaluacionAlistamientoPersonalComfuavinavDTO EditarFormato(int Codigo)
         {
             return evaluacionAlistamientoPersonalComfuavinavDAO.BuscarFormato(Codigo);
         }
@@ -32,9 +33,14 @@ namespace Marina.Siesmar.LogicaNegocios.Formatos.Comfuavinav
             return evaluacionAlistamientoPersonalComfuavinavDAO.EliminarFormato(evaluacionAlistamientoPersonalComfuavinavDTO);
         }
 
-        public bool InsercionMasiva(IEnumerable<EvaluacionAlistamientoPersonalComfuavinavDTO> evaluacionAlistamientoPersonalComfuavinavDTO)
+        public bool EliminarCarga(EvaluacionAlistamientoPersonalComfuavinavDTO evaluacionAlistamientoPersonalComfuavinavDTO)
         {
-            return evaluacionAlistamientoPersonalComfuavinavDAO.InsercionMasiva(evaluacionAlistamientoPersonalComfuavinavDTO);
+            return evaluacionAlistamientoPersonalComfuavinavDAO.EliminarCarga(evaluacionAlistamientoPersonalComfuavinavDTO);
+        }
+
+        public string InsertarDatos(DataTable datos, string fecha)
+        {
+            return evaluacionAlistamientoPersonalComfuavinavDAO.InsertarDatos(datos, fecha);
         }
 
     }

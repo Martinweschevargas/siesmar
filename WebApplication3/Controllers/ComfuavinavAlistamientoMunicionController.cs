@@ -53,7 +53,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
                 data1 = unidadNavalDTO,
                 data2 = alistamientoMunicionDTO,
                 data3 = listaCargas
-            }); ;
+            });
         }
 
         public IActionResult CargaTabla()
@@ -81,9 +81,9 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Content(IND_OPERACION);
         }
 
-        public ActionResult Mostrar(int Codigo)
+        public ActionResult Mostrar(int Id)
         {
-            return Json(alistamientoMunicionComfuavinavBL.EditarFormado(Codigo));
+            return Json(alistamientoMunicionComfuavinavBL.EditarFormado(Id));
         }
 
         //[AuthorizePermission(Formato: 150, Permiso: 2)]//Actualizar

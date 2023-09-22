@@ -1,4 +1,6 @@
 ﻿var tblComfuavinavEvaluacionAlistamientoDotacionVuelo;
+var reporteSeleccionado;
+var optReporteSelect;
 
 $(document).ready(function () {
     var forms = document.querySelectorAll('.needs-validation')
@@ -24,19 +26,21 @@ $(document).ready(function () {
                                 type: "POST",
                                 url: '/ComfuavinavEvaluacionAlistamientoDotacionVuelo/Insertar',
                                 data: {
-                                    'UnidadNavalId': $('#cbUnidadNaval').val(),
+                                    'CodigoUnidadNaval': $('#cbUnidadNaval').val(),
                                     'FechaEvaluacion': $('#txtFechaEvaluacion').val(),
                                     'DNIPersonal': $('#txtDNIPersonal').val(),
                                     'CIPPersonal': $('#txtCIPPersonal').val(),
-                                    'CargoPersonal': $('#txtCargoPersonal').val(),
-                                    'GradoPersonalMilitarEsperado': $('#cbGradoPersonalMilitarEsperado').val(),
-                                    'EspecialidadGenericaEsperado': $('#cbEspecialidadGenericaEsperado').val(),
-                                    'GradoPersonalMilitarActual': $('#cbGradoPersonalMilitarActual').val(),
-                                    'EspecialidadGenericaActual': $('#cbEspecialidadGenericaActual').val(),
+                                    'CodigoCargo': $('#cbCargoPersonal').val(),
+                                    'CodigoGradoPersonalMilitarEsperado': $('#cbGradoPersonalMilitarEsperado').val(),
+                                    'CodigoEspecialidadGenericaEsperado': $('#cbEspecialidadGenericaEsperado').val(),
+                                    'CodigoGradoPersonalMilitarActual': $('#cbGradoPersonalMilitarActual').val(),
+                                    'CodigoEspecialidadGenericaActual': $('#cbEspecialidadGenericaActual').val(),
                                     'GradoJerarquico': $('#txtGradoJerarquico').val(),
                                     'ServicioExperiencia': $('#txtServicioExperiencia').val(),
                                     'EspecializacionProfesional': $('#txtEspecializacionProfesional').val(),
-                                    'CursoProfesionalRequerido': $('#txtCursoProfesionalR').val(),
+                                    'CursoProfesionalRequerido': $('#txtCursoProfesionalRequerido').val(),
+                                    'CargaId': $('#cargasR').val(),
+                                    'Fecha': $('#txtFecha').val()
 
                                 },
                                 beforeSend: function () {
@@ -59,6 +63,9 @@ $(document).ready(function () {
                                     $('#listar').show();
                                     $('#nuevo').hide();
                                     $('#tblComfuavinavEvaluacionAlistamientoDotacionVuelo').DataTable().ajax.reload();
+                                    $('.needs-validation :input').val('');
+                                    $(".needs-validation").find("select").prop("selectedIndex", 0);
+                                    form.classList.remove('was-validated')
                                 },
                                 complete: function () {
                                     $('#loader-6').hide();
@@ -97,19 +104,19 @@ $(document).ready(function () {
                                 url: '/ComfuavinavEvaluacionAlistamientoDotacionVuelo/Actualizar',
                                 data: {
                                     'Id': $('#txtCodigo').val(),
-                                    'UnidadNavalId': $('#cbUnidadNavale').val(),
+                                    'CodigoUnidadNaval': $('#cbUnidadNavale').val(),
                                     'FechaEvaluacion': $('#txtFechaEvaluacione').val(),
                                     'DNIPersonal': $('#txtDNIPersonale').val(),
                                     'CIPPersonal': $('#txtCIPPersonale').val(),
-                                    'CargoPersonal': $('#txtCargoPersonale').val(),
-                                    'GradoPersonalMilitarEsperado': $('#cbGradoPersonalMilitarEsperadoe').val(),
-                                    'EspecialidadGenericaEsperado': $('#cbEspecialidadGenericaEsperadoe').val(),
-                                    'GradoPersonalMilitarActual': $('#cbGradoPersonalMilitarActuale').val(),
-                                    'EspecialidadGenericaActual': $('#cbEspecialidadGenericaActuale').val(),
+                                    'CodigoCargo': $('#cbCargoPersonale').val(),
+                                    'CodigoGradoPersonalMilitarEsperado': $('#cbGradoPersonalMilitarEsperadoe').val(),
+                                    'CodigoEspecialidadGenericaEsperado': $('#cbEspecialidadGenericaEsperadoe').val(),
+                                    'CodigoGradoPersonalMilitarActual': $('#cbGradoPersonalMilitarActuale').val(),
+                                    'CodigoEspecialidadGenericaActual': $('#cbEspecialidadGenericaActuale').val(),
                                     'GradoJerarquico': $('#txtGradoJerarquicoe').val(),
                                     'ServicioExperiencia': $('#txtServicioExperienciae').val(),
                                     'EspecializacionProfesional': $('#txtEspecializacionProfesionale').val(),
-                                    'CursoProfesionalRequerido': $('#txtCursoProfesionalRe').val(),
+                                    'CursoProfesionalRequerido': $('#txtCursoProfesionalRequeridoe').val(),
 
                                 },
                                 beforeSend: function () {
@@ -147,7 +154,7 @@ $(document).ready(function () {
             }, false)
         })
 
-    $('#tblComfuavinavEvaluacionAlistamientoDotacionVuelo').DataTable({
+   tblComfuavinavEvaluacionAlistamientoDotacionVuelo = $('#tblComfuavinavEvaluacionAlistamientoDotacionVuelo').DataTable({
         ajax: {
             "url": '/ComfuavinavEvaluacionAlistamientoDotacionVuelo/CargaTabla',
             "type": "GET",
@@ -159,18 +166,16 @@ $(document).ready(function () {
             { "data": "fechaEvaluacion" },
             { "data": "dniPersonal" },
             { "data": "cipPersonal" },
-            { "data": "cargoPersonal" },
-            { "data": "descGradoPersonalMilitarEspera" },
-            { "data": "descEspecialidadGenericaEspera" },
-            { "data": "descGradoPersonalMilitarActu" },
-            { "data": "descEspecialidadGenericaActu" },
+            { "data": "descCargo" },
+            { "data": "descGrado" },
+            { "data": "descEspecialidad" },
+            { "data": "descGradoPersonalMilitarActual" },
+            { "data": "descEspecialidadGenericaPersonalActual" },
             { "data": "gradoJerarquico" },
             { "data": "servicioExperiencia" },
             { "data": "especializacionProfesional" },
             { "data": "cursoProfesionalRequerido" },
-
-
-
+            { "data": "cargaId" },
             {
                 "render": function (data, type, row) {
                     return '<a class="txt" onclick=edit(' + row.evaluacionAlistamientoDotacionVueloId + ') title="Actualizar"><i class="fa fa-check-square-o" aria-hidden="true" style="color:black; padding-right:5px"></i>Editar</a>';
@@ -245,27 +250,47 @@ $(document).ready(function () {
         ]
     });
     cargaDatos();
+    cargaBusqueda();
 });
+
+$('#btn_search').click(function () {
+    cargaBusqueda();
+});
+
+
+$('#btn_all').click(function () {
+    mostrarTodos();
+});
+
+
+function cargaBusqueda() {
+    var CodigoCarga = $('#cargas').val();
+    tblComfuavinavEvaluacionAlistamientoDotacionVuelo.columns(14).search(CodigoCarga).draw();
+}
+
+function mostrarTodos() {
+
+    tblComfuavinavEvaluacionAlistamientoDotacionVuelo.columns(14).search('').draw();
+}
 
 function edit(Id) {
     $('#listar').hide();
     $('#editar').show();
     $.getJSON('/ComfuavinavEvaluacionAlistamientoDotacionVuelo/Mostrar?Id=' + Id, [], function (EvaluacionAlistamientoDotacionVueloComfuavinavDTO) {
         $('#txtCodigo').val(EvaluacionAlistamientoDotacionVueloComfuavinavDTO.evaluacionAlistamientoDotacionVueloId);
-        $('#cbUnidadNavale').val(EvaluacionAlistamientoDotacionVueloComfuavinavDTO.unidadNavalId);
+        $('#cbUnidadNavale').val(EvaluacionAlistamientoDotacionVueloComfuavinavDTO.codigoUnidadNaval);
         $('#txtFechaEvaluacione').val(EvaluacionAlistamientoDotacionVueloComfuavinavDTO.fechaEvaluacion);
         $('#txtDNIPersonale').val(EvaluacionAlistamientoDotacionVueloComfuavinavDTO.dniPersonal);
         $('#txtCIPPersonale').val(EvaluacionAlistamientoDotacionVueloComfuavinavDTO.cipPersonal);
-        $('#txtCargoPersonale').val(EvaluacionAlistamientoDotacionVueloComfuavinavDTO.cargoPersonal);
-        $('#cbGradoPersonalMilitarEsperadoe').val(EvaluacionAlistamientoDotacionVueloComfuavinavDTO.gradoPersonalMilitarEsperado);
-        $('#cbEspecialidadGenericaEsperadoe').val(EvaluacionAlistamientoDotacionVueloComfuavinavDTO.especialidadGenericaEsperado);
-        $('#cbGradoPersonalMilitarActuale').val(EvaluacionAlistamientoDotacionVueloComfuavinavDTO.gradoPersonalMilitarActual);
-        $('#cbEspecialidadGenericaActuale').val(EvaluacionAlistamientoDotacionVueloComfuavinavDTO.especialidadGenericaActual);
+        $('#cbCargoPersonale').val(EvaluacionAlistamientoDotacionVueloComfuavinavDTO.codigoCargo);
+        $('#cbGradoPersonalMilitarEsperadoe').val(EvaluacionAlistamientoDotacionVueloComfuavinavDTO.codigoGradoPersonalMilitarEsperado);
+        $('#cbEspecialidadGenericaEsperadoe').val(EvaluacionAlistamientoDotacionVueloComfuavinavDTO.codigoEspecialidadGenericaEsperado);
+        $('#cbGradoPersonalMilitarActuale').val(EvaluacionAlistamientoDotacionVueloComfuavinavDTO.codigoGradoPersonalMilitarActual);
+        $('#cbEspecialidadGenericaActuale').val(EvaluacionAlistamientoDotacionVueloComfuavinavDTO.codigoEspecialidadGenericaActual);
         $('#txtGradoJerarquicoe').val(EvaluacionAlistamientoDotacionVueloComfuavinavDTO.gradoJerarquico);
         $('#txtServicioExperienciae').val(EvaluacionAlistamientoDotacionVueloComfuavinavDTO.servicioExperiencia);
         $('#txtEspecializacionProfesionale').val(EvaluacionAlistamientoDotacionVueloComfuavinavDTO.especializacionProfesional);
-        $('#txtCursoProfesionalRe').val(EvaluacionAlistamientoDotacionVueloComfuavinavDTO.cursoProfesionalRequerido);
-
+        $('#txtCursoProfesionalRequeridoe').val(EvaluacionAlistamientoDotacionVueloComfuavinavDTO.cursoProfesionalRequerido); 
     });
 }
 
@@ -322,73 +347,246 @@ function nuevaComfuavinavEvaluacionAlistamientoDotacionVuelo() {
     $('#nuevo').show();
 }
 
+function mostrarDatos() {
+    const input = document.getElementById("inputExcel");
+    const formData = new FormData();
+    formData.append("ArchivoExcel", input.files[0]);
+    $.ajax({
+        type: "POST",
+        url: 'ComfuavinavEvaluacionAlistamientoDotacionVuelo/MostrarDatos',
+        data: formData,
+        processData: false,
+        contentType: false,
+        beforeSend: function () {
+            $('#loader-6').show();
+        },
+        success: function (dataJson) {
+            if (dataJson["data"] == "1") {
+                dataJson["data1"].forEach((item) => {
+                    $("#tbData tbody").append(
+                        $("<tr>").append(
+                            $("<td>").text(item.codigoUnidadNaval),
+                            $("<td>").text(item.fechaEvaluacion),
+                            $("<td>").text(item.dniPersonal),
+                            $("<td>").text(item.cipPersonal),
+                            $("<td>").text(item.codigoCargo),
+                            $("<td>").text(item.codigoGradoPersonalMilitarEsperado),
+                            $("<td>").text(item.codigoEspecialidadGenericaEsperado),
+                            $("<td>").text(item.codigoGradoPersonalMilitarActual),
+                            $("<td>").text(item.codigoEspecialidadGenericaActual),
+                            $("<td>").text(item.gradoJerarquico),
+                            $("<td>").text(item.servicioExperiencia),
+                            $("<td>").text(item.especializacionProfesional),
+                            $("<td>").text(item.cursoProfesionalRequerido)
+                        )
+                    )
+                })
+                Swal.fire(
+                    'Cargado!',
+                    'Vista previa con éxito.',
+                    'success'
+                )
+            } else {
+                Swal.fire(
+                    'Atención!',
+                    'Ocurrio un problema.',
+                    'error'
+                )
+            }
+        },
+        complete: function () {
+            $('#loader-6').hide();
+        }
+    });
+}
+
+function enviarDatos() {
+    const input = document.getElementById("inputExcel")
+    const formData = new FormData()
+
+    formData.append("ArchivoExcel", input.files[0])
+    formData.append("Fecha", $('#txtFecha').val())
+    fetch("ComfuavinavEvaluacionAlistamientoDotacionVuelo/EnviarDatos", {
+        method: "POST",
+        body: formData
+    })
+        .then((response) => { return response.json() })
+        .then((mensaje) => {
+            if (mensaje == "1") {
+                Swal.fire(
+                    'Cargado!',
+                    'Se Cargo el archivo con éxito.',
+                    'success'
+                )
+            } else {
+                Swal.fire(
+                    'Atención!',
+                    'Ocurrio un problema.' + mensaje,
+                    'error'
+                )
+            }
+        })
+}
+
+function eliminarCarga() {
+    var id = $('select#cargas').val();
+    Swal.fire({
+        title: 'Estas seguro?',
+        text: "No podras revertir!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si,borralo!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                type: "POST",
+                url: '/ComfuavinavEvaluacionAlistamientoDotacionVuelo/EliminarCarga',
+                data: {
+                    'Id': id
+                },
+                beforeSend: function () {
+                    $('#loader-6').show();
+                },
+                success: function (mensaje) {
+                    if (mensaje == "1") {
+                        Swal.fire(
+                            'Borrado!',
+                            'Se elimino con éxito.',
+                            'success'
+                        )
+                    } else {
+                        Swal.fire(
+                            'Atención!',
+                            'Ocurrio un problema.',
+                            'error'
+                        )
+                    }
+                    $('#listar').show();
+                    $('#nuevo').hide();
+                    $('#tblComfuavinavEvaluacionAlistamientoDotacionVuelo').DataTable().ajax.reload();
+                },
+                complete: function () {
+                    $('#loader-6').hide();
+                }
+            });
+        }
+    })
+}
+
 function cargaDatos() {
     $.getJSON('/ComfuavinavEvaluacionAlistamientoDotacionVuelo/cargaCombs', [], function (Json) {
-        var UnidadNaval = Json["data1"];
-        var GradoPersonalMilitarEsperado = Json["data2"];
-        var EspecialidadGenericaEsperado = Json["data3"];
+        var unidadNaval = Json["data1"];
+        var cargoPersonal = Json["data2"];
+        var gradoPersonalMilitarEsperado = Json["data3"];
+        var especialidadGenericaEsperado = Json["data4"];
+        var listaCargas = Json["data5"];
 
 
         $("select#cbUnidadNaval").html("");
-        $.each(UnidadNaval, function () {
-            var RowContent = '<option value=' + this.unidadNavalId + '>' + this.descUnidadNaval + '</option>'
+        $.each(unidadNaval, function () {
+            var RowContent = '<option value=' + this.codigoUnidadNaval + '>' + this.descUnidadNaval + '</option>'
             $("select#cbUnidadNaval").append(RowContent);
         });
         $("select#cbUnidadNavale").html("");
-        $.each(UnidadNaval, function () {
-            var RowContent = '<option value=' + this.unidadNavalId + '>' + this.descUnidadNaval + '</option>'
+        $.each(unidadNaval, function () {
+            var RowContent = '<option value=' + this.codigoUnidadNaval + '>' + this.descUnidadNaval + '</option>'
             $("select#cbUnidadNavale").append(RowContent);
         });
 
+        $("select#cbCargoPersonal").html("");
+        $.each(cargoPersonal, function () {
+            var RowContent = '<option value=' + this.codigoCargo + '>' + this.descCargo + '</option>'
+            $("select#cbCargoPersonal").append(RowContent);
+        });
+        $("select#cbCargoPersonale").html("");
+        $.each(cargoPersonal, function () {
+            var RowContent = '<option value=' + this.codigoCargo + '>' + this.descCargo + '</option>'
+            $("select#cbCargoPersonale").append(RowContent);
+        });
 
         $("select#cbGradoPersonalMilitarEsperado").html("");
-        $.each(GradoPersonalMilitarEsperado, function () {
-            var RowContent = '<option value=' + this.gradoPersonalMilitarId + '>' + this.descGradoPersonalMilitar + '</option>'
+        $.each(gradoPersonalMilitarEsperado, function () {
+            var RowContent = '<option value=' + this.codigoGradoPersonalMilitar + '>' + this.descGrado + '</option>'
             $("select#cbGradoPersonalMilitarEsperado").append(RowContent);
         });
         $("select#cbGradoPersonalMilitarEsperadoe").html("");
-        $.each(GradoPersonalMilitarEsperado, function () {
-            var RowContent = '<option value=' + this.gradoPersonalMilitarId + '>' + this.descGradoPersonalMilitar + '</option>'
+        $.each(gradoPersonalMilitarEsperado, function () {
+            var RowContent = '<option value=' + this.codigoGradoPersonalMilitar + '>' + this.descGrado + '</option>'
             $("select#cbGradoPersonalMilitarEsperadoe").append(RowContent);
         });
 
 
         $("select#cbEspecialidadGenericaEsperado").html("");
-        $.each(EspecialidadGenericaEsperado, function () {
-            var RowContent = '<option value=' + this.especialidadGenericaEsperadoId + '>' + this.descEspecialidadGenericaPersonal + '</option>'
+        $.each(especialidadGenericaEsperado, function () {
+            var RowContent = '<option value=' + this.codigoEspecialidadGenericaPersonal + '>' + this.descEspecialidad + '</option>'
             $("select#cbEspecialidadGenericaEsperado").append(RowContent);
         });
         $("select#cbEspecialidadGenericaEsperadoe").html("");
-        $.each(EspecialidadGenericaEsperado, function () {
-            var RowContent = '<option value=' + this.especialidadGenericaEsperadoId + '>' + this.descEspecialidadGenericaPersonal + '</option>'
+        $.each(especialidadGenericaEsperado, function () {
+            var RowContent = '<option value=' + this.codigoEspecialidadGenericaPersonal + '>' + this.descEspecialidad + '</option>'
             $("select#cbEspecialidadGenericaEsperadoe").append(RowContent);
         });
 
 
         $("select#cbGradoPersonalMilitarActual").html("");
-        $.each(GradoPersonalMilitarActual, function () {
-            var RowContent = '<option value=' + this.gradoPersonalMilitarId + '>' + this.descGradoPersonalMilitar + '</option>'
+        $.each(gradoPersonalMilitarEsperado, function () {
+            var RowContent = '<option value=' + this.codigoGradoPersonalMilitar + '>' + this.descGrado + '</option>'
             $("select#cbGradoPersonalMilitarActual").append(RowContent);
         });
         $("select#cbGradoPersonalMilitarActuale").html("");
-        $.each(GradoPersonalMilitarActual, function () {
-            var RowContent = '<option value=' + this.gradoPersonalMilitarId + '>' + this.descGradoPersonalMilitar + '</option>'
+        $.each(gradoPersonalMilitarEsperado, function () {
+            var RowContent = '<option value=' + this.codigoGradoPersonalMilitar + '>' + this.descGrado + '</option>'
             $("select#cbGradoPersonalMilitarActuale").append(RowContent);
         });
 
 
         $("select#cbEspecialidadGenericaActual").html("");
-        $.each(EspecialidadGenericaActual, function () {
-            var RowContent = '<option value=' + this.especialidadGenericaEsperadoId + '>' + this.descEspecialidadGenericaPersonal + '</option>'
+        $.each(especialidadGenericaEsperado, function () {
+            var RowContent = '<option value=' + this.codigoEspecialidadGenericaPersonal + '>' + this.descEspecialidad + '</option>'
             $("select#cbEspecialidadGenericaActual").append(RowContent);
         });
         $("select#cbEspecialidadGenericaActuale").html("");
-        $.each(EspecialidadGenericaActual, function () {
-            var RowContent = '<option value=' + this.especialidadGenericaEsperadoId + '>' + this.descEspecialidadGenericaPersonal + '</option>'
+        $.each(especialidadGenericaEsperado, function () {
+            var RowContent = '<option value=' + this.codigoEspecialidadGenericaPersonal + '>' + this.descEspecialidad + '</option>'
             $("select#cbEspecialidadGenericaActuale").append(RowContent);
         });
 
+        $("select#cargasR").html("");
+        $("select#cargas").html("");
+        $("select#cargas").append('<option value=0>Seleccione Carga...</option>');
+        $.each(listaCargas, function () {
+            var RowContent = '<option value=' + this.codigoCarga + '>Fecha Carga : ' + this.fechaCarga + '</option>'
+            $("select#cargasR").append(RowContent);
+            $("select#cargas").append(RowContent);
+
+        });
 
     });
 }
 
+function optReporte(id) {
+    optReporteSelect = id;
+
+    reporteSeleccionado = '/DipermarProcedimientoAdministrativoCivil/ReportePAC';
+}
+
+
+$('#btnReportView').click(function () {
+    var idCarga = $('select#cargas').val();
+    var a = document.createElement('a');
+    a.target = "_blank";
+
+    var numCarga;
+    if (idCarga == "0") {
+        numCarga = '?CargaId=' + "";
+    } else {
+        numCarga = '?CargaId=' + idCarga;
+    }
+
+    if (optReporteSelect == 1) {
+        a.href = reporteSeleccionado + numCarga;
+    }
+    a.click();
+});
