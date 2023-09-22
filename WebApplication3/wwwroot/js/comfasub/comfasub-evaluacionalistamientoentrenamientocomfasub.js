@@ -163,6 +163,7 @@ $(document).ready(function () {
             { "data": "descNivelEntrenamiento" },
             { "data": "descCapacidadOperativa" },
             { "data": "tipoCapacidadOperativa" },
+            { "data": "codigoEjercicioEntrenamientoComfasub" },
             { "data": "descEjercicioEntrenamiento" },
             { "data": "ejercicioEntrenamientoAspectos" },
             { "data": "pesoAspectosEjercicio" },
@@ -196,7 +197,7 @@ $(document).ready(function () {
                 filename: 'Comfasub - Evaluación del alistamiento del entrenamiento',
                 title: '',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
                 },
                 className: 'btn-exportar-csv',
             },
@@ -207,7 +208,7 @@ $(document).ready(function () {
                 filename: 'Comfasub - Evaluación del alistamiento del entrenamiento',
                 title: 'Comfasub - Evaluación del alistamiento del entrenamiento',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
                 },
                 className: 'btn-exportar-excel',
             },
@@ -218,7 +219,7 @@ $(document).ready(function () {
                 filename: 'Comfasub - Evaluación del alistamiento del entrenamiento',
                 title: 'Comfasub - Evaluación del alistamiento del entrenamiento',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
                 },
                 className: 'btn-exportar-pdf',
             },
@@ -227,7 +228,7 @@ $(document).ready(function () {
                 extend: 'print',
                 title: 'Comfasub - Evaluación del alistamiento del entrenamiento',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
                 },
                 className: 'btn-exportar-print'
 
@@ -260,11 +261,11 @@ $('#btn_all').click(function () {
 
 function cargaBusqueda() {
     var CodigoCarga = $('#cargas').val();
-    tblComfasubEvaluacionAlistamientoEntrenamientoComfasub.columns(14).search(CodigoCarga).draw();
+    tblComfasubEvaluacionAlistamientoEntrenamientoComfasub.columns(15).search(CodigoCarga).draw();
 }
 
 function mostrarTodos() {
-    tblComfasubEvaluacionAlistamientoEntrenamientoComfasub.columns(14).search('').draw();
+    tblComfasubEvaluacionAlistamientoEntrenamientoComfasub.columns(15).search('').draw();
 }
 
 function edit(Id) {
@@ -408,7 +409,7 @@ function mostrarDatos() {
                             $("<td>").text(item.codigoUnidadNaval),
                             $("<td>").text(item.codigoNivelEntrenamiento),
                             $("<td>").text(item.codigoCapacidadOperativa),
-                            $("<td>").text(item.TipoCapacidadOperativa),
+                            $("<td>").text(item.tipoCapacidadOperativa),
                             $("<td>").text(item.codigoEjercicioEntrenamientoComfasub),
                             $("<td>").text(item.ejercicioEntrenamientoAspectos),
                             $("<td>").text(item.pesoAspectosEjercicio),

@@ -19,8 +19,8 @@ namespace Marina.Siesmar.Presentacion.Controllers
             _logger = logger;
         }
 
-        readonly EjercicioEntrenamientoComfasubDAO EjercicioEntrenamientoComfasubBL = new();
-        CapacidadOperativaDAO CapacidadOperativaBL = new();
+        readonly EjercicioEntrenamientoComfasub EjercicioEntrenamientoComfasubBL = new();
+        CapacidadOperativa CapacidadOperativaBL = new();
 
         //[Authorize(Roles = "Administrador,Supervisor,Empleado")]
         [Breadcrumb(FromAction = "Index", Title = "Ejercicios Entrenamientos Comfasub", FromController = typeof(HomeController))]
@@ -32,8 +32,8 @@ namespace Marina.Siesmar.Presentacion.Controllers
         [HttpGet]
         public IActionResult cargaCombs()
         {
-            List<CapacidadOperativaDTO> CapacidadOperativaDTO = CapacidadOperativaBL.ObtenerCapacidadOperativas();
-            return Json(new { data = CapacidadOperativaDTO });
+            List<CapacidadOperativaDTO> capacidadOperativaDTO = CapacidadOperativaBL.ObtenerCapacidadOperativas();
+            return Json(new { data = capacidadOperativaDTO });
         }
 
         public JsonResult CargarDatos()
@@ -47,16 +47,16 @@ namespace Marina.Siesmar.Presentacion.Controllers
             var IND_OPERACION = "";
             try
             {
-                EjercicioEntrenamientoComfasubDTO EjercicioEntrenamientoComfasubDTO = new();
-                EjercicioEntrenamientoComfasubDTO.CodigoEjercicioEntrenamiento = CodigoEjercicioEntrenamiento;
-                EjercicioEntrenamientoComfasubDTO.DescEjercicioEntrenamiento = DescEjercicioEntrenamiento;
-                EjercicioEntrenamientoComfasubDTO.CodigoCapacidadOperativa = CodigoCapacidadOperativa;
-                EjercicioEntrenamientoComfasubDTO.NivelEjercicio = NivelEjercicio;
-                EjercicioEntrenamientoComfasubDTO.VigenciaDiasClaseIslay = VigenciaIslay;
-                EjercicioEntrenamientoComfasubDTO.VigenciaDiasClaseAngamos = VigenciaAngamos;
-                EjercicioEntrenamientoComfasubDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
+                EjercicioEntrenamientoComfasubDTO ejercicioEntrenamientoComfasubDTO = new();
+                ejercicioEntrenamientoComfasubDTO.CodigoEjercicioEntrenamiento = CodigoEjercicioEntrenamiento;
+                ejercicioEntrenamientoComfasubDTO.DescEjercicioEntrenamiento = DescEjercicioEntrenamiento;
+                ejercicioEntrenamientoComfasubDTO.CodigoCapacidadOperativa = CodigoCapacidadOperativa;
+                ejercicioEntrenamientoComfasubDTO.NivelEjercicio = NivelEjercicio;
+                ejercicioEntrenamientoComfasubDTO.VigenciaDiasClaseIslay = VigenciaIslay;
+                ejercicioEntrenamientoComfasubDTO.VigenciaDiasClaseAngamos = VigenciaAngamos;
+                ejercicioEntrenamientoComfasubDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
-                IND_OPERACION = EjercicioEntrenamientoComfasubBL.AgregarEjercicioEntrenamientoComfasub(EjercicioEntrenamientoComfasubDTO);
+                IND_OPERACION = EjercicioEntrenamientoComfasubBL.AgregarEjercicioEntrenamientoComfasub(ejercicioEntrenamientoComfasubDTO);
 
                 //_logger.LogWarning(IND_OPERACION);
             }
@@ -68,35 +68,35 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Content(IND_OPERACION);
         }
 
-        public ActionResult MostrarEjercicioEntrenamientoComfasub(int EjercicioEntrenamientoComfasubId)
+        public ActionResult MostrarEjercicioEntrenamientoComfasub(int Id)
         {
-            return Json(EjercicioEntrenamientoComfasubBL.BuscarEjercicioEntrenamientoComfasubID(EjercicioEntrenamientoComfasubId));
+            return Json(EjercicioEntrenamientoComfasubBL.BuscarEjercicioEntrenamientoComfasubID(Id));
         }
 
-        public ActionResult ActualizarEjercicioEntrenamientoComfasub(int EjercicioEntrenamientoComfasubId, string DescEjercicioEntrenamiento, string CodigoEjercicioEntrenamiento, string CodigoCapacidadOperativa, string NivelEjercicio, int VigenciaIslay, int VigenciaAngamos)
+        public ActionResult ActualizarEjercicioEntrenamientoComfasub(int Id, string DescEjercicioEntrenamiento, string CodigoEjercicioEntrenamiento, string CodigoCapacidadOperativa, string NivelEjercicio, int VigenciaIslay, int VigenciaAngamos)
         {
-            EjercicioEntrenamientoComfasubDTO EjercicioEntrenamientoComfasubDTO = new();
-            EjercicioEntrenamientoComfasubDTO.EjercicioEntrenamientoComfasubId = EjercicioEntrenamientoComfasubId;
-            EjercicioEntrenamientoComfasubDTO.CodigoEjercicioEntrenamiento = CodigoEjercicioEntrenamiento;
-            EjercicioEntrenamientoComfasubDTO.DescEjercicioEntrenamiento = DescEjercicioEntrenamiento;
-            EjercicioEntrenamientoComfasubDTO.CodigoCapacidadOperativa = CodigoCapacidadOperativa;
-            EjercicioEntrenamientoComfasubDTO.NivelEjercicio = NivelEjercicio;
-            EjercicioEntrenamientoComfasubDTO.VigenciaDiasClaseIslay = VigenciaIslay;
-            EjercicioEntrenamientoComfasubDTO.VigenciaDiasClaseAngamos = VigenciaAngamos;
-            EjercicioEntrenamientoComfasubDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
+            EjercicioEntrenamientoComfasubDTO ejercicioEntrenamientoComfasubDTO = new();
+            ejercicioEntrenamientoComfasubDTO.EjercicioEntrenamientoComfasubId = Id;
+            ejercicioEntrenamientoComfasubDTO.CodigoEjercicioEntrenamiento = CodigoEjercicioEntrenamiento;
+            ejercicioEntrenamientoComfasubDTO.DescEjercicioEntrenamiento = DescEjercicioEntrenamiento;
+            ejercicioEntrenamientoComfasubDTO.CodigoCapacidadOperativa = CodigoCapacidadOperativa;
+            ejercicioEntrenamientoComfasubDTO.NivelEjercicio = NivelEjercicio;
+            ejercicioEntrenamientoComfasubDTO.VigenciaDiasClaseIslay = VigenciaIslay;
+            ejercicioEntrenamientoComfasubDTO.VigenciaDiasClaseAngamos = VigenciaAngamos;
+            ejercicioEntrenamientoComfasubDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
-            var IND_OPERACION = EjercicioEntrenamientoComfasubBL.ActualizarEjercicioEntrenamientoComfasub(EjercicioEntrenamientoComfasubDTO);
+            var IND_OPERACION = EjercicioEntrenamientoComfasubBL.ActualizarEjercicioEntrenamientoComfasub(ejercicioEntrenamientoComfasubDTO);
 
             return Content(IND_OPERACION);
         }
 
-        public ActionResult EliminarEjercicioEntrenamientoComfasub(int EjercicioEntrenamientoComfasubId)
+        public ActionResult EliminarEjercicioEntrenamientoComfasub(int Id)
         {
-            EjercicioEntrenamientoComfasubDTO EjercicioEntrenamientoComfasubDTO = new();
-            EjercicioEntrenamientoComfasubDTO.EjercicioEntrenamientoComfasubId = EjercicioEntrenamientoComfasubId;
-            EjercicioEntrenamientoComfasubDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
+            EjercicioEntrenamientoComfasubDTO ejercicioEntrenamientoComfasubDTO = new();
+            ejercicioEntrenamientoComfasubDTO.EjercicioEntrenamientoComfasubId = Id;
+            ejercicioEntrenamientoComfasubDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
-            var IND_OPERACION = EjercicioEntrenamientoComfasubBL.EliminarEjercicioEntrenamientoComfasub(EjercicioEntrenamientoComfasubDTO);
+            var IND_OPERACION = EjercicioEntrenamientoComfasubBL.EliminarEjercicioEntrenamientoComfasub(ejercicioEntrenamientoComfasubDTO);
 
             return Content(IND_OPERACION);
         }

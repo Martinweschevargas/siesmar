@@ -51,6 +51,9 @@ $(document).ready(function () {
                                     $('#listar').show();
                                     $('#nuevo').hide();
                                     $('#tblEjercicioEntrenamientoComfasubs').DataTable().ajax.reload();
+                                    $('.needs-validation :input').val('');
+                                    $(".needs-validation").find("select").prop("selectedIndex", 0);
+                                    form.classList.remove('was-validated')
                                 },
                                 complete: function () {
                                     $('#loader-6').hide();
@@ -86,7 +89,7 @@ $(document).ready(function () {
                                 type: "POST",
                                 url: '/EjercicioEntrenamientoComfasub/ActualizarEjercicioEntrenamientoComfasub',
                                 data: {
-                                    'EjercicioEntrenamientoComfasubId': $('#txtCodigo').val(),
+                                    'Id': $('#txtCodigo').val(),
                                     'CodigoEjercicioEntrenamiento': $('#txtCodee').val(),
                                     'CodigoCapacidadOperativa': $('#cbFKe').val(),
                                     'DescEjercicioEntrenamiento': $('#txtDescripcione').val(),
@@ -170,13 +173,13 @@ $(document).ready(function () {
 
 });
 
-function edit(EjercicioEntrenamientoComfasubId) {
+function edit(Id) {
     $('#listar').hide();
     $('#editar').show();
-    $.getJSON('/EjercicioEntrenamientoComfasub/MostrarEjercicioEntrenamientoComfasub?EjercicioEntrenamientoComfasubId=' + EjercicioEntrenamientoComfasubId, [], function (EjercicioEntrenamientoComfasubDTO) {
+    $.getJSON('/EjercicioEntrenamientoComfasub/MostrarEjercicioEntrenamientoComfasub?Id=' + Id, [], function (EjercicioEntrenamientoComfasubDTO) {
         $('#txtCodigo').val(EjercicioEntrenamientoComfasubDTO.ejercicioEntrenamientoComfasubId);
-        $('#txtDescripcione').val(EjercicioEntrenamientoComfasubDTO.descEjercicioEntrenamiento);
         $('#txtCodee').val(EjercicioEntrenamientoComfasubDTO.codigoEjercicioEntrenamiento);
+        $('#txtDescripcione').val(EjercicioEntrenamientoComfasubDTO.descEjercicioEntrenamiento);
         $('#cbFKe').val(EjercicioEntrenamientoComfasubDTO.codigoCapacidadOperativa);
         $('#txtNivele').val(EjercicioEntrenamientoComfasubDTO.nivelEjercicio);
         $('#txtVigenciaIslaye').val(EjercicioEntrenamientoComfasubDTO.vigenciaDiasClaseIslay);
@@ -238,6 +241,7 @@ function nuevaEjercicioEntrenamientoComfasub() {
 function cargaCombo() {
     $.getJSON('/EjercicioEntrenamientoComfasub/cargaCombs', [], function (Json) {
         var capacidadOperativa = Json["data"];
+
         $("select#cbFK").html("");
         $("select#cbFKe").html("");
         $.each(capacidadOperativa, function () {

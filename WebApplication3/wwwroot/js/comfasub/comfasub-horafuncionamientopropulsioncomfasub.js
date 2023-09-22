@@ -149,6 +149,7 @@ $(document).ready(function () {
         "columns": [
             { "data": "horaFuncionamientoPropulsionComfasubId" },
             { "data": "descUnidadNaval" },
+            { "data": "descSistemaPropulsion" },
             { "data": "descEquipoSistemaPropulsion" },
             { "data": "horaFijadaRecorridoTotal" },
             { "data": "horaFijadaRecorridoParcial" },  
@@ -179,7 +180,7 @@ $(document).ready(function () {
                 filename: 'Comfasub - Horas Funcionamiento Motor de Propulsion',
                 title: '',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 className: 'btn-exportar-csv',
             },
@@ -190,7 +191,7 @@ $(document).ready(function () {
                 filename: 'Comfasub - Horas Funcionamiento Motor de Propulsion',
                 title: 'Comfasub - Horas Funcionamiento Motor de Propulsion',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 className: 'btn-exportar-excel',
             },
@@ -201,7 +202,7 @@ $(document).ready(function () {
                 filename: 'Comfasub - Horas Funcionamiento Motor de Propulsion',
                 title: 'Comfasub - Horas Funcionamiento Motor de Propulsion',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 className: 'btn-exportar-pdf',
             },
@@ -210,7 +211,7 @@ $(document).ready(function () {
                 extend: 'print',
                 title: 'Comfasub - Horas Funcionamiento Motor de Propulsion',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 className: 'btn-exportar-print'
 
@@ -243,11 +244,11 @@ $('#btn_all').click(function () {
 
 function cargaBusqueda() {
     var CodigoCarga = $('#cargas').val();
-    tblComfasubHoraFuncionamientoPropulsionComfasub.columns(8).search(CodigoCarga).draw();
+    tblComfasubHoraFuncionamientoPropulsionComfasub.columns(9).search(CodigoCarga).draw();
 }
 
 function mostrarTodos() {
-    tblComfasubHoraFuncionamientoPropulsionComfasub.columns(8).search('').draw();
+    tblComfasubHoraFuncionamientoPropulsionComfasub.columns(9).search('').draw();
 }
 
 

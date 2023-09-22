@@ -81,7 +81,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
             subSistemaPropulsionDTO.SubSistemaPropulsionId = SubSistemaPropulsionId;
             subSistemaPropulsionDTO.CodigoSubSistemaPropulsion = CodigoSubSistemaPropulsion;
             subSistemaPropulsionDTO.DescSubSistemaPropulsion = Descripcion;
-            subSistemaPropulsionDTO.CodigoSistemaPropulsion = CodigoSubSistemaPropulsion;
+            subSistemaPropulsionDTO.CodigoSistemaPropulsion = CodigoSistemaPropulsion;
             subSistemaPropulsionDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
             var IND_OPERACION = subSistemaPropulsionBL.ActualizarSubSistemaPropulsion(subSistemaPropulsionDTO);

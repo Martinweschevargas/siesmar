@@ -63,6 +63,10 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
 
                     cmd.Parameters.Add("@Ip", SqlDbType.VarChar, 50);
                     cmd.Parameters["@Ip"].Value = UtilitariosGlobales.obtenerDireccionIp();
+
+                    cmd.Parameters.Add("@Mac", SqlDbType.VarChar, 50);
+                    cmd.Parameters["@Mac"].Value = UtilitariosGlobales.obtenerDireccionMac();
+
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
                         dr.Read();
@@ -77,9 +81,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     IND_OPERACION = ex.Message;
                 }
             }
-#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return IND_OPERACION;
-#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
 
         public PartidaDTO BuscarPartidaID(int Codigo)
@@ -137,20 +139,24 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd.Parameters.Add("@DescPartida", SqlDbType.VarChar, 50);
                     cmd.Parameters["@DescPartida"].Value = partidaDTO.DescPartida;
 
-                    cmd.Parameters.Add("@CodigoPartida", SqlDbType.VarChar, 10);
+                    cmd.Parameters.Add("@CodigoPartida", SqlDbType.VarChar, 20);
                     cmd.Parameters["@CodigoPartida"].Value = partidaDTO.CodigoPartida;
 
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
                     cmd.Parameters["@Usuario"].Value = partidaDTO.UsuarioIngresoRegistro;
+
+                    cmd.Parameters.Add("@Ip", SqlDbType.VarChar, 50);
+                    cmd.Parameters["@Ip"].Value = UtilitariosGlobales.obtenerDireccionIp();
+
+                    cmd.Parameters.Add("@Mac", SqlDbType.VarChar, 50);
+                    cmd.Parameters["@Mac"].Value = UtilitariosGlobales.obtenerDireccionMac();
 
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
                         dr.Read();
                         if (dr.HasRows)
                         {
-#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                             IND_OPERACION = dr["IND_OPERACION"].ToString();
-#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                         }
                     }
                 }
@@ -159,16 +165,13 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
             {
                 IND_OPERACION = ex.Message;
             }
-#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return IND_OPERACION;
-#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
 
-        public bool EliminarPartida(int Codigo)
+        public string EliminarPartida(PartidaDTO partidaDTO)
         {
-            bool eliminado = false;
+            string IND_OPERACION = "0";
             var cn = new ConfiguracionConexion();
-
             try
             {
                 using (var conexion = new SqlConnection(cn.getCadenaSQL()))
@@ -178,17 +181,31 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.Add("@PartidaId", SqlDbType.Int);
-                    cmd.Parameters["@PartidaId"].Value = Codigo;
-                    cmd.ExecuteNonQuery();
-                    eliminado = true;
+                    cmd.Parameters["@PartidaId"].Value = partidaDTO.PartidaId;
+
+                    cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
+                    cmd.Parameters["@Usuario"].Value = partidaDTO.UsuarioIngresoRegistro;
+
+                    cmd.Parameters.Add("@Ip", SqlDbType.VarChar, 50);
+                    cmd.Parameters["@Ip"].Value = UtilitariosGlobales.obtenerDireccionIp();
+
+                    cmd.Parameters.Add("@Mac", SqlDbType.VarChar, 50);
+                    cmd.Parameters["@Mac"].Value = UtilitariosGlobales.obtenerDireccionMac();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        dr.Read();
+                        if (dr.HasRows)
+                        {
+                            IND_OPERACION = dr["IND_OPERACION"].ToString();
+                        }
+                    }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                IND_OPERACION = ex.Message;
             }
-
-            return eliminado;
+            return IND_OPERACION;
         }
 
     }

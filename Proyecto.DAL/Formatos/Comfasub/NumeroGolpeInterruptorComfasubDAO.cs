@@ -42,6 +42,8 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfasub
                         {
                             NumeroGolpeInterruptorComfasubId = Convert.ToInt32(dr["NumeroGolpeInterruptorComfasubId"]),
                             DescUnidadNaval = dr["DescUnidadNaval"].ToString(),
+                            DescSistemaPropulsion = dr["DescSistemaPropulsion"].ToString(),
+                            DescSubSistemaPropulsion = dr["DescSubSistemaPropulsion"].ToString(),
                             DescEquipoSistemaPropulsion = dr["DescEquipoSistemaPropulsion"].ToString(),
                             GolpeFijadoRecorridoTotal = Convert.ToInt32(dr["GolpeFijadoRecorridoTotal"]),
                             GolpeFijadoRecorridoParcial = Convert.ToInt32(dr["GolpeFijadoRecorridoParcial"]),

@@ -130,11 +130,11 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd = new SqlCommand("Mantenimiento.usp_SistemaPropulsionActualizar", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add("@CodigoSistemaPropulsion", SqlDbType.VarChar, 20);
-                    cmd.Parameters["@CodigoSistemaPropulsion"].Value = sistemaPropulsionDTO.CodigoSistemaPropulsion;
-
                     cmd.Parameters.Add("@SistemaPropulsionId", SqlDbType.Int);
                     cmd.Parameters["@SistemaPropulsionId"].Value = sistemaPropulsionDTO.SistemaPropulsionId;
+
+                    cmd.Parameters.Add("@CodigoSistemaPropulsion", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoSistemaPropulsion"].Value = sistemaPropulsionDTO.CodigoSistemaPropulsion;
 
                     cmd.Parameters.Add("@DescSistemaPropulsion", SqlDbType.VarChar, 50);
                     cmd.Parameters["@DescSistemaPropulsion"].Value = sistemaPropulsionDTO.DescSistemaPropulsion;

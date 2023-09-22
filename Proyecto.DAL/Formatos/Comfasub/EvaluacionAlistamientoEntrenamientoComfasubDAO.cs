@@ -46,6 +46,7 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfasub
                             DescNivelEntrenamiento = dr["DescNivelEntrenamiento"].ToString(),
                             DescCapacidadOperativa = dr["DescCapacidadOperativa"].ToString(),
                             TipoCapacidadOperativa = dr["TipoCapacidadOperativa"].ToString(),
+                            CodigoEjercicioEntrenamientoComfasub = dr["CodigoEjercicioEntrenamiento"].ToString(),
                             DescEjercicioEntrenamiento = dr["DescEjercicioEntrenamiento"].ToString(),
                             EjercicioEntrenamientoAspectos = dr["EjercicioEntrenamientoAspectos"].ToString(),
                             PesoAspectosEjercicio = dr["PesoAspectosEjercicio"].ToString(),

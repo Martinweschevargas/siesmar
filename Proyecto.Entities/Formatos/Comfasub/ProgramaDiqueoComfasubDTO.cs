@@ -12,6 +12,8 @@ namespace Marina.Siesmar.Entidades.Formatos.Comfasub
         public string? FechaSalida { get; set; }
         public int? PermanenciaDia { get; set; }
         public string? DescUnidadNaval { get; set; }
+        public string? CapacidadIntrinseca { get; set; }
+        public string? Subclasificacion { get; set; }
         public int? CargaId { get; set; }
 
         [NotMapped]

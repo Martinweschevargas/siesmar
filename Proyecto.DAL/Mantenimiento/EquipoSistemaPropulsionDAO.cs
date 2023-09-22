@@ -110,6 +110,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     if (dr.HasRows)
                     {
                         equipoSistemaPropulsionDTO.EquipoSistemaPropulsionId = Convert.ToInt32(dr["EquipoSistemaPropulsionId"]);
+                        equipoSistemaPropulsionDTO.CodigoEquipoSistemaPropulsion = dr["CodigoEquipoSistemaPropulsion"].ToString();
                         equipoSistemaPropulsionDTO.DescEquipoSistemaPropulsion = dr["DescEquipoSistemaPropulsion"].ToString();
                         equipoSistemaPropulsionDTO.CodigoSubSistemaPropulsion = dr["CodigoSubSistemaPropulsion"].ToString();
                     }
@@ -123,7 +124,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
             return equipoSistemaPropulsionDTO;
         }
 
-        public string ActualizarEquipoSistemaPropulsion(EquipoSistemaPropulsionDTO equipoSistemaPropulsionDTO)
+        public string ActualizaEquipoSistemaPropulsion(EquipoSistemaPropulsionDTO equipoSistemaPropulsionDTO)
         {
             string IND_OPERACION = "0";
             var cn = new ConfiguracionConexion();

@@ -42,6 +42,7 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfasub
                         {
                             HoraFuncionamientoPropulsionComfasubId = Convert.ToInt32(dr["HoraFuncionamientoPropulsionComfasubId"]),
                             DescUnidadNaval = dr["DescUnidadNaval"].ToString(),
+                            DescSistemaPropulsion = dr["DescSistemaPropulsion"].ToString(),
                             DescEquipoSistemaPropulsion = dr["DescEquipoSistemaPropulsion"].ToString(),
                             HoraFijadaRecorridoTotal = Convert.ToInt32(dr["HoraFijadaRecorridoTotal"]),
                             HoraFijadaRecorridoParcial = Convert.ToInt32(dr["HoraFijadaRecorridoParcial"]),
