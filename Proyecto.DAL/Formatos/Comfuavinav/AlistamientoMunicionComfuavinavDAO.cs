@@ -50,7 +50,7 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                             Existente = dr["Existente"].ToString(),
                             Necesaria = Convert.ToInt32(dr["Necesaria"]),
                             CoeficientePonderacion = Convert.ToInt32(dr["CoeficientePonderacion"]),
-                            CargaId = Convert.ToInt32(dr["CargaId"]),
+                            CargaId = Convert.ToInt32(dr["CargaId"])
                         });
                     }
                 }
@@ -157,14 +157,13 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                     cmd = new SqlCommand("Formato.usp_AlistamientoMunicionComfuavinavActualizar", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-
                     cmd.Parameters.Add("@AlistamientoMunicionComfuavinavId", SqlDbType.Int);
                     cmd.Parameters["@AlistamientoMunicionComfuavinavId"].Value = alistamientoMunicionComfuavinavDTO.AlistamientoMunicionComfuavinavId;
 
-                    cmd.Parameters.Add("@CodigoUnidadNaval", SqlDbType.VarChar);
+                    cmd.Parameters.Add("@CodigoUnidadNaval", SqlDbType.VarChar, 20);
                     cmd.Parameters["@CodigoUnidadNaval"].Value = alistamientoMunicionComfuavinavDTO.CodigoUnidadNaval;
 
-                    cmd.Parameters.Add("@CodigoAlistamientoMunicion", SqlDbType.VarChar);
+                    cmd.Parameters.Add("@CodigoAlistamientoMunicion", SqlDbType.VarChar, 20);
                     cmd.Parameters["@CodigoAlistamientoMunicion"].Value = alistamientoMunicionComfuavinavDTO.CodigoAlistamientoMunicion;
 
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);

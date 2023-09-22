@@ -5,7 +5,7 @@ namespace Marina.Siesmar.Entidades.Formatos.Comfuavinav
     public partial class AlistamientoMunicionComfuavinavDTO
     {
 
-        public int AlistamientoMunicionComfuavinavId { get; set; }
+        public int? AlistamientoMunicionComfuavinavId { get; set; }
         public string? CodigoUnidadNaval { get; set; }
         public string? CodigoAlistamientoMunicion { get; set; }
         public int? CargaId { get; set; }

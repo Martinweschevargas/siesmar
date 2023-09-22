@@ -1,5 +1,8 @@
 ﻿using Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav;
+using Marina.Siesmar.AccesoDatos.Formatos.Diali;
 using Marina.Siesmar.Entidades.Formatos.Comfuavinav;
+using Marina.Siesmar.Entidades.Formatos.Diali;
+using System.Data;
 
 namespace Marina.Siesmar.LogicaNegocios.Formatos.Comfuavinav
 {
@@ -7,14 +10,14 @@ namespace Marina.Siesmar.LogicaNegocios.Formatos.Comfuavinav
     {
         EvaluacionAlistamientoDotacionVueloComfuavinavDAO evaluacionAlistamientoDotacionVueloComfuavinavDAO = new();
 
-        public List<EvaluacionAlistamientoDotacionVueloComfuavinavDTO> ObtenerLista()
+        public List<EvaluacionAlistamientoDotacionVueloComfuavinavDTO> ObtenerLista(int? CargaId = null, string? fechainicio = null, string? fechafin = null)
         {
-            return evaluacionAlistamientoDotacionVueloComfuavinavDAO.ObtenerLista();
+            return evaluacionAlistamientoDotacionVueloComfuavinavDAO.ObtenerLista(CargaId, fechainicio, fechafin);
         }
 
-        public string AgregarRegistro(EvaluacionAlistamientoDotacionVueloComfuavinavDTO evaluacionAlistamientoDotacionVueloComfuavinavDTO)
+        public string AgregarRegistro(EvaluacionAlistamientoDotacionVueloComfuavinavDTO evaluacionAlistamientoDotacionVueloComfuavinavDTO, string? fecha)
         {
-            return evaluacionAlistamientoDotacionVueloComfuavinavDAO.AgregarRegistro(evaluacionAlistamientoDotacionVueloComfuavinavDTO);
+            return evaluacionAlistamientoDotacionVueloComfuavinavDAO.AgregarRegistro(evaluacionAlistamientoDotacionVueloComfuavinavDTO, fecha);
         }
 
         public EvaluacionAlistamientoDotacionVueloComfuavinavDTO BuscarFormato(int Codigo)
@@ -32,10 +35,16 @@ namespace Marina.Siesmar.LogicaNegocios.Formatos.Comfuavinav
             return evaluacionAlistamientoDotacionVueloComfuavinavDAO.EliminarFormato(evaluacionAlistamientoDotacionVueloComfuavinavDTO);
         }
 
-        public bool InsercionMasiva(IEnumerable<EvaluacionAlistamientoDotacionVueloComfuavinavDTO> evaluacionAlistamientoDotacionVueloComfuavinavDTO)
+        public bool EliminarCarga(EvaluacionAlistamientoDotacionVueloComfuavinavDTO evaluacionAlistamientoDotacionVueloComfuavinavDTO)
         {
-            return evaluacionAlistamientoDotacionVueloComfuavinavDAO.InsercionMasiva(evaluacionAlistamientoDotacionVueloComfuavinavDTO);
+            return evaluacionAlistamientoDotacionVueloComfuavinavDAO.EliminarCarga(evaluacionAlistamientoDotacionVueloComfuavinavDTO);
+        }
+
+        public string InsertarDatos(DataTable datos, string fecha)
+        {
+            return evaluacionAlistamientoDotacionVueloComfuavinavDAO.InsertarDatos(datos, fecha);
         }
 
     }
 }
+

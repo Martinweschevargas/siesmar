@@ -11,15 +11,23 @@
             <div class="card-header nuevo">
                 <h4>Nuevo</h4>
             </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <select class="form-select form-control-sm" id="cargasR" name="cargasR"></select>
+                </div>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control form-control-sm" id="txtFecha" name="txtFecha" required>
+                </div>
+            </div>
             <div class="row mt-2">
                 <div class="form-group row col-md-6">
-                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Unidad</a></label>
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Nombre unidad</a></label>
                     <div class="col-md-9">
                         <select class="form-control form-select-sm" id="cbUnidadNaval" name="cbUnidadNaval"></select>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
-                    <label for="FechaEvaluacion" class="col-3 col-form-label">Fecha</label>
+                    <label for="FechaEvaluacion" class="col-3 col-form-label">FECHA</label>
                     <div class="col-md-9">
                         <input type="date" class="form-control form-control-sm" id="txtFechaEvaluacion" name="txtFechaEvaluacion" required>
                     </div>
@@ -37,72 +45,71 @@
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
-                    <label for="CargoPersonal" class="col-3 col-form-label">Cargo</label>
+                    <label for="Cargo" class="col-3 col-form-label"><a href="~/Cargo">Cargo</a></label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control form-control-sm" id="txtCargoPersonal" name="txtCargoPersonal" placeholder="Cargo" required>
+                        <select class="form-control form-select-sm" id="cbCargo" name="cbCargo"></select>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
-                    <label for="GradoPersonalMilitarEsperado" class="col-3 col-form-label"><a href="~/GradoPersonalMilitarEsperado">Grado-Esperado</a></label>
+                    <label for="GradoPersonalMilitar" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado-Esperado</a></label>
                     <div class="col-md-9">
-                        <select class="form-control form-select-sm" id="cbGradoPersonalMilitarEsperado" name="cbGradoPersonalMilitarEsperado"></select>
+                        <select class="form-control form-select-sm" id="cbGradoPersonalMilitar" name="cbGradoPersonalMilitar"></select>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
-                    <label for="EspecialidadGenericaEsperado" class="col-3 col-form-label"><a href="~/EspecialidadGenericaEsperado">Especialidad-Esperado</a></label>
+                    <label for="EspecialidadGenericaPersonal" class="col-3 col-form-label"><a href="~/EspecialidadGenericaPersonal">Especialidad-Esperado</a></label>
                     <div class="col-md-9">
-                        <select class="form-control form-select-sm" id="cbEspecialidadGenericaEsperado" name="cbEspecialidadGenericaEsperado"></select>
+                        <select class="form-control form-select-sm" id="cbEspecialidadGenericaPersonal" name="cbEspecialidadGenericaPersonal"></select>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
-                    <label for="GradoPersonalMilitarActual" class="col-3 col-form-label"><a href="~/GradoPersonalMilitarActual">Grado-Actual</a></label>
+                    <label for="GradoPersonalMilitarActual" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado-Actual</a></label>
                     <div class="col-md-9">
                         <select class="form-control form-select-sm" id="cbGradoPersonalMilitarActual" name="cbGradoPersonalMilitarActual"></select>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
-                    <label for="EspecialidadGenericaActual" class="col-3 col-form-label"><a href="~/EspecialidadGenericaActual">Especialidad-Actual</a></label>
+                    <label for="EspecialidadGenericaPersonalActual" class="col-3 col-form-label"><a href="~/EspecialidadGenericaPersonal">Especialidad-Actual</a></label>
                     <div class="col-md-9">
-                        <select class="form-control form-select-sm" id="cbEspecialidadGenericaActual" name="cbEspecialidadGenericaActual"></select>
+                        <select class="form-control form-select-sm" id="cbEspecialidadGenericaPersonalActual" name="cbEspecialidadGenericaPersonalActual"></select>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
                     <label for="GradoJerarquico" class="col-3 col-form-label">Grado Jerárquico</label>
                     <div class="col-md-9">
-                        <select class="form-select form-select-sm" id="txtGradoJerarquico" name="txtGradoJerarquico" data-placeholder="Seleccione ...">
-                            <option value="1">SI</option>
-                            <option value="0.75">NO</option>
+                        <select class="form-control form-control-sm" id="txtGradoJerarquico" name="txtGradoJerarquico">
+                            <option value="1">Posee grado adecuado</option>
+                            <option value="0.75">No posee grado adecuado</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
-                    <label for="ServicioExperiencia" class="col-3 col-form-label">Servicio o Experiencia</label>
+                    <label for="ServicioExperiencia" class="col-3 col-form-label">Servicio o experiencia</label>
                     <div class="col-md-9">
-                        <select class="form-select form-select-sm" id="txtServicioExperiencia" name="txtServicioExperiencia" data-placeholder="Seleccione ...">
-                            <option value="1">SI</option>
-                            <option value="0.75">NO</option>
+                        <select class="form-control form-control-sm" id="txtServicioExperiencia" name="txtServicioExperiencia">
+                            <option value="1">Experiencia adecuada</option>
+                            <option value="0.75">Sin experiencia adecuada</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
-                    <label for="EspecializacionProfesional" class="col-3 col-form-label">Especialización Profesional Técnica</label>
+                    <label for="EspecializacionProfesional" class="col-3 col-form-label">Especialización profesional o técnica complementaria</label>
                     <div class="col-md-9">
-                        <select class="form-select form-select-sm" id="txtEspecializacionProfesional" name="txtEspecializacionProfesional" data-placeholder="Seleccione ...">
-                            <option value="1">SI</option>
-                            <option value="0.75">NO</option>
+                        <select class="form-control form-control-sm" id="txtEspecializacionProfesional" name="txtEspecializacionProfesional">
+                            <option value="1">Cuenta con especializaciones profesionales/especializaciones técnicas</option>
+                            <option value="0.75">Sin especializaciones profesionales/especializaciones técnicas</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
-                    <label for="CursoProfesionalR" class="col-3 col-form-label">Cursos Profesionales Requeridos</label>
+                    <label for="CursoProfesionalRequerido" class="col-3 col-form-label">Cursos profesionales requeridos</label>
                     <div class="col-md-9">
-                        <select class="form-select form-select-sm" id="txtCursoProfesionalR" name="txtCursoProfesionalR" data-placeholder="Seleccione ...">
-                            <option value="0.5">SI</option>
-                            <option value="0.25">NO</option>
+                        <select class="form-select form-select-sm" id="txtCursoProfesionalRequerido" name="txtCursoProfesionalRequerido">
+                            <option value="0.50">Cuenta con los cursos profesionales (requeridos)</option>
+                            <option value="0.25">No cuenta con cursos profesionales (requeridos)</option>
                         </select>
                     </div>
-                </div>
-
+                </div>        
             </div>
             <div class="row mt-2">
                 <div class="col-md-6 text-center">
@@ -130,13 +137,13 @@
             </div>
             <div class="row mt-2">
                 <div class="form-group row col-md-6">
-                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Unidad</a></label>
+                    <label for="UnidadNaval" class="col-3 col-form-label"><a href="~/UnidadNaval">Nombre unidad</a></label>
                     <div class="col-md-9">
                         <select class="form-control form-select-sm" id="cbUnidadNavale" name="cbUnidadNavale"></select>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
-                    <label for="FechaEvaluacion" class="col-3 col-form-label">Fecha</label>
+                    <label for="FechaEvaluacion" class="col-3 col-form-label">Fecha Evaluacion</label>
                     <div class="col-md-9">
                         <input type="date" class="form-control form-control-sm" id="txtFechaEvaluacione" name="txtFechaEvaluacione" required>
                     </div>
@@ -154,79 +161,78 @@
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
-                    <label for="CargoPersonal" class="col-3 col-form-label">Cargo</label>
+                    <label for="Cargo" class="col-3 col-form-label"><a href="~/Cargo">Cargo</a></label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control form-control-sm" id="txtCargoPersonale" name="txtCargoPersonale" placeholder="Cargo" required>
+                        <select class="form-control form-select-sm" id="cbCargoe" name="cbCargoe"></select>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
-                    <label for="GradoPersonalMilitarEsperado" class="col-3 col-form-label"><a href="~/GradoPersonalMilitarEsperado">Grado-Esperado</a></label>
+                    <label for="GradoPersonalMilitar" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado Esperado</a></label>
                     <div class="col-md-9">
-                        <select class="form-control form-select-sm" id="cbGradoPersonalMilitarEsperadoe" name="cbGradoPersonalMilitarEsperadoe"></select>
+                        <select class="form-control form-select-sm" id="cbGradoPersonalMilitare" name="cbGradoPersonalMilitare"></select>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
-                    <label for="EspecialidadGenericaEsperado" class="col-3 col-form-label"><a href="~/EspecialidadGenericaEsperado">Especialidad-Esperado</a></label>
+                    <label for="EspecialidadGenericaPersonal" class="col-3 col-form-label"><a href="~/EspecialidadGenericaPersonal">Especialidad Esperado</a></label>
                     <div class="col-md-9">
-                        <select class="form-control form-select-sm" id="cbEspecialidadGenericaEsperadoe" name="cbEspecialidadGenericaEsperadoe"></select>
+                        <select class="form-control form-select-sm" id="cbEspecialidadGenericaPersonale" name="cbEspecialidadGenericaPersonale"></select>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
-                    <label for="GradoPersonalMilitarActual" class="col-3 col-form-label"><a href="~/GradoPersonalMilitarActual">Grado-Actual</a></label>
+                    <label for="GradoPersonalMilitarActual" class="col-3 col-form-label"><a href="~/GradoPersonalMilitar">Grado Actual</a></label>
                     <div class="col-md-9">
                         <select class="form-control form-select-sm" id="cbGradoPersonalMilitarActuale" name="cbGradoPersonalMilitarActuale"></select>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
-                    <label for="EspecialidadGenericaActual" class="col-3 col-form-label"><a href="~/EspecialidadGenericaActual">Especialidad-Actual</a></label>
+                    <label for="EspecialidadGenericaPersonalActual" class="col-3 col-form-label"><a href="~/EspecialidadGenericaPersonal">Especialidad Actual</a></label>
                     <div class="col-md-9">
-                        <select class="form-control form-select-sm" id="cbEspecialidadGenericaActuale" name="cbEspecialidadGenericaActuale"></select>
+                        <select class="form-control form-select-sm" id="cbEspecialidadGenericaPersonalActuale" name="cbEspecialidadGenericaPersonalActuale"></select>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
                     <label for="GradoJerarquico" class="col-3 col-form-label">Grado Jerárquico</label>
                     <div class="col-md-9">
-                        <select class="form-select form-select-sm" id="txtGradoJerarquicoe" name="txtGradoJerarquicoe" data-placeholder="Seleccione ...">
-                            <option value="1">SI</option>
-                            <option value="0.75">NO</option>
+                        <select type="text" class="form-control form-control-sm" id="txtGradoJerarquicoe" name="txtGradoJerarquicoe">
+                            <option value="1">SI Posee grado adecuado</option>
+                            <option value="0.75">No posee grado adecuado</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
-                    <label for="ServicioExperiencia" class="col-3 col-form-label">Servicio o Experiencia</label>
+                    <label for="ServicioExperiencia" class="col-3 col-form-label">Servicio o experiencia</label>
                     <div class="col-md-9">
-                        <select class="form-select form-select-sm" id="txtServicioExperienciae" name="txtServicioExperienciae" data-placeholder="Seleccione ...">
-                            <option value="1">SI</option>
-                            <option value="0.75">NO</option>
+                        <select type="text" class="form-control form-control-sm" id="txtServicioExperienciae" name="txtServicioExperienciae">
+                            <option value="1">Experiencia adecuada</option>
+                            <option value="0.75">Sin experiencia adecuada</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
-                    <label for="EspecializacionProfesional" class="col-3 col-form-label">Especialización Profesional Técnica</label>
+                    <label for="EspecializacionProfesional" class="col-3 col-form-label">Especialización profesional o técnica complementaria</label>
                     <div class="col-md-9">
-                        <select class="form-select form-select-sm" id="txtEspecializacionProfesionale" name="txtEspecializacionProfesionale" data-placeholder="Seleccione ...">
-                            <option value="1">SI</option>
-                            <option value="0.75">NO</option>
+                        <select type="text" class="form-control form-control-sm" id="txtEspecializacionProfesionale" name="txtEspecializacionProfesionale">
+                            <option value="1">Cuenta con especializaciones profesionales/especializaciones técnicas</option>
+                            <option value="0.75">Sin especializaciones profesionales/especializaciones técnicas</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group row col-md-6">
-                    <label for="CursoProfesionalR" class="col-3 col-form-label">Cursos Profesionales Requeridos</label>
+                    <label for="CursoProfesionalRequerido" class="col-3 col-form-label">Cursos profesionales requeridos</label>
                     <div class="col-md-9">
-                        <select class="form-select form-select-sm" id="txtCursoProfesionalRe" name="txtCursoProfesionalRe" data-placeholder="Seleccione ...">
-                            <option value="0.50">SI</option>
-                            <option value="0.25">NO</option>
+                        <select class="form-select form-select-sm" id="txtCursoProfesionalRequeridoe" name="txtCursoProfesionalRequeridoe">
+                            <option value="0.5">Cuenta con los cursos profesionales (requeridos)</option>
+                            <option value="0.25">No cuenta con cursos profesionales (requeridos)</option>
                         </select>
                     </div>
-                </div>
-
+                </div>              
             </div>
             <div class="row mt-2">
                 <div class="col-md-6 text-center">
                     <button type="submit" class="btn btn-primary">Grabar</button>
                 </div>
                 <div class="col-md-6 text-center">
-                    <a class="btn btn-danger" href="~/ComfuavinavEvaluacionAlistamientoPersonal">Cancelar</a>
+                    <a class="btn btn-danger" href="~/ComfuavinavEvaluacionAlistamientoPersonal/Individual">Cancelar</a>
                 </div>
             </div>
         </div>
@@ -239,14 +245,16 @@
     </div>
 </div>
 <div id="listar" style="overflow:scroll">
+    <p><a href="~/ComfuavinavEvaluacionAlistamientoPersonal" class="btn btn-primary">Ir Carga Masiva</a></p>
     <input type="button" value="NUEVO REGISTRO" class="nuevo" onclick="nuevaComfuavinavEvaluacionAlistamientoPersonal()" />
-    <div class="dropdown">
-        <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Modos de Carga :
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="~/ComfuavinavEvaluacionAlistamientoPersonal">Masiva</a>
-            <a class="dropdown-item" href="~/ComfuavinavEvaluacionAlistamientoPersonal/Individual">Individual</a>
+    <div class="row align-items-start">
+        <div class="col">
+            <select class="form-select form-control-sm" id="cargas" name="cargas"></select>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" id="btn_search">Buscar</button>
+            <button class="btn btn-primary" id="btn_all">Mostrar Todos</button>
+            <button class="btn btn-danger" onclick="eliminarCarga()">Eliminar Carga</button>
         </div>
     </div>
     <table class="table table-striped" id="tblComfuavinavEvaluacionAlistamientoPersonal" cellspacing="0" width="100%" style="font-family: Century Gothic; font-size:14px;overflow:scroll">
@@ -258,14 +266,15 @@
                 <th>DNI</th>
                 <th>CIP</th>
                 <th>Cargo</th>
-                <th>Grado-Esperado</th>
-                <th>Especialidad-Esperado</th>
-                <th>Grado-Actual</th>
-                <th>Especialidad-Actual</th>
+                <th>Grado Esperado</th>
+                <th>Especialidad Esperado</th>
+                <th>Grado ACtual</th>
+                <th>Especialidad Actual</th>
                 <th>Grado Jerárquico</th>
-                <th>Servicio o Experiencia</th>
-                <th>Especialización Profesional Técnica</th>
-                <th>Cursos Profesionales Requeridos</th>
+                <th>Servicio o experiencia</th>
+                <th>Especialización profesional o técnica complementaria</th>
+                <th>Cursos profesionales requeridos</th>
+                <th>Código Carga</th>
                 <th colspan="2" class="text-center">Acciones</th>
                 <th class="ocultar"></th>
             </tr>
