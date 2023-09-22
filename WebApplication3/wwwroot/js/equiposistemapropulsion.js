@@ -24,7 +24,7 @@ $(document).ready(function () {
                                 type: "POST",
                                 url: '/EquipoSistemaPropulsion/InsertarEquipoSistemaPropulsion',
                                 data: {
-                                    'CodigoEquipoSistemaPropulsion': $('#txtCodiEq'),
+                                    'CodigoEquipoSistemaPropulsion': $('#txtCodiEq').val(),
                                     'DescEquipoSistemaPropulsion': $('#txtDescripcion').val(),
                                     'CodigoSubSistemaPropulsion': $('#cbFK').val()
                                 },
@@ -48,6 +48,9 @@ $(document).ready(function () {
                                     $('#listar').show();
                                     $('#nuevo').hide();
                                     $('#tblEquipoSistemaPropulsions').DataTable().ajax.reload();
+                                    $('.needs-validation :input').val('');
+                                    $(".needs-validation").find("select").prop("selectedIndex", 0);
+                                    form.classList.remove('was-validated')
                                 },
                                 complete: function () {
                                     $('#loader-6').hide();
@@ -84,7 +87,7 @@ $(document).ready(function () {
                                 url: '/EquipoSistemaPropulsion/ActualizarEquipoSistemaPropulsion',
                                 data: {
                                     'EquipoSistemaPropulsionId': $('#txtCodigo').val(),
-                                    'CodigoEquipoSistemaPropulsion': $('#txtCodiEqe'),
+                                    'CodigoEquipoSistemaPropulsion': $('#txtCodiEqe').val(),
                                     'DescEquipoSistemaPropulsion': $('#txtDescripcione').val(),
                                     'CodigoSubSistemaPropulsion': $('#cbFKe').val()
                                 },
@@ -168,7 +171,7 @@ function edit(EquipoSistemaPropulsionId) {
         $('#txtCodigo').val(EquipoSistemaPropulsionDTO.equipoSistemaPropulsionId);
         $('#txtCodiEqe').val(EquipoSistemaPropulsionDTO.codigoEquipoSistemaPropulsion);
         $('#txtDescripcione').val(EquipoSistemaPropulsionDTO.descEquipoSistemaPropulsion);
-        $('#cbFKe').val(EquipoSistemaPropulsionDTO.CodigoSubSistemaPropulsion);
+        $('#cbFKe').val(EquipoSistemaPropulsionDTO.codigoSubSistemaPropulsion);
     });
 }
 

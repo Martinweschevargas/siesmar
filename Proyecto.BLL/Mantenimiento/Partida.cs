@@ -27,9 +27,9 @@ namespace Marina.Siesmar.LogicaNegocios.Mantenimiento
             return partidaDAO.ActualizarPartida(partidaDTO);
         }
 
-        public bool EliminarPartida(int Codigo)
+        public string EliminarPartida(PartidaDTO partidaDTO)
         {
-            return partidaDAO.EliminarPartida(Codigo);
+            return partidaDAO.EliminarPartida(partidaDTO);
         }
 
     }

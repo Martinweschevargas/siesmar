@@ -1,5 +1,6 @@
 ﻿using Marina.Siesmar.AccesoDatos.Mantenimiento;
 using Marina.Siesmar.Entidades.Mantenimiento;
+using Marina.Siesmar.LogicaNegocios.Mantenimiento;
 using Marina.Siesmar.LogicaNegocios.Seguridad;
 using Marina.Siesmar.Utilitarios;
 using Microsoft.AspNetCore.Mvc;
@@ -60,14 +61,14 @@ namespace Marina.Siesmar.Presentacion.Controllers
 
         public ActionResult EliminarPartida(int PartidaId)
         {
-            string mensaje = "";
+            PartidaDTO partidaDTO = new();
+            partidaDTO.PartidaId = PartidaId;
+            partidaDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
-            if (partidaBL.EliminarPartida(PartidaId) == true)
-                mensaje = "1";
-            else
-                mensaje = "0";
+            var IND_OPERACION = partidaBL.EliminarPartida(partidaDTO);
 
-            return Content(mensaje);
+            return Content(IND_OPERACION);
         }
+
     }
 }

@@ -17,14 +17,14 @@ namespace Marina.Siesmar.LogicaNegocios.Mantenimiento
             return equipoSistemaPropulsionDAO.AgregarEquipoSistemaPropulsion(equipoSistemaPropulsionDto);
         }
 
-        public EquipoSistemaPropulsionDTO BuscarEquipoSistemaPropulsionID(int Codigo)
+        public EquipoSistemaPropulsionDTO EditarMantenimiento(int Codigo)
         {
             return equipoSistemaPropulsionDAO.BuscarEquipoSistemaPropulsionID(Codigo);
         }
 
         public string ActualizarEquipoSistemaPropulsion(EquipoSistemaPropulsionDTO equipoSistemaPropulsionDto)
         {
-            return equipoSistemaPropulsionDAO.ActualizarEquipoSistemaPropulsion(equipoSistemaPropulsionDto);
+            return equipoSistemaPropulsionDAO.ActualizaEquipoSistemaPropulsion(equipoSistemaPropulsionDto);
         }
 
         public string EliminarEquipoSistemaPropulsion(EquipoSistemaPropulsionDTO equipoSistemaPropulsionDto)

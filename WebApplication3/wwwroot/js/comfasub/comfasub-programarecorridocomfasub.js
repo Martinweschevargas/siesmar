@@ -145,7 +145,8 @@ $(document).ready(function () {
         "columns": [
             { "data": "programaRecorridoComfasubId" },
             { "data": "descUnidadNaval" },
-            { "data": "codigoAlistamientoMaterialRequerido2N" },
+            { "data": "capacidadIntrinseca" },
+            { "data": "subclasificacion" },
             { "data": "fechaInicio" },
             { "data": "fechaTermino" },
             { "data": "recorridoDia" },
@@ -173,7 +174,7 @@ $(document).ready(function () {
                 filename: 'Comfasub - Programa de Recorrido',
                 title: '',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5]
+                    columns: [0, 1, 2, 3, 4, 5, 6]
                 },
                 className: 'btn-exportar-csv',
             },
@@ -184,7 +185,7 @@ $(document).ready(function () {
                 filename: 'Comfasub - Programa de Recorrido',
                 title: 'Comfasub - Programa de Recorrido',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5]
+                    columns: [0, 1, 2, 3, 4, 5, 6]
                 },
                 className: 'btn-exportar-excel',
             },
@@ -195,7 +196,7 @@ $(document).ready(function () {
                 filename: 'Comfasub - Programa de Recorrido',
                 title: 'Comfasub - Programa de Recorrido',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5]
+                    columns: [0, 1, 2, 3, 4, 5, 6]
                 },
                 className: 'btn-exportar-pdf',
             },
@@ -204,7 +205,7 @@ $(document).ready(function () {
                 extend: 'print',
                 title: 'Comfasub - Programa de Recorrido',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5]
+                    columns: [0, 1, 2, 3, 4, 5, 6]
                 },
                 className: 'btn-exportar-print'
 
@@ -237,11 +238,11 @@ $('#btn_all').click(function () {
 
 function cargaBusqueda() {
     var CodigoCarga = $('#cargas').val();
-    tblComfasubProgramaRecorridoComfasub.columns(6).search(CodigoCarga).draw();
+    tblComfasubProgramaRecorridoComfasub.columns(7).search(CodigoCarga).draw();
 }
 
 function mostrarTodos() {
-    tblComfasubProgramaRecorridoComfasub.columns(6).search('').draw();
+    tblComfasubProgramaRecorridoComfasub.columns(7).search('').draw();
 }
 
 function edit(Id) {

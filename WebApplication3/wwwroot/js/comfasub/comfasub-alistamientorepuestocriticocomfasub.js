@@ -169,7 +169,7 @@ $(document).ready(function () {
                 filename: 'Comfasub - Alistamiento de repuestos críticos (arc)',
                 title: '',
                 exportOptions: {
-                    columns: [0, 1, 2]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 className: 'btn-exportar-csv',
             },
@@ -180,7 +180,7 @@ $(document).ready(function () {
                 filename: 'Comfasub - Alistamiento de repuestos críticos (arc)',
                 title: 'Comfasub - Alistamiento de repuestos críticos (arc)',
                 exportOptions: {
-                    columns: [0, 1, 2]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 className: 'btn-exportar-excel',
             },
@@ -191,7 +191,7 @@ $(document).ready(function () {
                 filename: 'Comfasub - Alistamiento de repuestos críticos (arc)',
                 title: 'Comfasub - Alistamiento de repuestos críticos (arc)',
                 exportOptions: {
-                    columns: [0, 1, 2]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 className: 'btn-exportar-pdf',
             },
@@ -200,7 +200,7 @@ $(document).ready(function () {
                 extend: 'print',
                 title: 'Comfasub - Alistamiento de repuestos críticos (arc)',
                 exportOptions: {
-                    columns: [0, 1, 2]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 className: 'btn-exportar-print'
 
@@ -233,11 +233,11 @@ $('#btn_all').click(function () {
 
 function cargaBusqueda() {
     var CodigoCarga = $('#cargas').val();
-    tblComfasubAlistamientoRepuestoCriticoComfasub.columns(3).search(CodigoCarga).draw();
+    tblComfasubAlistamientoRepuestoCriticoComfasub.columns(9).search(CodigoCarga).draw();
 }
 
 function mostrarTodos() {
-    tblComfasubAlistamientoRepuestoCriticoComfasub.columns(3).search('').draw();
+    tblComfasubAlistamientoRepuestoCriticoComfasub.columns(9).search('').draw();
 }
 
 function edit(Id) {

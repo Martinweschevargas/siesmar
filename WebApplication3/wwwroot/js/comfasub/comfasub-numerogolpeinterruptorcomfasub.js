@@ -147,6 +147,8 @@ $(document).ready(function () {
         "columns": [
             { "data": "numeroGolpeInterruptorComfasubId" },
             { "data": "descUnidadNaval" },
+            { "data": "descSistemaPropulsion" },
+            { "data": "descSubSistemaPropulsion" },
             { "data": "descEquipoSistemaPropulsion" },
             { "data": "golpeFijadoRecorridoTotal" },
             { "data": "golpeFijadoRecorridoParcial" },  
@@ -176,7 +178,7 @@ $(document).ready(function () {
                 filename: 'Comfasub - Número de Golpes de Interruptores Principales',
                 title: '',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 className: 'btn-exportar-csv',
             },
@@ -187,7 +189,7 @@ $(document).ready(function () {
                 filename: 'Comfasub - Número de Golpes de Interruptores Principales',
                 title: 'Comfasub - Número de Golpes de Interruptores Principales',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 className: 'btn-exportar-excel',
             },
@@ -198,7 +200,7 @@ $(document).ready(function () {
                 filename: 'Comfasub - Número de Golpes de Interruptores Principales',
                 title: 'Comfasub - Número de Golpes de Interruptores Principales',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 className: 'btn-exportar-pdf',
             },
@@ -207,7 +209,7 @@ $(document).ready(function () {
                 extend: 'print',
                 title: 'Comfasub - Número de Golpes de Interruptores Principales',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 className: 'btn-exportar-print'
 
@@ -240,11 +242,11 @@ $('#btn_all').click(function () {
 
 function cargaBusqueda() {
     var CodigoCarga = $('#cargas').val();
-    tblComfasubNumeroGolpeInterruptorComfasub.columns(7).search(CodigoCarga).draw();
+    tblComfasubNumeroGolpeInterruptorComfasub.columns(9).search(CodigoCarga).draw();
 }
 
 function mostrarTodos() {
-    tblComfasubNumeroGolpeInterruptorComfasub.columns(7).search('').draw();
+    tblComfasubNumeroGolpeInterruptorComfasub.columns(9).search('').draw();
 }
 
 function edit(Id) {

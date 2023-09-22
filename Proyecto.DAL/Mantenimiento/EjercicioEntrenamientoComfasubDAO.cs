@@ -63,7 +63,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd.Parameters["@DescEjercicioEntrenamiento"].Value = ejercicioEntrenamientoComfasubDTO.DescEjercicioEntrenamiento;
 
                     cmd.Parameters.Add("@CodigoEjercicioEntrenamiento", SqlDbType.VarChar, 20);
-                    cmd.Parameters["@CodigoEjercicioEntrenamiento"].Value = ejercicioEntrenamientoComfasubDTO.CodigoCapacidadOperativa;
+                    cmd.Parameters["@CodigoEjercicioEntrenamiento"].Value = ejercicioEntrenamientoComfasubDTO.CodigoEjercicioEntrenamiento;
 
                     cmd.Parameters.Add("@NivelEjercicio", SqlDbType.VarChar, 20);
                     cmd.Parameters["@NivelEjercicio"].Value = ejercicioEntrenamientoComfasubDTO.NivelEjercicio;
@@ -160,7 +160,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd.Parameters["@DescEjercicioEntrenamiento"].Value = ejercicioEntrenamientoComfasubDTO.DescEjercicioEntrenamiento;
 
                     cmd.Parameters.Add("@CodigoEjercicioEntrenamiento", SqlDbType.VarChar, 20);
-                    cmd.Parameters["@CodigoEjercicioEntrenamiento"].Value = ejercicioEntrenamientoComfasubDTO.CodigoCapacidadOperativa;
+                    cmd.Parameters["@CodigoEjercicioEntrenamiento"].Value = ejercicioEntrenamientoComfasubDTO.CodigoEjercicioEntrenamiento;
 
                     cmd.Parameters.Add("@NivelEjercicio", SqlDbType.VarChar, 20);
                     cmd.Parameters["@NivelEjercicio"].Value = ejercicioEntrenamientoComfasubDTO.NivelEjercicio;

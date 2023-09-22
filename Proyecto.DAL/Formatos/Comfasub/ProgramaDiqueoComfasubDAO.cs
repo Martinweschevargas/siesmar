@@ -41,7 +41,8 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfasub
                         {
                             ProgramaDiqueoComfasubId = Convert.ToInt32(dr["ProgramaDiqueoComfasubId"]),
                             DescUnidadNaval = dr["DescUnidadNaval"].ToString(),
-                            CodigoAlistamientoMaterialRequerido2N = dr["CodigoAlistamientoMaterialRequerido2N"].ToString(),
+                            CapacidadIntrinseca = dr["CapacidadIntrinseca"].ToString(),
+                            Subclasificacion = dr["Subclasificacion"].ToString(),
                             FechaIngreso = (dr["FechaIngreso"].ToString()).Split(" ", StringSplitOptions.None)[0],
                             FechaSalida = (dr["FechaSalida"].ToString()).Split(" ", StringSplitOptions.None)[0],
                             PermanenciaDia = Convert.ToInt32(dr["PermanenciaDia"]),

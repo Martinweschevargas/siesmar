@@ -1,5 +1,4 @@
-﻿using Marina.Siesmar.AccesoDatos.Mantenimiento;
-using Marina.Siesmar.Entidades.Mantenimiento;
+﻿using Marina.Siesmar.Entidades.Mantenimiento;
 using Marina.Siesmar.LogicaNegocios.Mantenimiento;
 using Marina.Siesmar.LogicaNegocios.Seguridad;
 using Marina.Siesmar.Utilitarios;
@@ -73,7 +72,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
 
         public ActionResult MostrarEquipoSistemaPropulsion(int EquipoSistemaPropulsionId)
         {
-            return Json(equipoSistemaPropulsionBL.BuscarEquipoSistemaPropulsionID(EquipoSistemaPropulsionId));
+            return Json(equipoSistemaPropulsionBL.EditarMantenimiento(EquipoSistemaPropulsionId));
         }
 
         public ActionResult ActualizarEquipoSistemaPropulsion(int EquipoSistemaPropulsionId, string CodigoEquipoSistemaPropulsion, string DescEquipoSistemaPropulsion, string CodigoSubSistemaPropulsion)

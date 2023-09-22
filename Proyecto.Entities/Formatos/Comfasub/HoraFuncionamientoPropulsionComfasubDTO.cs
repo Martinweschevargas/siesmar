@@ -17,6 +17,7 @@ namespace Marina.Siesmar.Entidades.Formatos.Comfasub
 
         public string? DescUnidadNaval { get; set; }
         public string? DescEquipoSistemaPropulsion { get; set; }
+        public string? DescSistemaPropulsion { get; set; }
         public int? CargaId { get; set; }
 
         [NotMapped]
