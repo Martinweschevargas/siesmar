@@ -137,7 +137,13 @@ $(document).ready(function () {
         "columns": [
             { "data": "alistamientoRepuestoCriticoComfoeId" },
             { "data": "descUnidadNaval" },
-            { "data": "codigoAlistamientoRepuestoCritico" },
+            { "data": "descSistemaRepuestoCritico" },
+            { "data": "descSubsistemaRepuestoCritico" },
+            { "data": "equipo" },
+            { "data": "repuesto" },
+            { "data": "existente" },
+            { "data": "necesario" },
+            { "data": "coeficientePonderacion" },
             { "data": "cargaId" }, 
             {
                 "render": function (data, type, row) {
@@ -162,7 +168,7 @@ $(document).ready(function () {
                 filename: 'Comfoe - Alistamiento de repuestos críticos (ARC)',
                 title: '',
                 exportOptions: {
-                    columns: [0, 1, 2]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 className: 'btn-exportar-csv',
             },
@@ -173,7 +179,7 @@ $(document).ready(function () {
                 filename: 'Comfoe - Alistamiento de repuestos críticos (ARC)',
                 title: 'Comfoe - Alistamiento de repuestos críticos (ARC)',
                 exportOptions: {
-                    columns: [0, 1, 2]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 className: 'btn-exportar-excel',
             },
@@ -184,7 +190,7 @@ $(document).ready(function () {
                 filename: 'Comfoe - Alistamiento de repuestos críticos (ARC)',
                 title: 'Comfoe - Alistamiento de repuestos críticos (ARC)',
                 exportOptions: {
-                    columns: [0, 1, 2]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 className: 'btn-exportar-pdf',
             },
@@ -193,7 +199,7 @@ $(document).ready(function () {
                 extend: 'print',
                 title: 'Comfoe - Alistamiento de repuestos críticos (ARC)',
                 exportOptions: {
-                    columns: [0, 1, 2]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 className: 'btn-exportar-print'
 
@@ -226,11 +232,11 @@ $('#btn_all').click(function () {
 
 function cargaBusqueda() {
     var CodigoCarga = $('#cargas').val();
-    tblComfoeAlistamientoRepuestoCriticoComfoe.columns(3).search(CodigoCarga).draw();
+    tblComfoeAlistamientoRepuestoCriticoComfoe.columns(9).search(CodigoCarga).draw();
 }
 
 function mostrarTodos() {
-    tblComfoeAlistamientoRepuestoCriticoComfoe.columns(3).search('').draw();
+    tblComfoeAlistamientoRepuestoCriticoComfoe.columns(9).search('').draw();
 }
 
 function edit(Id) {

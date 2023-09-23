@@ -1,0 +1,9 @@
+2023-09-20 10:26:52.844 -05:00 [WRN] Entro al Login Http
+2023-09-20 11:27:59.448 -05:00 [WRN] Entro al Login Http
+2023-09-20 12:21:55.819 -05:00 [WRN] Entro al Login Http
+2023-09-20 12:22:36.036 -05:00 [WRN] Entro al Login Http
+2023-09-20 12:35:29.031 -05:00 [WRN] Entro al Login Http
+2023-09-20 13:54:00.495 -05:00 [WRN] Entro al Login Http
+2023-09-20 16:02:24.236 -05:00 [WRN] Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page.
+2023-09-20 16:17:51.087 -05:00 [WRN] Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page.
+2023-09-20 16:18:29.669 -05:00 [WRN] Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page.

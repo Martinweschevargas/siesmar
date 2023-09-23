@@ -43,11 +43,15 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfoe
                         {
                             EvaluacionAlistamientoEntrenamientoId = Convert.ToInt32(dr["EvaluacionAlistamientoEntrenamientoId"]),
                             DescUnidadNaval = dr["DescUnidadNaval"].ToString(),
+                            Nivel = dr["Nivel"].ToString(),
                             DescCapacidadOperativa = dr["DescCapacidadOperativa"].ToString(),
+                            DescTipoCompetenciaTecnica = dr["DescTipoCompetenciaTecnica"].ToString(),
+                            CodigoEjercicioEntrenamientoComfoe = dr["CodigoEjercicioEntrenamientoComfoe"].ToString(),
                             DescripcionEjercicioEntrenamiento = dr["DescripcionEjercicioEntrenamiento"].ToString(),
                             PuntajeObtenidoEjercicio = Convert.ToInt32(dr["PuntajeObtenidoEjercicio"]),
                             FechaPeriodoEvaluar = (dr["FechaPeriodoEvaluar"].ToString()).Split(" ", StringSplitOptions.None)[0],
-                            FechaRealizacionEjercicio = (dr["FechaRealizacionEjercicio"].ToString()).Split(" ", StringSplitOptions.None)[0],
+                            FechaRealizacionEjercicio = (dr["FechaPeriodoEvaluar"].ToString()).Split(" ", StringSplitOptions.None)[0],
+                            VigenciaDia = dr["VigenciaDia"].ToString(),
                             CargaId = Convert.ToInt32(dr["CargaId"])
                         });
                     }
