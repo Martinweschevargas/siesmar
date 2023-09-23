@@ -150,7 +150,12 @@ $(document).ready(function () {
             { "data": "alistamientoMaterialId" },
             { "data": "descUnidadNaval" },
             { "data": "descCapacidadOperativa" },
-            { "data": "codigoAlistamientoMaterialRequerido3N" },
+            { "data": "capacidadIntrinseca" },
+            { "data": "ponderado1N" },
+            { "data": "subclasificacion" },
+            { "data": "ponderado2Nivel" },
+            { "data": "subclasificacion2N" },
+            { "data": "ponderado3Nivel" },
             { "data": "requerido" },
             { "data": "operativo" },
             { "data": "porcentajeOperatividad" },
@@ -180,7 +185,7 @@ $(document).ready(function () {
                 filename: 'Comfoe-3 - Alistamiento de material',
                 title: '',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
                 },
                 className: 'btn-exportar-csv',
             },
@@ -191,7 +196,7 @@ $(document).ready(function () {
                 filename: 'Comfoe-3 - Alistamiento de material',
                 title: 'Comfoe-3 - Alistamiento de material',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6, 7 ,8]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
                 },
                 className: 'btn-exportar-excel',
             },
@@ -202,7 +207,7 @@ $(document).ready(function () {
                 filename: 'Comfoe-3 - Alistamiento de material',
                 title: 'Comfoe-3 - Alistamiento de material',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
                 },
                 className: 'btn-exportar-pdf',
             },
@@ -211,7 +216,7 @@ $(document).ready(function () {
                 extend: 'print',
                 title: 'Comfoe-3 - Alistamiento de material',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6, 7 , 8]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
                 },
                 className: 'btn-exportar-print'
 
@@ -244,11 +249,11 @@ $('#btn_all').click(function () {
 
 function cargaBusqueda() {
     var CodigoCarga = $('#cargas').val();
-    tblComfoeAlistamientoMaterialComfoe.columns(9).search(CodigoCarga).draw();
+    tblComfoeAlistamientoMaterialComfoe.columns(14).search(CodigoCarga).draw();
 }
 
 function mostrarTodos() {
-    tblComfoeAlistamientoMaterialComfoe.columns(9).search('').draw();
+    tblComfoeAlistamientoMaterialComfoe.columns(14).search('').draw();
 }
 
 function edit(Id) {

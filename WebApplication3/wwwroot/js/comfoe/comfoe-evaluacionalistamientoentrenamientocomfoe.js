@@ -145,11 +145,15 @@ $(document).ready(function () {
         "columns": [
             { "data": "evaluacionAlistamientoEntrenamientoId" },
             { "data": "descUnidadNaval" },
+            { "data": "nivel" },
             { "data": "descCapacidadOperativa" },
+            { "data": "descTipoCompetenciaTecnica" },
+            { "data": "codigoEjercicioEntrenamientoComfoe" },
             { "data": "descripcionEjercicioEntrenamiento" },
             { "data": "puntajeObtenidoEjercicio" },
             { "data": "fechaPeriodoEvaluar" },
             { "data": "fechaRealizacionEjercicio" },
+            { "data": "vigenciaDia" },
             { "data": "cargaId" },  
             {
                 "render": function (data, type, row) {
@@ -174,7 +178,7 @@ $(document).ready(function () {
                 filename: 'Comfoe - Evaluación del alistamiento del entrenamiento (ALIENT)',
                 title: '',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
                 },
                 className: 'btn-exportar-csv',
             },
@@ -185,7 +189,7 @@ $(document).ready(function () {
                 filename: 'Comfoe - Evaluación del alistamiento del entrenamiento (ALIENT)',
                 title: 'Comfoe - Evaluación del alistamiento del entrenamiento (ALIENT)',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
                 },
                 className: 'btn-exportar-excel',
             },
@@ -196,7 +200,7 @@ $(document).ready(function () {
                 filename: 'Comfoe - Evaluación del alistamiento del entrenamiento (ALIENT)',
                 title: 'Comfoe - Evaluación del alistamiento del entrenamiento (ALIENT)',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
                 },
                 className: 'btn-exportar-pdf',
             },
@@ -205,7 +209,7 @@ $(document).ready(function () {
                 extend: 'print',
                 title: 'Comfoe - Evaluación del alistamiento del entrenamiento (ALIENT)',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
                 },
                 className: 'btn-exportar-print'
 
@@ -238,11 +242,11 @@ $('#btn_all').click(function () {
 
 function cargaBusqueda() {
     var CodigoCarga = $('#cargas').val();
-    tblComfoeEvaluacionAlistamientoEntrenamientoComfoe.columns(7).search(CodigoCarga).draw();
+    tblComfoeEvaluacionAlistamientoEntrenamientoComfoe.columns(11).search(CodigoCarga).draw();
 }
 
 function mostrarTodos() {
-    tblComfoeEvaluacionAlistamientoEntrenamientoComfoe.columns(7).search('').draw();
+    tblComfoeEvaluacionAlistamientoEntrenamientoComfoe.columns(11).search('').draw();
 }
 
 function edit(Id) {

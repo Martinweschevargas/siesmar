@@ -18,6 +18,12 @@ namespace Marina.Siesmar.Entidades.Formatos.Comfoe
 
         public string? DescUnidadNaval { get; set; }
         public string? DescCapacidadOperativa { get; set; }
+        public string? CapacidadIntrinseca { get; set; }
+        public string? Ponderado1N { get; set; }
+        public string? Subclasificacion { get; set; }
+        public string? Ponderado2Nivel { get; set; }
+        public string? Subclasificacion2N { get; set; }
+        public string? Ponderado3Nivel { get; set; }
 
         public int? CargaId { get; set; }
 

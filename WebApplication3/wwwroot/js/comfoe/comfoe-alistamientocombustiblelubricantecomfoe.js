@@ -138,7 +138,13 @@ $(document).ready(function () {
         "columns": [
             { "data": "alistamientoCombustibleLubricanteComfoeId" },
             { "data": "descUnidadNaval" },
-            { "data": "codigoAlistamientoCombustibleLubricante" },
+            { "data": "descSistemaCombustibleLubricante" },
+            { "data": "descSubsistemaCombustibleLubricante" },
+            { "data": "equipo" },
+            { "data": "combustibleLubricante" },
+            { "data": "existente" },
+            { "data": "necesariasGLS" },
+            { "data": "coeficientePonderacion" },
             { "data": "cargaId" },  
             {
                 "render": function (data, type, row) {
@@ -163,7 +169,7 @@ $(document).ready(function () {
                 filename: 'Comfoe - Alistamiento de combustibles y lubricantes (ACL)',
                 title: '',
                 exportOptions: {
-                    columns: [0, 1, 2]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 className: 'btn-exportar-csv',
             },
@@ -174,7 +180,7 @@ $(document).ready(function () {
                 filename: 'Comfoe - Alistamiento de combustibles y lubricantes (ACL)',
                 title: 'Comfoe - Alistamiento de combustibles y lubricantes (ACL)',
                 exportOptions: {
-                    columns: [0, 1, 2]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 className: 'btn-exportar-excel',
             },
@@ -185,7 +191,7 @@ $(document).ready(function () {
                 filename: 'Comfoe - Alistamiento de combustibles y lubricantes (ACL)',
                 title: 'Comfoe - Alistamiento de combustibles y lubricantes (ACL)',
                 exportOptions: {
-                    columns: [0, 1, 2]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 className: 'btn-exportar-pdf',
             },
@@ -194,7 +200,7 @@ $(document).ready(function () {
                 extend: 'print',
                 title: 'Comfoe - Alistamiento de combustibles y lubricantes (ACL)',
                 exportOptions: {
-                    columns: [0, 1, 2]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 className: 'btn-exportar-print'
 
@@ -227,11 +233,11 @@ $('#btn_all').click(function () {
 
 function cargaBusqueda() {
     var CodigoCarga = $('#cargas').val();
-    tblComfoeAlistamientoCombustibleLubricanteComfoe.columns(3).search(CodigoCarga).draw();
+    tblComfoeAlistamientoCombustibleLubricanteComfoe.columns(9).search(CodigoCarga).draw();
 }
 
 function mostrarTodos() {
-    tblComfoeAlistamientoCombustibleLubricanteComfoe.columns(3).search('').draw();
+    tblComfoeAlistamientoCombustibleLubricanteComfoe.columns(9).search('').draw();
 }
 
 function edit(Id) {

@@ -137,7 +137,13 @@ $(document).ready(function () {
         "columns": [
             { "data": "alistamientoMunicionComfoeId" },
             { "data": "descUnidadNaval" },
-            { "data": "codigoAlistamientoMunicion" },
+            { "data": "descSistemaMunicion" },
+            { "data": "descSubsistemaMunicion" },
+            { "data": "equipo" },
+            { "data": "municion" },
+            { "data": "existente" },
+            { "data": "necesaria" },
+            { "data": "coeficientePonderacion" },
             { "data": "cargaId" },  
             {
                 "render": function (data, type, row) {
@@ -162,7 +168,7 @@ $(document).ready(function () {
                 filename: 'Comfoe - Alistamiento de munición (AMU)',
                 title: '',
                 exportOptions: {
-                    columns: [0, 1, 2]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 className: 'btn-exportar-csv',
             },
@@ -173,7 +179,7 @@ $(document).ready(function () {
                 filename: 'Comfoe - Alistamiento de munición (AMU)',
                 title: 'Comfoe - Alistamiento de munición (AMU)',
                 exportOptions: {
-                    columns: [0, 1, 2]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 className: 'btn-exportar-excel',
             },
@@ -184,7 +190,7 @@ $(document).ready(function () {
                 filename: 'Comfoe - Alistamiento de munición (AMU)',
                 title: 'Comfoe - Alistamiento de munición (AMU)',
                 exportOptions: {
-                    columns: [0, 1, 2]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 className: 'btn-exportar-pdf',
             },
@@ -193,7 +199,7 @@ $(document).ready(function () {
                 extend: 'print',
                 title: 'Comfoe - Alistamiento de munición (AMU)',
                 exportOptions: {
-                    columns: [0, 1, 2]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 },
                 className: 'btn-exportar-print'
 
@@ -226,18 +232,18 @@ $('#btn_all').click(function () {
 
 function cargaBusqueda() {
     var CodigoCarga = $('#cargas').val();
-    tblComfoeAlistamientoMunicionComfoe.columns(3).search(CodigoCarga).draw();
+    tblComfoeAlistamientoMunicionComfoe.columns(9).search(CodigoCarga).draw();
 }
 
 function mostrarTodos() {
-    tblComfoeAlistamientoMunicionComfoe.columns(3).search('').draw();
+    tblComfoeAlistamientoMunicionComfoe.columns(9).search('').draw();
 }
 
 function edit(Id) {
     $('#listar').hide();
     $('#editar').show();
     $.getJSON('/ComfoeAlistamientoMunicionComfoe/Mostrar?Id=' + Id, [], function (AlistamientoMunicionComfoeDTO) {
-        $('#txtCodigo').val(AlistamientoMunicionComfoeDTO.alistamientoMunicionComfoeId);
+        $('#txtCodigo').val(AlistamientoMunicionComfoeDTO.alistamientoMunicionComfoe);
         $('#cbUnidadNavale').val(AlistamientoMunicionComfoeDTO.codigoUnidadNaval);
         $('#cbAlistamientoMunicione').val(AlistamientoMunicionComfoeDTO.codigoAlistamientoMunicion);
     });

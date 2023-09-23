@@ -43,7 +43,13 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfoe
                         {
                             AlistamientoCombustibleLubricanteComfoeId = Convert.ToInt32(dr["AlistamientoCombustibleLubricanteComfoeId"]),
                             DescUnidadNaval = dr["DescUnidadNaval"].ToString(),
-                            CodigoAlistamientoCombustibleLubricante = dr["CodigoAlistamientoCombustibleLubricante"].ToString(),
+                            DescSistemaCombustibleLubricante = dr["DescSistemaCombustibleLubricante"].ToString(),
+                            DescSubsistemaCombustibleLubricante = dr["DescSubsistemaCombustibleLubricante"].ToString(),
+                            Equipo = dr["Equipo"].ToString(),
+                            CombustibleLubricante = dr["CombustibleLubricante"].ToString(),
+                            Existente = dr["Existente"].ToString(),
+                            NecesariasGLS = dr["NecesariasGLS"].ToString(),
+                            CoeficientePonderacion = Convert.ToInt32(dr["CoeficientePonderacion"]),
                             CargaId = Convert.ToInt32(dr["CargaId"])
 
                         });

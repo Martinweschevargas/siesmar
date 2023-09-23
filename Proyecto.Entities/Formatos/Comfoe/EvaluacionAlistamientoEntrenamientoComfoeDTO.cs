@@ -14,8 +14,11 @@ namespace Marina.Siesmar.Entidades.Formatos.Comfoe
 
 
         public string? DescUnidadNaval { get; set; }
+        public string? Nivel { get; set; }
         public string? DescCapacidadOperativa { get; set; }
+        public string? DescTipoCompetenciaTecnica { get; set; }
         public string? DescripcionEjercicioEntrenamiento { get; set; }
+        public string? VigenciaDia { get; set; }
         public int? CargaId { get; set; }
 
 
