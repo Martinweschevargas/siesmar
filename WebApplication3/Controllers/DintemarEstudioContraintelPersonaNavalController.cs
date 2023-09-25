@@ -67,7 +67,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
         }
 
         public ActionResult Insertar(string CodigoDependencia, string CodigoComandanciaDependencia, string CodigoZonaNaval,
-           int EstudioContrainteligenciaProducida, string CodigoTipoEstudioContrainteligencia, int CargaId)
+           int EstudioContrainteligenciaProducida, string CodigoTipoEstudioContrainteligencia, int CargaId, string fecha)
         {
             EstudioContrainteligenciaPersonaNavalDTO estudioContraintelPersonaNavallDTO = new();
             estudioContraintelPersonaNavallDTO.CodigoDependencia = CodigoDependencia;
@@ -77,6 +77,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
             estudioContraintelPersonaNavallDTO.CodigoTipoEstudioContrainteligencia = CodigoTipoEstudioContrainteligencia;
             estudioContraintelPersonaNavallDTO.CargaId = CargaId;
             estudioContraintelPersonaNavallDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
+            estudioContraintelPersonaNavallDTO.Fecha = fecha;
 
             var IND_OPERACION = estudiocontraintelPersonaBL.AgregarRegistro(estudioContraintelPersonaNavallDTO);
             return Content(IND_OPERACION);
@@ -113,6 +114,23 @@ namespace Marina.Siesmar.Presentacion.Controllers
             estudioContraintelPersonaNavallDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
             if (estudiocontraintelPersonaBL.EliminarFormato(estudioContraintelPersonaNavallDTO) == true)
+                mensaje = "1";
+            else
+                mensaje = "0";
+
+            return Content(mensaje);
+        }
+
+        public ActionResult EliminarCarga(int Id)
+        {
+            string mensaje;
+            EstudioContrainteligenciaPersonaNavalDTO estudioContrainteligenciaPersonaNavalDTO = new()
+            {
+                CargaId = Id,
+                UsuarioIngresoRegistro = User.obtenerUsuario()
+            };
+
+            if (estudiocontraintelPersonaBL.EliminarCarga(estudioContrainteligenciaPersonaNavalDTO) == true)
                 mensaje = "1";
             else
                 mensaje = "0";
@@ -164,7 +182,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
         }
 
         [HttpPost]
-        public ActionResult EnviarDatos([FromForm] IFormFile ArchivoExcel)
+        public ActionResult EnviarDatos([FromForm] IFormFile ArchivoExcel, string fecha)
         {
             Stream stream = ArchivoExcel.OpenReadStream();
             IWorkbook MiExcel = null;
@@ -204,7 +222,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
                     
                     User.obtenerUsuario());
             }
-            var IND_OPERACION = estudiocontraintelPersonaBL.InsertarDatos(dt);
+            var IND_OPERACION = estudiocontraintelPersonaBL.InsertarDatos(dt, fecha);
             return Content(IND_OPERACION);
         }
 

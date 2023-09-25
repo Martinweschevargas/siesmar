@@ -8,9 +8,9 @@ namespace Marina.Siesmar.LogicaNegocios.Formatos.Dintemar
     {
         EstudioSeguridadInfraestructuraDAO estudioSeguridadInfraestructuraDAO = new();
 
-        public List<EstudioSeguridadInfraestructuraDTO> ObtenerLista(int? CargaId = null)
+        public List<EstudioSeguridadInfraestructuraDTO> ObtenerLista(int? CargaId = null, string? fechainicio = null, string? fechafin = null)
         {
-            return estudioSeguridadInfraestructuraDAO.ObtenerLista(CargaId);
+            return estudioSeguridadInfraestructuraDAO.ObtenerLista(CargaId, fechainicio, fechafin);
         }
 
         public string AgregarRegistro(EstudioSeguridadInfraestructuraDTO estudioSeguridadInfraestructuraDTO)
@@ -33,9 +33,14 @@ namespace Marina.Siesmar.LogicaNegocios.Formatos.Dintemar
             return estudioSeguridadInfraestructuraDAO.EliminarFormato(estudioSeguridadInfraestructuraDTO);
         }
 
-        public string InsertarDatos(DataTable datos)
+        public bool EliminarCarga(EstudioSeguridadInfraestructuraDTO estudioSeguridadInfraestructuraDTO)
         {
-            return estudioSeguridadInfraestructuraDAO.InsertarDatos(datos);
+            return estudioSeguridadInfraestructuraDAO.EliminarCarga(estudioSeguridadInfraestructuraDTO);
+        }
+
+        public string InsertarDatos(DataTable datos, string fecha)
+        {
+            return estudioSeguridadInfraestructuraDAO.InsertarDatos(datos, fecha);
         }
 
     }

@@ -8,9 +8,9 @@ namespace Marina.Siesmar.LogicaNegocios.Formatos.Dintemar
     {
         InteligenciaContraintelAmenazaDAO inteligenciaContraintelAmenazaDAO = new();
 
-        public List<InteligenciaContraintelAmenazaDTO> ObtenerLista(int? CargaId = null)
+        public List<InteligenciaContraintelAmenazaDTO> ObtenerLista(int? CargaId = null, string? fechainicio = null, string? fechafin = null)
         {
-            return inteligenciaContraintelAmenazaDAO.ObtenerLista(CargaId);
+            return inteligenciaContraintelAmenazaDAO.ObtenerLista(CargaId, fechainicio, fechafin);
         }
 
         public string AgregarRegistro(InteligenciaContraintelAmenazaDTO inteligenciaContraintelAmenazaDTO)
@@ -23,6 +23,11 @@ namespace Marina.Siesmar.LogicaNegocios.Formatos.Dintemar
             return inteligenciaContraintelAmenazaDAO.BuscarFormato(Codigo);
         }
 
+        public bool EliminarCarga(InteligenciaContraintelAmenazaDTO inteligenciaContraintelAmenazaDTO)
+        {
+            return inteligenciaContraintelAmenazaDAO.EliminarCarga(inteligenciaContraintelAmenazaDTO);
+        }
+
         public string ActualizarFormato(InteligenciaContraintelAmenazaDTO inteligenciaContraintelAmenazaDTO)
         {
             return inteligenciaContraintelAmenazaDAO.ActualizaFormato(inteligenciaContraintelAmenazaDTO);
@@ -33,9 +38,9 @@ namespace Marina.Siesmar.LogicaNegocios.Formatos.Dintemar
             return inteligenciaContraintelAmenazaDAO.EliminarFormato(inteligenciaContraintelAmenazaDTO);
         }
 
-        public string InsertarDatos(DataTable datos)
+        public string InsertarDatos(DataTable datos, string fecha)
         {
-            return inteligenciaContraintelAmenazaDAO.InsertarDatos(datos);
+            return inteligenciaContraintelAmenazaDAO.InsertarDatos(datos, fecha);
         }
 
     }

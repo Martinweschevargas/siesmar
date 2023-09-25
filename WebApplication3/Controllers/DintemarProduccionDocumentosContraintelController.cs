@@ -47,7 +47,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
             List<ZonaNavalDTO> zonaNavalDTO = zonaNavalBL.ObtenerZonaNavals();
             List<DependenciaDTO> DependenciaDTO = dependenciaBL.ObtenerDependencias();
             List<ComandanciaDependenciaDTO> ComandanciaDependenciaDTO = comandanciaDependenciaBL.ObtenerComandanciaDependencias();
-            List<CargaDTO> listaCargas = cargaBL.ObtenerListaCargas("ProduccionDocumentosContraintel");
+            List<CargaDTO> listaCargas = cargaBL.ObtenerListaCargas("ProduccionDocumentosContrainteligencia");
 
 
             return Json(new { data1 = mesDTO, data2 = zonaNavalDTO, data3 = DependenciaDTO, 
@@ -66,12 +66,12 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return View();
         }
 
-        public ActionResult Insertar(int MesId, int AnioProduccionDocumento, string CodigoDependencia, string CodigoComandanciaDependencia, 
+        public ActionResult Insertar(string NumeroMes, int AnioProduccionDocumento, string CodigoDependencia, string CodigoComandanciaDependencia, 
             string CodigoZonaNaval, int NotasInformacionContrainteligencia, int NotasContrainteligenciaProducidas, 
-            int ApreciacionesContrainteligenciaProducida, int CargaId)
+            int ApreciacionesContrainteligenciaProducida, int CargaId, string fecha)
         {
             ProduccionDocumentosContraintelDTO produccionDocumentosContraintelDTO = new();
-            produccionDocumentosContraintelDTO.MesId = MesId;
+            produccionDocumentosContraintelDTO.NumeroMes = NumeroMes;
             produccionDocumentosContraintelDTO.AnioProduccionDocumento = AnioProduccionDocumento;
             produccionDocumentosContraintelDTO.CodigoDependencia = CodigoDependencia;
             produccionDocumentosContraintelDTO.CodigoComandanciaDependencia = CodigoComandanciaDependencia;
@@ -81,6 +81,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
             produccionDocumentosContraintelDTO.ApreciacionesContrainteligenciaProducida = ApreciacionesContrainteligenciaProducida;
             produccionDocumentosContraintelDTO.CargaId = CargaId;
             produccionDocumentosContraintelDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
+            produccionDocumentosContraintelDTO.Fecha = fecha;
 
             var IND_OPERACION = produccionDocumentosContraintelBL.AgregarRegistro(produccionDocumentosContraintelDTO);
             return Content(IND_OPERACION);
@@ -91,13 +92,13 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Json(produccionDocumentosContraintelBL.BuscarFormato(Id));
         }
 
-        public ActionResult Actualizar(int Id, int MesId, int AnioProduccionDocumento, string CodigoDependencia, string CodigoComandanciaDependencia,
+        public ActionResult Actualizar(int Id, string NumeroMes, int AnioProduccionDocumento, string CodigoDependencia, string CodigoComandanciaDependencia,
             string CodigoZonaNaval, int NotasInformacionContrainteligencia, int NotasContrainteligenciaProducidas,
             int ApreciacionesContrainteligenciaProducida)
         {
             ProduccionDocumentosContraintelDTO produccionDocumentosContraintelDTO = new();
             produccionDocumentosContraintelDTO.ProduccionDocumentosContrainteligenciaId = Id;
-            produccionDocumentosContraintelDTO.MesId = MesId;
+            produccionDocumentosContraintelDTO.NumeroMes = NumeroMes;
             produccionDocumentosContraintelDTO.AnioProduccionDocumento = AnioProduccionDocumento;
             produccionDocumentosContraintelDTO.CodigoDependencia = CodigoDependencia;
             produccionDocumentosContraintelDTO.CodigoComandanciaDependencia = CodigoComandanciaDependencia;
@@ -120,6 +121,23 @@ namespace Marina.Siesmar.Presentacion.Controllers
             produccionDocumentosContraintelDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
             if (produccionDocumentosContraintelBL.EliminarFormato(produccionDocumentosContraintelDTO) == true)
+                mensaje = "1";
+            else
+                mensaje = "0";
+
+            return Content(mensaje);
+        }
+
+        public ActionResult EliminarCarga(int Id)
+        {
+            string mensaje;
+            ProduccionDocumentosContraintelDTO produccionDocumentosContraintelDTO = new()
+            {
+                CargaId = Id,
+                UsuarioIngresoRegistro = User.obtenerUsuario()
+            };
+
+            if (produccionDocumentosContraintelBL.EliminarCarga(produccionDocumentosContraintelDTO) == true)
                 mensaje = "1";
             else
                 mensaje = "0";
@@ -154,7 +172,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
 
                     lista.Add(new ProduccionDocumentosContraintelDTO
                     {
-                        MesId = int.Parse(fila.GetCell(0).ToString()),
+                        NumeroMes = fila.GetCell(0).ToString(),
                         AnioProduccionDocumento = int.Parse(fila.GetCell(1).ToString()),
                         CodigoDependencia = fila.GetCell(2).ToString(),
                         CodigoComandanciaDependencia = fila.GetCell(3).ToString(),
@@ -175,7 +193,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
         }
 
         [HttpPost]
-        public ActionResult EnviarDatos([FromForm] IFormFile ArchivoExcel)
+        public ActionResult EnviarDatos([FromForm] IFormFile ArchivoExcel,string fecha)
         {
             Stream stream = ArchivoExcel.OpenReadStream();
             IWorkbook MiExcel = null;
@@ -192,7 +210,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
 
             dt.Columns.AddRange(new DataColumn[9]
             {
-                    new DataColumn("MesId", typeof(int)),
+                    new DataColumn("NumeroMes", typeof(int)),
                     new DataColumn("AnioProduccionDocumento", typeof(int)),
                     new DataColumn("CodigoDependencia", typeof(string)),
                     new DataColumn("CodigoComandanciaDependencia", typeof(string)),
@@ -220,7 +238,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
 
                     User.obtenerUsuario());
             }
-            var IND_OPERACION = produccionDocumentosContraintelBL.InsertarDatos(dt);
+            var IND_OPERACION = produccionDocumentosContraintelBL.InsertarDatos(dt, fecha);
             return Content(IND_OPERACION);
         }
 

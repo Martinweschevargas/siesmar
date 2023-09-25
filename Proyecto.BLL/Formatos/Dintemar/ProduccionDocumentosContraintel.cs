@@ -8,9 +8,9 @@ namespace Marina.Siesmar.LogicaNegocios.Formatos.Dintemar
     {
         ProduccionDocumentosContraintelDAO produccionDocumentosContraintelDAO = new();
 
-        public List<ProduccionDocumentosContraintelDTO> ObtenerLista(int? CargaId = null)
+        public List<ProduccionDocumentosContraintelDTO> ObtenerLista(int? CargaId = null, string? fechainicio = null, string? fechafin = null)
         {
-            return produccionDocumentosContraintelDAO.ObtenerLista(CargaId);
+            return produccionDocumentosContraintelDAO.ObtenerLista(CargaId, fechainicio, fechafin);
         }
 
         public string AgregarRegistro(ProduccionDocumentosContraintelDTO produccionDocumentosContraintelDTO)
@@ -32,10 +32,14 @@ namespace Marina.Siesmar.LogicaNegocios.Formatos.Dintemar
         {
             return produccionDocumentosContraintelDAO.EliminarFormato(produccionDocumentosContraintelDTO);
         }
-
-        public string InsertarDatos(DataTable datos)
+        public bool EliminarCarga(ProduccionDocumentosContraintelDTO produccionDocumentosContraintelDTO)
         {
-            return produccionDocumentosContraintelDAO.InsertarDatos(datos);
+            return produccionDocumentosContraintelDAO.EliminarCarga(produccionDocumentosContraintelDTO);
+        }
+
+        public string InsertarDatos(DataTable datos, string fecha)
+        {
+            return produccionDocumentosContraintelDAO.InsertarDatos(datos, fecha);
         }
 
     }

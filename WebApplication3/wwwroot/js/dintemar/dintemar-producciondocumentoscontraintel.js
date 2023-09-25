@@ -26,15 +26,16 @@ $(document).ready(function () {
                                 type: "POST",
                                 url: '/DintemarProduccionDocumentosContraintel/Insertar',
                                 data: {
-                                    'MesId': $('#cbMes').val(),
+                                    'NumeroMes': $('#cbMes').val(),
                                     'AnioProduccionDocumento': $('#txtAnio').val(),
-                                    'CodigoDependencia ': $('#cbDependencia').val(),
-                                    'CodigoComandanciaDependencia ': $('#cbComandanciaDep').val(),
-                                    'CodigoZonaNaval ': $('#cbZonanaval').val(),
+                                    'CodigoDependencia': $('#cbDependencia').val(),
+                                    'CodigoComandanciaDependencia': $('#cbComandanciaDep').val(),
+                                    'CodigoZonaNaval': $('#cbZonanaval').val(),
                                     'NotasInformacionContrainteligencia': $('#txtNroInfoComb').val(),
                                     'NotasContrainteligenciaProducidas': $('#txtNroNotasContra').val(),
                                     'ApreciacionesContrainteligenciaProducida': $('#txtNroApelacionContra').val(),
                                     'CargaId': $('#cargasR').val(),
+                                    'Fecha': $('#txtFecha').val(),
                                 },
                                 beforeSend: function () {
                                     $('#loader-6').show();
@@ -97,11 +98,11 @@ $(document).ready(function () {
                                 url: '/DintemarProduccionDocumentosContraintel/Actualizar',
                                 data: {
                                     'Id': $('#txtCodigo').val(),
-                                    'MesId': $('#cbMese').val(),
+                                    'NumeroMes': $('#cbMese').val(),
                                     'AnioProduccionDocumento': $('#txtAnioe').val(),
-                                    'CodigoDependencia ': $('#cbDependenciae').val(),
-                                    'CodigoComandanciaDependencia ': $('#cbComandanciaDepe').val(),
-                                    'CodigoZonaNaval ': $('#cbZonanavale').val(),
+                                    'CodigoDependencia': $('#cbDependenciae').val(),
+                                    'CodigoComandanciaDependencia': $('#cbComandanciaDepe').val(),
+                                    'CodigoZonaNaval': $('#cbZonanavale').val(),
                                     'NotasInformacionContrainteligencia': $('#txtNroInfoCombe').val(),
                                     'NotasContrainteligenciaProducidas': $('#txtNroNotasContrae').val(),
                                     'ApreciacionesContrainteligenciaProducida': $('#txtNroApelacionContrae').val(),
@@ -152,7 +153,7 @@ $(document).ready(function () {
             { "data": "produccionDocumentosContrainteligenciaId" },
             { "data": "descMes" },
             { "data": "anioProduccionDocumento" },
-            { "data": "nombreDependencia" },
+            { "data": "descDependencia" },
             { "data": "descComandanciaDependencia" },
             { "data": "descZonaNaval" },
             { "data": "notasInformacionContrainteligencia" },
@@ -260,7 +261,7 @@ function edit(Id) {
     $('#editar').show();
     $.getJSON('/DintemarProduccionDocumentosContraintel/Mostrar?Id=' + Id, [], function (ProduccionDocumentosContraintelDTO) {
         $('#txtCodigo').val(ProduccionDocumentosContraintelDTO.produccionDocumentosContrainteligenciaId);
-        $('#cbMese').val(ProduccionDocumentosContraintelDTO.mesId);
+        $('#cbMese').val(ProduccionDocumentosContraintelDTO.numeroMes);
         $('#txtAnioe').val(ProduccionDocumentosContraintelDTO.anioProduccionDocumento);
         $('#cbDependenciae').val(ProduccionDocumentosContraintelDTO.codigoDependencia);
         $('#cbComandanciaDepe').val(ProduccionDocumentosContraintelDTO.codigoComandanciaDependencia);
@@ -343,7 +344,7 @@ function mostrarDatos() {
                 dataJson["data1"].forEach((item) => {
                     $("#tbData tbody").append(
                         $("<tr>").append(
-                            $("<td>").text(item.mesId),
+                            $("<td>").text(item.numeroMes),
                             $("<td>").text(item.anioProduccionDocumento),
                             $("<td>").text(item.codigoDependencia),
                             $("<td>").text(item.codigoComandanciaDependencia),
@@ -378,6 +379,7 @@ function enviarDatos() {
     const formData = new FormData()
 
     formData.append("ArchivoExcel", input.files[0])
+    formData.append("Fecha", $('#txtFecha').val())
     fetch("DintemarProduccionDocumentosContraintel/EnviarDatos", {
         method: "POST",
         body: formData
@@ -409,23 +411,23 @@ function cargaDatos() {
 
         $("select#cbMes").html("");
         $.each(mes, function () {
-            var RowContent = '<option value=' + this.mesId + '>' + this.descMes + '</option>'
+            var RowContent = '<option value=' + this.numeroMes + '>' + this.descMes + '</option>'
             $("select#cbMes").append(RowContent);
         });
         $("select#cbMese").html("");
         $.each(mes, function () {
-            var RowContent = '<option value=' + this.mesId + '>' + this.descMes + '</option>'
+            var RowContent = '<option value=' + this.numeroMes + '>' + this.descMes + '</option>'
             $("select#cbMese").append(RowContent);
         });
 
         $("select#cbDependencia").html("");
         $.each(dependencia, function () {
-            var RowContent = '<option value=' + this.codigoDependencia + '>' + this.nombreDependencia + '</option>'
+            var RowContent = '<option value=' + this.codigoDependencia + '>' + this.descDependencia + '</option>'
             $("select#cbDependencia").append(RowContent);
         });
         $("select#cbDependenciae").html("");
         $.each(dependencia, function () {
-            var RowContent = '<option value=' + this.codigoDependencia + '>' + this.nombreDependencia + '</option>'
+            var RowContent = '<option value=' + this.codigoDependencia + '>' + this.descDependencia + '</option>'
             $("select#cbDependenciae").append(RowContent);
         });
 
@@ -460,6 +462,52 @@ function cargaDatos() {
             $("select#cargas").append(RowContent);
         });
     });
+}
+
+function eliminarCarga() {
+    var id = $('select#cargas').val();
+    Swal.fire({
+        title: 'Estas seguro?',
+        text: "No podras revertir!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si,borralo!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                type: "POST",
+                url: '/DintemarProduccionDocumentosContraintel/EliminarCarga',
+                data: {
+                    'Id': id
+                },
+                beforeSend: function () {
+                    $('#loader-6').show();
+                },
+                success: function (mensaje) {
+                    if (mensaje == "1") {
+                        Swal.fire(
+                            'Borrado!',
+                            'Se elimino con éxito.',
+                            'success'
+                        )
+                    } else {
+                        Swal.fire(
+                            'Atención!',
+                            'Ocurrio un problema.',
+                            'error'
+                        )
+                    }
+                    cargaDatos();
+                    $('#tblDintemarProduccionDocumentosContraintel').DataTable().ajax.reload();
+                },
+                complete: function () {
+                    $('#loader-6').hide();
+                }
+            });
+        }
+    })
 }
 
 function optReporte(id) {

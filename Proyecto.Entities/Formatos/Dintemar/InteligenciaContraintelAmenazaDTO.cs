@@ -2,7 +2,7 @@
 
 namespace Marina.Siesmar.Entidades.Formatos.Dintemar
 {
-    public partial class InteligenciaContraintelAmenazaDTO
+    public partial class InteligenciaContraintelAmenazaDTO : DintemarBaseDto
     {
         public int InteligenciaContrainteligenciaAmenazaId { get; set; }
         public string? CodigoAmenazaSeguridadNacional { get; set; }

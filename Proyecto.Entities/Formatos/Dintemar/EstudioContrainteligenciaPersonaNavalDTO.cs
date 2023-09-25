@@ -2,7 +2,7 @@
 
 namespace Marina.Siesmar.Entidades.Formatos.Dintemar
 {
-    public partial class EstudioContrainteligenciaPersonaNavalDTO
+    public partial class EstudioContrainteligenciaPersonaNavalDTO :  DintemarBaseDto
     {
         public int EstudioContrainteligenciaPersonaNavalId { get; set; }
         public string? CodigoDependencia { get; set; }
