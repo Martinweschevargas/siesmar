@@ -11,7 +11,7 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Dintemar
 
         SqlCommand cmd = new SqlCommand();
 
-        public List<InteligenciaContraintelAmenazaDTO> ObtenerLista(int? CargaId = null)
+        public List<InteligenciaContraintelAmenazaDTO> ObtenerLista(int? CargaId = null, string? fechainicio = null, string? fechafin = null)
         {
             List<InteligenciaContraintelAmenazaDTO> lista = new List<InteligenciaContraintelAmenazaDTO>();
 
@@ -25,6 +25,12 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Dintemar
 
                 cmd.Parameters.Add("@CargaId", SqlDbType.Int);
                 cmd.Parameters["@CargaId"].Value = CargaId;
+
+                cmd.Parameters.Add("@FechaInicio", SqlDbType.Date);
+                cmd.Parameters["@FechaInicio"].Value = fechainicio;
+
+                cmd.Parameters.Add("@FechaFin", SqlDbType.Date);
+                cmd.Parameters["@FechaFin"].Value = fechafin;
 
                 using (SqlDataReader dr = cmd.ExecuteReader())
                 {
@@ -63,8 +69,8 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Dintemar
                     cmd = new SqlCommand("Formato.usp_InteligenciaContrainteligenciaAmenazaRegistrar", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add("@CodigoAmenazaSeguridadNacional ", SqlDbType.VarChar, 20);
-                    cmd.Parameters["@CodigoAmenazaSeguridadNacional "].Value = intelContraintelAmenazaDTO.CodigoAmenazaSeguridadNacional;
+                    cmd.Parameters.Add("@CodigoAmenazaSeguridadNacional", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoAmenazaSeguridadNacional"].Value = intelContraintelAmenazaDTO.CodigoAmenazaSeguridadNacional;
 
                     cmd.Parameters.Add("@NotasInteligentes", SqlDbType.Int);
                     cmd.Parameters["@NotasInteligentes"].Value = intelContraintelAmenazaDTO.NotasInteligentes;
@@ -102,7 +108,8 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Dintemar
                     cmd.Parameters.Add("@Mac", SqlDbType.VarChar, 50);
                     cmd.Parameters["@Mac"].Value = UtilitariosGlobales.obtenerDireccionMac();
 
-
+                    cmd.Parameters.Add("@FechaCarga", SqlDbType.Date);
+                    cmd.Parameters["@FechaCarga"].Value = intelContraintelAmenazaDTO.Fecha;
 
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
@@ -144,7 +151,7 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Dintemar
                     {
 
                         intelContraintelAmenazaDTO.InteligenciaContrainteligenciaAmenazaId = Convert.ToInt32(dr["InteligenciaContrainteligenciaAmenazaId"]);
-                        intelContraintelAmenazaDTO.CodigoAmenazaSeguridadNacional =  dr["CodigoAmenazaSeguridadNacional "].ToString();
+                        intelContraintelAmenazaDTO.CodigoAmenazaSeguridadNacional =  dr["CodigoAmenazaSeguridadNacional"].ToString();
                         intelContraintelAmenazaDTO.NotasInteligentes = Convert.ToInt32(dr["NotasInteligentes"]);
                         intelContraintelAmenazaDTO.EstudiosInteligencia = Convert.ToInt32(dr["EstudiosInteligencia"]);
                         intelContraintelAmenazaDTO.ApreciacionesInteligencia = Convert.ToInt32(dr["ApreciacionesInteligencia"]);
@@ -181,8 +188,8 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Dintemar
                     cmd.Parameters.Add("@InteligenciaContrainteligenciaAmenazaId", SqlDbType.Int);
                     cmd.Parameters["@InteligenciaContrainteligenciaAmenazaId"].Value = intelContraintelAmenazaDTO.InteligenciaContrainteligenciaAmenazaId;
                     
-                    cmd.Parameters.Add("@CodigoAmenazaSeguridadNacional ", SqlDbType.VarChar, 20);
-                    cmd.Parameters["@CodigoAmenazaSeguridadNacional "].Value = intelContraintelAmenazaDTO.CodigoAmenazaSeguridadNacional;
+                    cmd.Parameters.Add("@CodigoAmenazaSeguridadNacional", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoAmenazaSeguridadNacional"].Value = intelContraintelAmenazaDTO.CodigoAmenazaSeguridadNacional;
 
                     cmd.Parameters.Add("@NotasInteligentes", SqlDbType.Int);
                     cmd.Parameters["@NotasInteligentes"].Value = intelContraintelAmenazaDTO.NotasInteligentes;
@@ -272,7 +279,48 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Dintemar
             return eliminado;
         }
 
-        public string InsertarDatos(DataTable datos)
+        public bool EliminarCarga(InteligenciaContraintelAmenazaDTO intelContraintelAmenazaDTO)
+        {
+            bool eliminado = false;
+            var cn = new ConfiguracionConexion();
+
+            try
+            {
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    cmd = new SqlCommand("Seguridad.usp_CargaEliminar", conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add("@Formato", SqlDbType.NVarChar, 200);
+                    cmd.Parameters["@Formato"].Value = "InteligenciaContrainteligenciaAmenaza";
+
+                    cmd.Parameters.Add("@CargaId", SqlDbType.Int);
+                    cmd.Parameters["@CargaId"].Value = intelContraintelAmenazaDTO.CargaId;
+
+                    cmd.Parameters.Add("@Usuario", SqlDbType.VarChar, 100);
+                    cmd.Parameters["@Usuario"].Value = intelContraintelAmenazaDTO.UsuarioIngresoRegistro;
+
+                    cmd.Parameters.Add("@Ip", SqlDbType.VarChar, 50);
+                    cmd.Parameters["@Ip"].Value = UtilitariosGlobales.obtenerDireccionIp();
+
+                    cmd.Parameters.Add("@Mac", SqlDbType.VarChar, 50);
+                    cmd.Parameters["@Mac"].Value = UtilitariosGlobales.obtenerDireccionMac();
+
+                    cmd.ExecuteNonQuery();
+
+                    eliminado = true;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return eliminado;
+        }
+
+        public string InsertarDatos(DataTable datos, string fecha)
         {
             string IND_OPERACION = "0";
             var cn = new ConfiguracionConexion();
@@ -294,6 +342,9 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Dintemar
 
                     cmd.Parameters.Add("@Mac", SqlDbType.VarChar, 50);
                     cmd.Parameters["@Mac"].Value = UtilitariosGlobales.obtenerDireccionMac();
+
+                    cmd.Parameters.Add("@FechaCarga", SqlDbType.Date);
+                    cmd.Parameters["@FechaCarga"].Value = fecha;
 
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {

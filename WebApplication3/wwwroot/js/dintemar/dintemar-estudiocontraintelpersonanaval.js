@@ -26,12 +26,13 @@ $(document).ready(function () {
                                 type: "POST",
                                 url: '/DintemarEstudioContraintelPersonaNaval/Insertar',
                                 data: {
-                                    'CodigoDependencia ': $('#cbDependencia').val(),
-                                    'CodigoComandanciaDependencia ': $('#cbComandanciaDep').val(),
-                                    'CodigoZonaNaval ': $('#cbZonanaval').val(),
+                                    'CodigoDependencia': $('#cbDependencia').val(),
+                                    'CodigoComandanciaDependencia': $('#cbComandanciaDep').val(),
+                                    'CodigoZonaNaval': $('#cbZonanaval').val(),
                                     'EstudioContrainteligenciaProducida': $('#txtEstudioContraP').val(),
-                                    'CodigoTipoEstudioContrainteligencia ': $('#cbTipoEstudioContra').val(),
+                                    'CodigoTipoEstudioContrainteligencia': $('#cbTipoEstudioContra').val(),
                                     'CargaId': $('#cargasR').val(),
+                                    'Fecha': $('#txtFecha').val(),
                                 },
                                 beforeSend: function () {
                                     $('#loader-6').show();
@@ -94,11 +95,11 @@ $(document).ready(function () {
                                 url: '/DintemarEstudioContraintelPersonaNaval/Actualizar',
                                 data: {
                                     'Id': $('#txtCodigo').val(),
-                                    'CodigoDependencia ': $('#cbDependenciae').val(),
-                                    'CodigoComandanciaDependencia ': $('#cbComandanciaDepe').val(),
-                                    'CodigoZonaNaval ': $('#cbZonanavale').val(),
+                                    'CodigoDependencia': $('#cbDependenciae').val(),
+                                    'CodigoComandanciaDependencia': $('#cbComandanciaDepe').val(),
+                                    'CodigoZonaNaval': $('#cbZonanavale').val(),
                                     'EstudioContrainteligenciaProducida': $('#txtEstudioContraPe').val(),
-                                    'CodigoTipoEstudioContrainteligencia ': $('#cbTipoEstudioContrae').val(),
+                                    'CodigoTipoEstudioContrainteligencia': $('#cbTipoEstudioContrae').val(),
                                 },
                                 beforeSend: function () {
                                     $('#loader-6').show();
@@ -362,6 +363,7 @@ function enviarDatos() {
     const formData = new FormData()
 
     formData.append("ArchivoExcel", input.files[0])
+    formData.append("Fecha", $('#txtFecha').val())
     fetch("DintemarEstudioContraintelPersonaNaval/EnviarDatos", {
         method: "POST",
         body: formData
@@ -444,6 +446,52 @@ function cargaDatos() {
             $("select#cargas").append(RowContent);
         });
     });
+}
+
+function eliminarCarga() {
+    var id = $('select#cargas').val();
+    Swal.fire({
+        title: 'Estas seguro?',
+        text: "No podras revertir!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si,borralo!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                type: "POST",
+                url: '/DintemarEstudioContraintelPersonaNaval/EliminarCarga',
+                data: {
+                    'Id': id
+                },
+                beforeSend: function () {
+                    $('#loader-6').show();
+                },
+                success: function (mensaje) {
+                    if (mensaje == "1") {
+                        Swal.fire(
+                            'Borrado!',
+                            'Se elimino con éxito.',
+                            'success'
+                        )
+                    } else {
+                        Swal.fire(
+                            'Atención!',
+                            'Ocurrio un problema.',
+                            'error'
+                        )
+                    }
+                    cargaDatos();
+                    $('#tblDintemarEstudioContraintelPersonaNaval').DataTable().ajax.reload();
+                },
+                complete: function () {
+                    $('#loader-6').hide();
+                }
+            });
+        }
+    })
 }
 
 function optReporte(id) {

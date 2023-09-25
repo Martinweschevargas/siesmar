@@ -2,10 +2,13 @@
 
 namespace Marina.Siesmar.Entidades.Formatos.Dintemar
 {
-    public partial class ProduccionDocumentosContraintelDTO
+    public partial class ProduccionDocumentosContraintelDTO : DintemarBaseDto
     {
         public int ProduccionDocumentosContrainteligenciaId { get; set; }
-        public int? MesId { get; set; }
+        //public int? MesId { get; set; }
+
+        public string? NumeroMes { get; set; }
+
         public int? AnioProduccionDocumento { get; set; }
         public string? CodigoDependencia { get; set; }
         public string? CodigoComandanciaDependencia { get; set; }

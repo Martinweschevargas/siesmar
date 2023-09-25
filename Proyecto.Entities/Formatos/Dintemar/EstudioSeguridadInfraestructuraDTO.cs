@@ -2,10 +2,11 @@
 
 namespace Marina.Siesmar.Entidades.Formatos.Dintemar
 {
-    public partial class EstudioSeguridadInfraestructuraDTO
+    public partial class EstudioSeguridadInfraestructuraDTO : DintemarBaseDto
     {
         public int EstudioSeguridadInfraestructuraId { get; set; }
-        public int? MesId { get; set; }
+        //public int? MesId { get; set; }
+        public string? NumeroMes { get; set; }
         public int? AnioEstudio { get; set; }
         public string? CodigoZonaNaval { get; set; }
         public int? EstudioSeguridadInfraestructura { get; set; }

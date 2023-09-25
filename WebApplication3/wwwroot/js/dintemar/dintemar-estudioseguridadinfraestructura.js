@@ -26,12 +26,13 @@ $(document).ready(function () {
                                 type: "POST",
                                 url: '/DintemarEstudioSeguridadInfraestructura/Insertar',
                                 data: {
-                                    'MesId': $('#cbMes').val(),
+                                    'NumeroMes': $('#cbMes').val(),
                                     'AnioEstudio': $('#txtAnio').val(),
                                     'CodigoZonaNaval': $('#cbZonanaval').val(),
                                     'EstudioSeguridadInfraestructura': $('#txtEstudioSeguridad').val(),
                                     'PorcentajeAvanceEstudio': $('#txtPorcentajeAvance').val(),
                                     'CargaId': $('#cargasR').val(),
+                                    'Fecha': $('#txtFecha').val(),
                                 },
                                 beforeSend: function () {
                                     $('#loader-6').show();
@@ -94,7 +95,7 @@ $(document).ready(function () {
                                 url: '/DintemarEstudioSeguridadInfraestructura/Actualizar',
                                 data: {
                                     'Id': $('#txtCodigo').val(),
-                                    'MesId': $('#cbMese').val(),
+                                    'NumeroMes': $('#cbMese').val(),
                                     'AnioEstudio': $('#txtAnioe').val(),
                                     'CodigoZonaNaval': $('#cbZonanavale').val(),
                                     'EstudioSeguridadInfraestructura': $('#txtEstudioSeguridade').val(),
@@ -251,7 +252,7 @@ function edit(Id) {
     $('#editar').show();
     $.getJSON('/DintemarEstudioSeguridadInfraestructura/Mostrar?Id=' + Id, [], function (EstudioSeguridadInfraestructuraDTO) {
         $('#txtCodigo').val(EstudioSeguridadInfraestructuraDTO.estudioSeguridadInfraestructuraId);
-        $('#cbMese').val(EstudioSeguridadInfraestructuraDTO.mesId);
+        $('#cbMese').val(EstudioSeguridadInfraestructuraDTO.numeroMes);
         $('#txtAnioe').val(EstudioSeguridadInfraestructuraDTO.anioEstudio);
         $('#cbZonanavale').val(EstudioSeguridadInfraestructuraDTO.codigoZonaNaval);
         $('#txtEstudioSeguridade').val(EstudioSeguridadInfraestructuraDTO.estudioSeguridadInfraestructura);
@@ -331,7 +332,7 @@ function mostrarDatos() {
                 dataJson["data1"].forEach((item) => {
                     $("#tbData tbody").append(
                         $("<tr>").append(
-                            $("<td>").text(item.mesId),
+                            $("<td>").text(item.numeroMes),
                             $("<td>").text(item.anioEstudio),
                             $("<td>").text(item.codigoZonaNaval),
                             $("<td>").text(item.estudioSeguridadInfraestructura),
@@ -363,6 +364,7 @@ function enviarDatos() {
     const formData = new FormData()
 
     formData.append("ArchivoExcel", input.files[0])
+    formData.append("Fecha", $('#txtFecha').val())
     fetch("DintemarEstudioSeguridadInfraestructura/EnviarDatos", {
         method: "POST",
         body: formData
@@ -393,23 +395,23 @@ function cargaDatos() {
 
         $("select#cbMes").html("");
         $.each(mes, function () {
-            var RowContent = '<option value=' + this.mesId + '>' + this.descMes + '</option>'
+            var RowContent = '<option value=' + this.numeroMes + '>' + this.descMes + '</option>'
             $("select#cbMes").append(RowContent);
         });
         $("select#cbMese").html("");
         $.each(mes, function () {
-            var RowContent = '<option value=' + this.mesId + '>' + this.descMes + '</option>'
+            var RowContent = '<option value=' + this.numeroMes + '>' + this.descMes + '</option>'
             $("select#cbMese").append(RowContent);
         });
 
         $("select#cbZonanaval").html("");
         $.each(zonaNaval, function () {
-            var RowContent = '<option value=' + this.zonaNavalId + '>' + this.descZonaNaval + '</option>'
+            var RowContent = '<option value=' + this.codigoZonaNaval + '>' + this.descZonaNaval + '</option>'
             $("select#cbZonanaval").append(RowContent);
         });
         $("select#cbZonanavale").html("");
         $.each(zonaNaval, function () {
-            var RowContent = '<option value=' + this.zonaNavalId + '>' + this.descZonaNaval + '</option>'
+            var RowContent = '<option value=' + this.codigoZonaNaval + '>' + this.descZonaNaval + '</option>'
             $("select#cbZonanavale").append(RowContent);
         });
 
@@ -423,6 +425,52 @@ function cargaDatos() {
         });
 
     });
+}
+
+function eliminarCarga() {
+    var id = $('select#cargas').val();
+    Swal.fire({
+        title: 'Estas seguro?',
+        text: "No podras revertir!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si,borralo!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                type: "POST",
+                url: '/DintemarEstudioSeguridadInfraestructura/EliminarCarga',
+                data: {
+                    'Id': id
+                },
+                beforeSend: function () {
+                    $('#loader-6').show();
+                },
+                success: function (mensaje) {
+                    if (mensaje == "1") {
+                        Swal.fire(
+                            'Borrado!',
+                            'Se elimino con éxito.',
+                            'success'
+                        )
+                    } else {
+                        Swal.fire(
+                            'Atención!',
+                            'Ocurrio un problema.',
+                            'error'
+                        )
+                    }
+                    cargaDatos();
+                    $('#tblDintemarEstudioSeguridadInfraestructura').DataTable().ajax.reload();
+                },
+                complete: function () {
+                    $('#loader-6').hide();
+                }
+            });
+        }
+    })
 }
 
 function optReporte(id) {

@@ -8,9 +8,9 @@ namespace Marina.Siesmar.LogicaNegocios.Formatos.Dintemar
     {
         EstudioContrainteligenciaPersonaNavalDAO estudioContraintelPersonaCivilDAO = new();
 
-        public List<EstudioContrainteligenciaPersonaNavalDTO> ObtenerLista(int? CargaId = null)
+        public List<EstudioContrainteligenciaPersonaNavalDTO> ObtenerLista(int? CargaId = null, string? fechainicio = null, string? fechafin = null)
         {
-            return estudioContraintelPersonaCivilDAO.ObtenerLista(CargaId);
+            return estudioContraintelPersonaCivilDAO.ObtenerLista(CargaId, fechainicio, fechafin);
         }
 
         public string AgregarRegistro(EstudioContrainteligenciaPersonaNavalDTO estudioContraintelPersonaCivilDTO)
@@ -33,9 +33,14 @@ namespace Marina.Siesmar.LogicaNegocios.Formatos.Dintemar
             return estudioContraintelPersonaCivilDAO.EliminarFormato(estudioContraintelPersonaCivilDTO);
         }
 
-        public string InsertarDatos(DataTable datos)
+        public bool EliminarCarga(EstudioContrainteligenciaPersonaNavalDTO estudioContrainteligenciaPersonaNavalDTO)
         {
-            return estudioContraintelPersonaCivilDAO.InsertarDatos(datos);
+            return estudioContraintelPersonaCivilDAO.EliminarCarga(estudioContrainteligenciaPersonaNavalDTO);
+        }
+
+        public string InsertarDatos(DataTable datos, string fecha)
+        {
+            return estudioContraintelPersonaCivilDAO.InsertarDatos(datos, fecha);
         }
     }
 }

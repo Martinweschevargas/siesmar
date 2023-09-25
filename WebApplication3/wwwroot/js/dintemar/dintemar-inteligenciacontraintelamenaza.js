@@ -26,7 +26,7 @@ $(document).ready(function () {
                                 type: "POST",
                                 url: '/DintemarInteligenciaContraintelAmenaza/Insertar',
                                 data: {
-                                    'CodigoAmenazaSeguridadNacional ': $('#cbAmenazasSN').val(),
+                                    'CodigoAmenazaSeguridadNacional': $('#cbAmenazasSN').val(),
                                     'NotasInteligentes': $('#txtNotasInteligencia').val(),
                                     'EstudiosInteligencia': $('#txtEstudiosInteligencia').val(),
                                     'ApreciacionesInteligencia': $('#txtApreciacionesI').val(),
@@ -36,6 +36,7 @@ $(document).ready(function () {
                                     'ApreciacionesContrainteligencia': $('#txtApreciacionesContra').val(),
                                     'NotasInformacionContrainteligencia': $('#txtNotasInfoContra').val(),
                                     'CargaId': $('#cargasR').val(),
+                                    'Fecha': $('#txtFecha').val(),
                                 },
                                 beforeSend: function () {
                                     $('#loader-6').show();
@@ -98,7 +99,7 @@ $(document).ready(function () {
                                 url: '/DintemarInteligenciaContraintelAmenaza/Actualizar',
                                 data: {
                                     'Id': $('#txtCodigo').val(),
-                                    'CodigoAmenazaSeguridadNacional ': $('#cbAmenazasSNe').val(),
+                                    'CodigoAmenazaSeguridadNacional': $('#cbAmenazasSNe').val(),
                                     'NotasInteligentes': $('#txtNotasInteligenciae').val(),
                                     'EstudiosInteligencia': $('#txtEstudiosInteligenciae').val(),
                                     'ApreciacionesInteligencia': $('#txtApreciacionesIe').val(),
@@ -382,6 +383,7 @@ function enviarDatos() {
     const formData = new FormData()
 
     formData.append("ArchivoExcel", input.files[0])
+    formData.append("Fecha", $('#txtFecha').val())
     fetch("DintemarInteligenciaContraintelAmenaza/EnviarDatos", {
         method: "POST",
         body: formData
@@ -428,6 +430,52 @@ function cargaDatos() {
             $("select#cargas").append(RowContent);
         });
     });
+}
+
+function eliminarCarga() {
+    var id = $('select#cargas').val();
+    Swal.fire({
+        title: 'Estas seguro?',
+        text: "No podras revertir!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si,borralo!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                type: "POST",
+                url: '/DintemarInteligenciaContraintelAmenaza/EliminarCarga',
+                data: {
+                    'Id': id
+                },
+                beforeSend: function () {
+                    $('#loader-6').show();
+                },
+                success: function (mensaje) {
+                    if (mensaje == "1") {
+                        Swal.fire(
+                            'Borrado!',
+                            'Se elimino con éxito.',
+                            'success'
+                        )
+                    } else {
+                        Swal.fire(
+                            'Atención!',
+                            'Ocurrio un problema.',
+                            'error'
+                        )
+                    }
+                    cargaDatos();
+                    $('#tblDintemarInteligenciaContraintelAmenaza').DataTable().ajax.reload();
+                },
+                complete: function () {
+                    $('#loader-6').hide();
+                }
+            });
+        }
+    })
 }
 
 function optReporte(id) {

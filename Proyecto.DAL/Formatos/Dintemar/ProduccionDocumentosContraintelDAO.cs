@@ -12,7 +12,7 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Dintemar
 
         SqlCommand cmd = new SqlCommand();
 
-        public List<ProduccionDocumentosContraintelDTO> ObtenerLista(int? CargaId = null)
+        public List<ProduccionDocumentosContraintelDTO> ObtenerLista(int? CargaId = null, string? fechainicio = null, string? fechafin = null)
         {
             List<ProduccionDocumentosContraintelDTO> lista = new List<ProduccionDocumentosContraintelDTO>();
 
@@ -26,6 +26,12 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Dintemar
 
                 cmd.Parameters.Add("@CargaId", SqlDbType.Int);
                 cmd.Parameters["@CargaId"].Value = CargaId;
+
+                cmd.Parameters.Add("@FechaInicio", SqlDbType.Date);
+                cmd.Parameters["@FechaInicio"].Value = fechainicio;
+
+                cmd.Parameters.Add("@FechaFin", SqlDbType.Date);
+                cmd.Parameters["@FechaFin"].Value = fechafin;
 
                 using (SqlDataReader dr = cmd.ExecuteReader())
                 {
@@ -63,20 +69,20 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Dintemar
                     cmd = new SqlCommand("Formato.usp_ProduccionDocumentosContrainteligenciaRegistrar", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add("@MesId", SqlDbType.Int);
-                    cmd.Parameters["@MesId"].Value = produccionDocumentosContraintelDTO.MesId;
+                    cmd.Parameters.Add("@NumeroMes", SqlDbType.Int);
+                    cmd.Parameters["@NumeroMes"].Value = produccionDocumentosContraintelDTO.NumeroMes;
 
                     cmd.Parameters.Add("@AnioProduccionDocumento", SqlDbType.Int);
                     cmd.Parameters["@AnioProduccionDocumento"].Value = produccionDocumentosContraintelDTO.AnioProduccionDocumento;
 
-                    cmd.Parameters.Add("@CodigoDependencia ", SqlDbType.VarChar, 20);
-                    cmd.Parameters["@CodigoDependencia "].Value = produccionDocumentosContraintelDTO.CodigoDependencia;
+                    cmd.Parameters.Add("@CodigoDependencia", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoDependencia"].Value = produccionDocumentosContraintelDTO.CodigoDependencia;
 
-                    cmd.Parameters.Add("@CodigoComandanciaDependencia  ", SqlDbType.VarChar, 20);
-                    cmd.Parameters["@CodigoComandanciaDependencia "].Value = produccionDocumentosContraintelDTO.CodigoComandanciaDependencia;
+                    cmd.Parameters.Add("@CodigoComandanciaDependencia", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoComandanciaDependencia"].Value = produccionDocumentosContraintelDTO.CodigoComandanciaDependencia;
 
-                    cmd.Parameters.Add("@CodigoZonaNaval ", SqlDbType.VarChar,20);
-                    cmd.Parameters["@CodigoZonaNaval "].Value = produccionDocumentosContraintelDTO.CodigoZonaNaval;
+                    cmd.Parameters.Add("@CodigoZonaNaval", SqlDbType.VarChar,20);
+                    cmd.Parameters["@CodigoZonaNaval"].Value = produccionDocumentosContraintelDTO.CodigoZonaNaval;
 
                     cmd.Parameters.Add("@NotasInformacionContrainteligencia", SqlDbType.Int);
                     cmd.Parameters["@NotasInformacionContrainteligencia"].Value = produccionDocumentosContraintelDTO.NotasInformacionContrainteligencia;
@@ -99,7 +105,8 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Dintemar
                     cmd.Parameters.Add("@Mac", SqlDbType.VarChar, 50);
                     cmd.Parameters["@Mac"].Value = UtilitariosGlobales.obtenerDireccionMac();
 
-
+                    cmd.Parameters.Add("@FechaCarga", SqlDbType.Date);
+                    cmd.Parameters["@FechaCarga"].Value = produccionDocumentosContraintelDTO.Fecha;
 
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
@@ -141,11 +148,11 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Dintemar
                     {
 
                         produccionDocumentosContraintelDTO.ProduccionDocumentosContrainteligenciaId = Convert.ToInt32(dr["ProduccionDocumentosContrainteligenciaId"]);
-                        produccionDocumentosContraintelDTO.MesId = Convert.ToInt32(dr["MesId"]);
+                        produccionDocumentosContraintelDTO.NumeroMes = dr["NumeroMes"].ToString();
                         produccionDocumentosContraintelDTO.AnioProduccionDocumento = Convert.ToInt32(dr["AnioProduccionDocumento"]);
-                        produccionDocumentosContraintelDTO.CodigoDependencia = dr["CodigoDependencia "].ToString();
-                        produccionDocumentosContraintelDTO.CodigoComandanciaDependencia = dr["CodigoComandanciaDependencia "].ToString();
-                        produccionDocumentosContraintelDTO.CodigoZonaNaval = dr["CodigoZonaNaval "].ToString();
+                        produccionDocumentosContraintelDTO.CodigoDependencia = dr["CodigoDependencia"].ToString();
+                        produccionDocumentosContraintelDTO.CodigoComandanciaDependencia = dr["CodigoComandanciaDependencia"].ToString();
+                        produccionDocumentosContraintelDTO.CodigoZonaNaval = dr["CodigoZonaNaval"].ToString();
                         produccionDocumentosContraintelDTO.NotasInformacionContrainteligencia = Convert.ToInt32(dr["NotasInformacionContrainteligencia"]);
                         produccionDocumentosContraintelDTO.NotasContrainteligenciaProducidas = Convert.ToInt32(dr["NotasContrainteligenciaProducidas"]);
                         produccionDocumentosContraintelDTO.ApreciacionesContrainteligenciaProducida = Convert.ToInt32(dr["ApreciacionesContrainteligenciaProducida"]);
@@ -177,20 +184,20 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Dintemar
                     cmd.Parameters.Add("@ProduccionDocumentosContrainteligenciaId", SqlDbType.Int);
                     cmd.Parameters["@ProduccionDocumentosContrainteligenciaId"].Value = produccionDocumentosContraintelDTO.ProduccionDocumentosContrainteligenciaId;
 
-                    cmd.Parameters.Add("@MesId", SqlDbType.Int);
-                    cmd.Parameters["@MesId"].Value = produccionDocumentosContraintelDTO.MesId;
+                    cmd.Parameters.Add("@NumeroMes", SqlDbType.Int);
+                    cmd.Parameters["@NumeroMes"].Value = produccionDocumentosContraintelDTO.NumeroMes;
 
                     cmd.Parameters.Add("@AnioProduccionDocumento", SqlDbType.Int);
                     cmd.Parameters["@AnioProduccionDocumento"].Value = produccionDocumentosContraintelDTO.AnioProduccionDocumento;
 
-                    cmd.Parameters.Add("@CodigoDependencia ", SqlDbType.VarChar, 20);
-                    cmd.Parameters["@CodigoDependencia "].Value = produccionDocumentosContraintelDTO.CodigoDependencia;
+                    cmd.Parameters.Add("@CodigoDependencia", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoDependencia"].Value = produccionDocumentosContraintelDTO.CodigoDependencia;
 
-                    cmd.Parameters.Add("@CodigoComandanciaDependencia  ", SqlDbType.VarChar, 20);
-                    cmd.Parameters["@CodigoComandanciaDependencia "].Value = produccionDocumentosContraintelDTO.CodigoComandanciaDependencia;
+                    cmd.Parameters.Add("@CodigoComandanciaDependencia", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoComandanciaDependencia"].Value = produccionDocumentosContraintelDTO.CodigoComandanciaDependencia;
 
-                    cmd.Parameters.Add("@CodigoZonaNaval ", SqlDbType.VarChar, 20);
-                    cmd.Parameters["@CodigoZonaNaval "].Value = produccionDocumentosContraintelDTO.CodigoZonaNaval;
+                    cmd.Parameters.Add("@CodigoZonaNaval", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoZonaNaval"].Value = produccionDocumentosContraintelDTO.CodigoZonaNaval;
 
                     cmd.Parameters.Add("@NotasInformacionContrainteligencia", SqlDbType.Int);
                     cmd.Parameters["@NotasInformacionContrainteligencia"].Value = produccionDocumentosContraintelDTO.NotasInformacionContrainteligencia;
@@ -265,7 +272,48 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Dintemar
             return eliminado;
         }
 
-        public string InsertarDatos(DataTable datos)
+        public bool EliminarCarga(ProduccionDocumentosContraintelDTO produccionDocumentosContraintelDTO)
+        {
+            bool eliminado = false;
+            var cn = new ConfiguracionConexion();
+
+            try
+            {
+                using (var conexion = new SqlConnection(cn.getCadenaSQL()))
+                {
+                    conexion.Open();
+                    cmd = new SqlCommand("Seguridad.usp_CargaEliminar", conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add("@Formato", SqlDbType.NVarChar, 200);
+                    cmd.Parameters["@Formato"].Value = "ProduccionDocumentosContrainteligencia";
+
+                    cmd.Parameters.Add("@CargaId", SqlDbType.Int);
+                    cmd.Parameters["@CargaId"].Value = produccionDocumentosContraintelDTO.CargaId;
+
+                    cmd.Parameters.Add("@Usuario", SqlDbType.VarChar, 100);
+                    cmd.Parameters["@Usuario"].Value = produccionDocumentosContraintelDTO.UsuarioIngresoRegistro;
+
+                    cmd.Parameters.Add("@Ip", SqlDbType.VarChar, 50);
+                    cmd.Parameters["@Ip"].Value = UtilitariosGlobales.obtenerDireccionIp();
+
+                    cmd.Parameters.Add("@Mac", SqlDbType.VarChar, 50);
+                    cmd.Parameters["@Mac"].Value = UtilitariosGlobales.obtenerDireccionMac();
+
+                    cmd.ExecuteNonQuery();
+
+                    eliminado = true;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return eliminado;
+        }
+
+        public string InsertarDatos(DataTable datos, string fecha)
         {
             string IND_OPERACION = "0";
             var cn = new ConfiguracionConexion();
@@ -287,6 +335,9 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Dintemar
 
                     cmd.Parameters.Add("@Mac", SqlDbType.VarChar, 50);
                     cmd.Parameters["@Mac"].Value = UtilitariosGlobales.obtenerDireccionMac();
+
+                    cmd.Parameters.Add("@FechaCarga", SqlDbType.Date);
+                    cmd.Parameters["@FechaCarga"].Value = fecha;
 
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {

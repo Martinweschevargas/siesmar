@@ -41,7 +41,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
         public IActionResult cargaCombs()
         {
             List<AmenazaSeguridadNacionalDTO> amenazaSeguridadNacionalDTO = amenazaSeguridadNacionalBL.ObtenerAmenazaSeguridadNacionals();
-            List<CargaDTO> listaCargas = cargaBL.ObtenerListaCargas("AmenazaSeguridadNacional");
+            List<CargaDTO> listaCargas = cargaBL.ObtenerListaCargas("InteligenciaContrainteligenciaAmenaza");
 
             return Json(new { data1 = amenazaSeguridadNacionalDTO, data2= listaCargas });
         }
@@ -62,7 +62,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
 
         public ActionResult Insertar(string CodigoAmenazaSeguridadNacional, int NotasInteligentes, int EstudiosInteligencia,
            int ApreciacionesInteligencia, int NotasInformacion, int NotasContrainteligencia, int EstudiosContrainteligencia,
-           int ApreciacionesContrainteligencia, int NotasInformacionContrainteligencia, int CargaId)
+           int ApreciacionesContrainteligencia, int NotasInformacionContrainteligencia, int CargaId, string fecha)
         {
             InteligenciaContraintelAmenazaDTO inteligenciaContraintelAmenazaDTO = new();
             inteligenciaContraintelAmenazaDTO.CodigoAmenazaSeguridadNacional = CodigoAmenazaSeguridadNacional;
@@ -76,6 +76,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
             inteligenciaContraintelAmenazaDTO.NotasInformacionContrainteligencia = NotasInformacionContrainteligencia;
             inteligenciaContraintelAmenazaDTO.CargaId = CargaId;
             inteligenciaContraintelAmenazaDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
+            inteligenciaContraintelAmenazaDTO.Fecha = fecha;
 
             var IND_OPERACION = inteligenciaContraintelAmenazaBL.AgregarRegistro(inteligenciaContraintelAmenazaDTO);
             return Content(IND_OPERACION);
@@ -116,6 +117,23 @@ namespace Marina.Siesmar.Presentacion.Controllers
             inteligenciaContraintelAmenazaDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
             if (inteligenciaContraintelAmenazaBL.EliminarFormato(inteligenciaContraintelAmenazaDTO) == true)
+                mensaje = "1";
+            else
+                mensaje = "0";
+
+            return Content(mensaje);
+        }
+
+        public ActionResult EliminarCarga(int Id)
+        {
+            string mensaje;
+            InteligenciaContraintelAmenazaDTO inteligenciaContraintelAmenazaDTO = new()
+            {
+                CargaId = Id,
+                UsuarioIngresoRegistro = User.obtenerUsuario()
+            };
+
+            if (inteligenciaContraintelAmenazaBL.EliminarCarga(inteligenciaContraintelAmenazaDTO) == true)
                 mensaje = "1";
             else
                 mensaje = "0";
@@ -171,7 +189,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
         }
 
         [HttpPost]
-        public ActionResult EnviarDatos([FromForm] IFormFile ArchivoExcel)
+        public ActionResult EnviarDatos([FromForm] IFormFile ArchivoExcel, string fecha)
         {
             Stream stream = ArchivoExcel.OpenReadStream();
             IWorkbook MiExcel = null;
@@ -218,7 +236,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
 
                     User.obtenerUsuario());
             }
-            var IND_OPERACION = inteligenciaContraintelAmenazaBL.InsertarDatos(dt);
+            var IND_OPERACION = inteligenciaContraintelAmenazaBL.InsertarDatos(dt, fecha);
             return Content(IND_OPERACION);
         }
 

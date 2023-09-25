@@ -63,17 +63,18 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return View();
         }
 
-        public ActionResult Insertar(int MesId, int AnioEstudio, string CodigoZonaNaval,
-           int EstudioSeguridadInfraestructura, int PorcentajeAvanceEstudio, int CargaId)
+        public ActionResult Insertar(string numeroMes, int AnioEstudio, string CodigoZonaNaval,
+           int EstudioSeguridadInfraestructura, int PorcentajeAvanceEstudio, int CargaId, string fecha)
         {
             EstudioSeguridadInfraestructuraDTO estudioSeguridadInfraestructuraDTO = new();
-            estudioSeguridadInfraestructuraDTO.MesId = MesId;
+            estudioSeguridadInfraestructuraDTO.NumeroMes = numeroMes;
             estudioSeguridadInfraestructuraDTO.AnioEstudio = AnioEstudio;
             estudioSeguridadInfraestructuraDTO.CodigoZonaNaval = CodigoZonaNaval;
             estudioSeguridadInfraestructuraDTO.EstudioSeguridadInfraestructura = EstudioSeguridadInfraestructura;
             estudioSeguridadInfraestructuraDTO.PorcentajeAvanceEstudio = PorcentajeAvanceEstudio;
             estudioSeguridadInfraestructuraDTO.CargaId = CargaId;
             estudioSeguridadInfraestructuraDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
+            estudioSeguridadInfraestructuraDTO.Fecha = fecha;
 
             var IND_OPERACION = estudioSeguridadInfraestructuraBL.AgregarRegistro(estudioSeguridadInfraestructuraDTO);
             return Content(IND_OPERACION);
@@ -84,12 +85,12 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Json(estudioSeguridadInfraestructuraBL.BuscarFormato(Id));
         }
 
-        public ActionResult Actualizar(int Id, int MesId, int AnioEstudio, string CodigoZonaNaval,
+        public ActionResult Actualizar(int Id, string NumeroMes, int AnioEstudio, string CodigoZonaNaval,
            int EstudioSeguridadInfraestructura, int PorcentajeAvanceEstudio)
         {
             EstudioSeguridadInfraestructuraDTO estudioSeguridadInfraestructuraDTO = new();
             estudioSeguridadInfraestructuraDTO.EstudioSeguridadInfraestructuraId = Id;
-            estudioSeguridadInfraestructuraDTO.MesId = MesId;
+            estudioSeguridadInfraestructuraDTO.NumeroMes = NumeroMes;
             estudioSeguridadInfraestructuraDTO.AnioEstudio = AnioEstudio;
             estudioSeguridadInfraestructuraDTO.CodigoZonaNaval = CodigoZonaNaval;
             estudioSeguridadInfraestructuraDTO.EstudioSeguridadInfraestructura = EstudioSeguridadInfraestructura;
@@ -109,6 +110,23 @@ namespace Marina.Siesmar.Presentacion.Controllers
             estudioSeguridadInfraestructuraDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
             if (estudioSeguridadInfraestructuraBL.EliminarFormato(estudioSeguridadInfraestructuraDTO) == true)
+                mensaje = "1";
+            else
+                mensaje = "0";
+
+            return Content(mensaje);
+        }
+
+        public ActionResult EliminarCarga(int Id)
+        {
+            string mensaje;
+            EstudioSeguridadInfraestructuraDTO estudioSeguridadInfraestructuraDTO = new()
+            {
+                CargaId = Id,
+                UsuarioIngresoRegistro = User.obtenerUsuario()
+            };
+
+            if (estudioSeguridadInfraestructuraBL.EliminarCarga(estudioSeguridadInfraestructuraDTO) == true)
                 mensaje = "1";
             else
                 mensaje = "0";
@@ -143,7 +161,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
 
                     lista.Add(new EstudioSeguridadInfraestructuraDTO
                     {
-                        MesId = int.Parse(fila.GetCell(0).ToString()),
+                        NumeroMes = fila.GetCell(0).ToString(),
                         AnioEstudio = int.Parse(fila.GetCell(1).ToString()),
                         CodigoZonaNaval = fila.GetCell(2).ToString(),
                         EstudioSeguridadInfraestructura = int.Parse(fila.GetCell(3).ToString()),
@@ -160,7 +178,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
         }
 
         [HttpPost]
-        public ActionResult EnviarDatos([FromForm] IFormFile ArchivoExcel)
+        public ActionResult EnviarDatos([FromForm] IFormFile ArchivoExcel, string fecha)
         {
             Stream stream = ArchivoExcel.OpenReadStream();
             IWorkbook MiExcel = null;
@@ -177,11 +195,11 @@ namespace Marina.Siesmar.Presentacion.Controllers
 
             dt.Columns.AddRange(new DataColumn[6]
             {
-                    new DataColumn("MesId", typeof(int)),
-                    new DataColumn("AnioEstudio  ", typeof(int)),
-                    new DataColumn("CodigoZonaNaval ", typeof(string)),
-                    new DataColumn("EstudioSeguridadInfraestructura  ", typeof(int)),
-                    new DataColumn("PorcentajeAvanceEstudio  ", typeof(int)),
+                    new DataColumn("NumeroMes", typeof(int)),
+                    new DataColumn("AnioEstudio", typeof(int)),
+                    new DataColumn("CodigoZonaNaval", typeof(string)),
+                    new DataColumn("EstudioSeguridadInfraestructura", typeof(int)),
+                    new DataColumn("PorcentajeAvanceEstudio", typeof(int)),
 
 
                     new DataColumn("UsuarioIngresoRegistro", typeof(string))
@@ -200,7 +218,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
 
                     User.obtenerUsuario());
             }
-            var IND_OPERACION = estudioSeguridadInfraestructuraBL.InsertarDatos(dt);
+            var IND_OPERACION = estudioSeguridadInfraestructuraBL.InsertarDatos(dt, fecha);
             return Content(IND_OPERACION);
         }
 
