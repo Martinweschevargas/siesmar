@@ -5,13 +5,13 @@ namespace Marina.Siesmar.Entidades.Formatos.Comfuavinav
     public partial class AlistamientoRepuestoCriticoComfuavinavDTO
     {
 
-        public int? AlistamientoRepuestoCriticoComfuavinavId { get; set; }
+        public int AlistamientoRepuestoCriticoComfuavinavId { get; set; }
         public string? CodigoUnidadNaval { get; set; }
         public string? CodigoAlistamientoRepuestoCritico { get; set; }
         public int? CargaId { get; set; }
 
         public string? DescUnidadNaval { get; set; }
-        public string? DescSistemaRespuestoCritico { get; set; }
+        public string? DescSistemaRepuestoCritico { get; set; }
         public string? DescSubsistemaRepuestoCritico { get; set; }
         public string? Equipo { get; set; }
         public string? Repuesto { get; set; }

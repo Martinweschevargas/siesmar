@@ -53,14 +53,14 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd = new SqlCommand("Mantenimiento.usp_CarreraUniversitariaEspecialidadRegistrar", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add("@DescCarreraUniversitariaEspecialidad", SqlDbType.VarChar, 80);                    
+                    cmd.Parameters.Add("@DescCarreraUniversitariaEspecialidad", SqlDbType.VarChar, 50);                    
                     cmd.Parameters["@DescCarreraUniversitariaEspecialidad"].Value = carreraUniversitariaEspecialidadDTO.DescCarreraUniversitariaEspecialidad;
 
-                    cmd.Parameters.Add("@CodigoCarreraUniversitariaEspecialidad", SqlDbType.VarChar, 80);
+                    cmd.Parameters.Add("@CodigoCarreraUniversitariaEspecialidad", SqlDbType.NVarChar, 20);
                     cmd.Parameters["@CodigoCarreraUniversitariaEspecialidad"].Value = carreraUniversitariaEspecialidadDTO.CodigoCarreraUniversitariaEspecialidad;
 
-                    cmd.Parameters.Add("@CarreraUniversitariaId", SqlDbType.Int);
-                    cmd.Parameters["@CarreraUniversitariaId"].Value = carreraUniversitariaEspecialidadDTO.CarreraUniversitariaId;
+                    cmd.Parameters.Add("@CodigoCarreraUniversitaria", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoCarreraUniversitaria"].Value = carreraUniversitariaEspecialidadDTO.CodigoCarreraUniversitaria;
                     
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
                     cmd.Parameters["@Usuario"].Value = carreraUniversitariaEspecialidadDTO.UsuarioIngresoRegistro;
@@ -75,9 +75,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                         dr.Read();
                         if (dr.HasRows)
                         {
-#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                             IND_OPERACION = dr["IND_OPERACION"].ToString();
-#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                         }
                     }
                 }
@@ -86,9 +84,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     IND_OPERACION = ex.Message;
                 }
             }
-#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return IND_OPERACION;
-#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
 
         public CarreraUniversitariaEspecialidadDTO BuscarCarreraUniversitariaEspecialidadID(int Codigo)
@@ -115,7 +111,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                         carreraUniversitariaEspecialidadDTO.CarreraUniversitariaEspecialidadId = Convert.ToInt32(dr["CarreraUniversitariaEspecialidadId"]);
                         carreraUniversitariaEspecialidadDTO.DescCarreraUniversitariaEspecialidad = dr["DescCarreraUniversitariaEspecialidad"].ToString();
                         carreraUniversitariaEspecialidadDTO.CodigoCarreraUniversitariaEspecialidad = dr["CodigoCarreraUniversitariaEspecialidad"].ToString();
-                        carreraUniversitariaEspecialidadDTO.CarreraUniversitariaId = Convert.ToInt32(dr["CarreraUniversitariaId"]);
+                        carreraUniversitariaEspecialidadDTO.CodigoCarreraUniversitaria = dr["CodigoCarreraUniversitaria"].ToString();
                     }
 
                 }
@@ -143,14 +139,14 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd.Parameters.Add("@CarreraUniversitariaEspecialidadId", SqlDbType.Int);
                     cmd.Parameters["@CarreraUniversitariaEspecialidadId"].Value = carreraUniversitariaEspecialidadDTO.CarreraUniversitariaEspecialidadId;
 
-                    cmd.Parameters.Add("@DescCarreraUniversitariaEspecialidad", SqlDbType.VarChar, 80);
+                    cmd.Parameters.Add("@DescCarreraUniversitariaEspecialidad", SqlDbType.NVarChar, 50);
                     cmd.Parameters["@DescCarreraUniversitariaEspecialidad"].Value = carreraUniversitariaEspecialidadDTO.DescCarreraUniversitariaEspecialidad;
 
-                    cmd.Parameters.Add("@CodigoCarreraUniversitariaEspecialidad", SqlDbType.VarChar, 80);
+                    cmd.Parameters.Add("@CodigoCarreraUniversitariaEspecialidad", SqlDbType.VarChar, 20);
                     cmd.Parameters["@CodigoCarreraUniversitariaEspecialidad"].Value = carreraUniversitariaEspecialidadDTO.CodigoCarreraUniversitariaEspecialidad;
 
-                    cmd.Parameters.Add("@CarreraUniversitariaId", SqlDbType.Int);
-                    cmd.Parameters["@CarreraUniversitariaId"].Value = carreraUniversitariaEspecialidadDTO.CarreraUniversitariaId;
+                    cmd.Parameters.Add("@CodigoCarreraUniversitaria", SqlDbType.VarChar, 20);
+                    cmd.Parameters["@CodigoCarreraUniversitaria"].Value = carreraUniversitariaEspecialidadDTO.CodigoCarreraUniversitaria;
 
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
                     cmd.Parameters["@Usuario"].Value = carreraUniversitariaEspecialidadDTO.UsuarioIngresoRegistro;
@@ -167,9 +163,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                         dr.Read();
                         if (dr.HasRows)
                         {
-#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                             IND_OPERACION = dr["IND_OPERACION"].ToString();
-#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                         }
                     }
                 }
@@ -178,9 +172,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
             {
                 IND_OPERACION = ex.Message;
             }
-#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return IND_OPERACION;
-#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
 
         public string EliminarCarreraUniversitariaEspecialidad(CarreraUniversitariaEspecialidadDTO carreraUniversitariaEspecialidadDTO)

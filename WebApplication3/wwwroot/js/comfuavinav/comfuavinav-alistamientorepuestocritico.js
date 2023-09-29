@@ -25,8 +25,10 @@ $(document).ready(function () {
                                 type: "POST",
                                 url: '/ComfuavinavAlistamientoRepuestoCritico/Insertar',
                                 data: {
-                                    'UnidadNavalId': $('#cbUnidadNaval').val(),
+                                    'CodigoUnidadNaval': $('#cbUnidadNaval').val(),
                                     'CodigoAlistamientoRepuestoCritico': $('#cbAlistamientoRepuestoCritico').val(),
+                                    'CargaId': $('#cargasR').val(),
+                                    'Fecha': $('#txtFecha').val()
                                 },
                                 beforeSend: function () {
                                     $('#loader-6').show();
@@ -86,7 +88,7 @@ $(document).ready(function () {
                                 url: '/ComfuavinavAlistamientoRepuestoCritico/Actualizar',
                                 data: {
                                     'Id': $('#txtCodigo').val(),
-                                    'UnidadNavalId': $('#cbUnidadNavale').val(),
+                                    'CodigoUnidadNaval': $('#cbUnidadNavale').val(),
                                     'CodigoAlistamientoRepuestoCritico': $('#cbAlistamientoRepuestoCriticoe').val(),
                                 },
                                 beforeSend: function () {
@@ -124,7 +126,7 @@ $(document).ready(function () {
             }, false)
         })
 
-    $('#tblComfuavinavAlistamientoRepuestoCritico').DataTable({
+    tblComfuavinavAlistamientoRepuestoCritico = $('#tblComfuavinavAlistamientoRepuestoCritico').DataTable({
         ajax: {
             "url": '/ComfuavinavAlistamientoRepuestoCritico/CargaTabla',
             "type": "GET",
@@ -140,6 +142,7 @@ $(document).ready(function () {
             { "data": "existente" },
             { "data": "necesario" },
             { "data": "coeficientePonderacion" },
+            { "data": "cargaId" },
             {
                 "render": function (data, type, row) {
                     return '<a class="txt" onclick=edit(' + row.alistamientoRepuestoCriticoComfuavinavId + ') title="Actualizar"><i class="fa fa-check-square-o" aria-hidden="true" style="color:black; padding-right:5px"></i>Editar</a>';
@@ -239,15 +242,8 @@ function edit(Id) {
     $('#editar').show();
     $.getJSON('/ComfuavinavAlistamientoRepuestoCritico/Mostrar?Id=' + Id, [], function (AlistamientoRepuestoCriticoComfuavinavDTO) {
         $('#txtCodigo').val(AlistamientoRepuestoCriticoComfuavinavDTO.alistamientoRepuestoCriticoComfuavinavId);
-        $('#cbUnidadNavale').val(AlistamientoRepuestoCriticoComfuavinavDTO.unidadNavalId);
+        $('#cbUnidadNavale').val(AlistamientoRepuestoCriticoComfuavinavDTO.codigoUnidadNaval);
         $('#cbAlistamientoRepuestoCriticoe').val(AlistamientoRepuestoCriticoComfuavinavDTO.codigoAlistamientoRepuestoCritico);
-        $('#txtSistemaRepuestoe').val(AlistamientoRepuestoCriticoComfuavinavDTO.sistemaRepuestoCritico);
-        $('#txtSubsistemaRepuestoe').val(AlistamientoRepuestoCriticoComfuavinavDTO.descSubsistemaRepuestoCritico);
-        $('#txtEquipoe').val(AlistamientoRepuestoCriticoComfuavinavDTO.equipo);
-        $('#txtRepuestoe').val(AlistamientoRepuestoCriticoComfuavinavDTO.repuesto);
-        $('#txtExistentee').val(AlistamientoRepuestoCriticoComfuavinavDTO.existente);
-        $('#txtNecesarioe').val(AlistamientoRepuestoCriticoComfuavinavDTO.necesario);
-        $('#txtCoeficientePonderacione').val(AlistamientoRepuestoCriticoComfuavinavDTO.coeficientePonderacion);
     });
 }
 
@@ -299,75 +295,190 @@ function eliminar(id) {
     })
 }
 
+function eliminarCarga() {
+    var id = $('select#cargas').val();
+    Swal.fire({
+        title: 'Estas seguro?',
+        text: "No podras revertir!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si,borralo!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                type: "POST",
+                url: '/ComfuavinavAlistamientoRepuestoCritico/EliminarCarga',
+                data: {
+                    'Id': id
+                },
+                beforeSend: function () {
+                    $('#loader-6').show();
+                },
+                success: function (mensaje) {
+                    if (mensaje == "1") {
+                        Swal.fire(
+                            'Borrado!',
+                            'Se elimino con éxito.',
+                            'success'
+                        )
+                    } else {
+                        Swal.fire(
+                            'Atención!',
+                            'Ocurrio un problema.',
+                            'error'
+                        )
+                    }
+                    cargaDatos();
+                    $('#tblComfuavinavAlistamientoRepuestoCritico').DataTable().ajax.reload();
+                },
+                complete: function () {
+                    $('#loader-6').hide();
+                }
+            });
+        }
+    })
+}
+
 function nuevaComfuavinavAlistamientoRepuestoCritico() {
     $('#listar').hide();
     $('#nuevo').show();
 }
 
+function mostrarDatos() {
+    const input = document.getElementById("inputExcel");
+    const formData = new FormData();
+    formData.append("ArchivoExcel", input.files[0]);
+    $.ajax({
+        type: "POST",
+        url: 'ComfuavinavAlistamientoRepuestoCritico/MostrarDatos',
+        data: formData,
+        processData: false,
+        contentType: false,
+        beforeSend: function () {
+            $('#loader-6').show();
+        },
+        success: function (dataJson) {
+            if (dataJson["data"] == "1") {
+                dataJson["data1"].forEach((item) => {
+                    $("#tbData tbody").append(
+                        $("<tr>").append(
+                            $("<td>").text(item.codigoUnidadNaval),
+                            $("<td>").text(item.codigoAlistamientoRepuestoCritico),
+
+                        )
+                    )
+                })
+                Swal.fire(
+                    'Cargado!',
+                    'Vista previa con éxito.',
+                    'success'
+                )
+            } else {
+                Swal.fire(
+                    'Atención!',
+                    'Ocurrio un problema.',
+                    'error'
+                )
+            }
+        },
+        complete: function () {
+            $('#loader-6').hide();
+        }
+    });
+}
+
+function enviarDatos() {
+    const input = document.getElementById("inputExcel")
+    const formData = new FormData()
+
+    formData.append("ArchivoExcel", input.files[0])
+    formData.append("Fecha", $('#txtFecha').val())
+    fetch("ComfuavinavAlistamientoRepuestoCritico/EnviarDatos", {
+        method: "POST",
+        body: formData
+    })
+        .then((response) => { return response.json() })
+        .then((mensaje) => {
+            if (mensaje == "1") {
+                Swal.fire(
+                    'Cargado!',
+                    'Se Cargo el archivo con éxito.',
+                    'success'
+                )
+            } else {
+                Swal.fire(
+                    'Atención!',
+                    'Ocurrio un problema. ' + mensaje,
+                    'error'
+                )
+            }
+        })
+}
 
 function cargaDatos() {
     $.getJSON('/ComfuavinavAlistamientoRepuestoCritico/cargaCombs', [], function (Json) {
         var unidadNaval = Json["data1"];
         var alistamientoRepuestoCritico = Json["data2"];
+        var listaCargas = Json["data3"];
 
 
         $("select#cbUnidadNaval").html("");
         $.each(unidadNaval, function () {
-            var RowContent = '<option value=' + this.unidadNavalId + '>' + this.descUnidadNaval + '</option>'
+            var RowContent = '<option value=' + this.codigoUnidadNaval + '>' + this.descUnidadNaval + '</option>'
             $("select#cbUnidadNaval").append(RowContent);
         });
         $("select#cbUnidadNavale").html("");
         $.each(unidadNaval, function () {
-            var RowContent = '<option value=' + this.unidadNavalId + '>' + this.descUnidadNaval + '</option>'
+            var RowContent = '<option value=' + this.codigoUnidadNaval + '>' + this.descUnidadNaval + '</option>'
             $("select#cbUnidadNavale").append(RowContent);
         });
 
         $("select#cbAlistamientoRepuestoCritico").html("");
         $.each(alistamientoRepuestoCritico, function () {
-            var RowContent = '<option value=' + this.descAlistamientoRepuestoCritico + '>' + this.descAlistamientoRepuestoCritico + '</option>'
+            var RowContent = '<option value=' + this.codigoAlistamientoRepuestoCritico + '>' + this.codigoAlistamientoRepuestoCritico + '</option>'
             $("select#cbAlistamientoRepuestoCritico").append(RowContent);
         });
 
         $("select#cbAlistamientoRepuestoCriticoe").html("");
         $.each(alistamientoRepuestoCritico, function () {
-            var RowContent = '<option value=' + this.descAlistamientoRepuestoCritico + '>' + this.descAlistamientoRepuestoCritico + '</option>'
+            var RowContent = '<option value=' + this.codigoAlistamientoRepuestoCritico + '>' + this.codigoAlistamientoRepuestoCritico + '</option>'
             $("select#cbAlistamientoRepuestoCriticoe").append(RowContent);
+        });
+
+        $("select#cargasR").html("");
+        $("select#cargas").html("");
+        $("select#cargas").append('<option value=0>Seleccione Carga...</option>');
+        $.each(listaCargas, function () {
+            var RowContent = '<option value=' + this.codigoCarga + '>Fecha Carga : ' + this.fechaCarga + '</option>'
+            $("select#cargasR").append(RowContent);
+            $("select#cargas").append(RowContent);
         });
     });
 }
 
-$('select#cbAlistamientoRepuestoCritico').on('change', function () {
+function optReporte(id) {
+    optReporteSelect = id;
 
-    var codigo = $(this).val();
+    reporteSeleccionado = '/ComfuavinavAlistamientoRepuestoCritico/ReporteARTR';
+}
 
-    $.each(alistamientoRepuestoCritico, function () {
-        if (this.alistamientoRepuestoCriticoId == codigo) {
 
-            $("input#txtSistemaRepuesto").val(this.descSistemaRepuestoCritico);
-            $("input#txtSubsistemaRepuesto").val(this.descSubsistemaRepuestoCritico);
-            $("input#txtEquipo").val(this.equipo);
-            $("input#txtRepuesto").val(this.repuesto);
-            $("input#txtExistente").val(this.existente);
-            $("input#txtNecesario").val(this.necesario);
-            $("input#txtCoeficientePonderacion").val(this.coeficientePonderacion);
-        }
-    });
-});
+$('#btnReportView').click(function () {
+    var idCarga = $('select#cargas').val();
+    var a = document.createElement('a');
+    a.target = "_blank";
 
-$('select#cbAlistamientoRepuestoCritico').on('change', function () {
+    var numCarga;
+    if (idCarga == "0") {
+        numCarga = '?CargaId=' + "";
+    } else {
+        numCarga = '?CargaId=' + idCarga;
+    }
 
-    var codigo = $(this).val();
-
-    $.each(alistamientoRepuestoCritico, function () {
-        if (this.alistamientoRepuestoCriticoId == codigo) {
-
-            $("input#txtSistemaRepuestoe").val(this.descSistemaRepuestoCritico);
-            $("input#txtSubsistemaRepuestoe").val(this.descSubsistemaRepuestoCritico);
-            $("input#txtEquipoe").val(this.equipo);
-            $("input#txtRepuestoe").val(this.repuesto);
-            $("input#txtExistentee").val(this.existente);
-            $("input#txtNecesarioe").val(this.necesario);
-            $("input#txtCoeficientePonderacione").val(this.coeficientePonderacion);
-        }
-    });
+    if (optReporteSelect == 1) {
+        a.href = reporteSeleccionado + numCarga;
+    }
+    a.click();
 });

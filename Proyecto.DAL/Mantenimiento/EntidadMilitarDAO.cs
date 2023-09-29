@@ -33,7 +33,8 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                         {
                             EntidadMilitarId = Convert.ToInt32(dr["EntidadMilitarId"]),
                             DescEntidadMilitar = dr["DescEntidadMilitar"].ToString(),
-                            CodigoEntidadMilitar = dr["CodigoEntidadMilitar"].ToString()
+                            CodigoEntidadMilitar = dr["CodigoEntidadMilitar"].ToString(),
+                            AbrevEntidadMilitar = dr["AbrevEntidadMilitar"].ToString()
                         });
                     }
                 }
@@ -53,11 +54,14 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd = new SqlCommand("Mantenimiento.usp_EntidadMilitarRegistrar", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add("@DescEntidadMilitar", SqlDbType.VarChar, 80);
+                    cmd.Parameters.Add("@DescEntidadMilitar", SqlDbType.NVarChar, 50);
                     cmd.Parameters["@DescEntidadMilitar"].Value = entidadMilitarDTO.DescEntidadMilitar;
 
-                    cmd.Parameters.Add("@CodigoEntidadMilitar", SqlDbType.VarChar, 80);
+                    cmd.Parameters.Add("@CodigoEntidadMilitar", SqlDbType.VarChar, 20);
                     cmd.Parameters["@CodigoEntidadMilitar"].Value = entidadMilitarDTO.CodigoEntidadMilitar;
+
+                    cmd.Parameters.Add("@AbrevEntidadMilitar", SqlDbType.VarChar, 10);
+                    cmd.Parameters["@AbrevEntidadMilitar"].Value = entidadMilitarDTO.AbrevEntidadMilitar;
 
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
                     cmd.Parameters["@Usuario"].Value = entidadMilitarDTO.UsuarioIngresoRegistro;
@@ -108,6 +112,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                         entidadMilitarDTO.EntidadMilitarId = Convert.ToInt32(dr["EntidadMilitarId"]);
                         entidadMilitarDTO.DescEntidadMilitar = dr["DescEntidadMilitar"].ToString();
                         entidadMilitarDTO.CodigoEntidadMilitar = dr["CodigoEntidadMilitar"].ToString();
+                        entidadMilitarDTO.AbrevEntidadMilitar = dr["AbrevEntidadMilitar"].ToString();
                     }
 
                 }
@@ -136,11 +141,14 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd.Parameters.Add("@EntidadMilitarId", SqlDbType.Int);
                     cmd.Parameters["@EntidadMilitarId"].Value = entidadMilitarDTO.EntidadMilitarId;
 
-                    cmd.Parameters.Add("@DescEntidadMilitar", SqlDbType.VarChar, 50);
+                    cmd.Parameters.Add("@DescEntidadMilitar", SqlDbType.NVarChar, 50);
                     cmd.Parameters["@DescEntidadMilitar"].Value = entidadMilitarDTO.DescEntidadMilitar;
 
-                    cmd.Parameters.Add("@CodigoEntidadMilitar", SqlDbType.VarChar, 10);
+                    cmd.Parameters.Add("@CodigoEntidadMilitar", SqlDbType.VarChar, 20);
                     cmd.Parameters["@CodigoEntidadMilitar"].Value = entidadMilitarDTO.CodigoEntidadMilitar;
+
+                    cmd.Parameters.Add("@AbrevEntidadMilitar", SqlDbType.VarChar, 10);
+                    cmd.Parameters["@AbrevEntidadMilitar"].Value = entidadMilitarDTO.AbrevEntidadMilitar;
 
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
                     cmd.Parameters["@Usuario"].Value = entidadMilitarDTO.UsuarioIngresoRegistro;
@@ -156,9 +164,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                         dr.Read();
                         if (dr.HasRows)
                         {
-#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                             IND_OPERACION = dr["IND_OPERACION"].ToString();
-#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                         }
                     }
                 }
@@ -167,9 +173,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
             {
                 IND_OPERACION = ex.Message;
             }
-#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return IND_OPERACION;
-#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
 
         public string EliminarEntidadMilitar(EntidadMilitarDTO entidadMilitarDTO)

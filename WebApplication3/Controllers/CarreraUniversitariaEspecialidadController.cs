@@ -47,12 +47,12 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Json(new { data = listaCarreraUniversitariaEspecialidads });
         }
 
-        public ActionResult InsertarCarreraUniversitariaEspecialidad(string DescCarreraUniversitariaEspecialidad, string CodigoCarreraUniversitariaEspecialidad, int CarreraUniversitariaId)
+        public ActionResult InsertarCarreraUniversitariaEspecialidad(string DescCarreraUniversitariaEspecialidad, string CodigoCarreraUniversitariaEspecialidad, string CodigoCarreraUniversitaria)
         {
             CarreraUniversitariaEspecialidadDTO carreraUniversitariaEspecialidadDTO = new();
             carreraUniversitariaEspecialidadDTO.DescCarreraUniversitariaEspecialidad = DescCarreraUniversitariaEspecialidad;
             carreraUniversitariaEspecialidadDTO.CodigoCarreraUniversitariaEspecialidad = CodigoCarreraUniversitariaEspecialidad;
-            carreraUniversitariaEspecialidadDTO.CarreraUniversitariaId = CarreraUniversitariaId;
+            carreraUniversitariaEspecialidadDTO.CodigoCarreraUniversitaria = CodigoCarreraUniversitaria;
             carreraUniversitariaEspecialidadDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
             var IND_OPERACION = carreraUniversitariaEspecialidadBL.AgregarCarreraUniversitariaEspecialidad(carreraUniversitariaEspecialidadDTO);
@@ -64,13 +64,13 @@ namespace Marina.Siesmar.Presentacion.Controllers
             return Json(carreraUniversitariaEspecialidadBL.BuscarCarreraUniversitariaEspecialidadID(CarreraUniversitariaEspecialidadId));
         }
 
-        public ActionResult ActualizarCarreraUniversitariaEspecialidad(int CarreraUniversitariaEspecialidadId, string DescCarreraUniversitariaEspecialidad, string CodigoCarreraUniversitariaEspecialidad, int CarreraUniversitariaId)
+        public ActionResult ActualizarCarreraUniversitariaEspecialidad(int CarreraUniversitariaEspecialidadId, string DescCarreraUniversitariaEspecialidad, string CodigoCarreraUniversitariaEspecialidad, string CodigoCarreraUniversitaria)
         {
             CarreraUniversitariaEspecialidadDTO carreraUniversitariaEspecialidadDTO = new();
             carreraUniversitariaEspecialidadDTO.CarreraUniversitariaEspecialidadId = CarreraUniversitariaEspecialidadId;
             carreraUniversitariaEspecialidadDTO.DescCarreraUniversitariaEspecialidad = DescCarreraUniversitariaEspecialidad;
             carreraUniversitariaEspecialidadDTO.CodigoCarreraUniversitariaEspecialidad = CodigoCarreraUniversitariaEspecialidad;
-            carreraUniversitariaEspecialidadDTO.CarreraUniversitariaId = CarreraUniversitariaId;
+            carreraUniversitariaEspecialidadDTO.CodigoCarreraUniversitaria = CodigoCarreraUniversitaria;
             carreraUniversitariaEspecialidadDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
             var IND_OPERACION = carreraUniversitariaEspecialidadBL.ActualizarCarreraUniversitariaEspecialidad(carreraUniversitariaEspecialidadDTO);

@@ -13,7 +13,7 @@ namespace Marina.Siesmar.Entidades.Mantenimiento
         public int EntidadFinancieraId { get; set; }
         public string? DescEntidadFinanciera { get; set; }
         public string? CodigoEntidadFinanciera { get; set; }
-        public int EntidadFinancieraGrupoId { get; set; }
+        public string? CodigoEntidadFinancieraGrupo { get; set; }
         public string? DescEntidadFinancieraGrupo { get; set; }
 
         [NotMapped]

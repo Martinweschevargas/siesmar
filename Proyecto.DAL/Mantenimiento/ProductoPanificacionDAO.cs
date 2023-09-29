@@ -110,6 +110,7 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     {
                         productoPanificacionDTO.ProductoPanificacionId = Convert.ToInt32(dr["ProductoPanificacionId"]);
                         productoPanificacionDTO.DescProductoPanificacion = dr["DescProductoPanificacion"].ToString();
+                        productoPanificacionDTO.CodigoProductoPanificacion = dr["CodigoProductoPanificacion"].ToString();
                     }
 
                 }
@@ -136,10 +137,10 @@ namespace Marina.Siesmar.AccesoDatos.Mantenimiento
                     cmd.Parameters.Add("@ProductoPanificacionId", SqlDbType.Int);
                     cmd.Parameters["@ProductoPanificacionId"].Value = productoPanificacionDTO.ProductoPanificacionId;
 
-                    cmd.Parameters.Add("@DescProductoPanificacion", SqlDbType.VarChar, 50);
+                    cmd.Parameters.Add("@DescProductoPanificacion", SqlDbType.VarChar, 100);
                     cmd.Parameters["@DescProductoPanificacion"].Value = productoPanificacionDTO.DescProductoPanificacion;
 
-                    cmd.Parameters.Add("@CodigoProductoPanificacion", SqlDbType.VarChar, 50);
+                    cmd.Parameters.Add("@CodigoProductoPanificacion", SqlDbType.VarChar, 20);
                     cmd.Parameters["@CodigoProductoPanificacion"].Value = productoPanificacionDTO.CodigoProductoPanificacion;
 
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);

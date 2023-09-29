@@ -1,6 +1,7 @@
 ﻿using AspNetCore.Reporting;
 using Marina.Siesmar.Entidades.Formatos.Comfuavinav;
 using Marina.Siesmar.Entidades.Mantenimiento;
+using Marina.Siesmar.Entidades.Seguridad;
 using Marina.Siesmar.LogicaNegocios.Formatos.Comfuavinav;
 using Marina.Siesmar.LogicaNegocios.Mantenimiento;
 using Marina.Siesmar.LogicaNegocios.Seguridad;
@@ -26,6 +27,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
 
         UnidadNaval unidadNavalBL = new();
         AlistamientoRepuestoCritico alistamientoRepuestoCriticoBL = new();
+        Carga cargaBL = new();
 
         public ComfuavinavAlistamientoRepuestoCriticoController(IWebHostEnvironment webHostEnvironment)
         {
@@ -43,11 +45,13 @@ namespace Marina.Siesmar.Presentacion.Controllers
         {
             List<UnidadNavalDTO> unidadNavalDTO = unidadNavalBL.ObtenerUnidadNavals();
             List<AlistamientoRepuestoCriticoDTO> alistamientoRepuestoCriticoDTO = alistamientoRepuestoCriticoBL.ObtenerAlistamientoRepuestoCriticos();
+            List<CargaDTO> listaCargas = cargaBL.ObtenerListaCargas("AlistamientoRepuestoCriticoComfuavinav");
 
             return Json(new
             {
                 data1 = unidadNavalDTO,
                 data2 = alistamientoRepuestoCriticoDTO,
+                data3 = listaCargas
             });
         }
 
@@ -155,7 +159,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
                     });
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 Mensaje = "0";
             }

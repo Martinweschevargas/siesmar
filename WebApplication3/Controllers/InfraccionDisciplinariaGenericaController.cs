@@ -40,7 +40,8 @@ namespace Marina.Siesmar.Presentacion.Controllers
             try
             {
                 InfraccionDisciplinariaGenericaDTO infraccionDisciplinariaGenericaDTO = new();
-                infraccionDisciplinariaGenericaDTO.DescInfraccionDisciplinariaGenerica = CodigoInfraccionDisciplinariaGenerica;
+                infraccionDisciplinariaGenericaDTO.DescInfraccionDisciplinariaGenerica = Descripcion;
+                infraccionDisciplinariaGenericaDTO.CodigoInfraccionDisciplinariaGenerica = CodigoInfraccionDisciplinariaGenerica;
                 infraccionDisciplinariaGenericaDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
                 IND_OPERACION = infraccionDisciplinariaGenericaBL.AgregarInfraccionDisciplinariaGenerica(infraccionDisciplinariaGenericaDTO);
@@ -65,7 +66,7 @@ namespace Marina.Siesmar.Presentacion.Controllers
             InfraccionDisciplinariaGenericaDTO infraccionDisciplinariaGenericaDTO = new();
             infraccionDisciplinariaGenericaDTO.InfraccionDisciplinariaGenericaId = InfraccionDisciplinariaGenericaId;
             infraccionDisciplinariaGenericaDTO.DescInfraccionDisciplinariaGenerica = Descripcion;
-            infraccionDisciplinariaGenericaDTO.DescInfraccionDisciplinariaGenerica = CodigoInfraccionDisciplinariaGenerica;
+            infraccionDisciplinariaGenericaDTO.CodigoInfraccionDisciplinariaGenerica = CodigoInfraccionDisciplinariaGenerica;
             infraccionDisciplinariaGenericaDTO.UsuarioIngresoRegistro = User.obtenerUsuario();
 
             var IND_OPERACION = infraccionDisciplinariaGenericaBL.ActualizarInfraccionDisciplinariaGenerica(infraccionDisciplinariaGenericaDTO);

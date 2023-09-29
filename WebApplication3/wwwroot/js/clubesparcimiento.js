@@ -159,7 +159,7 @@ function edit(ClubEsparcimientoId) {
     $('#listar').hide();
     $('#editar').show();
     $.getJSON('/ClubEsparcimiento/MostrarClubEsparcimiento?ClubEsparcimientoId=' + ClubEsparcimientoId, [], function (ClubEsparcimientoDTO) {
-        $('#txtCodigo').val(ClubEsparcimientoDTO.clubEsparcimientoId);
+        $('#txtCode').val(ClubEsparcimientoDTO.clubEsparcimientoId);
         $('#txtDescripcione').val(ClubEsparcimientoDTO.descClubEsparcimiento);
         $('#txtCodigoe').val(ClubEsparcimientoDTO.codigoClubEsparcimiento);
     });
