@@ -169,7 +169,7 @@ function edit(ServicioReligiosoId) {
     $.getJSON('/ServicioReligioso/MostrarServicioReligioso?ServicioReligiosoId=' + ServicioReligiosoId, [], function (ServicioReligiosoDTO) {
         $('#txtCodigo').val(ServicioReligiosoDTO.servicioReligiosoId);
         $('#txtDescripcione').val(ServicioReligiosoDTO.descServicioReligioso);
-        $('#txtCodee').val(ServicioReligiosoDTO.codigoServicioReligioso);
+        $('#txtCode').val(ServicioReligiosoDTO.codigoServicioReligioso);
     });
 }
 

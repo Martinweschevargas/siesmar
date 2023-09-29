@@ -41,15 +41,16 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                     {
                         lista.Add(new AlistamientoRepuestoCriticoComfuavinavDTO()
                         {
-                            AlistamientoRepuestoCriticoComfuavinavId = Convert.ToInt32(dr["AlistamientoRepuestoCriticoId"]),
+                            AlistamientoRepuestoCriticoComfuavinavId = Convert.ToInt32(dr["AlistamientoRepuestoCriticoComfuavinavId"]),
                             DescUnidadNaval = dr["DescUnidadNaval"].ToString(),
-                            DescSistemaRespuestoCritico = dr["DescSistemaRespuestoCritico"].ToString(),
+                            DescSistemaRepuestoCritico = dr["DescSistemaRepuestoCritico"].ToString(),
                             DescSubsistemaRepuestoCritico = dr["DescSubsistemaRepuestoCritico"].ToString(),
                             Equipo = dr["Equipo"].ToString(),
                             Repuesto = dr["Repuesto"].ToString(),
                             Existente = dr["Existente"].ToString(),
                             Necesario = dr["Necesario"].ToString(),
                             CoeficientePonderacion = dr["CoeficientePonderacion"].ToString(),
+                            CargaId = Convert.ToInt32(dr["CargaId"])
                         });
                     }
                 }
@@ -69,14 +70,14 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                     cmd = new SqlCommand("Formato.usp_AlistamientoRepuestoCriticoComfuavinavRegistrar", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add("@CodigoUnidadNaval", SqlDbType.Int);
+                    cmd.Parameters.Add("@CodigoUnidadNaval", SqlDbType.VarChar, 20);
                     cmd.Parameters["@CodigoUnidadNaval"].Value = alistamientoRepuestoCriticoComfuavinavDTO.CodigoUnidadNaval;
 
-                    cmd.Parameters.Add("@CodigoAlistamientoRepuestoCritico", SqlDbType.Int);
+                    cmd.Parameters.Add("@CodigoAlistamientoRepuestoCritico", SqlDbType.VarChar, 20);
                     cmd.Parameters["@CodigoAlistamientoRepuestoCritico"].Value = alistamientoRepuestoCriticoComfuavinavDTO.CodigoAlistamientoRepuestoCritico;
 
-                    cmd.Parameters.Add("@CodigoCargo", SqlDbType.Int);
-                    cmd.Parameters["@CodigoCargo"].Value = "1";
+                    cmd.Parameters.Add("@CargaId", SqlDbType.Int);
+                    cmd.Parameters["@CargaId"].Value = alistamientoRepuestoCriticoComfuavinavDTO.CargaId;
 
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
                     cmd.Parameters["@Usuario"].Value = alistamientoRepuestoCriticoComfuavinavDTO.UsuarioIngresoRegistro;
@@ -95,9 +96,7 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                         dr.Read();
                         if (dr.HasRows)
                         {
-#pragma warning disable CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                             IND_OPERACION = dr["IND_OPERACION"].ToString();
-#pragma warning restore CS8600 // Se va a convertir un literal nulo o un posible valor nulo en un tipo que no acepta valores NULL
                         }
                     }
                 }
@@ -106,9 +105,7 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                     IND_OPERACION = ex.Message;
                 }
             }
-#pragma warning disable CS8603 // Posible tipo de valor devuelto de referencia nulo
             return IND_OPERACION;
-#pragma warning restore CS8603 // Posible tipo de valor devuelto de referencia nulo
         }
 
         public AlistamientoRepuestoCriticoComfuavinavDTO BuscarFormato(int Codigo)
@@ -124,24 +121,17 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                     cmd = new SqlCommand("Formato.usp_AlistamientoRepuestoCriticoComfuavinavEncontrar", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add("@AlistamientoRepuestoCriticoId", SqlDbType.Int);
-                    cmd.Parameters["@AlistamientoRepuestoCriticoId"].Value = Codigo;
+                    cmd.Parameters.Add("@AlistamientoRepuestoCriticoComfuavinavId", SqlDbType.Int);
+                    cmd.Parameters["@AlistamientoRepuestoCriticoComfuavinavId"].Value = Codigo;
 
                     SqlDataReader dr = cmd.ExecuteReader();
                     dr.Read();
 
                     if (dr.HasRows)
                     {
-                        alistamientoRepuestoCriticoComfuavinavDTO.AlistamientoRepuestoCriticoComfuavinavId = Convert.ToInt32(dr["AlistamientoRepuestoCriticoId"]);
+                        alistamientoRepuestoCriticoComfuavinavDTO.AlistamientoRepuestoCriticoComfuavinavId = Convert.ToInt32(dr["AlistamientoRepuestoCriticoComfuavinavId"]);
                         alistamientoRepuestoCriticoComfuavinavDTO.CodigoUnidadNaval = dr["CodigoUnidadNaval"].ToString();
                         alistamientoRepuestoCriticoComfuavinavDTO.CodigoAlistamientoRepuestoCritico = dr["CodigoAlistamientoRepuestoCritico"].ToString();
-                        alistamientoRepuestoCriticoComfuavinavDTO.DescSistemaRespuestoCritico = dr["DescSistemaRespuestoCritico"].ToString();
-                        alistamientoRepuestoCriticoComfuavinavDTO.DescSubsistemaRepuestoCritico = dr["DescSubsistemaRepuestoCritico"].ToString();
-                        alistamientoRepuestoCriticoComfuavinavDTO.Equipo = dr["Equipo"].ToString();
-                        alistamientoRepuestoCriticoComfuavinavDTO.Repuesto = dr["Repuesto"].ToString();
-                        alistamientoRepuestoCriticoComfuavinavDTO.Existente = dr["Existente"].ToString();
-                        alistamientoRepuestoCriticoComfuavinavDTO.Necesario = dr["Necesario"].ToString();
-                        alistamientoRepuestoCriticoComfuavinavDTO.CoeficientePonderacion = dr["CoeficientePonderacion"].ToString();
                     }
 
                 }
@@ -168,13 +158,13 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                     cmd.CommandType = CommandType.StoredProcedure;
 
 
-                    cmd.Parameters.Add("@AlistamientoRepuestoCriticoId", SqlDbType.Int);
-                    cmd.Parameters["@AlistamientoRepuestoCriticoId"].Value = alistamientoRepuestoCriticoComfuavinavDTO.AlistamientoRepuestoCriticoComfuavinavId;
+                    cmd.Parameters.Add("@AlistamientoRepuestoCriticoComfuavinavId", SqlDbType.Int);
+                    cmd.Parameters["@AlistamientoRepuestoCriticoComfuavinavId"].Value = alistamientoRepuestoCriticoComfuavinavDTO.AlistamientoRepuestoCriticoComfuavinavId;
 
-                    cmd.Parameters.Add("@CodigoUnidadNaval", SqlDbType.Int);
+                    cmd.Parameters.Add("@CodigoUnidadNaval", SqlDbType.VarChar, 20);
                     cmd.Parameters["@CodigoUnidadNaval"].Value = alistamientoRepuestoCriticoComfuavinavDTO.CodigoUnidadNaval;
 
-                    cmd.Parameters.Add("@CodigoAlistamientoRepuestoCritico", SqlDbType.Int);
+                    cmd.Parameters.Add("@CodigoAlistamientoRepuestoCritico", SqlDbType.VarChar, 20);
                     cmd.Parameters["@CodigoAlistamientoRepuestoCritico"].Value = alistamientoRepuestoCriticoComfuavinavDTO.CodigoAlistamientoRepuestoCritico;
 
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
@@ -216,8 +206,8 @@ namespace Marina.Siesmar.AccesoDatos.Formatos.Comfuavinav
                     cmd = new SqlCommand("Formato.usp_AlistamientoRepuestoCriticoComfuavinavEliminar", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Add("@AlistamientoRepuestoCriticoId", SqlDbType.Int);
-                    cmd.Parameters["@AlistamientoRepuestoCriticoId"].Value = alistamientoRepuestoCriticoComfuavinavDTO.AlistamientoRepuestoCriticoComfuavinavId;
+                    cmd.Parameters.Add("@AlistamientoRepuestoCriticoComfuavinavId", SqlDbType.Int);
+                    cmd.Parameters["@AlistamientoRepuestoCriticoComfuavinavId"].Value = alistamientoRepuestoCriticoComfuavinavDTO.AlistamientoRepuestoCriticoComfuavinavId;
 
                     cmd.Parameters.Add("@Usuario", SqlDbType.NVarChar, 100);
                     cmd.Parameters["@Usuario"].Value = alistamientoRepuestoCriticoComfuavinavDTO.UsuarioIngresoRegistro;

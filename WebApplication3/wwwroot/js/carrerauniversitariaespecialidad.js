@@ -29,7 +29,7 @@ $(document).ready(function () {
                                 data: {
                                     'DescCarreraUniversitariaEspecialidad': $('#txtDescripcion').val(),
                                     'CodigoCarreraUniversitariaEspecialidad': $('#txtCode').val(),
-                                    'CarreraUniversitariaId': $('#cbCUniversitaria').val()
+                                    'CodigoCarreraUniversitaria': $('#cbCUniversitaria').val()
                                 },
                                 beforeSend: function () {
                                     $('#loader-6').show();
@@ -95,7 +95,7 @@ $(document).ready(function () {
                                     'CarreraUniversitariaEspecialidadId': $('#txtCodigo').val(),
                                     'DescCarreraUniversitariaEspecialidad': $('#txtDescripcione').val(),
                                     'CodigoCarreraUniversitariaEspecialidad': $('#txtCodee').val(),
-                                    'CarreraUniversitariaId': $('#cbCUniversitariae').val(),
+                                    'CodigoCarreraUniversitaria': $('#cbCUniversitariae').val(),
                                 },
                                 beforeSend: function () {
                                     $('#loader-6').show();
@@ -178,7 +178,7 @@ function edit(CarreraUniversitariaEspecialidadId) {
         $('#txtCodigo').val(CarreraUniversitariaEspecialidadDTO.carreraUniversitariaEspecialidadId);
         $('#txtDescripcione').val(CarreraUniversitariaEspecialidadDTO.descCarreraUniversitariaEspecialidad);
         $('#txtCodee').val(CarreraUniversitariaEspecialidadDTO.codigoCarreraUniversitariaEspecialidad);
-        $('#cbCUniversitariae').val(CarreraUniversitariaEspecialidadDTO.carreraUniversitariaId);
+        $('#cbCUniversitariae').val(CarreraUniversitariaEspecialidadDTO.codigoCarreraUniversitaria);
     });
 }
 
@@ -240,12 +240,12 @@ function cargaCombo() {
         var carreraUniversitaria = Json["data"];
         $("select#cbCUniversitaria").html("");
         $.each(carreraUniversitaria, function () {
-            var RowContent = '<option value=' + this.carreraUniversitariaId + '>' + this.descCarreraUniversitaria + '</option>'
+            var RowContent = '<option value=' + this.codigoCarreraUniversitaria + '>' + this.descCarreraUniversitaria + '</option>'
             $("select#cbCUniversitaria").append(RowContent);
         });
         $("select#cbCUniversitariae").html("");
         $.each(carreraUniversitaria, function () {
-            var RowContent = '<option value=' + this.carreraUniversitariaId + '>' + this.descCarreraUniversitaria + '</option>'
+            var RowContent = '<option value=' + this.codigoCarreraUniversitaria + '>' + this.descCarreraUniversitaria + '</option>'
             $("select#cbCUniversitariae").append(RowContent);
         });
     });

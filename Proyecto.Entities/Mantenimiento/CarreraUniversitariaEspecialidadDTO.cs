@@ -7,7 +7,7 @@ namespace Marina.Siesmar.Entidades.Mantenimiento
         public int CarreraUniversitariaEspecialidadId { get; set; }
         public string? DescCarreraUniversitariaEspecialidad { get; set; }
         public string? CodigoCarreraUniversitariaEspecialidad { get; set; }
-        public int CarreraUniversitariaId { get; set; }
+        public string? CodigoCarreraUniversitaria { get; set; }
         public string? DescCarreraUniversitaria { get; set; }
 
         [NotMapped]
